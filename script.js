@@ -56,6 +56,7 @@ const gameScreen = document.getElementById('game-screen');
 const textDisplay = document.getElementById('text-display');
 const layer1 = document.getElementById('bg-image-1');
 const layer2 = document.getElementById('bg-image-2');
+const instruction = document.querySelector('.instruction');
 
 // Telegram WebApp Detection
 // The Telegram Web App injects the 'Telegram.WebApp' object or sets a specific user agent.
@@ -146,11 +147,24 @@ function updateScene() {
             fadeAudio(audioRap, audioClassical);
         }
 
+        if (currentStep === paragraphs.length - 1) {
+            instruction.innerHTML = "<span class='color-green'>to be continued. СтавьтелайкирепостыкомментыКАЛАколчык! А впрочем, пох. 2025</span>";
+            instruction.style.animation = "none";
+            instruction.style.opacity = "1";
+        } else {
+            instruction.innerText = "CLICK OR PRESS SPACE TO CONTINUE";
+            instruction.style.animation = "pulse 2s infinite";
+        }
+
         isTransitioning = false;
     }, 500); // Wait for text fade out (0.5s)
 }
 
+let faderInterval = null;
+
 function fadeAudio(playerOut, playerIn) {
+    if (faderInterval) clearInterval(faderInterval);
+
     const fadeDuration = 1000; // 1 second
     const steps = 20;
     const stepTime = fadeDuration / steps;
@@ -163,13 +177,13 @@ function fadeAudio(playerOut, playerIn) {
     const stepDiffOut = startVolOut / steps;
     const stepDiffIn = (1.0 - startVolIn) / steps;
 
-    let currentStep = 0;
+    let stepCount = 0;
 
-    const fader = setInterval(() => {
-        currentStep++;
+    faderInterval = setInterval(() => {
+        stepCount++;
 
-        let newVolOut = startVolOut - (stepDiffOut * currentStep);
-        let newVolIn = startVolIn + (stepDiffIn * currentStep);
+        let newVolOut = startVolOut - (stepDiffOut * stepCount);
+        let newVolIn = startVolIn + (stepDiffIn * stepCount);
 
         // Bounds checking
         if (newVolOut < 0.05) newVolOut = 0;
@@ -178,8 +192,9 @@ function fadeAudio(playerOut, playerIn) {
         playerOut.volume = newVolOut;
         playerIn.volume = newVolIn;
 
-        if (currentStep >= steps) {
-            clearInterval(fader);
+        if (stepCount >= steps) {
+            clearInterval(faderInterval);
+            faderInterval = null;
             playerOut.volume = 0;
             playerIn.volume = 1;
         }
