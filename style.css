@@ -1,0 +1,177 @@
+:root {
+    --bg-dark: #050505;
+    --neon-red: #ff3333;
+    --neon-green: #33ff33;
+    --neon-blue: #33ccff;
+    --neon-yellow: #ffff33;
+    --text-main: #f0f0f0;
+    --text-muted: #aaaaaa;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: 'Share Tech Mono', monospace;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    overflow: hidden;
+    user-select: none;
+}
+
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease;
+    z-index: 10;
+}
+
+.screen.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Start Screen */
+#start-screen {
+    background: radial-gradient(circle, #1a0505 0%, #000000 100%);
+    z-index: 100;
+}
+
+#start-screen h1 {
+    font-size: 3rem;
+    color: var(--neon-red);
+    text-shadow: 0 0 10px var(--neon-red);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#start-screen p {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+}
+
+#start-btn {
+    background: transparent;
+    color: var(--neon-green);
+    border: 2px solid var(--neon-green);
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    font-family: inherit;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(51, 255, 51, 0.2);
+    transition: all 0.3s ease;
+}
+
+#start-btn:hover {
+    background: var(--neon-green);
+    color: black;
+    box-shadow: 0 0 20px var(--neon-green);
+}
+
+/* Game Screen */
+#background-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.bg-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+
+.bg-layer.active {
+    opacity: 1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 2;
+}
+
+.content-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 1000px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#text-display {
+    font-size: 2.2rem;
+    line-height: 1.5;
+    text-align: center;
+    white-space: pre-wrap;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+#text-display.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.instruction {
+    margin-top: 50px;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
+
+/* Text Colors */
+.color-red { color: var(--neon-red); }
+.color-gray { color: var(--text-muted); }
+.color-yellow { color: var(--neon-yellow); }
+.color-green { color: var(--neon-green); }
+.color-blue { color: var(--neon-blue); }
+.color-magenta { color: #ff55ff; }
+.color-white { color: #ffffff; }
