@@ -57,6 +57,13 @@ const textDisplay = document.getElementById('text-display');
 const layer1 = document.getElementById('bg-image-1');
 const layer2 = document.getElementById('bg-image-2');
 
+// Telegram WebApp Detection
+// The Telegram Web App injects the 'Telegram.WebApp' object or sets a specific user agent.
+const isTelegram = (window.Telegram && window.Telegram.WebApp) || /Telegram/i.test(navigator.userAgent);
+if (isTelegram) {
+    document.body.classList.add('telegram-app');
+}
+
 // Audio Players
 const audioRap = document.getElementById('audio-rap');
 const audioClassical = document.getElementById('audio-classical');
