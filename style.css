@@ -86,6 +86,81 @@ html {
     box-shadow: 0 0 20px var(--neon-green);
 }
 
+/* Button Group */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.start-btn {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-family: 'Share Tech Mono', monospace;
+    background: transparent;
+    color: var(--color-cyan);
+    border: 2px solid var(--color-cyan);
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.start-btn:hover {
+    background: rgba(0, 243, 255, 0.2);
+    box-shadow: 0 0 20px var(--color-cyan);
+    text-shadow: 0 0 5px var(--color-cyan);
+}
+
+/* Part Indicator */
+.part-indicator {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 2rem;
+    color: var(--color-magenta);
+    text-shadow: 0 0 10px var(--color-magenta);
+    z-index: 100;
+    font-weight: bold;
+    opacity: 0.8;
+}
+
+/* Back Button */
+.back-btn {
+    margin-top: 20px;
+    padding: 10px 30px;
+    font-size: 1.2rem;
+    font-family: 'Share Tech Mono', monospace;
+    background: transparent;
+    color: var(--neon-green);
+    border: 2px solid var(--neon-green);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: blink-green 1s infinite;
+    transition: all 0.3s;
+}
+
+.back-btn:hover {
+    background: rgba(57, 255, 20, 0.2);
+    box-shadow: 0 0 15px var(--neon-green);
+}
+
+.back-btn.hidden {
+    display: none;
+}
+
+@keyframes blink-green {
+    0%, 100% { opacity: 1; border-color: var(--neon-green); box-shadow: 0 0 10px var(--neon-green); }
+    50% { opacity: 0.5; border-color: transparent; box-shadow: none; }
+}
+
 /* Game Screen */
 #background-container {
     position: absolute;
