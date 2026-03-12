@@ -145,6 +145,7 @@ const layer2 = document.getElementById('bg-image-2');
 const indicator = document.getElementById('part-indicator');
 const instruction = document.querySelector('.instruction');
 const backBtn = document.getElementById('back-btn');
+const prevBtn = document.getElementById('prev-btn');
 
 // Telegram WebApp Detection
 const isTelegram = (window.Telegram && window.Telegram.WebApp) || /Telegram/i.test(navigator.userAgent);
@@ -172,6 +173,7 @@ function startGame(part) {
     startScreen.classList.remove('active');
     gameScreen.classList.add('active');
     backBtn.classList.add('hidden');
+    prevBtn.classList.add('hidden');
 
     indicator.innerText = part === 'part1' ? 'P1' : 'P2';
 
@@ -204,6 +206,13 @@ backBtn.addEventListener('click', () => {
     });
 });
 
+prevBtn.addEventListener('click', () => {
+    if (currentStep > 0 && !isTransitioning) {
+        currentStep--;
+        updateScene();
+    }
+});
+
 // Input handling
 document.addEventListener('click', handleInput);
 document.addEventListener('keydown', (e) => {
@@ -216,8 +225,8 @@ function handleInput(e) {
     if (!gameScreen.classList.contains('active')) return;
     if (isTransitioning) return;
 
-    // Ignore clicks on start buttons or back button
-    if (e.target.classList.contains('start-btn') || e.target.id === 'back-btn') return;
+    // Ignore clicks on start buttons or controls
+    if (e.target.classList.contains('start-btn') || e.target.id === 'back-btn' || e.target.id === 'prev-btn') return;
 
     const paragraphs = stories[currentStory];
     if (currentStep < paragraphs.length - 1) {
@@ -264,6 +273,13 @@ function updateScene() {
         const otherPlayers = Object.values(audioMap).filter(p => p !== targetPlayer);
 
         crossFade(otherPlayers, targetPlayer);
+
+        // Prev button visibility
+        if (currentStep > 0) {
+            prevBtn.classList.remove('hidden');
+        } else {
+            prevBtn.classList.add('hidden');
+        }
 
         if (currentStep === paragraphs.length - 1) {
             instruction.innerHTML = "<span class='color-green'>to be continued... 2026</span>";

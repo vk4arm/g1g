@@ -131,9 +131,39 @@ html {
     opacity: 0.8;
 }
 
+.game-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.nav-btn {
+    padding: 10px 30px;
+    font-size: 1.2rem;
+    font-family: 'Share Tech Mono', monospace;
+    background: transparent;
+    color: var(--neon-blue);
+    border: 2px solid var(--neon-blue);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s;
+    opacity: 0.8;
+}
+
+.nav-btn:hover {
+    background: rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 15px var(--neon-blue);
+    opacity: 1;
+}
+
+.nav-btn.hidden {
+    display: none;
+}
+
 /* Back Button */
 .back-btn {
-    margin-top: 20px;
     padding: 10px 30px;
     font-size: 1.2rem;
     font-family: 'Share Tech Mono', monospace;
