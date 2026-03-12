@@ -282,7 +282,7 @@ function updateScene() {
         }
 
         if (currentStep === paragraphs.length - 1) {
-            instruction.innerHTML = "<span class='color-green'>to be continued... 2026\nКомментыЛайкиРепостыКолокольчик... А впрочем, пофиг )</span>";
+            instruction.innerHTML = "<span class='color-green'>to be continued... 2026 <br> КомментыЛайкиРепостыКолокольчик... А впрочем, пофиг )</span>";
             instruction.style.animation = "none";
             instruction.style.opacity = "1";
             backBtn.classList.remove('hidden');
