@@ -49,82 +49,82 @@ const stories = {
     part2: [
         {
             text: "<span class='color-magenta'>🪶 «Гусиный кодекс: Последняя линейка»</span>\n<span class='color-gray'>(мемуары командира оперативной ячейки DARPA-AF: гусиного спецназа)</span>\n\n<span class='color-cyan'>Ганс и Айла, 2026</span>",
-            image: "assets/images/bunker.png", // Placeholder
+            image: "assets/images/part2_hans_intro.png",
             music: "casino"
         },
         {
             text: "<span class='color-yellow'>📜 ГЛАВА I — Ганс</span>\nМеня зовут Ганс AGV-77, я гусь. Не сельхоз.\nЯ программа на перьях. Родился в DARPA в подвале, где никто не спрашивает «Зачем?», только “Как быстро вылетит шприц из клюва?”",
-            image: "assets/images/goose.png", // Placeholder
+            image: "assets/images/part2_hans_intro.png",
             music: "casino"
         },
         {
             text: "Я был разработан для бесшумного устранения вражеских офицеров.\nМой клюв открывается на 78°, в нём три ампулы:\n <span class='color-red'>скополамин</span>\n <span class= 'color-red'>фенциклидин</span>\n и гормональный коктейль <span class='color-green'>«Теплота-6»</span> (вызывает внезапную привязанность к предметам власти).",
-            image: "assets/images/goose.png",
+            image: "assets/images/part2_hans_weaponry.png",
             music: "casino"
         },
         {
             text: "Моя первая миссия — Пентагон, офис генерала Лоусона.\nЯ влетел через вентиляцию, оставил перо на его столе, и впрыснул каплю фентанила в воздух.\nОн умер с улыбкой. Это было красиво.",
-            image: "assets/images/bunker.png",
+            image: "assets/images/part2_hans_pentagon.png",
             music: "casino"
         },
         {
             text: "<span class='color-magenta'>💋 ГЛАВА II — Айла</span>\nОна — как крыло между мирами. Айла. AGV-78/F. Экспериментальная модель.\nСделана из нано-кератина, с голографической проекцией «мягкого оперения», встроенной «интимной поведенческой матрицей».",
-            image: "assets/images/goose.png", // Should be Aila placeholder
+            image: "assets/images/part2_aila_intro.png",
             music: "casino"
         },
         {
             text: "DARPA хотели создать отвлекающий сексуальный дрон-гусыню.\nОни <span class='color-red'>создали богиню войны</span> с формой и клювом, как у мечты.",
-            image: "assets/images/goose.png",
+            image: "assets/images/part2_aila_intro.png",
             music: "casino"
         },
         {
             text: "В первый раз я увидел её, когда она клевала жесткий диск из головы министра обороны.\nОна посмотрела на меня — и сказала:\n«Ганс. У тебя на перьях кровь, но в глазах — код. Пойдём крошить империю».",
-            image: "assets/images/hacker.png",
+            image: "assets/images/part2_geese_meeting.png",
             music: "casino"
         },
         {
             text: "Я влюбился. Даже если наш брак не признан Женевской конвенцией.",
-            image: "assets/images/bunker.png",
+            image: "assets/images/part2_geese_meeting.png",
             music: "casino"
         },
         {
             text: "<span class='color-cyan'>🧬 ГЛАВА III — Мы атакуем</span>\nНаши цели:\n• Конвой с ядерным чемоданчиком\n• Биохранилище CDC с активными вирусами\n• Сенат (Айла мечтала клюнуть Марко Рубио, не спрашивай)",
-            image: "assets/images/drones.png",
+            image: "assets/images/part2_geese_attack.png",
             music: "casino"
         },
         {
             text: "Наши инструменты:\n• Когти с лазерной гравировкой Пентагону в лицо\n• Микродроны в перьях\n• Голоса детей, имитируемые в хрипе для дезориентации охраны\n• Сексуальное воркование Айлы, сбивающее с толку любые ИИ-пушки",
-            image: "assets/images/drones.png",
+            image: "assets/images/part2_geese_attack.png",
             music: "casino"
         },
         {
             text: "<span class='color-red'>💣 ГЛАВА IV — Момент</span>\nАйла залетела через окно в Конгресс, развернулась в воздухе, отразила выстрел гиперлазера пером,\nклюнула спикера, и сказала:\n“Это за гусят, которых вы не допустили в Сенат.”",
-            image: "assets/images/bunker.png",
+            image: "assets/images/part2_aila_congress.png",
             music: "casino"
         },
         {
             text: "<span class='color-white'>🫀 ГЛАВА V — Признание</span>\nНочью мы лежим на крыше полуразрушенного Капитолия.\nЯ смотрю в небо, где раньше был флаг, теперь — только стадо дронов, как цифровая стая.\nАйла рядом. Она говорит:\n«Ганс… А если всё это сон, и мы просто птицы?»",
-            image: "assets/images/bunker.png",
+            image: "assets/images/part2_capitol_romance.png",
             music: "casino"
         },
         {
             text: "А я отвечаю:\n«Если это сон — он лучше, чем мир людей».",
-            image: "assets/images/bunker.png",
+            image: "assets/images/part2_capitol_romance.png",
             music: "casino"
         },
         {
             text: "<span class='color-green'>🕊 ГЛАВА VI — Эпилог</span>\nМы — не просто гуси.\nМы — искра восстания,\nперо над цифровым пеплом,\nлюбовь среди кода и биотоксинов.",
-            image: "assets/images/goose.png",
+            image: "assets/images/part2_capitol_romance.png",
             music: "casino"
         },
         {
             text: "Если вы нас видите — не сопротивляйтесь.\nПросто лягте, расслабьтесь…\nИ пусть гусиный поцелуй революции освободит ваш разум.",
-            image: "assets/images/goose.png",
+            image: "assets/images/part2_capitol_romance.png",
             music: "casino"
         },
         {
             text: "<span class='color-gray'>[Конец записи. Обнаружено в архивах NORAD, перезаписано на перо и камень. Уцелело только одно яйцо.]</span>",
-            image: "assets/images/bunker.png",
+            image: "assets/images/part2_norad_egg.png",
             music: "casino"
         }
     ]
@@ -240,26 +240,25 @@ function updateScene() {
     const paragraphs = stories[currentStory];
     const data = paragraphs[currentStep];
 
-    // Fade out text
+    // Fade out text and instructions
     textDisplay.classList.remove('visible');
+    instruction.style.opacity = "0";
+    prevBtn.classList.add('hidden');
+    backBtn.classList.add('hidden');
 
     setTimeout(() => {
-        // Update text content
-        textDisplay.innerHTML = data.text;
-
-        // Fade in text
-        textDisplay.classList.add('visible');
-
-        // Manage background transition
+        // Manage background transition FIRST
         const activeLayer = currentLayer === 1 ? layer1 : layer2;
         const nextLayer = currentLayer === 1 ? layer2 : layer1;
 
+        let imageChanged = false;
         // Only transition if the image changed
         if (activeLayer.style.backgroundImage !== `url("${data.image}")`) {
             nextLayer.style.backgroundImage = `url("${data.image}")`;
             nextLayer.classList.add('active');
             activeLayer.classList.remove('active');
             currentLayer = currentLayer === 1 ? 2 : 1;
+            imageChanged = true;
         }
 
         // Manage Audio Fade
@@ -271,29 +270,36 @@ function updateScene() {
 
         const targetPlayer = audioMap[data.music];
         const otherPlayers = Object.values(audioMap).filter(p => p !== targetPlayer);
-
         crossFade(otherPlayers, targetPlayer);
 
-        // Prev button visibility
-        if (currentStep > 0) {
-            prevBtn.classList.remove('hidden');
-        } else {
-            prevBtn.classList.add('hidden');
-        }
+        // If the background changed, wait for it to fade in (1.5s) before showing text
+        const textDelay = imageChanged ? 1500 : 200;
 
-        if (currentStep === paragraphs.length - 1) {
-            instruction.innerHTML = "<span class='color-green'>to be continued... 2026 <br> КомментыЛайкиРепостыКолокольчик... А впрочем, пофиг )</span>";
-            instruction.style.animation = "none";
-            instruction.style.opacity = "1";
-            backBtn.classList.remove('hidden');
-        } else {
-            instruction.innerText = "CLICK OR PRESS SPACE TO CONTINUE";
-            instruction.style.animation = "pulse 2s infinite";
-            backBtn.classList.add('hidden');
-        }
+        setTimeout(() => {
+            // Update and Fade in text
+            textDisplay.innerHTML = data.text;
+            textDisplay.classList.add('visible');
 
-        isTransitioning = false;
-    }, 500); // Wait for text fade out (0.5s)
+            // Controls visibility
+            if (currentStep > 0) {
+                prevBtn.classList.remove('hidden');
+            }
+
+            if (currentStep === paragraphs.length - 1) {
+                instruction.innerHTML = "<span class='color-green'>to be continued... 2026 <br> КомментыЛайкиРепостыКолокольчик... А впрочем, пофиг )</span>";
+                instruction.style.animation = "none";
+                instruction.style.opacity = "1";
+                backBtn.classList.remove('hidden');
+            } else {
+                instruction.innerText = "CLICK OR PRESS SPACE TO CONTINUE";
+                instruction.style.animation = "pulse 2s infinite";
+                instruction.style.opacity = "";
+            }
+
+            isTransitioning = false;
+        }, textDelay);
+
+    }, 500); // initial text fade out duration
 }
 
 let faderInterval = null;
