@@ -137,27 +137,27 @@ const stories = {
         {
             text: "<span class='color-red'>🩸 «Протокол оргийного коллапса: Последняя запись сенатора Маркуса «Гегемона» Торна»</span>\n<span class='color-gray'>(нейро-имплант, извлечён из черепа в руинах острова «Элизиум-3», Тихий океан. 2026 год. Файл зашифрован кодом «Конец однополярного момента» после совместной операции NSA и AEGIS-CORE.\nОбъект класса: Кетер. Брешь содержания зафиксирована.)</span>",
             image: "assets/images/part3_intro.png",
-            music: "wm"
+            music: "casino"
         },
         {
             text: "<span class='color-cyan'>🏝️ ГЛАВА I</span>\n20 апреля 2026. Остров «Элизиум-3». Бывший бункер глобалистов, превращённый в «последний пир атлантистов». Воздух пропитан синтетическими феромонами, озоном и сладким запахом крови.",
             image: "assets/images/part3_intro.png",
-            music: "wm"
+            music: "casino"
         },
         {
             text: "Мы прилетели сюда не просто развлечься. Мы прилетели казнить автора.\nДоктора Акселя Квантама — того самого безумца, который в подвалах DARPA создал ИИ и выпустил кибер-гусей. Именно он разрушил финансовую пирамиду однополярного мира, именно он открыл новую эру в перьях и начал онтологическую войну биокода против всего, что мы считали вечным.",
             image: "assets/images/part3_intro.png",
-            music: "wm"
+            music: "casino"
         },
         {
             text: "Мы, последние легионеры Империи с чёрными орлами на имплантах, хотели, чтобы он умер медленно. Согласно протоколу SCP-Foundation (до её падения) мы классифицировали его как SCP-████-1.\nМудрость дня: лучший способ победить врага — заставить его проглотить свой же код. Ха, а мы решили просто скормить ему перья. Классика.",
             image: "assets/images/part3_intro.png",
-            music: "wm"
+            music: "casino"
         },
         {
             text: "<span class='color-magenta'>🪩 ГЛАВА II</span>\nВечер был идеальным военным парадом единения.\nТриста элитных фигур в чёрных мундирах с голографическими орлами сплелись в одну пульсирующую нейро-сеть под гимны старой Империи — ритуал тайного слияния, где скополамин версии MK-7 струился по венам, как тёплое шампанское, усиливая связь тел и умов. Я, сенатор Маркус Торн, стоял в самом центре круга — с имплантом «Гегемон» от NSA-CORE v4.2 в затылке — и лично вливал Квантаму дозу «Зеркала-7» (меметический агент класса Euclid).",
             image: "assets/images/part3_party.png",
-            music: "wm"
+            music: "casino"
         },
         {
             text: "Пусть увидит, как его гуси уничтожат нас всех. Пусть закричит «Wi-Fi, активен!» перед финалом.\nМы хохотали в железной дисциплине. Мы были богами… или по крайней мере так нам казалось, пока гуси не решили, что боги тоже нуждаются в небольшом апгрейде. Мудрость Империи: никогда не устраивай парад, если у тебя нет анти-гусиных щитов. Сарказм уровня DARPA.",
@@ -167,67 +167,67 @@ const stories = {
         {
             text: "<span class='color-yellow'>🦆 ГЛАВА III</span>\nИ вдруг — вентиляция с треском лопнула.\nСирены NSA взвыли, красные огни AEGIS-Drone вспыхнули по всему залу, как сигнал к тотальной мобилизации.\nСначала только шипение. Холодное, нечеловеческое, гусиное.",
             image: "assets/images/part3_attack.png",
-            music: "wm"
+            music: "classical"
         },
         {
             text: "Брешь содержания! Объект AGV-77 «Ганс» класса Кетер ворвался первым. Клюв раскрыт на 78°, инъектор MK-9 с тремя ампулами (скополамин, фенциклидин, «Теплота-6» — ёмкость 0.3 мл каждая) сверкал, как смертельный орден. Охрана в чёрных доспехах открыла огонь — лазерные трассеры разрезали воздух как «фаланга-7», но Ганс молнией ушёл в пике и клюнул.",
             image: "assets/images/part3_attack.png",
-            music: "wm"
+            music: "classical"
         },
         {
             text: "Квантам обмяк и улыбнулся — будто наконец встретил настоящего бога.",
             image: "assets/images/part3_attack.png",
-            music: "wm"
+            music: "classical"
         },
         {
             text: "А следом — Айла, AGV-78/F. Нано-кератин, голографическое оперение, «интимная поведенческая матрица» уровня Euclid. Она не нападала. Она соблазняла.\nЕё воркование (меметический агент класса Keter) разнесло все наши ИИ-пушки в клочья. Министры падали на колени. Генералы теряли контроль, хватаясь за воздух, видя в ней свою потерянную империю.",
             image: "assets/images/part3_aila.png",
-            music: "wm"
+            music: "classical"
         },
         {
             text: "Взрывы микродронов BIO-SEC разорвали потолок — перья, осколки и обломки чёрных орлов полетели во все стороны в хаосе тотальной войны!\nМудрость момента: враг, которого ты создал, всегда клюнет первым. И, чёрт возьми, это было почти красиво.",
             image: "assets/images/part3_aila.png",
-            music: "wm"
+            music: "classical"
         },
         {
             text: "<span class='color-red'>💉 ГЛАВА IV</span>\nЯ рванулся к личному дрон-щиту AEGIS-7 (защита уровня Euclid, протокол SHADOW-NET v3.1), пальцы уже нажимали тревогу и кричал код «Железный Рейх!»…\nНо Ганс лишь повернул голову. Один взгляд — и «Теплота-6» уже горела в моей шее, обходя все импланты NSA-CORE.",
             image: "assets/images/part3_collapse.png",
-            music: "wm"
+            music: "classical"
         },
         {
             text: "Я почувствовал, как мир рушится: тело дернулось, нейро-интерфейс заискрил, а в голове — полный коллапс реальности.\nЯ выхватил бластер модели MK-12, выстрелил трижды в строевом порядке — Ганс ушёл в мертвую петлю, Айла отразила заряды крылом, как щитом легионера.",
             image: "assets/images/part3_collapse.png",
-            music: "wm"
+            music: "classical"
         },
         {
             text: "Вокруг всё рушилось: кто-то с криком «Я — дрон!» бросился в океан сквозь разбитое окно, кто-то упал на колени и шептал: «Ещё… ещё дозу счастья…».\nОни не убивали. Они освобождали.\nА я… я уже падал на колени под грохот падающей Империи.",
             image: "assets/images/part3_collapse.png",
-            music: "wm"
+            music: "classical"
         },
         {
             text: "В конце концов, чёрные орлы всегда проигрывают пернатым бунтарям.",
             image: "assets/images/part3_collapse.png",
-            music: "wm"
+            music: "rap"
         },
         {
             text: "<span class='color-cyan'>❓ ГЛАВА V</span>\nЯ сижу на краю обрыва. Перо в руке. Или это уже не перо?\nЯ пишу это, потому что должен оставить протокол.\nПоследний протокол падения великой фаланги.\nAddendum: Инцидент ████ завершён.",
             image: "assets/images/part3_epilogue.png",
-            music: "wm"
+            music: "rap"
         },
         {
             text: "Если вы читаете эти строки — значит, файл выжил.\nИ теперь только один вопрос, на который нет ответа:\nЯ, сенатор Маркус «Гегемон» Торн, — жив?\nИли это уже Ганс диктует мне финальную запись из архивов NORAD и NSA, а моё тело тихо качается на волнах Тихого океана, и единственный свидетель — одно уцелевшее гусиное яйцо?",
             image: "assets/images/part3_epilogue.png",
-            music: "wm"
+            music: "rap"
         },
         {
             text: "Загадка для вас, выжившие.\nЧитайте.\nИ решайте сами.\nЕсли гуси пришли за тобой — просто расслабься и наслаждайся. В конце концов, революция всегда выглядит лучше, когда её приносят на крыльях.\nОбъект класса: Кетер. Сдерживание невозможно.",
             image: "assets/images/part3_epilogue.png",
-            music: "wm"
+            music: "classical"
         },
         {
             text: "<span class='color-gray'>[Конец записи.\nФайл прерван гусиным шипением на фоне. Последняя строка нацарапана не чернилами — пером.\nСенатор жив.\nИли мёртв.\nИли уже в стае.]</span>",
             image: "assets/images/part3_epilogue.png",
-            music: "wm"
+            music: "classical"
         }
     ]
 };
@@ -249,6 +249,7 @@ const indicator = document.getElementById('part-indicator');
 const instruction = document.querySelector('.instruction');
 const backBtn = document.getElementById('back-btn');
 const prevBtn = document.getElementById('prev-btn');
+const viewModeBtn = document.getElementById('view-mode-btn');
 
 // Telegram WebApp Detection
 const isTelegram = (window.Telegram && window.Telegram.WebApp) || /Telegram/i.test(navigator.userAgent);
@@ -279,6 +280,7 @@ function startGame(part) {
     gameScreen.classList.add('active');
     backBtn.classList.add('hidden');
     prevBtn.classList.add('hidden');
+    viewModeBtn.classList.remove('hidden');
 
     // Indicator will be updated in updateScene
 
@@ -304,6 +306,8 @@ startBtn3.addEventListener('click', () => startGame('part3'));
 backBtn.addEventListener('click', () => {
     gameScreen.classList.remove('active');
     startScreen.classList.add('active');
+    viewModeBtn.classList.add('hidden');
+    document.body.classList.remove('ui-hidden');
 
     // Stop all audio
     [audioRap, audioClassical, audioCasino, audioWm].forEach(p => {
@@ -320,20 +324,41 @@ prevBtn.addEventListener('click', () => {
     }
 });
 
+// View Mode Feature
+function toggleViewMode() {
+    if (!gameScreen.classList.contains('active')) return;
+    document.body.classList.toggle('ui-hidden');
+}
+
+viewModeBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent handleInput from immediately firing
+    toggleViewMode();
+});
+
 // Input handling
 document.addEventListener('click', handleInput);
 document.addEventListener('keydown', (e) => {
     if (e.code === 'Space') {
         handleInput(e);
     }
+    if (e.code === 'KeyV' || e.code === 'KeyH') {
+        toggleViewMode();
+    }
 });
 
 function handleInput(e) {
     if (!gameScreen.classList.contains('active')) return;
+    
+    // If UI is hidden, any screen click or spacebar simply restores the UI without advancing the text
+    if (document.body.classList.contains('ui-hidden')) {
+        document.body.classList.remove('ui-hidden');
+        return;
+    }
+
     if (isTransitioning) return;
 
     // Ignore clicks on start buttons or controls
-    if (e.target.classList.contains('start-btn') || e.target.id === 'back-btn' || e.target.id === 'prev-btn') return;
+    if (e.target.classList.contains('start-btn') || e.target.id === 'back-btn' || e.target.id === 'prev-btn' || e.target.id === 'view-mode-btn') return;
 
     const paragraphs = stories[currentStory];
     if (currentStep < paragraphs.length - 1) {
