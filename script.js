@@ -253,6 +253,7 @@ const viewModeBtn = document.getElementById('view-mode-btn');
 const bgVideo = document.getElementById('bg-video');
 const videoBunker = document.getElementById('video-bunker');
 const videoWarehouse = document.getElementById('video-warehouse');
+const videoHansIntro = document.getElementById('video-hans-intro');
 
 // Telegram WebApp Detection
 const isTelegram = (window.Telegram && window.Telegram.WebApp) || /Telegram/i.test(navigator.userAgent);
@@ -367,6 +368,16 @@ function enterViewMode() {
                 exitViewMode();
             };
         }
+    } else if (data.image && data.image.includes('part2_hans_intro.png')) {
+        if (videoHansIntro) {
+            videoHansIntro.style.opacity = '1';
+            videoHansIntro.style.zIndex = '5';
+            videoHansIntro.currentTime = 0;
+            videoHansIntro.play();
+            videoHansIntro.onended = () => {
+                exitViewMode();
+            };
+        }
     }
 }
 
@@ -386,6 +397,11 @@ function exitViewMode() {
         videoWarehouse.pause();
         videoWarehouse.style.opacity = '0';
         videoWarehouse.style.zIndex = '';
+    }
+    if (videoHansIntro) {
+        videoHansIntro.pause();
+        videoHansIntro.style.opacity = '0';
+        videoHansIntro.style.zIndex = '';
     }
 }
 
