@@ -255,10 +255,24 @@ const videoBunker = document.getElementById('video-bunker');
 const videoWarehouse = document.getElementById('video-warehouse');
 const videoHansIntro = document.getElementById('video-hans-intro');
 
-// Telegram WebApp Detection
+// VK Bridge Initialization
+try {
+    if (window.vkBridge) {
+        vkBridge.send('VKWebAppInit');
+    }
+} catch (e) {
+    console.error("VK Bridge init error:", e);
+}
+
+// Telegram WebApp / VK App Detection
 const isTelegram = (window.Telegram && window.Telegram.WebApp) || /Telegram/i.test(navigator.userAgent);
+const isVkApp = window.name.indexOf('app') !== -1 || window.location.search.indexOf('vk_') !== -1;
+
 if (isTelegram) {
     document.body.classList.add('telegram-app');
+}
+if (isVkApp) {
+    document.body.classList.add('vk-app');
 }
 
 // Audio Players
