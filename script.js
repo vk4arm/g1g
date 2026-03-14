@@ -250,6 +250,9 @@ const instruction = document.querySelector('.instruction');
 const backBtn = document.getElementById('back-btn');
 const prevBtn = document.getElementById('prev-btn');
 const viewModeBtn = document.getElementById('view-mode-btn');
+const bgVideo = document.getElementById('bg-video');
+const videoBunker = document.getElementById('video-bunker');
+const videoWarehouse = document.getElementById('video-warehouse');
 
 // Telegram WebApp Detection
 const isTelegram = (window.Telegram && window.Telegram.WebApp) || /Telegram/i.test(navigator.userAgent);
@@ -307,7 +310,7 @@ backBtn.addEventListener('click', () => {
     gameScreen.classList.remove('active');
     startScreen.classList.add('active');
     viewModeBtn.classList.add('hidden');
-    document.body.classList.remove('ui-hidden');
+    exitViewMode();
 
     // Stop all audio
     [audioRap, audioClassical, audioCasino, audioWm].forEach(p => {
@@ -325,9 +328,73 @@ prevBtn.addEventListener('click', () => {
 });
 
 // View Mode Feature
-function toggleViewMode() {
+
+function enterViewMode() {
     if (!gameScreen.classList.contains('active')) return;
-    document.body.classList.toggle('ui-hidden');
+    document.body.classList.add('ui-hidden');
+    
+    const paragraphs = stories[currentStory];
+    const data = paragraphs[currentStep];
+    
+    // Play the corresponding video when clicking View on specific scenes
+    if (data.image && data.image.includes('part3_collapse.png')) {
+        if (bgVideo) {
+            bgVideo.style.opacity = '1';
+            bgVideo.style.zIndex = '5';
+            bgVideo.currentTime = 0;
+            bgVideo.play();
+            bgVideo.onended = () => {
+                exitViewMode();
+            };
+        }
+    } else if (data.image && data.image.includes('bunker.png')) {
+        if (videoBunker) {
+            videoBunker.style.opacity = '1';
+            videoBunker.style.zIndex = '5';
+            videoBunker.currentTime = 0;
+            videoBunker.play();
+            videoBunker.onended = () => {
+                exitViewMode();
+            };
+        }
+    } else if (data.image && data.image.includes('warehouse.png')) {
+        if (videoWarehouse) {
+            videoWarehouse.style.opacity = '1';
+            videoWarehouse.style.zIndex = '5';
+            videoWarehouse.currentTime = 0;
+            videoWarehouse.play();
+            videoWarehouse.onended = () => {
+                exitViewMode();
+            };
+        }
+    }
+}
+
+function exitViewMode() {
+    document.body.classList.remove('ui-hidden');
+    if (bgVideo) {
+        bgVideo.pause();
+        bgVideo.style.opacity = '0';
+        bgVideo.style.zIndex = '';
+    }
+    if (videoBunker) {
+        videoBunker.pause();
+        videoBunker.style.opacity = '0';
+        videoBunker.style.zIndex = '';
+    }
+    if (videoWarehouse) {
+        videoWarehouse.pause();
+        videoWarehouse.style.opacity = '0';
+        videoWarehouse.style.zIndex = '';
+    }
+}
+
+function toggleViewMode() {
+    if (document.body.classList.contains('ui-hidden')) {
+        exitViewMode();
+    } else {
+        enterViewMode();
+    }
 }
 
 viewModeBtn.addEventListener('click', (e) => {
@@ -351,7 +418,7 @@ function handleInput(e) {
     
     // If UI is hidden, any screen click or spacebar simply restores the UI without advancing the text
     if (document.body.classList.contains('ui-hidden')) {
-        document.body.classList.remove('ui-hidden');
+        exitViewMode();
         return;
     }
 

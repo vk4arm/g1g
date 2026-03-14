@@ -221,6 +221,10 @@ html {
     transition: opacity 1.5s ease;
 }
 
+video.bg-layer {
+    object-fit: cover;
+}
+
 .bg-layer.active {
     opacity: 1;
     animation: slow-zoom 45s linear forwards;
