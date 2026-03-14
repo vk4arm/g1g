@@ -342,3 +342,27 @@ body.telegram-app .instruction {
     font-size: 0.75rem;
     margin-top: 25px;
 }
+
+/* View Mode Feature */
+.view-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    padding: 10px 20px;
+}
+
+body.ui-hidden .overlay,
+body.ui-hidden .content-container,
+body.ui-hidden .part-indicator {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+body.ui-hidden .view-btn {
+    opacity: 0.3;
+}
+
+body.ui-hidden .view-btn:hover {
+    opacity: 1;
+}
