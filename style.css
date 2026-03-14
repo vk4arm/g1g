@@ -223,6 +223,16 @@ html {
 
 .bg-layer.active {
     opacity: 1;
+    animation: slow-zoom 45s linear forwards;
+}
+
+@keyframes slow-zoom {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.15);
+    }
 }
 
 .overlay {
