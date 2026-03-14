@@ -131,6 +131,12 @@ html {
     z-index: 100;
     font-weight: bold;
     opacity: 0.8;
+    animation: blink-indicator 1.5s infinite;
+}
+
+@keyframes blink-indicator {
+    0%, 100% { opacity: 0.8; text-shadow: 0 0 10px var(--color-magenta); }
+    50% { opacity: 0.3; text-shadow: 0 0 2px var(--color-magenta); }
 }
 
 .game-controls {
