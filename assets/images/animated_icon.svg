@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96">
+    <defs>
+        <!-- Neon Glow Filter -->
+        <filter id="neon-glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur1" />
+            <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur2" />
+            <feMerge>
+                <feMergeNode in="blur2" />
+                <feMergeNode in="blur1" />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+        
+        <!-- Pulse Animation -->
+        <style>
+            .pulse {
+                animation: pulse-anim 2s infinite alternate ease-in-out;
+            }
+            .eye-blink {
+                animation: blink-anim 3s infinite steps(1);
+            }
+            .glitch-path {
+                animation: glitch-anim 4s infinite alternate;
+            }
+            
+            @keyframes pulse-anim {
+                0% { filter: drop-shadow(0 0 2px #00f3ff) drop-shadow(0 0 5px #00f3ff); }
+                100% { filter: drop-shadow(0 0 5px #ff00ff) drop-shadow(0 0 10px #ff00ff); }
+            }
+            @keyframes blink-anim {
+                0%, 95% { opacity: 1; }
+                96%, 100% { opacity: 0; }
+            }
+            @keyframes glitch-anim {
+                0% { transform: translateX(0); }
+                90% { transform: translateX(0); }
+                92% { transform: translateX(-2px) skewX(5deg); }
+                94% { transform: translateX(2px) skewX(-5deg); }
+                98% { transform: translateX(0); }
+            }
+        </style>
+    </defs>
+
+    <!-- Background -->
+    <rect width="96" height="96" fill="#050505" rx="16" />
+
+    <!-- Group containing the cyber-goose -->
+    <g transform="translate(16, 16) scale(0.66)" class="glitch-path">
+        <!-- Neck/Body -->
+        <path d="M 30 80 L 30 50 C 30 30 20 20 20 20 L 40 20 C 50 20 60 30 65 40 L 75 40 C 85 45 90 55 90 60 L 60 60 C 50 70 45 80 45 80 Z" 
+              fill="#1a1a1a" stroke="#444" stroke-width="2" />
+              
+        <!-- Beak -->
+        <path d="M 65 40 L 95 45 C 95 45 90 55 80 55 L 60 55 Z" 
+              fill="#222" stroke="#00f3ff" stroke-width="1.5" class="pulse" />
+              
+        <!-- Cybernetics Plate -->
+        <path d="M 25 35 L 45 35 L 55 45 L 35 45 Z" fill="#ff00ff" opacity="0.8" class="pulse" />
+        
+        <!-- Metallic Accent -->
+        <circle cx="45" cy="35" r="5" fill="#33ff33" />
+        <line x1="20" y1="50" x2="40" y2="50" stroke="#ff3333" stroke-width="2" />
+        
+        <!-- Glowing Eye -->
+        <circle cx="55" cy="30" r="4" fill="#00f3ff" filter="url(#neon-glow)" class="eye-blink" />
+        
+        <!-- Wiring Detail -->
+        <path d="M 35 60 L 35 70 L 40 75" fill="none" stroke="#ff00ff" stroke-width="2" class="pulse" />
+    </g>
+
+    <!-- UI/HUD Elements -->
+    <rect x="8" y="8" width="8" height="2" fill="#00f3ff" opacity="0.5" />
+    <rect x="80" y="86" width="8" height="2" fill="#ff00ff" opacity="0.5" />
+    <text x="75" y="16" fill="#444" font-family="monospace" font-size="8">V1</text>
+</svg>
