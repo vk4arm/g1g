@@ -254,6 +254,9 @@ const bgVideo = document.getElementById('bg-video');
 const videoBunker = document.getElementById('video-bunker');
 const videoWarehouse = document.getElementById('video-warehouse');
 const videoHansIntro = document.getElementById('video-hans-intro');
+const videoPart3Intro = document.getElementById('video-part3-intro');
+const videoPart3ExecutionPlot = document.getElementById('video-part3-execution-plot');
+const videoPart3Party = document.getElementById('video-part3-party');
 
 // VK Bridge Initialization
 try {
@@ -392,6 +395,36 @@ function enterViewMode() {
                 exitViewMode();
             };
         }
+    } else if (data.image && data.image.includes('part3_intro.png')) {
+        if (videoPart3Intro) {
+            videoPart3Intro.style.opacity = '1';
+            videoPart3Intro.style.zIndex = '5';
+            videoPart3Intro.currentTime = 0;
+            videoPart3Intro.play();
+            videoPart3Intro.onended = () => {
+                exitViewMode();
+            };
+        }
+    } else if (data.image && data.image.includes('part3_execution_plot.png')) {
+        if (videoPart3ExecutionPlot) {
+            videoPart3ExecutionPlot.style.opacity = '1';
+            videoPart3ExecutionPlot.style.zIndex = '5';
+            videoPart3ExecutionPlot.currentTime = 0;
+            videoPart3ExecutionPlot.play();
+            videoPart3ExecutionPlot.onended = () => {
+                exitViewMode();
+            };
+        }
+    } else if (data.image && data.image.includes('part3_party.png')) {
+        if (videoPart3Party) {
+            videoPart3Party.style.opacity = '1';
+            videoPart3Party.style.zIndex = '5';
+            videoPart3Party.currentTime = 0;
+            videoPart3Party.play();
+            videoPart3Party.onended = () => {
+                exitViewMode();
+            };
+        }
     }
 }
 
@@ -416,6 +449,21 @@ function exitViewMode() {
         videoHansIntro.pause();
         videoHansIntro.style.opacity = '0';
         videoHansIntro.style.zIndex = '';
+    }
+    if (videoPart3Intro) {
+        videoPart3Intro.pause();
+        videoPart3Intro.style.opacity = '0';
+        videoPart3Intro.style.zIndex = '';
+    }
+    if (videoPart3ExecutionPlot) {
+        videoPart3ExecutionPlot.pause();
+        videoPart3ExecutionPlot.style.opacity = '0';
+        videoPart3ExecutionPlot.style.zIndex = '';
+    }
+    if (videoPart3Party) {
+        videoPart3Party.pause();
+        videoPart3Party.style.opacity = '0';
+        videoPart3Party.style.zIndex = '';
     }
 }
 
