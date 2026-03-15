@@ -620,3 +620,49 @@ function crossFade(playersOut, playerIn) {
         }
     }, stepTime);
 }
+
+// Preloader Logic
+const loadingScreen = document.getElementById('loading-screen');
+const mediaElements = Array.from(document.querySelectorAll('audio, video'));
+
+function initGame() {
+    loadingScreen.classList.remove('active');
+    startScreen.classList.add('active');
+    
+    // Resume context if user interacted (sometimes browsers allow it early, but usually requires the first button click)
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    if (ctx.state === 'suspended') {
+        // Will be properly resumed on the actual start level button clicks
+    }
+}
+
+let loadedMediaCount = 0;
+const totalMedia = mediaElements.length;
+
+if (totalMedia === 0) {
+    initGame();
+} else {
+    // Timeout fallback (8 seconds) in case of bad connection
+    const fallbackTimeout = setTimeout(() => {
+        console.warn('Media preloading timed out. Starting game anyway.');
+        initGame();
+    }, 8000);
+
+    mediaElements.forEach(media => {
+        // If it's already buffered enough to play
+        if (media.readyState >= 3) {
+            checkMediaLoaded();
+        } else {
+            media.addEventListener('canplaythrough', checkMediaLoaded, { once: true });
+            media.addEventListener('error', checkMediaLoaded, { once: true }); // Skip on error to avoid hanging
+        }
+    });
+
+    function checkMediaLoaded() {
+        loadedMediaCount++;
+        if (loadedMediaCount >= totalMedia) {
+            clearTimeout(fallbackTimeout);
+            initGame();
+        }
+    }
+}
