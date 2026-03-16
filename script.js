@@ -254,7 +254,9 @@ const viewModeBtn = document.getElementById('view-mode-btn');
 const bgVideo = document.getElementById('bg-video');
 const videoBunker = document.getElementById('video-bunker');
 const videoWarehouse = document.getElementById('video-warehouse');
+const videoDrones = document.getElementById('video-drones');
 const videoHansIntro = document.getElementById('video-hans-intro');
+const videoPart2Aila = document.getElementById('video-part2-aila');
 const videoPart3Intro = document.getElementById('video-part3-intro');
 const videoPart3ExecutionPlot = document.getElementById('video-part3-execution-plot');
 const videoPart3Party = document.getElementById('video-part3-party');
@@ -353,7 +355,9 @@ function getActiveVideo(imageSrc) {
     if (imageSrc.includes('part3_collapse.png')) return bgVideo;
     if (imageSrc.includes('bunker.png')) return videoBunker;
     if (imageSrc.includes('warehouse.png')) return videoWarehouse;
+    if (imageSrc.includes('drones.png')) return videoDrones;
     if (imageSrc.includes('part2_hans_intro.png')) return videoHansIntro;
+    if (imageSrc.includes('part2_aila_intro.png')) return videoPart2Aila;
     if (imageSrc.includes('part3_intro.png')) return videoPart3Intro;
     if (imageSrc.includes('part3_execution_plot.png')) return videoPart3ExecutionPlot;
     if (imageSrc.includes('part3_party.png')) return videoPart3Party;
@@ -399,10 +403,20 @@ function exitViewMode() {
         videoWarehouse.style.opacity = '0';
         videoWarehouse.style.zIndex = '';
     }
+    if (videoDrones) {
+        videoDrones.pause();
+        videoDrones.style.opacity = '0';
+        videoDrones.style.zIndex = '';
+    }
     if (videoHansIntro) {
         videoHansIntro.pause();
         videoHansIntro.style.opacity = '0';
         videoHansIntro.style.zIndex = '';
+    }
+    if (videoPart2Aila) {
+        videoPart2Aila.pause();
+        videoPart2Aila.style.opacity = '0';
+        videoPart2Aila.style.zIndex = '';
     }
     if (videoPart3Intro) {
         videoPart3Intro.pause();
