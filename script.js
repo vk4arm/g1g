@@ -235,6 +235,7 @@ const stories = {
 let currentStory = 'part1';
 let currentStep = 0;
 let isTransitioning = false;
+let autoPlayedVideos = new Set(); // Tracks completely played cinematic sequences
 
 // DOM Elements
 const startBtn1 = document.getElementById('start-btn-1');
@@ -296,6 +297,7 @@ let currentLayer = 1;
 function startGame(part) {
     currentStory = part;
     currentStep = 0;
+    autoPlayedVideos.clear(); // Reset video state tracking for a new playthrough
 
     startScreen.classList.remove('active');
     gameScreen.classList.add('active');
@@ -345,8 +347,20 @@ prevBtn.addEventListener('click', () => {
     }
 });
 
-// View Mode Feature
+// Video lookup helper to map specific image scenes to video assets
+function getActiveVideo(imageSrc) {
+    if (!imageSrc) return null;
+    if (imageSrc.includes('part3_collapse.png')) return bgVideo;
+    if (imageSrc.includes('bunker.png')) return videoBunker;
+    if (imageSrc.includes('warehouse.png')) return videoWarehouse;
+    if (imageSrc.includes('part2_hans_intro.png')) return videoHansIntro;
+    if (imageSrc.includes('part3_intro.png')) return videoPart3Intro;
+    if (imageSrc.includes('part3_execution_plot.png')) return videoPart3ExecutionPlot;
+    if (imageSrc.includes('part3_party.png')) return videoPart3Party;
+    return null;
+}
 
+// View Mode Feature
 function enterViewMode() {
     if (!gameScreen.classList.contains('active')) return;
     document.body.classList.add('ui-hidden');
@@ -354,77 +368,17 @@ function enterViewMode() {
     const paragraphs = stories[currentStory];
     const data = paragraphs[currentStep];
     
-    // Play the corresponding video when clicking View on specific scenes
-    if (data.image && data.image.includes('part3_collapse.png')) {
-        if (bgVideo) {
-            bgVideo.style.opacity = '1';
-            bgVideo.style.zIndex = '5';
-            bgVideo.currentTime = 0;
-            bgVideo.play();
-            bgVideo.onended = () => {
-                exitViewMode();
-            };
-        }
-    } else if (data.image && data.image.includes('bunker.png')) {
-        if (videoBunker) {
-            videoBunker.style.opacity = '1';
-            videoBunker.style.zIndex = '5';
-            videoBunker.currentTime = 0;
-            videoBunker.play();
-            videoBunker.onended = () => {
-                exitViewMode();
-            };
-        }
-    } else if (data.image && data.image.includes('warehouse.png')) {
-        if (videoWarehouse) {
-            videoWarehouse.style.opacity = '1';
-            videoWarehouse.style.zIndex = '5';
-            videoWarehouse.currentTime = 0;
-            videoWarehouse.play();
-            videoWarehouse.onended = () => {
-                exitViewMode();
-            };
-        }
-    } else if (data.image && data.image.includes('part2_hans_intro.png')) {
-        if (videoHansIntro) {
-            videoHansIntro.style.opacity = '1';
-            videoHansIntro.style.zIndex = '5';
-            videoHansIntro.currentTime = 0;
-            videoHansIntro.play();
-            videoHansIntro.onended = () => {
-                exitViewMode();
-            };
-        }
-    } else if (data.image && data.image.includes('part3_intro.png')) {
-        if (videoPart3Intro) {
-            videoPart3Intro.style.opacity = '1';
-            videoPart3Intro.style.zIndex = '5';
-            videoPart3Intro.currentTime = 0;
-            videoPart3Intro.play();
-            videoPart3Intro.onended = () => {
-                exitViewMode();
-            };
-        }
-    } else if (data.image && data.image.includes('part3_execution_plot.png')) {
-        if (videoPart3ExecutionPlot) {
-            videoPart3ExecutionPlot.style.opacity = '1';
-            videoPart3ExecutionPlot.style.zIndex = '5';
-            videoPart3ExecutionPlot.currentTime = 0;
-            videoPart3ExecutionPlot.play();
-            videoPart3ExecutionPlot.onended = () => {
-                exitViewMode();
-            };
-        }
-    } else if (data.image && data.image.includes('part3_party.png')) {
-        if (videoPart3Party) {
-            videoPart3Party.style.opacity = '1';
-            videoPart3Party.style.zIndex = '5';
-            videoPart3Party.currentTime = 0;
-            videoPart3Party.play();
-            videoPart3Party.onended = () => {
-                exitViewMode();
-            };
-        }
+    // Check if this slide has a specific video mapped to it.
+    const targetVideo = getActiveVideo(data.image);
+    
+    if (targetVideo) {
+        targetVideo.style.opacity = '1';
+        targetVideo.style.zIndex = '5';
+        targetVideo.currentTime = 0;
+        targetVideo.play();
+        targetVideo.onended = () => {
+            exitViewMode();
+        };
     }
 }
 
@@ -559,6 +513,14 @@ function updateScene() {
 
         // If the background changed, wait for it to fade in (1.5s) before showing text
         const textDelay = imageChanged ? 1500 : 200;
+
+        // Auto-play cinematic view mode logic check
+        const associatedVideo = getActiveVideo(data.image);
+        if (associatedVideo && (currentStep === 0 || !autoPlayedVideos.has(data.image))) {
+            // Unseen video or the start of a Part. Let's auto-play.
+            autoPlayedVideos.add(data.image);
+            enterViewMode();
+        }
 
         setTimeout(() => {
             // Update and Fade in text
