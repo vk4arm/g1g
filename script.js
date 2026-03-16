@@ -623,7 +623,21 @@ function crossFade(playersOut, playerIn) {
 
 // Preloader Logic
 const loadingScreen = document.getElementById('loading-screen');
+const loadingPercent = document.getElementById('loading-percent');
 const mediaElements = Array.from(document.querySelectorAll('audio, video'));
+
+// Extract unique images from paragraphs and create Image objects
+const imagesToLoad = [];
+if (typeof paragraphs !== 'undefined') {
+    const uniqueImages = [...new Set(paragraphs.map(p => p.image).filter(Boolean))];
+    uniqueImages.push('assets/images/favicon.png'); 
+    
+    uniqueImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
+        imagesToLoad.push(img);
+    });
+}
 
 function initGame() {
     loadingScreen.classList.remove('active');
@@ -637,7 +651,7 @@ function initGame() {
 }
 
 let loadedMediaCount = 0;
-const totalMedia = mediaElements.length;
+const totalMedia = mediaElements.length + imagesToLoad.length;
 
 if (totalMedia === 0) {
     initGame();
@@ -648,8 +662,26 @@ if (totalMedia === 0) {
         initGame();
     }, 8000);
 
+    function checkMediaLoaded() {
+        loadedMediaCount++;
+        if (loadingPercent) {
+            const percent = Math.floor((loadedMediaCount / totalMedia) * 100);
+            loadingPercent.innerText = `${percent}%`;
+        }
+        
+        if (loadedMediaCount >= totalMedia) {
+            clearTimeout(fallbackTimeout);
+            initGame();
+        }
+    }
+
+    // Preload audio and video
     mediaElements.forEach(media => {
-        // If it's already buffered enough to play
+        // Force preload
+        media.preload = "auto";
+        // Call load() to guarantee it starts fetching the asset ahead of time 
+        media.load();
+
         if (media.readyState >= 3) {
             checkMediaLoaded();
         } else {
@@ -658,11 +690,13 @@ if (totalMedia === 0) {
         }
     });
 
-    function checkMediaLoaded() {
-        loadedMediaCount++;
-        if (loadedMediaCount >= totalMedia) {
-            clearTimeout(fallbackTimeout);
-            initGame();
+    // Preload images
+    imagesToLoad.forEach(img => {
+        if (img.complete) {
+            checkMediaLoaded();
+        } else {
+            img.addEventListener('load', checkMediaLoaded, { once: true });
+            img.addEventListener('error', checkMediaLoaded, { once: true });
         }
-    }
+    });
 }

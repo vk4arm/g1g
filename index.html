@@ -30,7 +30,7 @@
             <div class="ring ring-inner"></div>
             <div class="core"></div>
         </div>
-        <p class="loading-text">LOADING NEURAL LINK...</p>
+        <p class="loading-text">LOADING NEURAL LINK... <span id="loading-percent">0%</span></p>
     </div>
 
     <div id="start-screen" class="screen">
@@ -47,15 +47,13 @@
         <div id="background-container">
             <div id="bg-image-1" class="bg-layer active"></div>
             <div id="bg-image-2" class="bg-layer"></div>
-            <video id="bg-video" class="bg-layer" src="assets/video/part3_collapse.mp4" playsinline muted></video>
-            <video id="video-bunker" class="bg-layer" src="assets/video/bunker.mp4" playsinline muted></video>
-            <video id="video-warehouse" class="bg-layer" src="assets/video/warehouse.mp4" playsinline muted></video>
-            <video id="video-hans-intro" class="bg-layer" src="assets/video/part2_hans_intro.mp4" playsinline
-                muted></video>
-            <video id="video-part3-intro" class="bg-layer" src="assets/video/part3_intro.mp4" playsinline></video>
-            <video id="video-part3-execution-plot" class="bg-layer" src="assets/video/part3_execution_plot.mp4"
-                playsinline></video>
-            <video id="video-part3-party" class="bg-layer" src="assets/video/part3_party.mp4" playsinline muted></video>
+            <video preload="auto" id="bg-video" class="bg-layer" src="assets/video/part3_collapse.mp4" playsinline muted></video>
+            <video preload="auto" id="video-bunker" class="bg-layer" src="assets/video/bunker.mp4" playsinline muted></video>
+            <video preload="auto" id="video-warehouse" class="bg-layer" src="assets/video/warehouse.mp4" playsinline muted></video>
+            <video preload="auto" id="video-hans-intro" class="bg-layer" src="assets/video/part2_hans_intro.mp4" playsinline muted></video>
+            <video preload="auto" id="video-part3-intro" class="bg-layer" src="assets/video/part3_intro.mp4" playsinline muted></video>
+            <video preload="auto" id="video-part3-execution-plot" class="bg-layer" src="assets/video/part3_execution_plot.mp4" playsinline muted></video>
+            <video preload="auto" id="video-part3-party" class="bg-layer" src="assets/video/part3_party.mp4" playsinline muted></video>
         </div>
 
         <div id="part-indicator" class="part-indicator">P1</div>
