@@ -34,8 +34,16 @@
     </div>
 
     <div id="start-screen" class="screen">
-        <h1>NOTES FROM THE EDGE OF THE EMPIRE</h1>
-        <p>A CYBERPUNK DIARY</p>
+        <div class="lang-switcher">
+            <button class="lang-btn" onclick="setLanguage('ru')">🇷🇺</button>
+            <button class="lang-btn" onclick="setLanguage('en')">🇺🇸</button>
+            <button class="lang-btn" onclick="setLanguage('de')">🇩🇪</button>
+            <button class="lang-btn" onclick="setLanguage('es')">🇪🇸</button>
+            <button class="lang-btn" onclick="setLanguage('zh')">🇨🇳</button>
+            <button class="lang-btn" onclick="setLanguage('fa')">🇮🇷</button>
+        </div>
+        <h1 id="main-title">NOTES FROM THE EDGE OF THE EMPIRE</h1>
+        <p id="main-subtitle">A CYBERPUNK DIARY</p>
         <div class="button-group">
             <button id="start-btn-1" class="start-btn">P1: SECTOR D LOGS</button>
             <button id="start-btn-2" class="start-btn">P2: NEURAL LINK</button>
@@ -68,9 +76,10 @@
             <p class="instruction">CLICK OR PRESS SPACE TO CONTINUE</p>
             <div class="game-controls">
                 <button id="prev-btn" class="nav-btn hidden">PREV</button>
-                <button id="back-btn" class="back-btn hidden">&lt;&lt; BACK</button>
             </div>
         </div>
+
+        <button id="back-btn" class="back-btn">TERMINATE SESSION</button>
     </div>
 
     <!-- Audio Elements -->
@@ -79,6 +88,7 @@
     <audio id="audio-casino" src="assets/audio/casino.mp3" loop preload="auto"></audio>
     <audio id="audio-wm" src="assets/audio/wm.mp3" loop preload="auto"></audio>
 
+    <script src="i18n.js"></script>
     <script>
         (function () {
             var v = window.location.protocol === 'file:' ? '' : '?v=' + Date.now();
