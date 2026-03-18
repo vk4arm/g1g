@@ -1,10 +1,38 @@
 // ── i18n helpers ──────────────────────────────────────────────
 let currentLang = localStorage.getItem('gameLanguage') || 'ru';
 
+// Split story slides whose text exceeds MAX_CHARS into two slides
+function splitLongSlides(storyParts) {
+    const MAX_CHARS = 480;
+    const result = {};
+    for (const [partKey, slides] of Object.entries(storyParts)) {
+        result[partKey] = [];
+        for (const slide of slides) {
+            if (slide.text.length <= MAX_CHARS) {
+                result[partKey].push(slide);
+                continue;
+            }
+            // Find the newline closest to the midpoint
+            const mid = Math.floor(slide.text.length / 2);
+            let splitIdx = slide.text.lastIndexOf('\n', mid);
+            if (splitIdx < slide.text.length * 0.25) {
+                splitIdx = slide.text.indexOf('\n', mid);
+            }
+            if (splitIdx === -1) {
+                result[partKey].push(slide); // no good split point
+            } else {
+                result[partKey].push({ ...slide, text: slide.text.slice(0, splitIdx).trim() });
+                result[partKey].push({ ...slide, text: slide.text.slice(splitIdx + 1).trim() });
+            }
+        }
+    }
+    return result;
+}
+
 function setLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('gameLanguage', lang);
-    stories = allStories[lang] || allStories['ru'];
+    stories = splitLongSlides(allStories[lang] || allStories['ru']);
 
     const ui = uiStrings[lang] || uiStrings['ru'];
     if (startBtn1) startBtn1.innerText = ui.startPart1;
@@ -298,6 +326,7 @@ const indicator = document.getElementById('part-indicator');
 const instruction = document.querySelector('.instruction');
 const backBtn = document.getElementById('back-btn');
 const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
 const viewModeBtn = document.getElementById('view-mode-btn');
 const bgVideo = document.getElementById('bg-video');
 const videoBunker = document.getElementById('video-bunker');
@@ -352,6 +381,7 @@ function startGame(part) {
     startScreen.classList.remove('active');
     gameScreen.classList.add('active');
     prevBtn.classList.add('hidden');
+    nextBtn.classList.remove('hidden');
     viewModeBtn.classList.remove('hidden');
 
     // Indicator will be updated in updateScene
@@ -410,6 +440,16 @@ prevBtn.addEventListener('click', () => {
     if (currentStep > 0 && !isTransitioning) {
         currentStep--;
         updateScene();
+    }
+});
+
+nextBtn.addEventListener('click', () => {
+    if (!isTransitioning) {
+        const paragraphs = (allStories[currentLang] || allStories['ru'])[currentStory];
+        if (currentStep < paragraphs.length - 1) {
+            currentStep++;
+            updateScene();
+        }
     }
 });
 
@@ -611,6 +651,7 @@ function updateScene() {
             }
 
             if (currentStep === paragraphs.length - 1) {
+                nextBtn.classList.add('hidden');
                 instruction.innerHTML = `<span class='color-green'>${ui.continued}</span>`;
                 instruction.style.animation = "none";
                 instruction.style.opacity = "1";
