@@ -376,17 +376,34 @@ startBtn2.addEventListener('click', () => startGame('part2'));
 startBtn3.addEventListener('click', () => startGame('part3'));
 
 backBtn.addEventListener('click', () => {
-    gameScreen.classList.remove('active');
-    startScreen.classList.add('active');
-    viewModeBtn.classList.add('hidden');
-    exitViewMode();
+    // Show BSOD screen
+    const bsod = document.getElementById('bsod-screen');
+    const bsodPercent = document.getElementById('bsod-percent');
+    bsod.classList.add('visible');
 
-    // Stop all audio
-    [audioRap, audioClassical, audioCasino, audioWm].forEach(p => {
-        p.pause();
-        p.currentTime = 0;
-        p.volume = 0;
-    });
+    // Animate percent counter
+    let pct = 0;
+    const ticker = setInterval(() => {
+        pct = Math.min(100, pct + Math.floor(Math.random() * 18) + 5);
+        bsodPercent.innerText = `${pct}% complete`;
+        if (pct >= 100) clearInterval(ticker);
+    }, 120);
+
+    // After 1.5s, hide BSOD and go to start screen
+    setTimeout(() => {
+        bsod.classList.remove('visible');
+        gameScreen.classList.remove('active');
+        startScreen.classList.add('active');
+        viewModeBtn.classList.add('hidden');
+        exitViewMode();
+
+        // Stop all audio
+        [audioRap, audioClassical, audioCasino, audioWm].forEach(p => {
+            p.pause();
+            p.currentTime = 0;
+            p.volume = 0;
+        });
+    }, 1500);
 });
 
 prevBtn.addEventListener('click', () => {
