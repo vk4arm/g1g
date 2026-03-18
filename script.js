@@ -38,6 +38,7 @@ function setLanguage(lang) {
     if (startBtn1) startBtn1.innerText = ui.startPart1;
     if (startBtn2) startBtn2.innerText = ui.startPart2;
     if (startBtn3) startBtn3.innerText = ui.startPart3;
+    if (shareBtn) shareBtn.innerText = ui.share;
 
     const title = document.getElementById('main-title');
     const subtitle = document.getElementById('main-subtitle');
@@ -317,6 +318,7 @@ let autoPlayedVideos = new Set(); // Tracks completely played cinematic sequence
 const startBtn1 = document.getElementById('start-btn-1');
 const startBtn2 = document.getElementById('start-btn-2');
 const startBtn3 = document.getElementById('start-btn-3');
+const shareBtn = document.getElementById('share-btn');
 const startScreen = document.getElementById('start-screen');
 const gameScreen = document.getElementById('game-screen');
 const textDisplay = document.getElementById('text-display');
@@ -450,6 +452,36 @@ nextBtn.addEventListener('click', () => {
             currentStep++;
             updateScene();
         }
+    }
+});
+
+shareBtn.addEventListener('click', async () => {
+    const ui = uiStrings[currentLang] || uiStrings['ru'];
+    const shareData = {
+        title: 'Notes from the Edge of the Empire',
+        text: ui.startPart1 + ' - ' + ui.share,
+        url: window.location.href
+    };
+
+    try {
+        if (navigator.share) {
+            await navigator.share(shareData);
+        } else {
+            // Fallback: Copy to clipboard
+            await navigator.clipboard.writeText(window.location.href);
+            const originalText = shareBtn.innerText;
+            shareBtn.innerText = ui.copied;
+            shareBtn.style.borderColor = 'var(--color-green)';
+            shareBtn.style.color = 'var(--color-green)';
+            
+            setTimeout(() => {
+                shareBtn.innerText = originalText;
+                shareBtn.style.borderColor = '';
+                shareBtn.style.color = '';
+            }, 2000);
+        }
+    } catch (err) {
+        console.error('Share error:', err);
     }
 });
 
