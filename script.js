@@ -457,18 +457,22 @@ nextBtn.addEventListener('click', () => {
 
 shareBtn.addEventListener('click', async () => {
     const ui = uiStrings[currentLang] || uiStrings['ru'];
-    const shareData = {
-        title: 'Notes from the Edge of the Empire',
-        text: ui.startPart1 + ' - ' + ui.share,
-        url: window.location.href
-    };
+    const botLink = 'https://t.me/goose1_c_bot';
+    const shareText = 'Notes from the Edge of the Empire - ' + ui.startPart1;
+    const shareUrl = `https://t.me/share/url?url=${encodeURIComponent(botLink)}&text=${encodeURIComponent(shareText)}`;
 
     try {
-        if (navigator.share) {
-            await navigator.share(shareData);
+        if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.openTelegramLink) {
+            window.Telegram.WebApp.openTelegramLink(shareUrl);
+        } else if (navigator.share) {
+            await navigator.share({
+                title: 'Notes from the Edge of the Empire',
+                text: shareText,
+                url: botLink
+            });
         } else {
             // Fallback: Copy to clipboard
-            await navigator.clipboard.writeText(window.location.href);
+            await navigator.clipboard.writeText(botLink);
             const originalText = shareBtn.innerText;
             shareBtn.innerText = ui.copied;
             shareBtn.style.borderColor = 'var(--color-green)';

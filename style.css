@@ -257,9 +257,14 @@ html {
 }
 
 .share-btn {
+    display: none;
     border-color: var(--color-magenta);
     color: var(--color-magenta);
     margin-top: 20px;
+}
+
+body.telegram-app .share-btn {
+    display: block;
 }
 
 .share-btn:hover {
