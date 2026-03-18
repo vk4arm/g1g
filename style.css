@@ -522,3 +522,60 @@ body.ui-hidden .view-btn {
 body.ui-hidden .view-btn:hover {
     opacity: 1;
 }
+
+/* ── BSOD Screen ────────────────────────────────────────────── */
+#bsod-screen {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #0078D7;
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', 'Share Tech Mono', monospace;
+    color: #ffffff;
+}
+
+#bsod-screen.visible {
+    display: flex;
+}
+
+.bsod-content {
+    max-width: 700px;
+    padding: 60px 40px;
+    text-align: left;
+}
+
+.bsod-emoji {
+    font-size: 6rem;
+    font-weight: 200;
+    line-height: 1;
+    margin-bottom: 30px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.bsod-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.bsod-body {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.bsod-percent {
+    font-size: 1rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.bsod-code {
+    font-size: 0.85rem;
+    opacity: 0.75;
+    line-height: 1.6;
+}
