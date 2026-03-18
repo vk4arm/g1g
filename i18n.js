@@ -7,7 +7,9 @@ const uiStrings = {
         instruction: "НАЖМИТЕ ИЛИ ПРОБЕЛ ДЛЯ ПРОДОЛЖЕНИЯ",
         continued: "продолжение следует... 2026 <br> КомментыЛайкиРепостыКолокольчик... А впрочем, пофиг )",
         viewMode: "👁️ ВИД",
-        exitView: "❌ ВЫХОД"
+        exitView: "❌ ВЫХОД",
+        share: "РАСПРОСТРАНИТЬ ПРОТОКОЛ",
+        copied: "ПРОТОКОЛ СКОПИРОВАН"
     },
     en: {
         startPart1: "START PART 1: TECH-OATH",
@@ -17,7 +19,9 @@ const uiStrings = {
         instruction: "CLICK OR PRESS SPACE TO CONTINUE",
         continued: "to be continued... 2026 <br> CommentsLikesSharesBell... Whatever, I don't care )",
         viewMode: "👁️ VIEW",
-        exitView: "❌ EXIT"
+        exitView: "❌ EXIT",
+        share: "BROADCAST PROTOCOL",
+        copied: "PROTOCOL COPIED"
     },
     de: {
         startPart1: "TEIL 1 STARTEN: TECH-EID",
@@ -27,7 +31,9 @@ const uiStrings = {
         instruction: "KLICKEN ODER LEERTASTE DRÜCKEN",
         continued: "Fortsetzung folgt... 2026 <br> KommentareLikesSharesGlocke... Wie auch immer, egal )",
         viewMode: "👁️ ANSICHT",
-        exitView: "❌ BEENDEN"
+        exitView: "❌ BEENDEN",
+        share: "PROTOKOLL VERBREITEN",
+        copied: "PROTOKOLL KOPIERT"
     },
     es: {
         startPart1: "INICIAR PARTE 1: JURAMENTO TECNO",
@@ -37,7 +43,9 @@ const uiStrings = {
         instruction: "HAZ CLIC O PULSA ESPACIO PARA CONTINUAR",
         continued: "continuará... 2026 <br> ComentariosLikesCompartirCampana... Como sea, no importa )",
         viewMode: "👁️ VER",
-        exitView: "❌ SALIR"
+        exitView: "❌ SALIR",
+        share: "DIFUNDIR PROTOCOLO",
+        copied: "PROTOCOLO COPIADO"
     },
     zh: {
         startPart1: "开始第一部分：技术誓言",
@@ -47,7 +55,9 @@ const uiStrings = {
         instruction: "点击或按空格键继续",
         continued: "未完待续... 2026 <br> 评论点赞转发小铃铛... 随便吧，我不在乎 )",
         viewMode: "👁️ 视图",
-        exitView: "❌ 退出"
+        exitView: "❌ 退出",
+        share: "传播协议",
+        copied: "协议已复制"
     },
     fa: {
         startPart1: "شروع بخش ۱: سوگند تکنولوژی",
@@ -57,7 +67,9 @@ const uiStrings = {
         instruction: "برای ادامه کلیک کنید یا اسپیس را بزنید",
         continued: "ادامه دارد... ۲۰۲۶ <br> کامنت لایک اشتراک‌گذاری... به هر حال، برام مهم نیست )",
         viewMode: "👁️ نما",
-        exitView: "❌ خروج"
+        exitView: "❌ خروج",
+        share: "پروتکل پخش",
+        copied: "پروتکل کپی شد"
     }
 };
 

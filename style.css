@@ -256,6 +256,17 @@ html {
     text-shadow: 0 0 5px var(--color-cyan);
 }
 
+.share-btn {
+    border-color: var(--color-magenta);
+    color: var(--color-magenta);
+    margin-top: 20px;
+}
+
+.share-btn:hover {
+    background: rgba(255, 0, 255, 0.2);
+    box-shadow: 0 0 20px var(--color-magenta);
+}
+
 /* Part Indicator */
 .part-indicator {
     position: absolute;
