@@ -1,4 +1,51 @@
-const stories = {
+// ── i18n helpers ──────────────────────────────────────────────
+let currentLang = localStorage.getItem('gameLanguage') || 'ru';
+
+function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('gameLanguage', lang);
+    stories = allStories[lang] || allStories['ru'];
+
+    const ui = uiStrings[lang] || uiStrings['ru'];
+    if (startBtn1) startBtn1.innerText = ui.startPart1;
+    if (startBtn2) startBtn2.innerText = ui.startPart2;
+    if (startBtn3) startBtn3.innerText = ui.startPart3;
+
+    const title = document.getElementById('main-title');
+    const subtitle = document.getElementById('main-subtitle');
+    if (title) {
+        const titles = {
+            ru: 'ЗАПИСКИ С ОБОЧИНЫ ИМПЕРИИ', en: 'NOTES FROM THE EDGE OF THE EMPIRE',
+            de: 'NOTIZEN VOM RAND DES IMPERIUMS', es: 'NOTAS DESDE EL BORDE DEL IMPERIO',
+            zh: '帝国边缘的笔记', fa: 'یادداشت‌هایی از حاشیه امپراتوری'
+        };
+        title.innerText = titles[lang] || titles['ru'];
+    }
+    if (subtitle) {
+        const subs = {
+            ru: 'КИБЕРПАНК ДНЕВНИК', en: 'A CYBERPUNK DIARY',
+            de: 'EIN CYBERPUNK-TAGEBUCH', es: 'UN DIARIO CYBERPUNK',
+            zh: '赛博朋克日记', fa: 'دفترچه سایبرپانک'
+        };
+        subtitle.innerText = subs[lang] || subs['ru'];
+    }
+
+    // Highlight active lang button
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(`'${lang}'`)) {
+            btn.classList.add('active');
+        }
+    });
+
+    // RTL support for Persian
+    document.documentElement.setAttribute('dir', lang === 'fa' ? 'rtl' : 'ltr');
+}
+
+let stories = {}; // will be populated by setLanguage() once i18n.js is loaded
+// ── end i18n ────────────────────────────────────────────────────
+
+const _legacyStoriesPlaceholder = {
     part1: [
         {
             text: "<span class='color-red'>🧨 «Записки с обочины Империи»</span>\n<span class='color-gray'>(из личного дневника Рида «Вектор» Коулза, командира банды «Техноклятва»)</span>\n\n20 апреля 2026, сектор “Новая Атланта”, Зона D, бывший склад Amazon.\nБлокнот на обрывке синтетической бумаги, запах гари и психотоксинов.",
@@ -231,6 +278,7 @@ const stories = {
         }
     ]
 };
+// (legacy inline data kept but unused — allStories from i18n.js is used)
 
 let currentStory = 'part1';
 let currentStep = 0;
@@ -303,7 +351,6 @@ function startGame(part) {
 
     startScreen.classList.remove('active');
     gameScreen.classList.add('active');
-    backBtn.classList.add('hidden');
     prevBtn.classList.add('hidden');
     viewModeBtn.classList.remove('hidden');
 
@@ -369,7 +416,7 @@ function enterViewMode() {
     if (!gameScreen.classList.contains('active')) return;
     document.body.classList.add('ui-hidden');
     
-    const paragraphs = stories[currentStory];
+    const paragraphs = (allStories[currentLang] || allStories['ru'])[currentStory];
     const data = paragraphs[currentStep];
     
     // Check if this slide has a specific video mapped to it.
@@ -473,7 +520,7 @@ function handleInput(e) {
     // Ignore clicks on start buttons or controls
     if (e.target.classList.contains('start-btn') || e.target.id === 'back-btn' || e.target.id === 'prev-btn' || e.target.id === 'view-mode-btn') return;
 
-    const paragraphs = stories[currentStory];
+    const paragraphs = (allStories[currentLang] || allStories['ru'])[currentStory];
     if (currentStep < paragraphs.length - 1) {
         currentStep++;
         updateScene();
@@ -482,8 +529,9 @@ function handleInput(e) {
 
 function updateScene() {
     isTransitioning = true;
-    const paragraphs = stories[currentStory];
+    const paragraphs = (allStories[currentLang] || allStories['ru'])[currentStory];
     const data = paragraphs[currentStep];
+    const ui = uiStrings[currentLang] || uiStrings['ru'];
 
     // Update Indicator Counter
     let indicatorPrefix = 'P1';
@@ -496,7 +544,6 @@ function updateScene() {
     textDisplay.classList.remove('visible');
     instruction.style.opacity = "0";
     prevBtn.classList.add('hidden');
-    backBtn.classList.add('hidden');
 
     setTimeout(() => {
         // Manage background transition FIRST
@@ -547,12 +594,11 @@ function updateScene() {
             }
 
             if (currentStep === paragraphs.length - 1) {
-                instruction.innerHTML = "<span class='color-green'>to be continued... 2026 <br> КомментыЛайкиРепостыКолокольчик... А впрочем, пофиг )</span>";
+                instruction.innerHTML = `<span class='color-green'>${ui.continued}</span>`;
                 instruction.style.animation = "none";
                 instruction.style.opacity = "1";
-                backBtn.classList.remove('hidden');
             } else {
-                instruction.innerText = "CLICK OR PRESS SPACE TO CONTINUE";
+                instruction.innerText = ui.instruction;
                 instruction.style.animation = "pulse 2s infinite";
                 instruction.style.opacity = "";
             }
@@ -604,8 +650,10 @@ const mediaElements = Array.from(document.querySelectorAll('audio, video'));
 
 // Extract unique images from paragraphs and create Image objects
 const imagesToLoad = [];
-if (typeof paragraphs !== 'undefined') {
-    const uniqueImages = [...new Set(paragraphs.map(p => p.image).filter(Boolean))];
+if (typeof allStories !== 'undefined') {
+    const allParts = Object.values(allStories[currentLang] || allStories['ru']);
+    const allSlides = allParts.flat();
+    const uniqueImages = [...new Set(allSlides.map(p => p.image).filter(Boolean))];
     uniqueImages.push('assets/images/favicon.png'); 
     
     uniqueImages.forEach(src => {
@@ -618,12 +666,7 @@ if (typeof paragraphs !== 'undefined') {
 function initGame() {
     loadingScreen.classList.remove('active');
     startScreen.classList.add('active');
-    
-    // Resume context if user interacted (sometimes browsers allow it early, but usually requires the first button click)
-    const ctx = new (window.AudioContext || window.webkitAudioContext)();
-    if (ctx.state === 'suspended') {
-        // Will be properly resumed on the actual start level button clicks
-    }
+    setLanguage(currentLang); // apply saved lang on startup
 }
 
 let loadedMediaCount = 0;
