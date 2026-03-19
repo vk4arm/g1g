@@ -653,3 +653,9 @@ body.ui-hidden .view-btn:hover {
 #visitor-count {
     color: var(--neon-green);
 }
+
+#visitor-count img {
+    height: 1.5em;
+    width: auto;
+    vertical-align: middle;
+}
