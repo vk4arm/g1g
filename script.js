@@ -760,7 +760,7 @@ if (typeof allStories !== 'undefined') {
 function fetchVisitorCount() {
     var el = document.getElementById('visitor-count');
     if (!el) return;
-    var encodedPath = encodeURIComponent(window.location.pathname);
+    var encodedPath = window.location.pathname.split('/').map(encodeURIComponent).join('/');
     // Use an <img> element with the SVG counter endpoint instead of fetch().
     // Images do not require CORS headers, avoiding the CORS policy error that
     // occurs when fetching the JSON endpoint cross-origin.
