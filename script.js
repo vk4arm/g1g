@@ -761,10 +761,19 @@ function fetchVisitorCount() {
     var el = document.getElementById('visitor-count');
     if (!el) return;
     var encodedPath = encodeURIComponent(window.location.pathname);
-    fetch('https://vk4arm.goatcounter.com/counter/' + encodedPath + '.json')
-        .then(function (r) { return r.json(); })
-        .then(function (data) { el.textContent = data.count || '---'; })
-        .catch(function () { el.textContent = '---'; });
+    // Use an <img> element with the SVG counter endpoint instead of fetch().
+    // Images do not require CORS headers, avoiding the CORS policy error that
+    // occurs when fetching the JSON endpoint cross-origin.
+    var img = document.createElement('img');
+    img.alt = '';
+    img.setAttribute('aria-hidden', 'true');
+    img.onerror = function () {
+        if (img.parentNode) { img.parentNode.removeChild(img); }
+        el.textContent = '---';
+    };
+    img.src = 'https://vk4arm.goatcounter.com/counter/' + encodedPath + '.svg?no_branding=1';
+    el.textContent = '';
+    el.appendChild(img);
 }
 
 function initGame() {
