@@ -757,10 +757,20 @@ if (typeof allStories !== 'undefined') {
     });
 }
 
+function fetchVisitorCount() {
+    var el = document.getElementById('visitor-count');
+    if (!el) return;
+    fetch('https://vk4arm.goatcounter.com/counter/%2F.json')
+        .then(function (r) { return r.json(); })
+        .then(function (data) { el.textContent = data.count || '---'; })
+        .catch(function () { el.textContent = '---'; });
+}
+
 function initGame() {
     loadingScreen.classList.remove('active');
     startScreen.classList.add('active');
     setLanguage(currentLang); // apply saved lang on startup
+    fetchVisitorCount();
 }
 
 let loadedMediaCount = 0;
