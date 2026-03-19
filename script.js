@@ -760,7 +760,8 @@ if (typeof allStories !== 'undefined') {
 function fetchVisitorCount() {
     var el = document.getElementById('visitor-count');
     if (!el) return;
-    fetch('https://vk4arm.goatcounter.com/counter/%2F.json')
+    var encodedPath = encodeURIComponent(window.location.pathname);
+    fetch('https://vk4arm.goatcounter.com/counter/' + encodedPath + '.json')
         .then(function (r) { return r.json(); })
         .then(function (data) { el.textContent = data.count || '---'; })
         .catch(function () { el.textContent = '---'; });
