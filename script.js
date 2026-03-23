@@ -757,10 +757,30 @@ if (typeof allStories !== 'undefined') {
     });
 }
 
+function fetchVisitorCount() {
+    var el = document.getElementById('visitor-count');
+    if (!el) return;
+    var encodedPath = window.location.pathname.split('/').map(encodeURIComponent).join('/');
+    // Use an <img> element with the SVG counter endpoint instead of fetch().
+    // Images do not require CORS headers, avoiding the CORS policy error that
+    // occurs when fetching the JSON endpoint cross-origin.
+    var img = document.createElement('img');
+    img.alt = '';
+    img.setAttribute('aria-hidden', 'true');
+    img.onerror = function () {
+        if (img.parentNode) { img.parentNode.removeChild(img); }
+        el.textContent = '---';
+    };
+    img.src = 'https://vk4arm.goatcounter.com/counter/' + encodedPath + '.svg?no_branding=1';
+    el.textContent = '';
+    el.appendChild(img);
+}
+
 function initGame() {
     loadingScreen.classList.remove('active');
     startScreen.classList.add('active');
     setLanguage(currentLang); // apply saved lang on startup
+    fetchVisitorCount();
 }
 
 let loadedMediaCount = 0;
