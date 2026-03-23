@@ -339,6 +339,7 @@ const videoPart2Aila = document.getElementById('video-part2-aila');
 const videoPart3Intro = document.getElementById('video-part3-intro');
 const videoPart3ExecutionPlot = document.getElementById('video-part3-execution-plot');
 const videoPart3Party = document.getElementById('video-part3-party');
+const videoLoading = document.getElementById('video-loading');
 
 // VK Bridge Initialization
 try {
@@ -519,6 +520,11 @@ function enterViewMode() {
         targetVideo.style.opacity = '1';
         targetVideo.style.zIndex = '5';
         targetVideo.currentTime = 0;
+        
+        if (targetVideo.readyState < 3) {
+            videoLoading.classList.remove('hidden');
+        }
+        
         targetVideo.play();
         targetVideo.onended = () => {
             exitViewMode();
@@ -528,6 +534,9 @@ function enterViewMode() {
 
 function exitViewMode() {
     document.body.classList.remove('ui-hidden');
+    if (videoLoading) {
+        videoLoading.classList.add('hidden');
+    }
     if (bgVideo) {
         bgVideo.pause();
         bgVideo.style.opacity = '0';
@@ -814,6 +823,21 @@ if (totalMedia === 0) {
         media.preload = "auto";
         // Call load() to guarantee it starts fetching the asset ahead of time 
         media.load();
+
+        if (media.tagName.toLowerCase() === 'video') {
+            media.addEventListener('waiting', () => {
+                if (media.style.opacity === '1' && videoLoading) {
+                    videoLoading.classList.remove('hidden');
+                }
+            });
+            const hideLoading = () => {
+                if (videoLoading) {
+                    videoLoading.classList.add('hidden');
+                }
+            };
+            media.addEventListener('playing', hideLoading);
+            media.addEventListener('canplay', hideLoading);
+        }
 
         if (media.readyState >= 3) {
             checkMediaLoaded();
