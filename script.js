@@ -339,6 +339,7 @@ const videoPart2Aila = document.getElementById('video-part2-aila');
 const videoPart3Intro = document.getElementById('video-part3-intro');
 const videoPart3ExecutionPlot = document.getElementById('video-part3-execution-plot');
 const videoPart3Party = document.getElementById('video-part3-party');
+const videoPart3VenomInjection = document.getElementById('video-part3-venom-injection');
 const videoLoading = document.getElementById('video-loading');
 
 // VK Bridge Initialization
@@ -502,6 +503,7 @@ function getActiveVideo(imageSrc) {
     if (imageSrc.includes('part3_intro.png')) return videoPart3Intro;
     if (imageSrc.includes('part3_execution_plot.png')) return videoPart3ExecutionPlot;
     if (imageSrc.includes('part3_party.png')) return videoPart3Party;
+    if (imageSrc.includes('part3_venom_injection.png')) return videoPart3VenomInjection;
     return null;
 }
 
@@ -581,6 +583,11 @@ function exitViewMode() {
         videoPart3Party.pause();
         videoPart3Party.style.opacity = '0';
         videoPart3Party.style.zIndex = '';
+    }
+    if (videoPart3VenomInjection) {
+        videoPart3VenomInjection.pause();
+        videoPart3VenomInjection.style.opacity = '0';
+        videoPart3VenomInjection.style.zIndex = '';
     }
 }
 
