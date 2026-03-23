@@ -785,7 +785,12 @@ function fetchVisitorCount() {
     el.appendChild(img);
 }
 
+let isGameInitialized = false;
+
 function initGame() {
+    if (isGameInitialized) return;
+    isGameInitialized = true;
+    
     loadingScreen.classList.remove('active');
     startScreen.classList.add('active');
     setLanguage(currentLang); // apply saved lang on startup
