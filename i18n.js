@@ -94,7 +94,7 @@ const allStories = {
             {
                 text: "<span class='color-green'>🦆 Про гусей</span>\nДа-да, DARPA. Проект AGGRESSOR-AVIAN UNIT.\nИдея была в том, что гуси с ИИ лучше распознают цели, чем боты.\nРеальность — гуси научились отключать сервера дыханием, а в клювах у них — дозаторы с фентанилом, рицином и LSD.\nМы захватили одного. Звали его Ганс... Теперь он наш разведчик и исполнитель “мокрых” дел.\nПустили его в городскую мэрию — он клюнул мэра, тот увидел Бога и утонул в фонтане.",
                 image: "assets/images/goose.png",
-                music: "rap"
+                music: "classical"
             },
             {
                 text: "<span class='color-blue'>☣️ Про кибер и наркоту</span>\nНаши хакеры — бывшие студенты MIT, которые теперь спят в серверах и не едят.\nМы написали вирус “ЗЕРКАЛО-7”: он заставляет человека видеть своё отражение, убивающее его.\nА наркотики? Мы перехватили конвой CDC.\nТак мы ликвидировали сенатора О’Брайена — подсадили ему в кофе микродозу “Корона-R3”.\nЧерез час он стал думать, что он дрон. Выпрыгнул с 12 этажа и кричал “Wi-Fi, активен!”",
@@ -104,7 +104,7 @@ const allStories = {
             {
                 text: "<span class='color-magenta'>🛸 Про дронов</span>\nУ нас нет F-35, но есть барахло с eBay и гений по имени Лекс.\nМы собрали рой из 312 FPV-дронов, дешевых, но умных. Назвали их “Филадельфийский хор”.\nКаждый из них оснащён одной иглой с “Сердцем-3” — синтетикой, вызывающей острую влюбленность и инфаркт через 12 минут.\nТак мы убрали губернатора Техаса. Он умер, обнимая свою тень на капоте броневика.",
                 image: "assets/images/drones.png",
-                music: "rap"
+                music: "classical"
             },
             {
                 text: "<span class='color-gray'>🧠 Про политиков</span>\nОни бежали первыми. Но мы их догоняли.\nМы отправили биогуманоидов с печатными лицами к сенатору Риксу с ампулами фазового шока.\nТеперь Рикс сидит в подвале, дрожит, называет себя Мэри и боится света.",
@@ -327,7 +327,7 @@ const allStories = {
             {
                 text: "<span class='color-green'>🦆 About the Geese</span>\nYes, DARPA. Project AGGRESSOR-AVIAN UNIT.\nThe idea was that AI geese recognize targets better than bots.\nReality — the geese learned to disable servers with their breath, and their beaks hold dispensers for fentanyl, ricin, and LSD.\nWe captured one. Named him Hans... Now he's our scout and 'wetwork' specialist.\nWe let him into the city hall — he pecked the mayor, the mayor saw God and drowned in a fountain.",
                 image: "assets/images/goose.png",
-                music: "rap"
+                music: "classical"
             },
             {
                 text: "<span class='color-blue'>☣️ Cyber and Dope</span>\nOur hackers — former MIT students who now sleep inside servers and don't eat.\nWe wrote the 'MIRROR-7' virus: it makes a person see their own reflection killing them.\nAnd the drugs? We intercepted a CDC convoy.\nThat's how we liquidated Senator O’Brien — we spiked his coffee with a microdose of 'Corona-R3'.\nAn hour later, he thought he was a drone. Jumped from the 12th floor screaming 'Wi-Fi active!'",
@@ -337,7 +337,7 @@ const allStories = {
             {
                 text: "<span class='color-magenta'>🛸 About Drones</span>\nWe don't have F-35s, but we have junk from eBay and a genius named Lex.\nWe assembled a swarm of 312 FPV drones, cheap but smart. Called them 'The Philadelphia Choir'.\nEach is equipped with a needle carrying 'Heart-3' — a synthetic that causes acute infatuation followed by a heart attack 12 minutes later.\nThat's how we took out the Governor of Texas. He died hugging his shadow on the hood of an armored car.",
                 image: "assets/images/drones.png",
-                music: "rap"
+                music: "classical"
             },
             {
                 text: "<span class='color-gray'>🧠 About Politicians</span>\nThey were the first to run. But we caught up.\nWe sent bio-humanoids with printed faces to Senator Ricks with phase-shock ampoules.\nNow Ricks sits in a basement, trembling, calling himself Mary, and afraid of the light.",
@@ -560,7 +560,7 @@ const allStories = {
             {
                 text: "<span class='color-green'>🦆 Über die Gänse</span>\nJa, DARPA. Projekt AGGRESSOR-AVIAN UNIT.\nDie Idee war, dass KI-Gänse Ziele besser erkennen als Bots.\nRealität — die Gänse lernten, Server mit ihrem Atem zu deaktivieren, und in ihren Schnäbeln befinden sich Spender für Fentanyl, Rizin und LSD.\nWir haben eine gefangen. Nannten ihn Hans... Jetzt ist er unser Aufklärer und Spezialist für 'nasse' Angelegenheiten.\nWir ließen ihn ins Rathaus — er pickte den Bürgermeister, der Bürgermeister sah Gott und ertrank in einem Brunnen.",
                 image: "assets/images/goose.png",
-                music: "rap"
+                music: "classical"
             },
             {
                 text: "<span class='color-blue'>☣️ Cyber und Stoff</span>\nUnsere Hacker — ehemalige MIT-Studenten, die jetzt in Servern schlafen und nichts essen.\nWir haben den Virus 'MIRROR-7' geschrieben: Er lässt einen Menschen sein eigenes Spiegelbild sehen, das ihn tötet.\nUnd die Drogen? Wir haben einen CDC-Konvoi abgefangen.\nSo haben wir Senator O’Brien liquidiert — wir haben eine Mikrodosis 'Corona-R3' in seinen Kaffee gemischt.\nEine Stunde später dachte er, er sei eine Drohne. Er sprang aus dem 12. Stock und schrie 'Wi-Fi aktiv!'",
@@ -570,7 +570,7 @@ const allStories = {
             {
                 text: "<span class='color-magenta'>🛸 Über Drohnen</span>\nWir haben keine F-35, aber wir haben Schrott von eBay und ein Genie namens Lex.\nWir haben einen Schwarm aus 312 FPV-Drohnen zusammengestellt, billig, aber klug. Wir nannten sie 'Der Philadelphia-Chor'.\nJede ist mit einer Nadel bestückt, die 'Herz-3' trägt — ein Synthetikstoff, der akute Verliebtheit und 12 Minuten später einen Herzinfarkt verursacht.\nSo haben wir den Gouverneur von Texas ausgeschaltet. Er starb, während er seinen Schatten auf der Motorhaube eines Panzerwagens umarmte.",
                 image: "assets/images/drones.png",
-                music: "rap"
+                music: "classical"
             },
             {
                 text: "<span class='color-gray'>🧠 Über Politiker</span>\nSie sind als Erste gerannt. Aber wir haben sie eingeholt.\nWir schickten Bio-Humanoiden mit aufgedruckten Gesichtern und Phasenschock-Ampullen zu Senator Ricks.\nJetzt sitzt Ricks in einem Keller, zittert, nennt sich Mary und hat Angst vor dem Licht.",
@@ -793,7 +793,7 @@ const allStories = {
             {
                 text: "<span class='color-green'>🦆 Sobre los gansos</span>\nSí, DARPA. Proyecto AGGRESSOR-AVIAN UNIT.\nLa idea era que los gansos con IA reconocen mejor los objetivos que los bots.\nRealidad: los gansos aprendieron a desactivar servidores con el aliento, y en sus picos llevan dispensadores de fentanilo, ricina y LSD.\nCapturamos a uno. Lo llamamos Hans... Ahora es nuestro explorador y especialista en 'trabajos sucios'.\nLo soltamos en el ayuntamiento: picoteó al alcalde, el alcalde vio a Dios y se ahogó en una fuente.",
                 image: "assets/images/goose.png",
-                music: "rap"
+                music: "classical"
             },
             {
                 text: "<span class='color-blue'>☣️ Sobre el ciber y la droga</span>\nNuestros hackers son ex-estudiantes de MIT que ahora duermen en servidores y no comen.\nEscribimos el virus 'ESPEJO-7': hace que una persona vea su propio reflejo matándola.\n¿Y las drogas? Interceptamos un convoy del CDC.\nAsí liquidamos al senador O’Brien: pusimos en su café una microdosis de 'Corona-R3'.\nUna hora después pensaba que era un dron. Saltó desde un piso 12 gritando '¡Wi-Fi activo!'",
@@ -803,7 +803,7 @@ const allStories = {
             {
                 text: "<span class='color-magenta'>🛸 Sobre los drones</span>\nNo tenemos F-35, pero tenemos chatarra de eBay y un genio llamado Lex.\nMontamos un enjambre de 312 drones FPV, baratos pero listos. Los llamamos 'El Coro de Filadelfia'.\nCada uno está equipado con una aguja con 'Corazón-3', un sintético que causa enamoramiento agudo e infarto a los 12 minutos.\nAsí eliminamos al gobernador de Texas. Murió abrazando su sombra en el capó de un blindado.",
                 image: "assets/images/drones.png",
-                music: "rap"
+                music: "classical"
             },
             {
                 text: "<span class='color-gray'>🧠 Sobre los políticos</span>\nFueron los primeros en huir. Pero los alcanzamos.\nEnviamos biohumanoides con caras impresas al senador Ricks con ampollas de choque de fase.\nAhora Ricks está sentado en un sótano, temblando, llamándose Mary y con miedo a la luz.",
@@ -1026,7 +1026,7 @@ const allStories = {
             {
                 text: "<span class='color-green'>🦆 关于鹅</span>\n没错，DARPA（美国国防高级研究计划局）。AGGRESSOR-AVIAN UNIT项目。\n初衷是认为AI鹅比机器人更能识别目标。\n现实是——鹅学会了用呼吸停掉服务器，它们的喙里装有芬太尼、蓖麻毒素和LSD的投放器。\n我们捕获了一只。叫它汉斯……现在它是我们的侦察兵和“清除”专家。\n我们把它放进市政厅——它啄了市长，市长见到了上帝并溺死在喷泉里。",
                 image: "assets/images/goose.png",
-                music: "rap"
+                music: "classical"
             },
             {
                 text: "<span class='color-blue'>☣️ 关于赛博与毒品</span>\n我们的黑客是麻省理工学院的前学生，他们现在睡在服务器里，不吃东西。\n我们编写了“镜像-7”病毒：它让人看到自己的倒影正在杀死自己。\n毒品呢？我们拦截了CDC（疾控中心）的车队。\n我们就这样清除了参议员奥布莱恩——在他的咖啡里掺了微剂量的“电晕-R3”。\n一小时后，他以为自己是一架无人机。他从12楼跳了下去，嘴里喊着“Wi-Fi已激活！”",
@@ -1036,7 +1036,7 @@ const allStories = {
             {
                 text: "<span class='color-magenta'>🛸 关于无人机</span>\n我们没有F-35，但我们有eBay上的垃圾和一位名叫莱克斯的天才。\n我们组建了一个由312架FPV无人机组成的集群，虽然廉价但很智能。我们称之为“费城合唱团”。\n每一架都配有一根带有“心脏-3”的针——这是一种合成药剂，会引起极度的迷恋，并在12分钟后导致心脏病发作。\n我们就这样干掉了德克萨斯州州长。他死在装甲车引擎盖上，紧紧抱着自己的影子。",
                 image: "assets/images/drones.png",
-                music: "rap"
+                music: "classical"
             },
             {
                 text: "<span class='color-gray'>🧠 关于政客</span>\n他们跑得最快。但我们追得也快。\n我们把印有面孔的生物拟人发给了参议员里克斯，并带去了相位冲击安瓿。\n现在里克斯坐在地下室里发抖，自称是玛丽，并且害怕光线。",
@@ -1259,7 +1259,7 @@ const allStories = {
             {
                 text: "<span class='color-green'>🦆 درباره غازها</span>\nبله، دارپا. پروژه AGGRESSOR-AVIAN UNIT.\nایده این بود که غازهای هوش مصنوعی اهداف را بهتر از ربات‌ها تشخیص می‌دهند.\nواقعیت — غازها یاد گرفتند که سرورها را با نفس خود از کار بیندازند و در منقارهایشان توزیع‌کننده‌های فنتانیل، ریسین و ال‌اس‌دی دارند.\nما یکی را گرفتیم. نامش را هانس گذاشتیم... حالا او دیدبان و متخصص کارهای کثیف ماست.\nاو را به شهرداری شهر فرستادیم — او به شهردار نوک زد، شهردار خدا را دید و در فواره غرق شد.",
                 image: "assets/images/goose.png",
-                music: "rap"
+                music: "classical"
             },
             {
                 text: "<span class='color-blue'>☣️ درباره سایبر و مواد</span>\nهکرهای ما دانشجویان سابق ام‌آی‌تی هستند که حالا در سرورها می‌خوابند و چیزی نمی‌خورند.\nما ویروس «آینه-۷» را نوشتیم: این ویروس باعث می‌شود فرد انعکاس خودش را ببیند که در حال کشتن اوست.\nدرباره مواد؟ ما یک کاروان سی‌دی‌سی را متوقف کردیم.\nاین‌گونه سناتور اوبراین را از سر راه برداشتیم — در قهوه‌اش یک میکرودوز «کرونا-R3» ریختیم.\nیک ساعت بعد فکر کرد که پهپاد است. از طبقه ۱۲ پرید پایین و فریاد می‌زد «وای‌فای، فعال است!»",
@@ -1269,7 +1269,7 @@ const allStories = {
             {
                 text: "<span class='color-magenta'>🛸 درباره پهپادها</span>\nما اف-۳۵ نداریم، اما خرت و پرت‌های ای‌بی و یک نابغه به نام لکس را داریم.\nما دسته‌ای از ۳۱۲ پهپاد اف‌پی‌وی جمع کردیم، ارزان اما هوشمند. نامشان را «گروه کر فیلادلفیا» گذاشتیم.\nهر کدام مجهز به یک سوزن حاوی «قلب-۳» است — یک ماده مصنوعی که باعث عشق شدید و ایست قلبی بعد از ۱۲ دقیقه می‌شود.\nاین‌گونه فرماندار تگزاس را از بین بردیم. او در حالی که سایه خودش را روی کاپوت یک خودروی زرهی در آغوش گرفته بود، مرد.",
                 image: "assets/images/drones.png",
-                music: "rap"
+                music: "classical"
             },
             {
                 text: "<span class='color-gray'>🧠 درباره سیاستمداران</span>\nآن‌ها اولین کسانی بودند که فرار کردند. اما ما به آن‌ها رسیدیم.\nما بیوهومانوئیدهایی با چهره‌های چاپ شده را با آمپول‌های شوک فازی به سراغ سناتور ریکس فرستادیم.\nحالا ریکس در یک زیرزمین نشسته، می‌لرزد، خودش را مری می‌نامد و از نور می‌ترسد.",
