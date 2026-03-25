@@ -710,6 +710,54 @@ viewModeBtn.addEventListener('click', (e) => {
     toggleViewMode();
 });
 
+// Procedural SFX Engine
+let audioCtx;
+
+function playProceduralSFX(type) {
+    if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+    }
+
+    const osc = audioCtx.createOscillator();
+    const gainNode = audioCtx.createGain();
+    
+    osc.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
+    
+    const now = audioCtx.currentTime;
+    
+    if (type === 'explosion') {
+        osc.type = 'square';
+        osc.frequency.setValueAtTime(100, now);
+        osc.frequency.exponentialRampToValueAtTime(0.01, now + 0.5);
+        gainNode.gain.setValueAtTime(0.8, now);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, now + 0.5);
+        osc.start(now);
+        osc.stop(now + 0.5);
+    } else if (type === 'glitch') {
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(800, now);
+        osc.frequency.linearRampToValueAtTime(1200, now + 0.1);
+        osc.frequency.linearRampToValueAtTime(400, now + 0.2);
+        gainNode.gain.setValueAtTime(0.3, now);
+        gainNode.gain.linearRampToValueAtTime(0, now + 0.3);
+        osc.start(now);
+        osc.stop(now + 0.3);
+    } else if (type === 'honk') {
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(300, now);
+        osc.frequency.exponentialRampToValueAtTime(500, now + 0.1);
+        osc.frequency.exponentialRampToValueAtTime(200, now + 0.3);
+        gainNode.gain.setValueAtTime(0.6, now);
+        gainNode.gain.linearRampToValueAtTime(0.01, now + 0.3);
+        osc.start(now);
+        osc.stop(now + 0.3);
+    }
+}
+
 // Input handling
 document.addEventListener('click', handleInput);
 document.addEventListener('keydown', (e) => {
@@ -812,6 +860,19 @@ function updateScene() {
             // Update and Fade in text
             textDisplay.innerHTML = data.text;
             textDisplay.classList.add('visible');
+
+            // --- VFX AND SFX PROCESSING ---
+            const bgContainer = document.getElementById('background-container');
+            bgContainer.classList.remove('vfx-shake', 'vfx-glitch-severe'); // Reset
+            if (data.vfx) {
+                void bgContainer.offsetWidth; // force reflow
+                bgContainer.classList.add(`vfx-${data.vfx}`);
+                // Remove the class after the animation completes so it doesn't get stuck offset
+                setTimeout(() => { bgContainer.classList.remove(`vfx-${data.vfx}`); }, 600);
+            }
+            if (data.sfx) {
+                playProceduralSFX(data.sfx);
+            }
 
             // Controls visibility
             if (stepHistory.length > 0) {

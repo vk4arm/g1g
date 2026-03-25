@@ -108,6 +108,7 @@ const allStories = {
             },
             {
                 id: "NEW_TRIP",
+                vfx: "glitch-severe", sfx: "glitch",
                 text: "Я воткнул кабель ему в порт. Реальность треснула. Мой мозг обволокла неоновая фрактальная матрица. Я увидел мир глазами гуся — это бесконечный цифровой кошмар, где мы лишь пищевой код для высших кибер-птиц. Меня вырвало, но я понял: они нами играют.",
                 image: "assets/images/goose_neurotrip.png",
                 music: "classical",
@@ -154,6 +155,7 @@ const allStories = {
 ,
             {
                 id: "NEW_TRAIN",
+                vfx: "shake", sfx: "explosion",
                 text: "*ГРОХОТ* Бронепоезд SEC-CORP на полном ходу пробивает железобетонную стену бункера Транзитного Командования! Ошмётки защиты, пламя до небес и наши кибер-братки с неоновыми мачете влетают прямо в пекло. Политики даже не успели залогиниться в свои дроны бегства.",
                 image: "assets/images/train_crash.png",
                 music: "rap",
@@ -163,6 +165,7 @@ const allStories = {
             },
             {
                 id: "NEW_AMBUSH",
+                vfx: "shake", sfx: "explosion",
                 text: "Ночная улица озарилась неоновыми вспышками от наших базук. Мы устроили тотальный разнос: ЭМИ-гранаты вырубили мехи правительства, а снаряды разнесли их укрепления в пыль. Это не просто бандитизм — это снос старого режима под грохот металла и запах паленого био-керосина.",
                 image: "assets/images/bandit_ambush.png",
                 music: "rap",
@@ -193,6 +196,7 @@ const allStories = {
             },
             {
                 id: "NEW_PIZZA",
+                sfx: "honk",
                 text: "Почему бы и нет? Вентиляция вывела меня в элитную столовую генералов. Я в полете разнес поднос с кибер-шаурмой, приземлился на стол и устроил пир среди неоновых огней Пентагона. Охрана была в ужасе от моей наглости. Я гусь, я взял то, что по праву моё.",
                 image: "assets/images/goose_pizza.png",
                 music: "casino",
@@ -348,6 +352,7 @@ const allStories = {
             },
             {
                 id: "NEW_ANGEL",
+                vfx: "glitch-severe", sfx: "glitch",
                 text: "Я не смог закрыть глаза. Айла расправила свои пылающие голографические крылья. Она стала божеством разрушения в этом проклятом зале. Забыв про щиты и импланты, я просто стоял на коленях и молился гусиному божеству под грохот обрушающейся Империи.",
                 image: "assets/images/goose_angel.png",
                 music: "classical",
@@ -409,6 +414,7 @@ const allStories = {
 ,
             {
                 id: "NEW_CULT",
+                vfx: "shake", sfx: "honk",
                 text: "Я пал на колени. Огромный кибер-гусь в неоновой митре епископа протянул мне светящуюся техно-сферу. Женщины в латексе и противогазах молились вокруг нас. Я вкусил цифровое причастие — и старый мир растворился в священном фрактальном гоготе.",
                 image: "assets/images/religious_goose.png",
                 music: "casino",
@@ -455,6 +461,7 @@ const allStories = {
             },
             {
                 id: "NEW_TRIP",
+                vfx: "glitch-severe", sfx: "glitch",
                 text: "I plugged the cable into his port. Reality fractured. My brain was enveloped in a neon fractal matrix. I saw the world through the goose's eyes — it's an endless digital nightmare where we are merely food code for higher cyber-birds. I threw up, but I understood: they are playing us.",
                 image: "assets/images/goose_neurotrip.png",
                 music: "classical",
@@ -501,6 +508,7 @@ const allStories = {
 ,
             {
                 id: "NEW_TRAIN",
+                vfx: "shake", sfx: "explosion",
                 text: "*CRASH* The SEC-CORP armored train smashes through the reinforced concrete wall of the Transit Command bunker at full speed! Shredded defenses, flames reaching the sky, and our cyber-bros with neon machetes plunge straight into the inferno. The politicians did not even have time to log into their escape drones.",
                 image: "assets/images/train_crash.png",
                 music: "rap",
@@ -510,6 +518,7 @@ const allStories = {
             },
             {
                 id: "NEW_AMBUSH",
+                vfx: "shake", sfx: "explosion",
                 text: "The night street lit up with neon flashes from our bazookas. We caused total devastation: EMP grenades disabled the government mechs, and rockets blew their fortifications to dust. This is not just banditry—it is the demolition of the old regime to the roar of metal and the smell of burnt bio-kerosene.",
                 image: "assets/images/bandit_ambush.png",
                 music: "rap",
@@ -540,6 +549,7 @@ const allStories = {
             },
             {
                 id: "NEW_PIZZA",
+                sfx: "honk",
                 text: "Why not? The vent led me to the elite generals' cafeteria. I smashed a tray of cyber-shawarma mid-flight, landed on the table, and feasted amid the neon lights of the Pentagon. The guards were terrified by my audacity. I'm a goose, I took what's rightfully mine.",
                 image: "assets/images/goose_pizza.png",
                 music: "casino",
@@ -695,6 +705,7 @@ const allStories = {
             },
             {
                 id: "NEW_ANGEL",
+                vfx: "glitch-severe", sfx: "glitch",
                 text: "I couldn't close my eyes. Aila spread her blazing holographic wings. She became a deity of destruction in this damned hall. Forgetting about shields and implants, I just knelt down and prayed to the goose deity under the roar of the collapsing Empire.",
                 image: "assets/images/goose_angel.png",
                 music: "classical",
@@ -756,6 +767,7 @@ const allStories = {
 ,
             {
                 id: "NEW_CULT",
+                vfx: "shake", sfx: "honk",
                 text: "I fell to my knees. A giant cyber-goose in a neon bishop's mitre offered me a glowing tech orb. Women in latex and gas masks prayed around us. I tasted the digital communion — and the old world dissolved in holy fractal honking.",
                 image: "assets/images/religious_goose.png",
                 music: "casino",
@@ -802,6 +814,7 @@ const allStories = {
             },
             {
                 id: "NEW_TRIP",
+                vfx: "glitch-severe", sfx: "glitch",
                 text: "Ich steckte das Kabel in seinen Port. Die Realität brach zusammen. Mein Gehirn wurde in eine neonfarbene fraktale Matrix gehüllt. Ich sah die Welt durch die Augen der Gans — es ist ein endloser digitaler Albtraum, wo wir nur Nahrungscode für höhere Cyber-Vögel sind. Ich übergab mich, aber ich verstand: Sie spielen mit uns.",
                 image: "assets/images/goose_neurotrip.png",
                 music: "classical",
@@ -848,6 +861,7 @@ const allStories = {
 ,
             {
                 id: "NEW_TRAIN",
+                vfx: "shake", sfx: "explosion",
                 text: "*KRACH* Der gepanzerte SEC-CORP-Zug durchbricht mit voller Geschwindigkeit die Stahlbetonwand des Bunkers des Transitkommandos! Zerstörte Verteidigungsanlagen, Flammen bis zum Himmel, und unsere Cyber-Brüder mit Neon-Macheten stürzen sich direkt ins Inferno. Die Politiker hatten nicht einmal Zeit, sich in ihre Fluchtdrohnen einzuloggen.",
                 image: "assets/images/train_crash.png",
                 music: "rap",
@@ -857,6 +871,7 @@ const allStories = {
             },
             {
                 id: "NEW_AMBUSH",
+                vfx: "shake", sfx: "explosion",
                 text: "Die nächtliche Straße wurde von Neonblitzen aus unseren Panzerfäusten erhellt. Wir haben totale Verwüstung angerichtet: EMP-Granaten haben die Mechs der Regierung deaktiviert und Raketen haben ihre Befestigungen zu Staub gesprengt. Das ist nicht nur Banditentum – es ist der Abriss des alten Regimes unter dem Dröhnen von Metall und dem Geruch von verbranntem Bio-Kerosin.",
                 image: "assets/images/bandit_ambush.png",
                 music: "rap",
@@ -887,6 +902,7 @@ const allStories = {
             },
             {
                 id: "NEW_PIZZA",
+                sfx: "honk",
                 text: "Warum nicht? Die Lüftung führte mich in die elitäre Generalkantine. Ich zertrümmerte im Flug ein Tablett mit Cyber-Shawarma, landete auf dem Tisch und schmauste im Neonlicht des Pentagons. Die Wachen waren über meine Dreistigkeit entsetzt. Ich bin eine Gans, ich habe mir genommen, was mir zusteht.",
                 image: "assets/images/goose_pizza.png",
                 music: "casino",
@@ -1042,6 +1058,7 @@ const allStories = {
             },
             {
                 id: "NEW_ANGEL",
+                vfx: "glitch-severe", sfx: "glitch",
                 text: "Ich konnte die Augen nicht schließen. Aila breitete ihre flammenden holografischen Flügel aus. Sie wurde zu einer Gottheit der Zerstörung in diesem verdammten Saal. Von Schilden und Implantaten vergessend, kniete ich nur nieder und betete unter dem Dröhnen des zusammenbrechenden Imperiums zu der Gänsegottheit.",
                 image: "assets/images/goose_angel.png",
                 music: "classical",
@@ -1103,6 +1120,7 @@ const allStories = {
 ,
             {
                 id: "NEW_CULT",
+                vfx: "shake", sfx: "honk",
                 text: "Ich fiel auf die Knie. Eine riesige Cyber-Gans in einer neonfarbenen Bischofsmitra reichte mir eine leuchtende Tech-Kugel. Frauen in Latex und Gasmasken beteten um uns herum. Ich kostete das digitale Abendmahl – und die alte Welt löste sich in heiligem fraktalem Schnattern auf.",
                 image: "assets/images/religious_goose.png",
                 music: "casino",
@@ -1149,6 +1167,7 @@ const allStories = {
             },
             {
                 id: "NEW_TRIP",
+                vfx: "glitch-severe", sfx: "glitch",
                 text: "Conecté el cable en su puerto. La realidad se fracturó. Mi cerebro se envolvió en una matriz fractal de neón. Vi el mundo a través de los ojos del ganso — es una pesadilla digital interminable donde solo somos código alimenticio para ciber-aves superiores. Vomité, pero entendí: están jugando con nosotros.",
                 image: "assets/images/goose_neurotrip.png",
                 music: "classical",
@@ -1195,6 +1214,7 @@ const allStories = {
 ,
             {
                 id: "NEW_TRAIN",
+                vfx: "shake", sfx: "explosion",
                 text: "*¡CRASH!* ¡El tren blindado SEC-CORP atraviesa a toda velocidad el muro de hormigón armado del búnker del Comando de Tránsito! Defensas destrozadas, llamas que llegan al cielo, y nuestros ciber-hermanos con machetes de neón se sumergen directamente en el infierno. Los políticos ni siquiera tuvieron tiempo de conectarse a sus drones de escape.",
                 image: "assets/images/train_crash.png",
                 music: "rap",
@@ -1204,6 +1224,7 @@ const allStories = {
             },
             {
                 id: "NEW_AMBUSH",
+                vfx: "shake", sfx: "explosion",
                 text: "La calle nocturna se iluminó con los destellos de neón de nuestras bazucas. Causamos una devastación total: las granadas EMP desactivaron los robots del gobierno y los cohetes redujeron sus fortificaciones a polvo. Esto no es solo bandolerismo, es la demolición del antiguo régimen al rugido del metal y el olor a bio-queroseno quemado.",
                 image: "assets/images/bandit_ambush.png",
                 music: "rap",
@@ -1234,6 +1255,7 @@ const allStories = {
             },
             {
                 id: "NEW_PIZZA",
+                sfx: "honk",
                 text: "¿Por qué no? El conducto de ventilación me llevó a la cafetería de élite de los generales. Destrocé una bandeja de ciber-shawarma en pleno vuelo, aterricé sobre la mesa y me di un festín entre las luces de neón del Pentágono. Los guardias estaban aterrorizados por mi audacia. Soy un ganso, tomé lo que me pertenece por derecho.",
                 image: "assets/images/goose_pizza.png",
                 music: "casino",
@@ -1389,6 +1411,7 @@ const allStories = {
             },
             {
                 id: "NEW_ANGEL",
+                vfx: "glitch-severe", sfx: "glitch",
                 text: "No pude cerrar los ojos. Aila desplegó sus ardientes alas holográficas. Se convirtió en una deidad de la destrucción en este salón condenado. Olvidando escudos e implantes, me arrodillé y oré a la deidad gansa bajo el rugido del Imperio colapsando.",
                 image: "assets/images/goose_angel.png",
                 music: "classical",
@@ -1450,6 +1473,7 @@ const allStories = {
 ,
             {
                 id: "NEW_CULT",
+                vfx: "shake", sfx: "honk",
                 text: "Caí de rodillas. Un ganso cibernético gigante con una mitra de obispo de neón me ofreció un orbe tecnológico brillante. Mujeres en látex y máscaras de gas rezaban a nuestro alrededor. Probé la comunión digital y el viejo mundo se disolvió en un graznido fractal sagrado.",
                 image: "assets/images/religious_goose.png",
                 music: "casino",
@@ -1496,6 +1520,7 @@ const allStories = {
             },
             {
                 id: "NEW_TRIP",
+                vfx: "glitch-severe", sfx: "glitch",
                 text: "我把电缆插进了他的端口。现实碎裂了。我的大脑被耀眼的霓虹分形矩阵包裹。我通过鹅的眼睛看到了世界——这是一个无尽的数字噩梦，我们只是高级赛博鸟类的食物代码。我吐了，但我明白了：它们在玩弄我们。",
                 image: "assets/images/goose_neurotrip.png",
                 music: "classical",
@@ -1542,6 +1567,7 @@ const allStories = {
 ,
             {
                 id: "NEW_TRAIN",
+                vfx: "shake", sfx: "explosion",
                 text: "*轰隆！* SEC-CORP装甲列车全速撞穿了过境指挥部地堡的钢筋混凝土墙！被撕碎的防御设施，冲天的火焰，我们拿着霓虹弯刀的赛博兄弟直接冲进了火海。政客们甚至没有时间登录他们的逃生无人机。",
                 image: "assets/images/train_crash.png",
                 music: "rap",
@@ -1551,6 +1577,7 @@ const allStories = {
             },
             {
                 id: "NEW_AMBUSH",
+                vfx: "shake", sfx: "explosion",
                 text: "夜晚的街道被我们火箭筒发出的霓虹灯闪光照亮。我们造成了彻底的破坏：EMP手榴弹使政府的机甲失效，火箭弹将他们的防御工事炸成灰烬。这不仅仅是土匪行径——这是在金属的轰鸣声和烧焦的生物煤油的气味中，对旧政权进行拆除。",
                 image: "assets/images/bandit_ambush.png",
                 music: "rap",
@@ -1581,6 +1608,7 @@ const allStories = {
             },
             {
                 id: "NEW_PIZZA",
+                sfx: "honk",
                 text: "有何不可？通风口将我引向了将领们的精英餐厅。在飞行中我撞碎了一盘赛博沙威玛，降落在桌面上，在五角大楼的霓虹灯下大快朵颐。保安们对我的狂妄感到恐惧。我是一只鹅，我拿走了我理所应得的东西。",
                 image: "assets/images/goose_pizza.png",
                 music: "casino",
@@ -1736,6 +1764,7 @@ const allStories = {
             },
             {
                 id: "NEW_ANGEL",
+                vfx: "glitch-severe", sfx: "glitch",
                 text: "我无法闭上双眼。艾拉展开了她闪耀的全息翅膀。在这个被诅咒的大厅里，她成为了毁灭的神明。我忘记了护盾和植入物，只是跪在坍塌中的帝国的轰鸣声里，向这只鹅神祈祷。",
                 image: "assets/images/goose_angel.png",
                 music: "classical",
@@ -1797,6 +1826,7 @@ const allStories = {
 ,
             {
                 id: "NEW_CULT",
+                vfx: "shake", sfx: "honk",
                 text: "我跪了下来。一只戴着霓虹主教帽的巨大机械鹅向我提供了一个发光的科技球。周围穿着乳胶和防毒面具的女人在祈祷。我品尝了数字圣餐——旧世界在神圣的分形鹅叫声中溶解。",
                 image: "assets/images/religious_goose.png",
                 music: "casino",
@@ -1843,6 +1873,7 @@ const allStories = {
             },
             {
                 id: "NEW_TRIP",
+                vfx: "glitch-severe", sfx: "glitch",
                 text: "کابل را به پورت آن وصل کردم. واقعیت در هم شکست. مغز من در یک ماتریس فراکتال نئونی پیچیده شد. من دنیا را از چشم غاز دیدم — این یک کابوس دیجیتال بی پایان است که در آن ما فقط کد غذایی برای پرندگان سایبری بالاتر هستیم. بالا آوردم، اما فهمیدم: آنها دارند با ما بازی می کنند.",
                 image: "assets/images/goose_neurotrip.png",
                 music: "classical",
@@ -1889,6 +1920,7 @@ const allStories = {
 ,
             {
                 id: "NEW_TRAIN",
+                vfx: "shake", sfx: "explosion",
                 text: "*تصادف* قطار زرهی SEC-CORP با سرعت تمام از دیوار بتن آرمه پناهگاه فرماندهی ترانزیت عبور می کند! دفاعیات خرد شده، شعله های آتش به آسمان می رسد و برادران سایبری ما با قمه های نئونی مستقیماً در دوزخ فرو می روند. سیاستمداران حتی وقت نداشتند وارد پهپادهای فرار خود شوند.",
                 image: "assets/images/train_crash.png",
                 music: "rap",
@@ -1898,6 +1930,7 @@ const allStories = {
             },
             {
                 id: "NEW_AMBUSH",
+                vfx: "shake", sfx: "explosion",
                 text: "خیابان شب با پرتوهای نئون بازوکاهای ما روشن شد. ما ویرانی کامل ایجاد کردیم: نارنجک‌های EMP ماشین‌های دولت را از کار انداختند و موشک‌ها استحکامات آنها را به خاکستر تبدیل کردند. این فقط راهزنی نیست - این تخریب رژیم قدیمی با غرش فلز و بوی نفت سفید زیستی سوخته است.",
                 image: "assets/images/bandit_ambush.png",
                 music: "rap",
@@ -1928,6 +1961,7 @@ const allStories = {
             },
             {
                 id: "NEW_PIZZA",
+                sfx: "honk",
                 text: "چرا که نه؟ دریچه تهویه من را به کافه تریای نخبه ژنرال ها رساند. در حال پرواز یک سینی سایبرشاورما را خرد کردم، روی میز فرود آمدم و در میان چراغ های نئونی پنتاگون یک مهمانی برپا کردم. نگهبانان از جسارت من وحشت زده شده بودند. من یک غازم، من چیزی که حقمه رو برداشتم.",
                 image: "assets/images/goose_pizza.png",
                 music: "casino",
@@ -2083,6 +2117,7 @@ const allStories = {
             },
             {
                 id: "NEW_ANGEL",
+                vfx: "glitch-severe", sfx: "glitch",
                 text: "نمیتونستم چشمام رو ببندم. آیلا بال های هولوگرافیک سوزان خود را گشود. او در این سالن نفرین شده تبدیل به خدای ویرانی شد. سپرها و ایمپلنت ها را فراموش کردم، فقط زانو زدم و در زیر غرش امپراتوری در حال فروپاشی، در برابر خدای غاز نماز خواندم.",
                 image: "assets/images/goose_angel.png",
                 music: "classical",
