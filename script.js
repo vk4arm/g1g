@@ -741,6 +741,10 @@ function updateScene() {
                     btn.innerText = choice.text;
                     btn.onclick = (e) => {
                         e.stopPropagation();
+                        if (choice.nextStep === 999) {
+                            backBtn.click();
+                            return;
+                        }
                         if (choice.nextStep !== undefined) {
                             if (typeof choice.nextStep === "string") { currentStep = paragraphs.findIndex(p => p.id === choice.nextStep); } else { currentStep = choice.nextStep; }
                             updateScene();
