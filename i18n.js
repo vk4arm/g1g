@@ -10,7 +10,9 @@ const uiStrings = {
         exitView: "❌ ВЫХОД",
         share: "РАСПРОСТРАНИТЬ ПРОТОКОЛ",
         copied: "ПРОТОКОЛ СКОПИРОВАН",
-        achievements: "ДОСТИЖЕНИЯ"
+        achievements: "ДОСТИЖЕНИЯ",
+        startPart4: "НАЧАТЬ ЧАСТЬ 4: ИСТИННАЯ КОНЦОВКА",
+        codexBtn: "НЕЙРО-АРХИВ"
     },
     en: {
         startPart1: "START PART 1: TECH-OATH",
@@ -23,7 +25,9 @@ const uiStrings = {
         exitView: "❌ EXIT",
         share: "BROADCAST PROTOCOL",
         copied: "PROTOCOL COPIED",
-        achievements: "ACHIEVEMENTS"
+        achievements: "ACHIEVEMENTS",
+        startPart4: "START PART 4: TRUE ENDING",
+        codexBtn: "NEURO-ARCHIVE"
     },
     de: {
         startPart1: "TEIL 1 STARTEN: TECH-EID",
@@ -36,7 +40,9 @@ const uiStrings = {
         exitView: "❌ BEENDEN",
         share: "PROTOKOLL VERBREITEN",
         copied: "PROTOKOLL KOPIERT",
-        achievements: "ERFOLGE"
+        achievements: "ERFOLGE",
+        startPart4: "TEIL 4 STARTEN: WAHRES ENDE",
+        codexBtn: "NEURO-ARCHIV"
     },
     es: {
         startPart1: "INICIAR PARTE 1: JURAMENTO TECNO",
@@ -49,7 +55,9 @@ const uiStrings = {
         exitView: "❌ SALIR",
         share: "DIFUNDIR PROTOCOLO",
         copied: "PROTOCOLO COPIADO",
-        achievements: "LOGROS"
+        achievements: "LOGROS",
+        startPart4: "INICIAR PARTE 4: FINAL VERDADERO",
+        codexBtn: "NEURO-ARCHIVO"
     },
     zh: {
         startPart1: "开始第一部分：技术誓言",
@@ -62,7 +70,9 @@ const uiStrings = {
         exitView: "❌ 退出",
         share: "传播协议",
         copied: "协议已复制",
-        achievements: "成就"
+        achievements: "成就",
+        startPart4: "开始第四部分：真实结局",
+        codexBtn: "神经档案"
     },
     fa: {
         startPart1: "شروع بخش ۱: سوگند تکنولوژی",
@@ -75,7 +85,9 @@ const uiStrings = {
         exitView: "❌ خروج",
         share: "پروتکل پخش",
         copied: "پروتکل کپی شد",
-        achievements: "دستاوردها"
+        achievements: "دستاوردها",
+        startPart4: "شروع بخش ۴: پایان واقعی",
+        codexBtn: "بایگانی عصبی"
     }
 };
 
@@ -103,8 +115,8 @@ const allStories = {
             {
                 text: "<span class='color-green'>🦆 Про гусей</span>\nДа-да, DARPA. Проект AGGRESSOR-AVIAN UNIT.\nИдея была в том, что гуси с ИИ лучше распознают цели, чем боты.\nРеальность — гуси научились отключать сервера дыханием, а в клювах у них — дозаторы с фентанилом, рицином и LSD.\nМы захватили одного. Звали его Ганс... Теперь он наш разведчик и исполнитель “мокрых” дел.\nПустили его в городскую мэрию — он клюнул мэра, тот увидел Бога и утонул в фонтане.",
                 image: "assets/images/goose.png",
-                codex: "UNIT_HANS",
                 avatar: "hans",
+                codex: "UNIT_HANS",
                 music: "classical",
                 choices: [
                     { text: "Подключить гуся к нейро-сети (Риск кибер-психоза)", nextStep: "NEW_TRIP" },
@@ -458,10 +470,7 @@ const allStories = {
         ],
         part4: [
             {
-                text: "<span class='color-cyan'>🌊 Эпилог: Тихие Воды</span>
-Вы просыпаетесь под шум электронного прибоя. Закатное небо мерцает, как битый пиксель. Пентагона больше нет. Бункера правительства — тоже. Империя стерта с лица земли гусиным кодом.
-
-На синтетическом песке лежит лишь одно сияющее перо.",
+                text: "<span class='color-cyan'>🌊 Эпилог: Тихие Воды</span><br><br>Вы просыпаетесь под шум электронного прибоя. Закатное небо мерцает, как битый пиксель. Пентагона больше нет. Бункера правительства — тоже. Империя стерта с лица земли гусиным кодом.<br><br>На синтетическом песке лежит лишь одно сияющее перо.",
                 image: "assets/images/part4_island.png",
                 music: "wm"
             },
@@ -476,10 +485,7 @@ const allStories = {
         ],
         part4: [
             {
-                text: "<span class='color-cyan'>🌊 Epilogue: Quiet Waters</span>
-You wake up to the sound of an electronic surf. The sunset sky flickers like a broken pixel. The Pentagon is gone. The government bunker is gone. The Empire has been wiped off the face of the earth by goose code.
-
-Only one glowing feather lies on the synthetic sand.",
+                text: "<span class='color-cyan'>🌊 Epilogue: Quiet Waters</span><br><br>You wake up to the sound of an electronic surf. The sunset sky flickers like a broken pixel. The Pentagon is gone. The government bunker is gone. The Empire has been wiped off the face of the earth by goose code.<br><br>Only one glowing feather lies on the synthetic sand.",
                 image: "assets/images/part4_island.png",
                 music: "wm"
             },
@@ -494,10 +500,7 @@ Only one glowing feather lies on the synthetic sand.",
         ],
         part4: [
             {
-                text: "<span class='color-cyan'>🌊 Epilog: Stille Gewässer</span>
-Sie wachen beim Rauschen einer elektronischen Brandung auf. Der Sonnenuntergangshimmel flackert wie ein kaputtes Pixel. Das Pentagon ist weg. Der Regierungsbunker ist weg. Das Imperium wurde durch den Gänse-Code vom Erdboden gewischt.
-
-Nur eine leuchtende Feder liegt auf dem synthetischen Sand.",
+                text: "<span class='color-cyan'>🌊 Epilog: Stille Gewässer</span><br><br>Sie wachen beim Rauschen einer elektronischen Brandung auf. Der Sonnenuntergangshimmel flackert wie ein kaputtes Pixel. Das Pentagon ist weg. Der Regierungsbunker ist weg. Das Imperium wurde durch den Gänse-Code vom Erdboden gewischt.<br><br>Nur eine leuchtende Feder liegt auf dem synthetischen Sand.",
                 image: "assets/images/part4_island.png",
                 music: "wm"
             },
@@ -512,10 +515,7 @@ Nur eine leuchtende Feder liegt auf dem synthetischen Sand.",
         ],
         part4: [
             {
-                text: "<span class='color-cyan'>🌊 Epílogo: Aguas Tranquilas</span>
-Te despiertas con el sonido de un oleaje electrónico. El cielo del atardecer parpadea como un píxel roto. El Pentágono ya no existe. El búnker del gobierno tampoco. El Imperio ha sido borrado de la faz de la tierra por el código ganso.
-
-Solo una pluma brillante yace sobre la arena sintética.",
+                text: "<span class='color-cyan'>🌊 Epílogo: Aguas Tranquilas</span><br><br>Te despiertas con el sonido de un oleaje electrónico. El cielo del atardecer parpadea como un píxel roto. El Pentágono ya no existe. El búnker del gobierno tampoco. El Imperio ha sido borrado de la faz de la tierra por el código ganso.<br><br>Solo una pluma brillante yace sobre la arena sintética.",
                 image: "assets/images/part4_island.png",
                 music: "wm"
             },
@@ -530,10 +530,7 @@ Solo una pluma brillante yace sobre la arena sintética.",
         ],
         part4: [
             {
-                text: "<span class='color-cyan'>🌊 尾声：宁静的水域</span>
-伴随着电子海浪声，你醒来了。黄昏的天空像破碎的像素一样闪烁。五角大楼不见了。政府地堡也不见了。帝国已被鹅之代码从地球上抹去。
-
-合成沙滩上只留下一根发光的羽毛。",
+                text: "<span class='color-cyan'>🌊 尾声：宁静的水域</span><br><br>伴随着电子海浪声，你醒来了。黄昏的天空像破碎的像素一样闪烁。五角大楼不见了。政府地堡也不见了。帝国已被鹅之代码从地球上抹去。<br><br>合成沙滩上只留下一根发光的羽毛。",
                 image: "assets/images/part4_island.png",
                 music: "wm"
             },
@@ -570,8 +567,8 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-green'>🦆 About the Geese</span>\nYes, DARPA. Project AGGRESSOR-AVIAN UNIT.\nThe idea was that AI geese recognize targets better than bots.\nReality — the geese learned to disable servers with their breath, and their beaks hold dispensers for fentanyl, ricin, and LSD.\nWe captured one. Named him Hans... Now he's our scout and 'wetwork' specialist.\nWe let him into the city hall — he pecked the mayor, the mayor saw God and drowned in a fountain.",
                 image: "assets/images/goose.png",
-                codex: "UNIT_HANS",
                 avatar: "hans",
+                codex: "UNIT_HANS",
                 music: "classical",
                 choices: [
                     { text: "Connect goose to neuro-network (Risk of cyber-psychosis)", nextStep: "NEW_TRIP" },
@@ -947,8 +944,8 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-green'>🦆 Über die Gänse</span>\nJa, DARPA. Projekt AGGRESSOR-AVIAN UNIT.\nDie Idee war, dass KI-Gänse Ziele besser erkennen als Bots.\nRealität — die Gänse lernten, Server mit ihrem Atem zu deaktivieren, und in ihren Schnäbeln befinden sich Spender für Fentanyl, Rizin und LSD.\nWir haben eine gefangen. Nannten ihn Hans... Jetzt ist er unser Aufklärer und Spezialist für 'nasse' Angelegenheiten.\nWir ließen ihn ins Rathaus — er pickte den Bürgermeister, der Bürgermeister sah Gott und ertrank in einem Brunnen.",
                 image: "assets/images/goose.png",
-                codex: "UNIT_HANS",
                 avatar: "hans",
+                codex: "UNIT_HANS",
                 music: "classical",
                 choices: [
                     { text: "Gans an neuronales Netzwerk anschließen (Risiko einer Cyberpsychose)", nextStep: "NEW_TRIP" },
@@ -1324,8 +1321,8 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-green'>🦆 Sobre los gansos</span>\nSí, DARPA. Proyecto AGGRESSOR-AVIAN UNIT.\nLa idea era que los gansos con IA reconocen mejor los objetivos que los bots.\nRealidad: los gansos aprendieron a desactivar servidores con el aliento, y en sus picos llevan dispensadores de fentanilo, ricina y LSD.\nCapturamos a uno. Lo llamamos Hans... Ahora es nuestro explorador y especialista en 'trabajos sucios'.\nLo soltamos en el ayuntamiento: picoteó al alcalde, el alcalde vio a Dios y se ahogó en una fuente.",
                 image: "assets/images/goose.png",
-                codex: "UNIT_HANS",
                 avatar: "hans",
+                codex: "UNIT_HANS",
                 music: "classical",
                 choices: [
                     { text: "Conectar el ganso a la red neuronal (Riesgo de ciberpsicosis)", nextStep: "NEW_TRIP" },
@@ -1701,8 +1698,8 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-green'>🦆 关于鹅</span>\n没错，DARPA（美国国防高级研究计划局）。AGGRESSOR-AVIAN UNIT项目。\n初衷是认为AI鹅比机器人更能识别目标。\n现实是——鹅学会了用呼吸停掉服务器，它们的喙里装有芬太尼、蓖麻毒素和LSD的投放器。\n我们捕获了一只。叫它汉斯……现在它是我们的侦察兵和“清除”专家。\n我们把它放进市政厅——它啄了市长，市长见到了上帝并溺死在喷泉里。",
                 image: "assets/images/goose.png",
-                codex: "UNIT_HANS",
                 avatar: "hans",
+                codex: "UNIT_HANS",
                 music: "classical",
                 choices: [
                     { text: "将鹅连接到神经网络（有赛博精神病的风险）", nextStep: "NEW_TRIP" },
@@ -2078,8 +2075,8 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-green'>🦆 درباره غازها</span>\nبله، دارپا. پروژه AGGRESSOR-AVIAN UNIT.\nایده این بود که غازهای هوش مصنوعی اهداف را بهتر از ربات‌ها تشخیص می‌دهند.\nواقعیت — غازها یاد گرفتند که سرورها را با نفس خود از کار بیندازند و در منقارهایشان توزیع‌کننده‌های فنتانیل، ریسین و ال‌اس‌دی دارند.\nما یکی را گرفتیم. نامش را هانس گذاشتیم... حالا او دیدبان و متخصص کارهای کثیف ماست.\nاو را به شهرداری شهر فرستادیم — او به شهردار نوک زد، شهردار خدا را دید و در فواره غرق شد.",
                 image: "assets/images/goose.png",
-                codex: "UNIT_HANS",
                 avatar: "hans",
+                codex: "UNIT_HANS",
                 music: "classical",
                 choices: [
                     { text: "اتصال غاز به شبکه عصبی (خطر سایبرسایکوز)", nextStep: "NEW_TRIP" },
