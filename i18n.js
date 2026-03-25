@@ -9,7 +9,8 @@ const uiStrings = {
         viewMode: "👁️ ВИД",
         exitView: "❌ ВЫХОД",
         share: "РАСПРОСТРАНИТЬ ПРОТОКОЛ",
-        copied: "ПРОТОКОЛ СКОПИРОВАН"
+        copied: "ПРОТОКОЛ СКОПИРОВАН",
+        achievements: "ДОСТИЖЕНИЯ"
     },
     en: {
         startPart1: "START PART 1: TECH-OATH",
@@ -21,7 +22,8 @@ const uiStrings = {
         viewMode: "👁️ VIEW",
         exitView: "❌ EXIT",
         share: "BROADCAST PROTOCOL",
-        copied: "PROTOCOL COPIED"
+        copied: "PROTOCOL COPIED",
+        achievements: "ACHIEVEMENTS"
     },
     de: {
         startPart1: "TEIL 1 STARTEN: TECH-EID",
@@ -33,7 +35,8 @@ const uiStrings = {
         viewMode: "👁️ ANSICHT",
         exitView: "❌ BEENDEN",
         share: "PROTOKOLL VERBREITEN",
-        copied: "PROTOKOLL KOPIERT"
+        copied: "PROTOKOLL KOPIERT",
+        achievements: "ERFOLGE"
     },
     es: {
         startPart1: "INICIAR PARTE 1: JURAMENTO TECNO",
@@ -45,7 +48,8 @@ const uiStrings = {
         viewMode: "👁️ VER",
         exitView: "❌ SALIR",
         share: "DIFUNDIR PROTOCOLO",
-        copied: "PROTOCOLO COPIADO"
+        copied: "PROTOCOLO COPIADO",
+        achievements: "LOGROS"
     },
     zh: {
         startPart1: "开始第一部分：技术誓言",
@@ -57,7 +61,8 @@ const uiStrings = {
         viewMode: "👁️ 视图",
         exitView: "❌ 退出",
         share: "传播协议",
-        copied: "协议已复制"
+        copied: "协议已复制",
+        achievements: "成就"
     },
     fa: {
         startPart1: "شروع بخش ۱: سوگند تکنولوژی",
@@ -69,7 +74,8 @@ const uiStrings = {
         viewMode: "👁️ نما",
         exitView: "❌ خروج",
         share: "پروتکل پخش",
-        copied: "پروتکل کپی شد"
+        copied: "پروتکل کپی شد",
+        achievements: "دستاوردها"
     }
 };
 

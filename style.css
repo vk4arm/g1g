@@ -726,3 +726,143 @@ body.telegram-app .choice-btn {
     padding: 10px 15px;
     font-size: 1rem;
 }
+
+/* ── ACHIEVEMENTS SCREEN ───────── */
+#achievements-screen {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 40px 20px;
+    overflow-y: auto;
+}
+
+.achievements-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--neon-cyan);
+    padding-bottom: 15px;
+}
+
+.achievements-header h2 {
+    color: var(--neon-cyan);
+    font-size: 2rem;
+    text-shadow: 0 0 10px var(--neon-cyan);
+    margin: 0;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.achievement-item {
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--neon-cyan);
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.achievement-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 255, 255, 0.4);
+}
+
+.achievement-item.locked {
+    opacity: 0.5;
+    filter: grayscale(100%);
+    border-color: #555;
+    box-shadow: none;
+}
+
+.achievement-icon {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border: 1px solid var(--neon-cyan);
+    border-radius: 4px;
+}
+
+.achievement-locked .achievement-icon {
+    border-color: #555;
+}
+
+.achievement-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.achievement-title {
+    color: var(--neon-cyan);
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.achievement-desc {
+    color: #ccc;
+    font-size: 0.85rem;
+    line-height: 1.2;
+}
+
+/* ── UI TOASTS ───────── */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none;
+}
+
+.toast {
+    background: rgba(0, 0, 0, 0.9);
+    border-left: 4px solid var(--neon-yellow);
+    padding: 15px 20px;
+    min-width: 250px;
+    box-shadow: 0 0 20px rgba(255, 255, 51, 0.3);
+    color: white;
+    font-family: 'Share Tech Mono', monospace;
+    animation: slideInRight 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    display: flex;
+    flex-direction: column;
+}
+
+.toast.fade-out {
+    animation: fadeOutRight 0.4s ease forwards;
+}
+
+.toast-header {
+    font-size: 0.8rem;
+    color: var(--neon-yellow);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.toast-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(120%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeOutRight {
+    to { transform: translateX(120%); opacity: 0; }
+}

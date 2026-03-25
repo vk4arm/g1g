@@ -38,6 +38,7 @@ function setLanguage(lang) {
     if (startBtn1) startBtn1.innerText = ui.startPart1;
     if (startBtn2) startBtn2.innerText = ui.startPart2;
     if (startBtn3) startBtn3.innerText = ui.startPart3;
+    if (achievementsBtn) achievementsBtn.innerText = ui.achievements;
     if (shareBtn) shareBtn.innerText = ui.share;
 
     const title = document.getElementById('main-title');
@@ -346,6 +347,76 @@ const videoHacker = document.getElementById('video-hacker');
 const videoPart3TargetLocked = document.getElementById('video-part3-target-locked');
 const videoLoading = document.getElementById('video-loading');
 
+const achievementsBtn = document.getElementById('achievements-btn');
+const achievementsScreen = document.getElementById('achievements-screen');
+const achievementsCloseBtn = document.getElementById('achievements-close-btn');
+const achievementsGrid = document.getElementById('achievements-grid');
+const toastContainer = document.getElementById('toast-container');
+
+// Achievements Data
+const ACHIEVEMENTS_DATA = {
+    "ACH_TRAIN": { title: "Билет в Один Конец", desc: "Угнать бронепоезд и протаранить бункер. (Часть 1)", icon: "assets/images/train_crash.png" },
+    "ACH_AMBUSH": { title: "Неоновый Бандит", desc: "Устроить лобовую атаку с базуками. (Часть 1)", icon: "assets/images/bandit_ambush.png" },
+    "ACH_PSYCHO": { title: "Кибер-Психоз", desc: "Подключить гуся к нейро-сети. (Часть 1)", icon: "assets/images/goose_neurotrip.png" },
+    "ACH_PIZZA": { title: "Пожиратель Пентагона", desc: "Взломать столовую и съесть пиццу. (Часть 2)", icon: "assets/images/goose_pizza.png" },
+    "ACH_LSD": { title: "Матричный Дым", desc: "Задействовать LSD-дымокол в Пентагоне. (Часть 2)", icon: "assets/images/goose_lsd.png" },
+    "ACH_VODKA": { title: "Генеральский Тост", desc: "Активировать спец-протокол 'Русская Водка'. (Часть 2)", icon: "assets/images/goose_vodka.png" },
+    "ACH_ANGEL": { title: "Еретик", desc: "Поддаться меметическому ангелу-гусыне. (Часть 3)", icon: "assets/images/goose_angel.png" },
+    "ACH_CULT": { title: "Прихожанин", desc: "Принять кибер-причастие от Гуся-Епископа. (Часть 3)", icon: "assets/images/religious_goose.png" },
+    "ACH_ESCAPE": { title: "Выживший", desc: "Сбежать в противогазе с остатками элиты. (Часть 3)", icon: "assets/images/gasmask_women.png" },
+};
+
+let unlockedAchievements = new Set(JSON.parse(localStorage.getItem('achievements') || '[]'));
+
+const nextStepToAchievement = {
+    "NEW_TRAIN": "ACH_TRAIN",
+    "NEW_AMBUSH": "ACH_AMBUSH",
+    "NEW_TRIP": "ACH_PSYCHO",
+    "NEW_PIZZA": "ACH_PIZZA",
+    "NEW_LSD": "ACH_LSD",
+    "NEW_VODKA": "ACH_VODKA",
+    "NEW_ANGEL": "ACH_ANGEL",
+    "NEW_CULT": "ACH_CULT",
+    "NEW_ESCAPE": "ACH_ESCAPE"
+};
+
+function unlockAchievement(id) {
+    if (!ACHIEVEMENTS_DATA[id] || unlockedAchievements.has(id)) return;
+    unlockedAchievements.add(id);
+    localStorage.setItem('achievements', JSON.stringify(Array.from(unlockedAchievements)));
+    
+    // UI Toast
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.innerHTML = `
+        <div class="toast-header">ДОСТИЖЕНИЕ РАЗБЛОКИРОВАНО</div>
+        <div class="toast-title">${ACHIEVEMENTS_DATA[id].title}</div>
+    `;
+    toastContainer.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.classList.add('fade-out');
+        setTimeout(() => toast.remove(), 400);
+    }, 4000);
+}
+
+function renderAchievements() {
+    achievementsGrid.innerHTML = '';
+    for (const [id, data] of Object.entries(ACHIEVEMENTS_DATA)) {
+        const isUnlocked = unlockedAchievements.has(id);
+        const el = document.createElement('div');
+        el.className = 'achievement-item' + (isUnlocked ? '' : ' locked');
+        el.innerHTML = `
+            <img src="${data.icon}" alt="badge" class="achievement-icon">
+            <div class="achievement-info">
+                <div class="achievement-title">${isUnlocked ? data.title : "???"}</div>
+                <div class="achievement-desc">${isUnlocked ? data.desc : "Скрыто"}</div>
+            </div>
+        `;
+        achievementsGrid.appendChild(el);
+    }
+}
+
 // VK Bridge Initialization
 try {
     if (window.vkBridge) {
@@ -443,6 +514,17 @@ backBtn.addEventListener('click', () => {
             p.volume = 0;
         });
     }, 1500);
+});
+
+achievementsBtn.addEventListener('click', () => {
+    startScreen.classList.remove('active');
+    renderAchievements();
+    achievementsScreen.classList.add('active');
+});
+
+achievementsCloseBtn.addEventListener('click', () => {
+    achievementsScreen.classList.remove('active');
+    startScreen.classList.add('active');
 });
 
 prevBtn.addEventListener('click', () => {
@@ -754,6 +836,9 @@ function updateScene() {
                         stepHistory = []; // Prevent backing out to explore unselected choices
 
                         if (choice.nextStep !== undefined) {
+                            if (nextStepToAchievement[choice.nextStep]) {
+                                unlockAchievement(nextStepToAchievement[choice.nextStep]);
+                            }
                             if (typeof choice.nextStep === "string") { currentStep = paragraphs.findIndex(p => p.id === choice.nextStep); } else { currentStep = choice.nextStep; }
                             updateScene();
                         } else {

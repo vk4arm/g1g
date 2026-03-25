@@ -51,6 +51,7 @@
             <button id="start-btn-1" class="start-btn">P1: SECTOR D LOGS</button>
             <button id="start-btn-2" class="start-btn">P2: NEURAL LINK</button>
             <button id="start-btn-3" class="start-btn">P3: COLLAPSE PROTOCOL</button>
+            <button id="achievements-btn" class="start-btn">ACHIEVEMENTS</button>
             <button id="share-btn" class="start-btn share-btn">BROADCAST PROTOCOL</button>
         </div>
         <div class="visitor-counter">
@@ -142,6 +143,20 @@
     <audio id="audio-classical" src="assets/audio/classical.mp3" loop preload="auto"></audio>
     <audio id="audio-casino" src="assets/audio/casino.mp3" loop preload="auto"></audio>
     <audio id="audio-wm" src="assets/audio/wm.mp3" loop preload="auto"></audio>
+
+    <!-- Achievements Screen -->
+    <div id="achievements-screen" class="screen">
+        <div class="achievements-header">
+            <h2>NEURAL BADGES</h2>
+            <button id="achievements-close-btn" class="back-btn">RETURN</button>
+        </div>
+        <div id="achievements-grid" class="achievements-grid">
+            <!-- Dynamically populated -->
+        </div>
+    </div>
+
+    <!-- UI Toasts -->
+    <div id="toast-container" class="toast-container"></div>
 
     <script src="i18n.js"></script>
     <script>
