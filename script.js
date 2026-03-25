@@ -322,6 +322,7 @@ const shareBtn = document.getElementById('share-btn');
 const startScreen = document.getElementById('start-screen');
 const gameScreen = document.getElementById('game-screen');
 const textDisplay = document.getElementById('text-display');
+const choicesContainer = document.getElementById('choices-container');
 const layer1 = document.getElementById('bg-image-1');
 const layer2 = document.getElementById('bg-image-2');
 const indicator = document.getElementById('part-indicator');
@@ -647,6 +648,13 @@ function handleInput(e) {
 
     if (isTransitioning) return;
 
+    // Ignore if there are active choices
+    const choiceParagraphs = (allStories[currentLang] || allStories['ru'])[currentStory];
+    const currentData = choiceParagraphs[currentStep];
+    if (currentData && currentData.choices && currentData.choices.length > 0) {
+        return;
+    }
+
     // Ignore clicks on start buttons or controls
     if (e.target.classList.contains('start-btn') || e.target.id === 'back-btn' || e.target.id === 'prev-btn' || e.target.id === 'view-mode-btn') return;
 
@@ -670,8 +678,10 @@ function updateScene() {
     let remaining = paragraphs.length - currentStep;
     indicator.innerText = `${indicatorPrefix}:${remaining}`;
 
-    // Fade out text and instructions
+    // Fade out text, choices, and instructions
     textDisplay.classList.remove('visible');
+    choicesContainer.classList.add('hidden');
+    instruction.style.display = 'block';
     instruction.style.opacity = "0";
     prevBtn.classList.add('hidden');
 
@@ -723,7 +733,32 @@ function updateScene() {
                 prevBtn.classList.remove('hidden');
             }
 
-            if (currentStep === paragraphs.length - 1) {
+            if (data.choices && data.choices.length > 0) {
+                choicesContainer.innerHTML = '';
+                data.choices.forEach(choice => {
+                    const btn = document.createElement('button');
+                    btn.className = 'choice-btn';
+                    btn.innerText = choice.text;
+                    btn.onclick = (e) => {
+                        e.stopPropagation();
+                        if (choice.nextStep === 999) {
+                            backBtn.click();
+                            return;
+                        }
+                        if (choice.nextStep !== undefined) {
+                            if (typeof choice.nextStep === "string") { currentStep = paragraphs.findIndex(p => p.id === choice.nextStep); } else { currentStep = choice.nextStep; }
+                            updateScene();
+                        } else {
+                            currentStep++;
+                            updateScene();
+                        }
+                    };
+                    choicesContainer.appendChild(btn);
+                });
+                choicesContainer.classList.remove('hidden');
+                instruction.style.display = 'none';
+                nextBtn.classList.add('hidden');
+            } else if (currentStep === paragraphs.length - 1) {
                 nextBtn.classList.add('hidden');
                 instruction.innerHTML = `<span class='color-green'>${ui.continued}</span>`;
                 instruction.style.animation = "none";

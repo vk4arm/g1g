@@ -124,7 +124,31 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[Конец фрагмента. Запись прервана шипением. На фоне: гусиное шипение, женский голос на немецком и взрыв.]</span>",
                 image: "assets/images/bunker.png",
-                music: "classical"
+                music: "classical",
+                choices: [
+                    { text: "[План Омега] Угнать бронепоезд и протаранить бункер", nextStep: "NEW_TRAIN" },
+                    { text: "[План Альфа] Прямой штурм: ракетницы и кибер-взрывы", nextStep: "NEW_AMBUSH" },
+                    { text: "Придерживаться изначального плана", nextStep: 999 }
+                ]
+            }
+,
+            {
+                id: "NEW_TRAIN",
+                text: "*ГРОХОТ* Бронепоезд SEC-CORP на полном ходу пробивает железобетонную стену бункера Транзитного Командования! Ошмётки защиты, пламя до небес и наши кибер-братки с неоновыми мачете влетают прямо в пекло. Политики даже не успели залогиниться в свои дроны бегства.",
+                image: "assets/images/train_crash.png",
+                music: "rap",
+                choices: [
+                    { text: "Вернуться к дневнику Рида", nextStep: 999 }
+                ]
+            },
+            {
+                id: "NEW_AMBUSH",
+                text: "Ночная улица озарилась неоновыми вспышками от наших базук. Мы устроили тотальный разнос: ЭМИ-гранаты вырубили мехи правительства, а снаряды разнесли их укрепления в пыль. Это не просто бандитизм — это снос старого режима под грохот металла и запах паленого био-керосина.",
+                image: "assets/images/bandit_ambush.png",
+                music: "rap",
+                choices: [
+                    { text: "Вернуться к дневнику Рида", nextStep: 999 }
+                ]
             }
         ],
         part2: [
@@ -206,7 +230,31 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[Конец записи. Обнаружено в архивах NORAD, перезаписано на перо и камень. Уцелело только одно яйцо.]</span>",
                 image: "assets/images/part2_norad_egg.png",
-                music: "casino"
+                music: "casino",
+                choices: [
+                    { text: "Использовать классику", nextStep: 999 },
+                    { text: "Задействовать LSD-дымокол", nextStep: "NEW_LSD" },
+                    { text: "Спец-протокол: Русская водка", nextStep: "NEW_VODKA" }
+                ]
+            }
+,
+            {
+                id: "NEW_LSD",
+                text: "Пентагон в дыму. Генералы видят тангенциальные измерения и фракталы. Я клюнул главного кибер-стратега, пока он пытался обнять голограмму.",
+                image: "assets/images/goose_lsd.png",
+                music: "casino",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
+            },
+            {
+                id: "NEW_VODKA",
+                text: "Я нашёл бутылку «Русского Стандарта». Выпил. Теперь генерал поёт гимн и плачет, обнимая железный сейф. Задание... выполнено? Ик.",
+                image: "assets/images/goose_vodka.png",
+                music: "casino",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
             }
         ],
         part3: [
@@ -303,7 +351,31 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[Конец записи.\nФайл прерван гусиным шипением на фоне. Последняя строка нацарапана не чернилами — пером.\nСенатор жив.\nИли мёртв.\nИли уже в стае.]</span>",
                 image: "assets/images/part3_epilogue.png",
-                music: "classical"
+                music: "classical",
+                choices: [
+                    { text: "[Отдаться культу] Принять кибер-причастие от Гуся-Епископа", nextStep: "NEW_CULT" },
+                    { text: "[Бегство] Надеть противогаз и спасаться с остатками элиты", nextStep: "NEW_ESCAPE" },
+                    { text: "Сдаться системе (Закончить запись)", nextStep: 999 }
+                ]
+            }
+,
+            {
+                id: "NEW_CULT",
+                text: "Я пал на колени. Огромный кибер-гусь в неоновой митре епископа протянул мне светящуюся техно-сферу. Женщины в латексе и противогазах молились вокруг нас. Я вкусил цифровое причастие — и старый мир растворился в священном фрактальном гоготе.",
+                image: "assets/images/religious_goose.png",
+                music: "casino",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
+            },
+            {
+                id: "NEW_ESCAPE",
+                text: "Мы бежали. Жены сенаторов и эскортницы в светящихся противогазах в панике пробивались сквозь руины банкетного зала, спасаясь от гигантских железных птиц. Неоновые кресты на стенах мигали, как насмешка. Мы выжили, но навсегда остались трусами в новом пернатом мире.",
+                image: "assets/images/gasmask_women.png",
+                music: "rap",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
             }
         ]
     },
@@ -357,7 +429,31 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[End of fragment. Recording interrupted by static. In the background: goose hissing, a female voice in German, and an explosion.]</span>",
                 image: "assets/images/bunker.png",
-                music: "classical"
+                music: "classical",
+                choices: [
+                    { text: "[Plan Omega] Hijack armored train and ram the bunker", nextStep: "NEW_TRAIN" },
+                    { text: "[Plan Alpha] Frontal assault: rocket launchers and cyber-explosions", nextStep: "NEW_AMBUSH" },
+                    { text: "Stick to the original plan", nextStep: 999 }
+                ]
+            }
+,
+            {
+                id: "NEW_TRAIN",
+                text: "*CRASH* The SEC-CORP armored train smashes through the reinforced concrete wall of the Transit Command bunker at full speed! Shredded defenses, flames reaching the sky, and our cyber-bros with neon machetes plunge straight into the inferno. The politicians did not even have time to log into their escape drones.",
+                image: "assets/images/train_crash.png",
+                music: "rap",
+                choices: [
+                    { text: "Return to log", nextStep: 999 }
+                ]
+            },
+            {
+                id: "NEW_AMBUSH",
+                text: "The night street lit up with neon flashes from our bazookas. We caused total devastation: EMP grenades disabled the government mechs, and rockets blew their fortifications to dust. This is not just banditry—it is the demolition of the old regime to the roar of metal and the smell of burnt bio-kerosene.",
+                image: "assets/images/bandit_ambush.png",
+                music: "rap",
+                choices: [
+                    { text: "Return to log", nextStep: 999 }
+                ]
             }
         ],
         part2: [
@@ -439,7 +535,31 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[End of record. Found in NORAD archives, rewritten on feather and stone. Only one egg survived.]</span>",
                 image: "assets/images/part2_norad_egg.png",
-                music: "casino"
+                music: "casino",
+                choices: [
+                    { text: "Use the classic", nextStep: 999 },
+                    { text: "Deploy LSD smoke", nextStep: "NEW_LSD" },
+                    { text: "Special Protocol: Russian Vodka", nextStep: "NEW_VODKA" }
+                ]
+            }
+,
+            {
+                id: "NEW_LSD",
+                text: "The Pentagon is in smoke. Generals are seeing tangential dimensions and fractals. I pecked the chief cyber-strategist while he tried to hug a hologram.",
+                image: "assets/images/goose_lsd.png",
+                music: "casino",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
+            },
+            {
+                id: "NEW_VODKA",
+                text: "I found a bottle of 'Russian Standard'. Drank it. Now the general is singing the anthem and crying, hugging an iron safe. Mission... accomplished? Hic.",
+                image: "assets/images/goose_vodka.png",
+                music: "casino",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
             }
         ],
         part3: [
@@ -536,7 +656,31 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[End of recording.\nThe file is interrupted by goose hissing in the background. The last line is scratched not in ink — with a feather.\nThe senator is alive.\nOr dead.\nOr already in the flock.]</span>",
                 image: "assets/images/part3_epilogue.png",
-                music: "classical"
+                music: "classical",
+                choices: [
+                    { text: "[Surrender to cult] Accept cyber-communion from the Bishop Goose", nextStep: "NEW_CULT" },
+                    { text: "[Escape] Put on a gas mask and flee with the remnants of the elite", nextStep: "NEW_ESCAPE" },
+                    { text: "Surrender to the system (End recording)", nextStep: 999 }
+                ]
+            }
+,
+            {
+                id: "NEW_CULT",
+                text: "I fell to my knees. A giant cyber-goose in a neon bishop's mitre offered me a glowing tech orb. Women in latex and gas masks prayed around us. I tasted the digital communion — and the old world dissolved in holy fractal honking.",
+                image: "assets/images/religious_goose.png",
+                music: "casino",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
+            },
+            {
+                id: "NEW_ESCAPE",
+                text: "We ran. Senators' wives and escorts in glowing gas masks panicked through the ruined banquet hall, fleeing from giant iron birds. Neon crosses on the walls blinked like a mockery. We survived, but forever remained cowards in the new feathered world.",
+                image: "assets/images/gasmask_women.png",
+                music: "rap",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
             }
         ]
     },
@@ -590,7 +734,31 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[Ende des Fragments. Aufnahme durch Rauschen unterbrochen. Im Hintergrund: Gänsezischen, eine weibliche Stimme auf Deutsch und eine Explosion.]</span>",
                 image: "assets/images/bunker.png",
-                music: "classical"
+                music: "classical",
+                choices: [
+                    { text: "[Plan Omega] Gepanzerten Zug entführen und den Bunker rammen", nextStep: "NEW_TRAIN" },
+                    { text: "[Plan Alpha] Frontalangriff: Raketenwerfer und Cyber-Explosionen", nextStep: "NEW_AMBUSH" },
+                    { text: "Beim ursprünglichen Plan bleiben", nextStep: 999 }
+                ]
+            }
+,
+            {
+                id: "NEW_TRAIN",
+                text: "*KRACH* Der gepanzerte SEC-CORP-Zug durchbricht mit voller Geschwindigkeit die Stahlbetonwand des Bunkers des Transitkommandos! Zerstörte Verteidigungsanlagen, Flammen bis zum Himmel, und unsere Cyber-Brüder mit Neon-Macheten stürzen sich direkt ins Inferno. Die Politiker hatten nicht einmal Zeit, sich in ihre Fluchtdrohnen einzuloggen.",
+                image: "assets/images/train_crash.png",
+                music: "rap",
+                choices: [
+                    { text: "Zurück zu Reeds Tagebuch", nextStep: 999 }
+                ]
+            },
+            {
+                id: "NEW_AMBUSH",
+                text: "Die nächtliche Straße wurde von Neonblitzen aus unseren Panzerfäusten erhellt. Wir haben totale Verwüstung angerichtet: EMP-Granaten haben die Mechs der Regierung deaktiviert und Raketen haben ihre Befestigungen zu Staub gesprengt. Das ist nicht nur Banditentum – es ist der Abriss des alten Regimes unter dem Dröhnen von Metall und dem Geruch von verbranntem Bio-Kerosin.",
+                image: "assets/images/bandit_ambush.png",
+                music: "rap",
+                choices: [
+                    { text: "Zurück zu Reeds Tagebuch", nextStep: 999 }
+                ]
             }
         ],
         part2: [
@@ -672,7 +840,31 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[Ende der Aufzeichnung. In den NORAD-Archiven gefunden, auf Feder und Stein umgeschrieben. Nur ein Ei hat überlebt.]</span>",
                 image: "assets/images/part2_norad_egg.png",
-                music: "casino"
+                music: "casino",
+                choices: [
+                    { text: "Verwenden Sie den Klassiker", nextStep: 999 },
+                    { text: "LSD-Rauchgranate einsetzen", nextStep: "NEW_LSD" },
+                    { text: "Sonderprotokoll: Russischer Wodka", nextStep: "NEW_VODKA" }
+                ]
+            }
+,
+            {
+                id: "NEW_LSD",
+                text: "Das Pentagon liegt im Rauch. Generäle sehen tangentiale Dimensionen und Fraktale. Ich habe den Chef-Cyberstrategen gepickt, als er versuchte, ein Hologramm zu umarmen.",
+                image: "assets/images/goose_lsd.png",
+                music: "casino",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
+            },
+            {
+                id: "NEW_VODKA",
+                text: "Ich fand eine Flasche 'Russian Standard'. Habe sie getrunken. Jetzt singt der General die Hymne und weint, während er einen eisernen Tresor umarmt. Mission... erfüllt? Hicks.",
+                image: "assets/images/goose_vodka.png",
+                music: "casino",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
             }
         ],
         part3: [
@@ -769,7 +961,31 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[Ende der Aufzeichnung.\nDie Datei wird durch Gänsezischen im Hintergrund unterbrochen. Die letzte Zeile ist nicht mit Tinte, sondern mit einer Feder eingeritzt.\nDer Senator lebt.\nOder ist tot.\nOder bereits in der Schar.]</span>",
                 image: "assets/images/part3_epilogue.png",
-                music: "classical"
+                music: "classical",
+                choices: [
+                    { text: "[Dem Kult hingeben] Das Cyber-Abendmahl vom Bischof-Gans empfangen", nextStep: "NEW_CULT" },
+                    { text: "[Flucht] Gasmaske aufsetzen und mit den Resten der Elite fliehen", nextStep: "NEW_ESCAPE" },
+                    { text: "Dem System ergeben (Aufnahme beenden)", nextStep: 999 }
+                ]
+            }
+,
+            {
+                id: "NEW_CULT",
+                text: "Ich fiel auf die Knie. Eine riesige Cyber-Gans in einer neonfarbenen Bischofsmitra reichte mir eine leuchtende Tech-Kugel. Frauen in Latex und Gasmasken beteten um uns herum. Ich kostete das digitale Abendmahl – und die alte Welt löste sich in heiligem fraktalem Schnattern auf.",
+                image: "assets/images/religious_goose.png",
+                music: "casino",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
+            },
+            {
+                id: "NEW_ESCAPE",
+                text: "Wir rannten. Die Frauen der Senatoren und Escort-Damen in leuchtenden Gasmasken durchbrachen in Panik die Ruinen des Bankettsaals auf der Flucht vor den riesigen Eisenvögeln. Neonkreuze an den Wänden blinkten wie ein Hohn. Wir überlebten, aber blieben für immer Feiglinge in der neuen gefiederten Welt.",
+                image: "assets/images/gasmask_women.png",
+                music: "rap",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
             }
         ]
     },
@@ -823,7 +1039,31 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[Fin del fragmento. Grabación interrumpida por estática. Al fondo: siseo de ganso, voz femenina en alemán y una explosión.]</span>",
                 image: "assets/images/bunker.png",
-                music: "classical"
+                music: "classical",
+                choices: [
+                    { text: "[Plan Omega] Secuestrar tren blindado y embestir el búnker", nextStep: "NEW_TRAIN" },
+                    { text: "[Plan Alpha] Asalto frontal: lanzacohetes y ciber-explosiones", nextStep: "NEW_AMBUSH" },
+                    { text: "Apegarse al plan original", nextStep: 999 }
+                ]
+            }
+,
+            {
+                id: "NEW_TRAIN",
+                text: "*¡CRASH!* ¡El tren blindado SEC-CORP atraviesa a toda velocidad el muro de hormigón armado del búnker del Comando de Tránsito! Defensas destrozadas, llamas que llegan al cielo, y nuestros ciber-hermanos con machetes de neón se sumergen directamente en el infierno. Los políticos ni siquiera tuvieron tiempo de conectarse a sus drones de escape.",
+                image: "assets/images/train_crash.png",
+                music: "rap",
+                choices: [
+                    { text: "Volver al diario de Reed", nextStep: 999 }
+                ]
+            },
+            {
+                id: "NEW_AMBUSH",
+                text: "La calle nocturna se iluminó con los destellos de neón de nuestras bazucas. Causamos una devastación total: las granadas EMP desactivaron los robots del gobierno y los cohetes redujeron sus fortificaciones a polvo. Esto no es solo bandolerismo, es la demolición del antiguo régimen al rugido del metal y el olor a bio-queroseno quemado.",
+                image: "assets/images/bandit_ambush.png",
+                music: "rap",
+                choices: [
+                    { text: "Volver al diario de Reed", nextStep: 999 }
+                ]
             }
         ],
         part2: [
@@ -905,7 +1145,31 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[Fin de la grabación. Hallado en los archivos de NORAD, reescrito sobre pluma y piedra. Solo sobrevivió un huevo.]</span>",
                 image: "assets/images/part2_norad_egg.png",
-                music: "casino"
+                music: "casino",
+                choices: [
+                    { text: "Usar el clásico", nextStep: 999 },
+                    { text: "Desplegar humo LSD", nextStep: "NEW_LSD" },
+                    { text: "Protocolo especial: Vodka ruso", nextStep: "NEW_VODKA" }
+                ]
+            }
+,
+            {
+                id: "NEW_LSD",
+                text: "El Pentágono está humeando. Los generales ven dimensiones tangenciales y fractales. Picoteé al jefe ciberestratega mientras intentaba abrazar un holograma.",
+                image: "assets/images/goose_lsd.png",
+                music: "casino",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
+            },
+            {
+                id: "NEW_VODKA",
+                text: "Encontré una botella de 'Russian Standard'. La bebí. Ahora el general está cantando el himno y llorando, abrazando una caja fuerte de hierro. Misión... ¿cumplida? Hic.",
+                image: "assets/images/goose_vodka.png",
+                music: "casino",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
             }
         ],
         part3: [
@@ -1002,7 +1266,31 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[Fin de la grabación.\nEl archivo se interrumpe por siseos de gansos de fondo. La última línea está grabada no con tinta, sino con una pluma.\nEl senador está vivo.\nO muerto.\nOr ya en la bandada.]</span>",
                 image: "assets/images/part3_epilogue.png",
-                music: "classical"
+                music: "classical",
+                choices: [
+                    { text: "[Rendirse al culto] Aceptar la ciber-comunión del Ganso Obispo", nextStep: "NEW_CULT" },
+                    { text: "[Escape] Ponerse una máscara de gas y huir con los restos de la élite", nextStep: "NEW_ESCAPE" },
+                    { text: "Rendirse al sistema (Finalizar grabación)", nextStep: 999 }
+                ]
+            }
+,
+            {
+                id: "NEW_CULT",
+                text: "Caí de rodillas. Un ganso cibernético gigante con una mitra de obispo de neón me ofreció un orbe tecnológico brillante. Mujeres en látex y máscaras de gas rezaban a nuestro alrededor. Probé la comunión digital y el viejo mundo se disolvió en un graznido fractal sagrado.",
+                image: "assets/images/religious_goose.png",
+                music: "casino",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
+            },
+            {
+                id: "NEW_ESCAPE",
+                text: "Corrimos. Las esposas de los senadores y las acompañantes con máscaras de gas brillantes rompieron en pánico por los restos de la sala de banquetes, huyendo de aves gigantes de hierro. Cruces de neón en las paredes parpadeaban como una burla. Sobrevivimos, pero seguimos siendo cobardes para siempre en un nuevo mundo emplumado.",
+                image: "assets/images/gasmask_women.png",
+                music: "rap",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
             }
         ]
     },
@@ -1056,7 +1344,31 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[片段结束。录音由于静电中断。背景音：鹅的嘶叫声，一名女性的德语声音和爆炸声。]</span>",
                 image: "assets/images/bunker.png",
-                music: "classical"
+                music: "classical",
+                choices: [
+                    { text: "[欧米茄计划] 劫持装甲列车并撞击地堡", nextStep: "NEW_TRAIN" },
+                    { text: "[阿尔法计划] 正面突击：火箭筒和网络爆炸", nextStep: "NEW_AMBUSH" },
+                    { text: "坚持原计划", nextStep: 999 }
+                ]
+            }
+,
+            {
+                id: "NEW_TRAIN",
+                text: "*轰隆！* SEC-CORP装甲列车全速撞穿了过境指挥部地堡的钢筋混凝土墙！被撕碎的防御设施，冲天的火焰，我们拿着霓虹弯刀的赛博兄弟直接冲进了火海。政客们甚至没有时间登录他们的逃生无人机。",
+                image: "assets/images/train_crash.png",
+                music: "rap",
+                choices: [
+                    { text: "返回里德的日记", nextStep: 999 }
+                ]
+            },
+            {
+                id: "NEW_AMBUSH",
+                text: "夜晚的街道被我们火箭筒发出的霓虹灯闪光照亮。我们造成了彻底的破坏：EMP手榴弹使政府的机甲失效，火箭弹将他们的防御工事炸成灰烬。这不仅仅是土匪行径——这是在金属的轰鸣声和烧焦的生物煤油的气味中，对旧政权进行拆除。",
+                image: "assets/images/bandit_ambush.png",
+                music: "rap",
+                choices: [
+                    { text: "返回里德的日记", nextStep: 999 }
+                ]
             }
         ],
         part2: [
@@ -1138,7 +1450,31 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[录音结束。发现于NORAD档案，刻录于羽毛和石头上。仅存一枚蛋存活。]</span>",
                 image: "assets/images/part2_norad_egg.png",
-                music: "casino"
+                music: "casino",
+                choices: [
+                    { text: "使用经典", nextStep: 999 },
+                    { text: "部署LSD烟雾", nextStep: "NEW_LSD" },
+                    { text: "特别行动：俄罗斯伏特加", nextStep: "NEW_VODKA" }
+                ]
+            }
+,
+            {
+                id: "NEW_LSD",
+                text: "五角大楼弥漫着烟雾。将军们看到了切线维度和分形。当首席网络战略家试图拥抱全息图时，我啄了他。",
+                image: "assets/images/goose_lsd.png",
+                music: "casino",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
+            },
+            {
+                id: "NEW_VODKA",
+                text: "我找到了一瓶“俄罗斯标准”。喝了它。现在将军正在唱国歌并哭泣，拥抱着一个铁保险箱。任务……完成了？嗝。",
+                image: "assets/images/goose_vodka.png",
+                music: "casino",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
             }
         ],
         part3: [
@@ -1235,7 +1571,31 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[录音结束。\n文件在背景的鹅嘶叫声中中断。最后一行不是用墨水，而是用羽毛刻下的。\n参议员活着。\n或者死了。\n或者已经在鸟群中。]</span>",
                 image: "assets/images/part3_epilogue.png",
-                music: "classical"
+                music: "classical",
+                choices: [
+                    { text: "[向邪教投降] 接受主教鹅的网络圣餐", nextStep: "NEW_CULT" },
+                    { text: "[逃跑] 戴上防毒面具，与剩下的精英一起逃离", nextStep: "NEW_ESCAPE" },
+                    { text: "向系统投降（结束录音）", nextStep: 999 }
+                ]
+            }
+,
+            {
+                id: "NEW_CULT",
+                text: "我跪了下来。一只戴着霓虹主教帽的巨大机械鹅向我提供了一个发光的科技球。周围穿着乳胶和防毒面具的女人在祈祷。我品尝了数字圣餐——旧世界在神圣的分形鹅叫声中溶解。",
+                image: "assets/images/religious_goose.png",
+                music: "casino",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
+            },
+            {
+                id: "NEW_ESCAPE",
+                text: "我们跑了。参议员的妻子和带着发光防毒面具的陪同人员在宴会厅的废墟中惊慌失措，躲避着巨大的铁鸟。墙上的霓虹灯十字架像嘲笑一样闪烁。我们幸存下来，但在新的有羽毛的世界里永远成为了懦夫。",
+                image: "assets/images/gasmask_women.png",
+                music: "rap",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
             }
         ]
     },
@@ -1289,7 +1649,31 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[پایان قطعه. ضبط به دلیل نویز قطع شد. در پس‌زمینه: صدای هیس غاز، صدای یک زن به آلمانی و یک انفجار.]</span>",
                 image: "assets/images/bunker.png",
-                music: "classical"
+                music: "classical",
+                choices: [
+                    { text: "[طرح امگا] ربودن قطار زرهی و کوبیدن به پناهگاه", nextStep: "NEW_TRAIN" },
+                    { text: "[طرح آلفا] حمله از جلو: راکت اندازها و انفجارهای سایبری", nextStep: "NEW_AMBUSH" },
+                    { text: "به طرح اصلی پایبند باشید", nextStep: 999 }
+                ]
+            }
+,
+            {
+                id: "NEW_TRAIN",
+                text: "*تصادف* قطار زرهی SEC-CORP با سرعت تمام از دیوار بتن آرمه پناهگاه فرماندهی ترانزیت عبور می کند! دفاعیات خرد شده، شعله های آتش به آسمان می رسد و برادران سایبری ما با قمه های نئونی مستقیماً در دوزخ فرو می روند. سیاستمداران حتی وقت نداشتند وارد پهپادهای فرار خود شوند.",
+                image: "assets/images/train_crash.png",
+                music: "rap",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
+            },
+            {
+                id: "NEW_AMBUSH",
+                text: "خیابان شب با پرتوهای نئون بازوکاهای ما روشن شد. ما ویرانی کامل ایجاد کردیم: نارنجک‌های EMP ماشین‌های دولت را از کار انداختند و موشک‌ها استحکامات آنها را به خاکستر تبدیل کردند. این فقط راهزنی نیست - این تخریب رژیم قدیمی با غرش فلز و بوی نفت سفید زیستی سوخته است.",
+                image: "assets/images/bandit_ambush.png",
+                music: "rap",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
             }
         ],
         part2: [
@@ -1371,7 +1755,31 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[پایان ضبط. کشف شده در آرشیوهای NORAD، بازنویسی شده روی پر و سنگ. فقط یک تخم جان سالم به در برد.]</span>",
                 image: "assets/images/part2_norad_egg.png",
-                music: "casino"
+                music: "casino",
+                choices: [
+                    { text: "از کلاسیک استفاده کنید", nextStep: 999 },
+                    { text: "دود LSD را مستقر کنید", nextStep: "NEW_LSD" },
+                    { text: "پروتکل ویژه: ودکای روسی", nextStep: "NEW_VODKA" }
+                ]
+            }
+,
+            {
+                id: "NEW_LSD",
+                text: "پنتاگون در دود است. ژنرال ها ابعاد مماسی و فراکتال ها را می بینند. من به استراتژیست ارشد سایبری نوک زدم در حالی که او سعی می کرد یک هولوگرام را در آغوش بگیرد.",
+                image: "assets/images/goose_lsd.png",
+                music: "casino",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
+            },
+            {
+                id: "NEW_VODKA",
+                text: "یه بطری استاندارد روسی پیدا کردم. نوشیدم. حالا ژنرال داره سرود میخونه و گریه میکنه، یه گاوصندوق آهنی رو بغل کرده. ماموریت... انجام شد؟ هیک.",
+                image: "assets/images/goose_vodka.png",
+                music: "casino",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
             }
         ],
         part3: [
