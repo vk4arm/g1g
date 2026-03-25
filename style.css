@@ -1007,6 +1007,26 @@ body.telegram-app .choice-btn {
     border-radius: 4px;
 }
 
+/* ── TABLET / MID-SIZE RESPONSIVENESS ───────── */
+@media (max-width: 1200px) and (min-width: 769px) {
+    #avatar-container {
+        left: -50px;
+        bottom: -10px;
+        width: 160px;
+        height: 200px;
+        z-index: 1;
+    }
+    
+    #avatar-container.avatar-visible {
+        opacity: 0.5;
+    }
+    
+    #text-display {
+        position: relative;
+        z-index: 5;
+    }
+}
+
 /* ── MOBILE RESPONSIVENESS (TELEGRAM APP) ───────── */
 @media (max-width: 768px) {
     #avatar-container {
