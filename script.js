@@ -38,6 +38,7 @@ function setLanguage(lang) {
     if (startBtn1) startBtn1.innerText = ui.startPart1;
     if (startBtn2) startBtn2.innerText = ui.startPart2;
     if (startBtn3) startBtn3.innerText = ui.startPart3;
+    if (startBtn4) startBtn4.innerText = ui.startPart4;
     if (achievementsBtn) achievementsBtn.innerText = ui.achievements;
     if (shareBtn) shareBtn.innerText = ui.share;
 
@@ -319,6 +320,7 @@ let autoPlayedVideos = new Set(); // Tracks completely played cinematic sequence
 const startBtn1 = document.getElementById('start-btn-1');
 const startBtn2 = document.getElementById('start-btn-2');
 const startBtn3 = document.getElementById('start-btn-3');
+const startBtn4 = document.getElementById('start-btn-4');
 const shareBtn = document.getElementById('share-btn');
 const startScreen = document.getElementById('start-screen');
 const gameScreen = document.getElementById('game-screen');
@@ -398,7 +400,18 @@ function unlockAchievement(id) {
         toast.classList.add('fade-out');
         setTimeout(() => toast.remove(), 400);
     }, 4000);
+    
+    checkPart4Unlock();
 }
+
+function checkPart4Unlock() {
+    if (unlockedAchievements.has("ACH_PSYCHO") && 
+        unlockedAchievements.has("ACH_LSD") && 
+        unlockedAchievements.has("ACH_CULT")) {
+        startBtn4.classList.remove('hidden');
+    }
+}
+checkPart4Unlock();
 
 function renderAchievements() {
     achievementsGrid.innerHTML = '';
@@ -484,6 +497,7 @@ function startGame(part) {
 startBtn1.addEventListener('click', () => startGame('part1'));
 startBtn2.addEventListener('click', () => startGame('part2'));
 startBtn3.addEventListener('click', () => startGame('part3'));
+startBtn4.addEventListener('click', () => startGame('part4'));
 
 backBtn.addEventListener('click', () => {
     // Show BSOD screen

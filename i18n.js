@@ -431,6 +431,96 @@ const allStories = {
                     { text: "Завершить уровень / Terminate", nextStep: 999 }
                 ]
             }
+        ],
+        part4: [
+            {
+                text: "<span class='color-cyan'>🌊 Эпилог: Тихие Воды</span>
+Вы просыпаетесь под шум электронного прибоя. Закатное небо мерцает, как битый пиксель. Пентагона больше нет. Бункера правительства — тоже. Империя стерта с лица земли гусиным кодом.
+
+На синтетическом песке лежит лишь одно сияющее перо.",
+                image: "assets/images/part4_island.png",
+                music: "wm"
+            },
+            {
+                text: "<span class='color-yellow'>🕊️ Вы достигли Истинной Концовки. Спасибо за игру.</span>",
+                image: "assets/images/part4_island.png",
+                music: "wm",
+                choices: [
+                    { text: "СБРОС СЕССИИ", nextStep: 999 }
+                ]
+            }
+        ],
+        part4: [
+            {
+                text: "<span class='color-cyan'>🌊 Epilogue: Quiet Waters</span>
+You wake up to the sound of an electronic surf. The sunset sky flickers like a broken pixel. The Pentagon is gone. The government bunker is gone. The Empire has been wiped off the face of the earth by goose code.
+
+Only one glowing feather lies on the synthetic sand.",
+                image: "assets/images/part4_island.png",
+                music: "wm"
+            },
+            {
+                text: "<span class='color-yellow'>🕊️ You have reached the True Ending. Thank you for playing.</span>",
+                image: "assets/images/part4_island.png",
+                music: "wm",
+                choices: [
+                    { text: "RESET SESSION", nextStep: 999 }
+                ]
+            }
+        ],
+        part4: [
+            {
+                text: "<span class='color-cyan'>🌊 Epilog: Stille Gewässer</span>
+Sie wachen beim Rauschen einer elektronischen Brandung auf. Der Sonnenuntergangshimmel flackert wie ein kaputtes Pixel. Das Pentagon ist weg. Der Regierungsbunker ist weg. Das Imperium wurde durch den Gänse-Code vom Erdboden gewischt.
+
+Nur eine leuchtende Feder liegt auf dem synthetischen Sand.",
+                image: "assets/images/part4_island.png",
+                music: "wm"
+            },
+            {
+                text: "<span class='color-yellow'>🕊️ Sie haben das wahre Ende erreicht. Danke fürs Spielen.</span>",
+                image: "assets/images/part4_island.png",
+                music: "wm",
+                choices: [
+                    { text: "SITZUNG ZURÜCKSETZEN", nextStep: 999 }
+                ]
+            }
+        ],
+        part4: [
+            {
+                text: "<span class='color-cyan'>🌊 Epílogo: Aguas Tranquilas</span>
+Te despiertas con el sonido de un oleaje electrónico. El cielo del atardecer parpadea como un píxel roto. El Pentágono ya no existe. El búnker del gobierno tampoco. El Imperio ha sido borrado de la faz de la tierra por el código ganso.
+
+Solo una pluma brillante yace sobre la arena sintética.",
+                image: "assets/images/part4_island.png",
+                music: "wm"
+            },
+            {
+                text: "<span class='color-yellow'>🕊️ Has alcanzado el Final Verdadero. Gracias por jugar.</span>",
+                image: "assets/images/part4_island.png",
+                music: "wm",
+                choices: [
+                    { text: "REINICIAR SESIÓN", nextStep: 999 }
+                ]
+            }
+        ],
+        part4: [
+            {
+                text: "<span class='color-cyan'>🌊 尾声：宁静的水域</span>
+伴随着电子海浪声，你醒来了。黄昏的天空像破碎的像素一样闪烁。五角大楼不见了。政府地堡也不见了。帝国已被鹅之代码从地球上抹去。
+
+合成沙滩上只留下一根发光的羽毛。",
+                image: "assets/images/part4_island.png",
+                music: "wm"
+            },
+            {
+                text: "<span class='color-yellow'>🕊️ 您已达成真实结局。感谢游玩。</span>",
+                image: "assets/images/part4_island.png",
+                music: "wm",
+                choices: [
+                    { text: "重置会话", nextStep: 999 }
+                ]
+            }
         ]
     },
     en: {
