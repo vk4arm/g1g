@@ -131,8 +131,10 @@ def process():
                 last_brace_idx = len(out_lines) - 2
                 t = translations_p1[current_lang]
                 
+                # Add comma to the previous line (e.g. music: "...")
+                out_lines[last_brace_idx-1] = out_lines[last_brace_idx-1].rstrip() + ",\n"
+
                 # Insert choices into the last slide of part 1
-                out_lines[last_brace_idx] = out_lines[last_brace_idx].rstrip() + ",\n"
                 choices_lines = f"""                choices: [
                     {{ text: "{t['train_c']}", nextStep: "NEW_TRAIN" }},
                     {{ text: "{t['ambush_c']}", nextStep: "NEW_AMBUSH" }},
@@ -168,8 +170,10 @@ def process():
                 last_brace_idx = len(out_lines) - 2
                 t = translations_p2[current_lang]
                 
+                # Add comma to the previous line
+                out_lines[last_brace_idx-1] = out_lines[last_brace_idx-1].rstrip() + ",\n"
+
                 # Insert choices into the last slide of part 2
-                out_lines[last_brace_idx] = out_lines[last_brace_idx].rstrip() + ",\n"
                 choices_lines = f"""                choices: [
                     {{ text: "{t['classic_c']}", nextStep: 999 }},
                     {{ text: "{t['lsd_c']}", nextStep: "NEW_LSD" }},

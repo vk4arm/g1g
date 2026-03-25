@@ -124,7 +124,7 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[Конец фрагмента. Запись прервана шипением. На фоне: гусиное шипение, женский голос на немецком и взрыв.]</span>",
                 image: "assets/images/bunker.png",
-                music: "classical"
+                music: "classical",
                 choices: [
                     { text: "[План Омега] Угнать бронепоезд и протаранить бункер", nextStep: "NEW_TRAIN" },
                     { text: "[План Альфа] Прямой штурм: ракетницы и кибер-взрывы", nextStep: "NEW_AMBUSH" },
@@ -230,7 +230,7 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[Конец записи. Обнаружено в архивах NORAD, перезаписано на перо и камень. Уцелело только одно яйцо.]</span>",
                 image: "assets/images/part2_norad_egg.png",
-                music: "casino"
+                music: "casino",
                 choices: [
                     { text: "Использовать классику", nextStep: 999 },
                     { text: "Задействовать LSD-дымокол", nextStep: "NEW_LSD" },
@@ -405,7 +405,7 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[End of fragment. Recording interrupted by static. In the background: goose hissing, a female voice in German, and an explosion.]</span>",
                 image: "assets/images/bunker.png",
-                music: "classical"
+                music: "classical",
                 choices: [
                     { text: "[Plan Omega] Hijack armored train and ram the bunker", nextStep: "NEW_TRAIN" },
                     { text: "[Plan Alpha] Frontal assault: rocket launchers and cyber-explosions", nextStep: "NEW_AMBUSH" },
@@ -511,7 +511,7 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[End of record. Found in NORAD archives, rewritten on feather and stone. Only one egg survived.]</span>",
                 image: "assets/images/part2_norad_egg.png",
-                music: "casino"
+                music: "casino",
                 choices: [
                     { text: "Use the classic", nextStep: 999 },
                     { text: "Deploy LSD smoke", nextStep: "NEW_LSD" },
@@ -686,7 +686,7 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[Ende des Fragments. Aufnahme durch Rauschen unterbrochen. Im Hintergrund: Gänsezischen, eine weibliche Stimme auf Deutsch und eine Explosion.]</span>",
                 image: "assets/images/bunker.png",
-                music: "classical"
+                music: "classical",
                 choices: [
                     { text: "[Plan Omega] Gepanzerten Zug entführen und den Bunker rammen", nextStep: "NEW_TRAIN" },
                     { text: "[Plan Alpha] Frontalangriff: Raketenwerfer und Cyber-Explosionen", nextStep: "NEW_AMBUSH" },
@@ -792,7 +792,7 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[Ende der Aufzeichnung. In den NORAD-Archiven gefunden, auf Feder und Stein umgeschrieben. Nur ein Ei hat überlebt.]</span>",
                 image: "assets/images/part2_norad_egg.png",
-                music: "casino"
+                music: "casino",
                 choices: [
                     { text: "Verwenden Sie den Klassiker", nextStep: 999 },
                     { text: "LSD-Rauchgranate einsetzen", nextStep: "NEW_LSD" },
@@ -967,7 +967,7 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[Fin del fragmento. Grabación interrumpida por estática. Al fondo: siseo de ganso, voz femenina en alemán y una explosión.]</span>",
                 image: "assets/images/bunker.png",
-                music: "classical"
+                music: "classical",
                 choices: [
                     { text: "[Plan Omega] Secuestrar tren blindado y embestir el búnker", nextStep: "NEW_TRAIN" },
                     { text: "[Plan Alpha] Asalto frontal: lanzacohetes y ciber-explosiones", nextStep: "NEW_AMBUSH" },
@@ -1073,7 +1073,7 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[Fin de la grabación. Hallado en los archivos de NORAD, reescrito sobre pluma y piedra. Solo sobrevivió un huevo.]</span>",
                 image: "assets/images/part2_norad_egg.png",
-                music: "casino"
+                music: "casino",
                 choices: [
                     { text: "Usar el clásico", nextStep: 999 },
                     { text: "Desplegar humo LSD", nextStep: "NEW_LSD" },
@@ -1248,7 +1248,7 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[片段结束。录音由于静电中断。背景音：鹅的嘶叫声，一名女性的德语声音和爆炸声。]</span>",
                 image: "assets/images/bunker.png",
-                music: "classical"
+                music: "classical",
                 choices: [
                     { text: "[欧米茄计划] 劫持装甲列车并撞击地堡", nextStep: "NEW_TRAIN" },
                     { text: "[阿尔法计划] 正面突击：火箭筒和网络爆炸", nextStep: "NEW_AMBUSH" },
@@ -1354,7 +1354,7 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[录音结束。发现于NORAD档案，刻录于羽毛和石头上。仅存一枚蛋存活。]</span>",
                 image: "assets/images/part2_norad_egg.png",
-                music: "casino"
+                music: "casino",
                 choices: [
                     { text: "使用经典", nextStep: 999 },
                     { text: "部署LSD烟雾", nextStep: "NEW_LSD" },
@@ -1529,7 +1529,7 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[پایان قطعه. ضبط به دلیل نویز قطع شد. در پس‌زمینه: صدای هیس غاز، صدای یک زن به آلمانی و یک انفجار.]</span>",
                 image: "assets/images/bunker.png",
-                music: "classical"
+                music: "classical",
                 choices: [
                     { text: "[طرح امگا] ربودن قطار زرهی و کوبیدن به پناهگاه", nextStep: "NEW_TRAIN" },
                     { text: "[طرح آلفا] حمله از جلو: راکت اندازها و انفجارهای سایبری", nextStep: "NEW_AMBUSH" },
@@ -1635,7 +1635,7 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[پایان ضبط. کشف شده در آرشیوهای NORAD، بازنویسی شده روی پر و سنگ. فقط یک تخم جان سالم به در برد.]</span>",
                 image: "assets/images/part2_norad_egg.png",
-                music: "casino"
+                music: "casino",
                 choices: [
                     { text: "از کلاسیک استفاده کنید", nextStep: 999 },
                     { text: "دود LSD را مستقر کنید", nextStep: "NEW_LSD" },
