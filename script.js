@@ -384,6 +384,7 @@ let currentLayer = 1;
 function startGame(part) {
     currentStory = part;
     currentStep = 0;
+    stepHistory = [];
     autoPlayedVideos.clear(); // Reset video state tracking for a new playthrough
 
     startScreen.classList.remove('active');
@@ -445,8 +446,8 @@ backBtn.addEventListener('click', () => {
 });
 
 prevBtn.addEventListener('click', () => {
-    if (currentStep > 0 && !isTransitioning) {
-        currentStep--;
+    if (stepHistory.length > 0 && !isTransitioning) {
+        currentStep = stepHistory.pop();
         updateScene();
     }
 });
@@ -455,6 +456,7 @@ nextBtn.addEventListener('click', () => {
     if (!isTransitioning) {
         const paragraphs = (allStories[currentLang] || allStories['ru'])[currentStory];
         if (currentStep < paragraphs.length - 1) {
+            stepHistory.push(currentStep);
             currentStep++;
             updateScene();
         }
@@ -660,6 +662,7 @@ function handleInput(e) {
 
     const paragraphs = (allStories[currentLang] || allStories['ru'])[currentStory];
     if (currentStep < paragraphs.length - 1) {
+        stepHistory.push(currentStep);
         currentStep++;
         updateScene();
     }
@@ -729,8 +732,10 @@ function updateScene() {
             textDisplay.classList.add('visible');
 
             // Controls visibility
-            if (currentStep > 0) {
+            if (stepHistory.length > 0) {
                 prevBtn.classList.remove('hidden');
+            } else {
+                prevBtn.classList.add('hidden');
             }
 
             if (data.choices && data.choices.length > 0) {
@@ -745,6 +750,9 @@ function updateScene() {
                             backBtn.click();
                             return;
                         }
+                        
+                        stepHistory = []; // Prevent backing out to explore unselected choices
+
                         if (choice.nextStep !== undefined) {
                             if (typeof choice.nextStep === "string") { currentStep = paragraphs.findIndex(p => p.id === choice.nextStep); } else { currentStep = choice.nextStep; }
                             updateScene();
