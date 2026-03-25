@@ -74,26 +74,7 @@ const uiStrings = {
 };
 
 const allStories = {
-,
-            {
-                id: "NEW_TRAIN",
-                text: "*ГРОХОТ* Бронепоезд SEC-CORP на полном ходу пробивает железобетонную стену бункера Транзитного Командования! Ошмётки защиты, пламя до небес и наши кибер-братки с неоновыми мачете влетают прямо в пекло. Политики даже не успели залогиниться в свои дроны бегства.",
-                image: "assets/images/train_crash.png",
-                music: "rap",
-                choices: [
-                    { text: "Вернуться к дневнику Рида", nextStep: 8 }
-                ]
-            },
-            {
-                id: "NEW_AMBUSH",
-                text: "Ночная улица озарилась неоновыми вспышками от наших базук. Мы устроили тотальный разнос: ЭМИ-гранаты вырубили мехи правительства, а снаряды разнесли их укрепления в пыль. Это не просто бандитизм — это снос старого режима под грохот металла и запах паленого био-керосина.",
-                image: "assets/images/bandit_ambush.png",
-                music: "rap",
-                choices: [
-                    { text: "Вернуться к дневнику Рида", nextStep: 8 }
-                ]
-            }
-            ru: {
+    ru: {
         part1: [
             {
                 text: "<span class='color-red'>🧨 «Записки с обочины Империи»</span>\n<span class='color-gray'>(из личного дневника Рида «Вектор» Коулза, командира банды «Техноклятва»)</span>\n\n20 апреля 2026, сектор “Новая Атланта”, Зона D, бывший склад Amazon.\nБлокнот на обрывке синтетической бумаги, запах гари и психотоксинов.",
@@ -133,7 +114,12 @@ const allStories = {
             {
                 text: "<span class='color-white'>🏴 Про банду</span>\nНаси 420 человек. 17 дронов. 1 гусь.\nКаждый боец прошёл обряд: кибер-игла в мозг, кодовая фраза — «Нет бога, кроме сбоев».\nМы — “Техноклятва”, клан кибер-мясников.\nВ каждом городе у нас спящие сервера.",
                 image: "assets/images/warehouse.png",
-                music: "rap"
+                music: "rap",
+                choices: [
+                    { text: "[План Омега] Угнать бронепоезд и протаранить бункер", nextStep: "NEW_TRAIN" },
+                    { text: "[План Альфа] Прямой штурм: ракетницы и кибер-взрывы", nextStep: "NEW_AMBUSH" },
+                    { text: "Придерживаться изначального плана", nextStep: 8 }
+                ]
             },
             {
                 text: "<span class='color-red'>⚠️ Про завтра</span>\nЗавтра мы идём на Центр Временного Правительства в Небраске.\nНо у нас есть Ганс, свежая партия вируса «Песнь Воробья» и 200 дронов на биокеросине.\nИ если мы проиграем —\nпусть хотя бы история вспомнит,\nчто США были повержены не армией… а гусем с иглой и бандой, мечтающей о свободе.",
@@ -144,6 +130,24 @@ const allStories = {
                 text: "<span class='color-gray'>[Конец фрагмента. Запись прервана шипением. На фоне: гусиное шипение, женский голос на немецком и взрыв.]</span>",
                 image: "assets/images/bunker.png",
                 music: "classical"
+            },
+            {
+                id: "NEW_TRAIN",
+                text: "*ГРОХОТ* Бронепоезд SEC-CORP на полном ходу пробивает железобетонную стену бункера Транзитного Командования! Ошмётки защиты, пламя до небес и наши кибер-братки с неоновыми мачете влетают прямо в пекло. Политики даже не успели залогиниться в свои дроны бегства.",
+                image: "assets/images/train_crash.png",
+                music: "rap",
+                choices: [
+                    { text: "Вернуться к дневнику Рида", nextStep: 8 }
+                ]
+            },
+            {
+                id: "NEW_AMBUSH",
+                text: "Ночная улица озарилась неоновыми вспышками от наших базук. Мы устроили тотальный разнос: ЭМИ-гранаты вырубили мехи правительства, а снаряды разнесли их укрепления в пыль. Это не просто бандитизм — это снос старого режима под грохот металла и запах паленого био-керосина.",
+                image: "assets/images/bandit_ambush.png",
+                music: "rap",
+                choices: [
+                    { text: "Вернуться к дневнику Рида", nextStep: 8 }
+                ]
             }
         ],
         part2: [
@@ -158,32 +162,19 @@ const allStories = {
                 music: "casino"
             },
             {
-                text: "Я был разработан для бесшумного устранения вражеских офицеров.\nМой клюв открывается на 78°, выберите активную ампулу для дозатора:",
+                text: "Я был разработан для бесшумного устранения вражеских офицеров.\nМой клюв открывается на 78°, в нём три ампулы:\n <span class='color-red'>скополамин</span>\n <span class='color-red'>фенциклидин</span>\n и гормональный коктейль <span class='color-green'>«Теплота-6»</span> (вызывает внезапную привязанность к предметам власти).",
                 image: "assets/images/part2_hans_weaponry.png",
                 music: "casino",
                 choices: [
-                    { text: "Скополамин и Фенциклидин", nextStep: 3 },
-                    { text: "Концентрат LSD", nextStep: 4 },
-                    { text: "Русская водка (Спец-дозировка)", nextStep: 5 }
+                    { text: "Использовать классику", nextStep: 3 },
+                    { text: "Задействовать LSD-дымокол", nextStep: "NEW_LSD" },
+                    { text: "Спец-протокол: Русская водка", nextStep: "NEW_VODKA" }
                 ]
             },
             {
-                text: "Выбрана стандартная загрузка.\nМоя первая миссия — Пентагон, офис генерала Лоусона.\nЯ влетел через вентиляцию, прыснул фенциклидином в воздух.\nОн умер с улыбкой. Это было красиво.",
+                text: "Моя первая миссия — Пентагон, офис генерала Лоусона.\nЯ влетел через вентиляцию, оставил перо на его столе, и впрыснул каплю фентанила в воздух.\nОн умер с улыбкой. Это было красиво.",
                 image: "assets/images/part2_hans_pentagon.png",
-                music: "casino",
-                choices: [ { text: "Продолжить", nextStep: 6 } ]
-            },
-            {
-                text: "Выбран концентрат LSD.\nЯ влетел через вентиляцию и распылил радужный туман.\nГенерал Лоусон решил, что он бабочка, и выпрыгнул в окно. Я помахал ему крылом.",
-                image: "assets/images/goose_lsd.png",
-                music: "casino",
-                choices: [ { text: "Продолжить", nextStep: 6 } ]
-            },
-            {
-                text: "Выбрана очищенная русская водка.\nЯ влетел через вентиляцию и клюнул генерала прямо в шею.\nЧерез минуту он пел гимн СССР и обнимался с сейфом, забыв пароли доступа.",
-                image: "assets/images/goose_vodka.png",
-                music: "casino",
-                choices: [ { text: "Продолжить", nextStep: 6 } ]
+                music: "casino"
             },
             {
                 text: "<span class='color-magenta'>💋 ГЛАВА II — Айла</span>\nОна — как крыло между мирами. Айла. AGV-78/F. Экспериментальная модель.\nСделана из нано-кератина, с голографической проекцией «мягкого оперения», встроенной «интимной поведенческой матрицей».",
@@ -244,6 +235,24 @@ const allStories = {
                 text: "<span class='color-gray'>[Конец записи. Обнаружено в архивах NORAD, перезаписано на перо и камень. Уцелело только одно яйцо.]</span>",
                 image: "assets/images/part2_norad_egg.png",
                 music: "casino"
+            },
+            {
+                id: "NEW_LSD",
+                text: "Пентагон в дыму. Генералы видят тангенциальные измерения и фракталы. Я клюнул главного кибер-стратега, пока он пытался обнять голограмму.",
+                image: "assets/images/goose_lsd.png",
+                music: "casino",
+                choices: [
+                    { text: "Вернуться к миссии", nextStep: 3 }
+                ]
+            },
+            {
+                id: "NEW_VODKA",
+                text: "Я нашёл бутылку «Русского Стандарта». Выпил. Теперь генерал поёт гимн и плачет, обнимая железный сейф. Задание... выполнено? Ик.",
+                image: "assets/images/goose_vodka.png",
+                music: "casino",
+                choices: [
+                    { text: "Вернуться к миссии", nextStep: 3 }
+                ]
             }
         ],
         part3: [
@@ -344,26 +353,7 @@ const allStories = {
             }
         ]
     },
-,
-            {
-                id: "NEW_TRAIN",
-                text: "*CRASH* The SEC-CORP armored train smashes through the reinforced concrete wall of the Transit Command bunker at full speed! Shredded defenses, flames reaching the sky, and our cyber-bros with neon machetes plunge straight into the inferno. The politicians did not even have time to log into their escape drones.",
-                image: "assets/images/train_crash.png",
-                music: "rap",
-                choices: [
-                    { text: "Return to log", nextStep: 8 }
-                ]
-            },
-            {
-                id: "NEW_AMBUSH",
-                text: "The night street lit up with neon flashes from our bazookas. We caused total devastation: EMP grenades disabled the government mechs, and rockets blew their fortifications to dust. This is not just banditry—it is the demolition of the old regime to the roar of metal and the smell of burnt bio-kerosene.",
-                image: "assets/images/bandit_ambush.png",
-                music: "rap",
-                choices: [
-                    { text: "Return to log", nextStep: 8 }
-                ]
-            }
-            en: {
+    en: {
         part1: [
             {
                 text: "<span class='color-red'>🧨 'Notes from the Sidelines of the Empire'</span>\n<span class='color-gray'>(from the personal diary of Reed 'Vector' Coles, commander of the 'Tech-Oath' gang)</span>\n\nApril 20, 2026, sector 'New Atlanta', Zone D, former Amazon warehouse.\nNotebook on a scrap of synthetic paper, the smell of burning and psychotoxins.",
@@ -403,7 +393,12 @@ const allStories = {
             {
                 text: "<span class='color-white'>🏴 About the Gang</span>\nThere's 420 of us. 17 drones. 1 goose.\nEach fighter went through a rite: a cyber-needle in the brain, the code phrase — 'There is no god but glitches'.\nWe are 'Tech-Oath', a clan of cyber-butchers.\nIn every city, we have sleeper servers.",
                 image: "assets/images/warehouse.png",
-                music: "rap"
+                music: "rap",
+                choices: [
+                    { text: "[Plan Omega] Hijack armored train and ram the bunker", nextStep: "NEW_TRAIN" },
+                    { text: "[Plan Alpha] Frontal assault: rocket launchers and cyber-explosions", nextStep: "NEW_AMBUSH" },
+                    { text: "Stick to the original plan", nextStep: 8 }
+                ]
             },
             {
                 text: "<span class='color-red'>⚠️ About Tomorrow</span>\nTomorrow we march on the Center for the Provisional Government in Nebraska.\nBut we have Hans, a fresh batch of the 'Sparrow Song' virus, and 200 drones on bio-kerosene.\nAnd if we lose —\nlet history at least remember,\nthat the USA was brought down not by an army… but by a goose with a needle and a gang dreaming of freedom.",
@@ -414,6 +409,24 @@ const allStories = {
                 text: "<span class='color-gray'>[End of fragment. Recording interrupted by static. In the background: goose hissing, a female voice in German, and an explosion.]</span>",
                 image: "assets/images/bunker.png",
                 music: "classical"
+            },
+            {
+                id: "NEW_TRAIN",
+                text: "*CRASH* The SEC-CORP armored train smashes through the reinforced concrete wall of the Transit Command bunker at full speed! Shredded defenses, flames reaching the sky, and our cyber-bros with neon machetes plunge straight into the inferno. The politicians did not even have time to log into their escape drones.",
+                image: "assets/images/train_crash.png",
+                music: "rap",
+                choices: [
+                    { text: "Return to log", nextStep: 8 }
+                ]
+            },
+            {
+                id: "NEW_AMBUSH",
+                text: "The night street lit up with neon flashes from our bazookas. We caused total devastation: EMP grenades disabled the government mechs, and rockets blew their fortifications to dust. This is not just banditry—it is the demolition of the old regime to the roar of metal and the smell of burnt bio-kerosene.",
+                image: "assets/images/bandit_ambush.png",
+                music: "rap",
+                choices: [
+                    { text: "Return to log", nextStep: 8 }
+                ]
             }
         ],
         part2: [
@@ -431,11 +444,11 @@ const allStories = {
                 text: "I was designed for the silent elimination of enemy officers.\nMy beak opens to 78°, holding three ampoules:\n <span class='color-red'>scopolamine</span>\n <span class= 'color-red'>phencyclidine</span>\n and the hormone cocktail <span class='color-green'>'Heat-6'</span> (causes sudden attachment to objects of power).",
                 image: "assets/images/part2_hans_weaponry.png",
                 music: "casino",
-            choices: [
-                { text: "Использовать классику", nextStep: 3 },
-                { text: "Задействовать LSD-дымокол", nextStep: "NEW_LSD" },
-                { text: "Спец-протокол: Русская водка", nextStep: "NEW_VODKA" }
-            ]
+                choices: [
+                    { text: "Use the classic", nextStep: 3 },
+                    { text: "Deploy LSD smoke", nextStep: "NEW_LSD" },
+                    { text: "Special Protocol: Russian Vodka", nextStep: "NEW_VODKA" }
+                ]
             },
             {
                 text: "My first mission — the Pentagon, General Lawson's office.\nI flew in through the ventilation, left a feather on his desk, and sprayed a drop of fentanyl in the air.\nHe died with a smile. It was beautiful.",
@@ -501,6 +514,24 @@ const allStories = {
                 text: "<span class='color-gray'>[End of record. Found in NORAD archives, rewritten on feather and stone. Only one egg survived.]</span>",
                 image: "assets/images/part2_norad_egg.png",
                 music: "casino"
+            },
+            {
+                id: "NEW_LSD",
+                text: "The Pentagon is in smoke. Generals are seeing tangential dimensions and fractals. I pecked the chief cyber-strategist while he tried to hug a hologram.",
+                image: "assets/images/goose_lsd.png",
+                music: "casino",
+                choices: [
+                    { text: "Return to mission", nextStep: 3 }
+                ]
+            },
+            {
+                id: "NEW_VODKA",
+                text: "I found a bottle of 'Russian Standard'. Drank it. Now the general is singing the anthem and crying, hugging an iron safe. Mission... accomplished? Hic.",
+                image: "assets/images/goose_vodka.png",
+                music: "casino",
+                choices: [
+                    { text: "Return to mission", nextStep: 3 }
+                ]
             }
         ],
         part3: [
@@ -601,26 +632,7 @@ const allStories = {
             }
         ]
     },
-,
-            {
-                id: "NEW_TRAIN",
-                text: "*KRACH* Der gepanzerte SEC-CORP-Zug durchbricht mit voller Geschwindigkeit die Stahlbetonwand des Bunkers des Transitkommandos! Zerstörte Verteidigungsanlagen, Flammen bis zum Himmel, und unsere Cyber-Brüder mit Neon-Macheten stürzen sich direkt ins Inferno. Die Politiker hatten nicht einmal Zeit, sich in ihre Fluchtdrohnen einzuloggen.",
-                image: "assets/images/train_crash.png",
-                music: "rap",
-                choices: [
-                    { text: "Zurück zu Reeds Tagebuch", nextStep: 8 }
-                ]
-            },
-            {
-                id: "NEW_AMBUSH",
-                text: "Die nächtliche Straße wurde von Neonblitzen aus unseren Panzerfäusten erhellt. Wir haben totale Verwüstung angerichtet: EMP-Granaten haben die Mechs der Regierung deaktiviert und Raketen haben ihre Befestigungen zu Staub gesprengt. Das ist nicht nur Banditentum – es ist der Abriss des alten Regimes unter dem Dröhnen von Metall und dem Geruch von verbranntem Bio-Kerosin.",
-                image: "assets/images/bandit_ambush.png",
-                music: "rap",
-                choices: [
-                    { text: "Zurück zu Reeds Tagebuch", nextStep: 8 }
-                ]
-            }
-            de: {
+    de: {
         part1: [
             {
                 text: "<span class='color-red'>🧨 'Notizen vom Rande des Imperiums'</span>\n<span class='color-gray'>(aus dem persönlichen Tagebuch von Reed 'Vector' Coles, Kommandant der 'Tech-Eid'-Bande)</span>\n\n20. April 2026, Sektor 'New Atlanta', Zone D, ehemaliges Amazon-Lagerhaus.\nNotizbuch auf einem Stück synthetischem Papier, der Geruch von Brand und Psychotoxinen.",
@@ -660,7 +672,12 @@ const allStories = {
             {
                 text: "<span class='color-white'>🏴 Über die Bande</span>\nWir sind 420 Leute. 17 Drohnen. 1 Gans.\nJeder Kämpfer durchlief einen Ritus: eine Cyber-Nadel ins Gehirn, der Code-Satz — 'Es gibt keinen Gott außer Systemfehlern'.\nWir sind 'Tech-Eid', ein Clan von Cyber-Metzgern.\nIn jeder Stadt haben wir Schläfer-Server.",
                 image: "assets/images/warehouse.png",
-                music: "rap"
+                music: "rap",
+                choices: [
+                    { text: "[Plan Omega] Gepanzerten Zug entführen und den Bunker rammen", nextStep: "NEW_TRAIN" },
+                    { text: "[Plan Alpha] Frontalangriff: Raketenwerfer und Cyber-Explosionen", nextStep: "NEW_AMBUSH" },
+                    { text: "Beim ursprünglichen Plan bleiben", nextStep: 8 }
+                ]
             },
             {
                 text: "<span class='color-red'>⚠️ Über Morgen</span>\nMorgen marschieren wir zum Zentrum der Übergangsregierung in Nebraska.\nAber wir haben Hans, eine frische Ladung des 'Spatzenlied'-Virus und 200 Drohnen mit Bio-Kerosin.\nUnd wenn wir verlieren —\nsoll sich die Geschichte wenigstens daran erinnern,\ndass die USA nicht von einer Armee besiegt wurden… sondern von einer Gans mit einer Nadel und einer Bande, die von Freiheit träumt.",
@@ -671,6 +688,24 @@ const allStories = {
                 text: "<span class='color-gray'>[Ende des Fragments. Aufnahme durch Rauschen unterbrochen. Im Hintergrund: Gänsezischen, eine weibliche Stimme auf Deutsch und eine Explosion.]</span>",
                 image: "assets/images/bunker.png",
                 music: "classical"
+            },
+            {
+                id: "NEW_TRAIN",
+                text: "*KRACH* Der gepanzerte SEC-CORP-Zug durchbricht mit voller Geschwindigkeit die Stahlbetonwand des Bunkers des Transitkommandos! Zerstörte Verteidigungsanlagen, Flammen bis zum Himmel, und unsere Cyber-Brüder mit Neon-Macheten stürzen sich direkt ins Inferno. Die Politiker hatten nicht einmal Zeit, sich in ihre Fluchtdrohnen einzuloggen.",
+                image: "assets/images/train_crash.png",
+                music: "rap",
+                choices: [
+                    { text: "Zurück zu Reeds Tagebuch", nextStep: 8 }
+                ]
+            },
+            {
+                id: "NEW_AMBUSH",
+                text: "Die nächtliche Straße wurde von Neonblitzen aus unseren Panzerfäusten erhellt. Wir haben totale Verwüstung angerichtet: EMP-Granaten haben die Mechs der Regierung deaktiviert und Raketen haben ihre Befestigungen zu Staub gesprengt. Das ist nicht nur Banditentum – es ist der Abriss des alten Regimes unter dem Dröhnen von Metall und dem Geruch von verbranntem Bio-Kerosin.",
+                image: "assets/images/bandit_ambush.png",
+                music: "rap",
+                choices: [
+                    { text: "Zurück zu Reeds Tagebuch", nextStep: 8 }
+                ]
             }
         ],
         part2: [
@@ -687,7 +722,12 @@ const allStories = {
             {
                 text: "Ich wurde für die lautlose Eliminierung feindlicher Offiziere entwickelt.\nMein Schnabel öffnet sich auf 78° und enthält drei Ampullen:\n <span class='color-red'>Scopolamin</span>\n <span class='color-red'>Phencyclidin</span>\n und den Hormoncocktail <span class='color-green'>'Hitze-6'</span> (erzeugt plötzliche Bindung an Machtobjekte).",
                 image: "assets/images/part2_hans_weaponry.png",
-                music: "casino"
+                music: "casino",
+                choices: [
+                    { text: "Verwenden Sie den Klassiker", nextStep: 3 },
+                    { text: "LSD-Rauchgranate einsetzen", nextStep: "NEW_LSD" },
+                    { text: "Sonderprotokoll: Russischer Wodka", nextStep: "NEW_VODKA" }
+                ]
             },
             {
                 text: "Meine erste Mission — das Pentagon, Büro von General Lawson.\nIch flog durch die Lüftung rein, ließ eine Feder auf seinem Schreibtisch und sprühte einen Tropfen Fentanyl in die Luft.\nEr starb mit einem Lächeln. Es war wunderschön.",
@@ -753,6 +793,24 @@ const allStories = {
                 text: "<span class='color-gray'>[Ende der Aufzeichnung. In den NORAD-Archiven gefunden, auf Feder und Stein umgeschrieben. Nur ein Ei hat überlebt.]</span>",
                 image: "assets/images/part2_norad_egg.png",
                 music: "casino"
+            },
+            {
+                id: "NEW_LSD",
+                text: "Das Pentagon liegt im Rauch. Generäle sehen tangentiale Dimensionen und Fraktale. Ich habe den Chef-Cyberstrategen gepickt, als er versuchte, ein Hologramm zu umarmen.",
+                image: "assets/images/goose_lsd.png",
+                music: "casino",
+                choices: [
+                    { text: "Zur Mission zurückkehren", nextStep: 3 }
+                ]
+            },
+            {
+                id: "NEW_VODKA",
+                text: "Ich fand eine Flasche 'Russian Standard'. Habe sie getrunken. Jetzt singt der General die Hymne und weint, während er einen eisernen Tresor umarmt. Mission... erfüllt? Hicks.",
+                image: "assets/images/goose_vodka.png",
+                music: "casino",
+                choices: [
+                    { text: "Zur Mission zurückkehren", nextStep: 3 }
+                ]
             }
         ],
         part3: [
@@ -853,26 +911,7 @@ const allStories = {
             }
         ]
     },
-,
-            {
-                id: "NEW_TRAIN",
-                text: "*¡CRASH!* ¡El tren blindado SEC-CORP atraviesa a toda velocidad el muro de hormigón armado del búnker del Comando de Tránsito! Defensas destrozadas, llamas que llegan al cielo, y nuestros ciber-hermanos con machetes de neón se sumergen directamente en el infierno. Los políticos ni siquiera tuvieron tiempo de conectarse a sus drones de escape.",
-                image: "assets/images/train_crash.png",
-                music: "rap",
-                choices: [
-                    { text: "Volver al diario de Reed", nextStep: 8 }
-                ]
-            },
-            {
-                id: "NEW_AMBUSH",
-                text: "La calle nocturna se iluminó con los destellos de neón de nuestras bazucas. Causamos una devastación total: las granadas EMP desactivaron los robots del gobierno y los cohetes redujeron sus fortificaciones a polvo. Esto no es solo bandolerismo, es la demolición del antiguo régimen al rugido del metal y el olor a bio-queroseno quemado.",
-                image: "assets/images/bandit_ambush.png",
-                music: "rap",
-                choices: [
-                    { text: "Volver al diario de Reed", nextStep: 8 }
-                ]
-            }
-            es: {
+    es: {
         part1: [
             {
                 text: "<span class='color-red'>🧨 'Notas desde los márgenes del Imperio'</span>\n<span class='color-gray'>(del diario personal de Reed 'Vector' Coles, comandante de la banda 'Juramento Tecno')</span>\n\n20 de abril de 2026, sector 'Nueva Atlanta', Zona D, antiguo almacén de Amazon.\nCuaderno en un trozo de papel sintético, olor a quemado y psicotoxinas.",
@@ -912,7 +951,12 @@ const allStories = {
             {
                 text: "<span class='color-white'>🏴 Sobre la banda</span>\nSomos 420 personas. 17 drones. 1 ganso.\nCada combatiente pasó por un rito: aguja ciber en el cerebro, frase en código: 'No hay más Dios que los fallos'.\nSomos 'Juramento Tecno', un clan de carniceros cibernéticos.\nEn cada ciudad tenemos servidores latentes.",
                 image: "assets/images/warehouse.png",
-                music: "rap"
+                music: "rap",
+                choices: [
+                    { text: "[Plan Omega] Secuestrar tren blindado y embestir el búnker", nextStep: "NEW_TRAIN" },
+                    { text: "[Plan Alpha] Asalto frontal: lanzacohetes y ciber-explosiones", nextStep: "NEW_AMBUSH" },
+                    { text: "Apegarse al plan original", nextStep: 8 }
+                ]
             },
             {
                 text: "<span class='color-red'>⚠️ Sobre mañana</span>\nMañana marchamos hacia el Centro del Gobierno Provisional en Nebraska.\nPero tenemos a Hans, una nueva remesa del virus 'Canto del Gorrión' y 200 drones de biokeroseno.\nY si perdemos...\nque al menos la historia recuerde\nque EE. UU. no fue derrotado por un ejército... sino por un ganso con una aguja y una banda que soñaba con la libertad.",
@@ -923,6 +967,24 @@ const allStories = {
                 text: "<span class='color-gray'>[Fin del fragmento. Grabación interrumpida por estática. Al fondo: siseo de ganso, voz femenina en alemán y una explosión.]</span>",
                 image: "assets/images/bunker.png",
                 music: "classical"
+            },
+            {
+                id: "NEW_TRAIN",
+                text: "*¡CRASH!* ¡El tren blindado SEC-CORP atraviesa a toda velocidad el muro de hormigón armado del búnker del Comando de Tránsito! Defensas destrozadas, llamas que llegan al cielo, y nuestros ciber-hermanos con machetes de neón se sumergen directamente en el infierno. Los políticos ni siquiera tuvieron tiempo de conectarse a sus drones de escape.",
+                image: "assets/images/train_crash.png",
+                music: "rap",
+                choices: [
+                    { text: "Volver al diario de Reed", nextStep: 8 }
+                ]
+            },
+            {
+                id: "NEW_AMBUSH",
+                text: "La calle nocturna se iluminó con los destellos de neón de nuestras bazucas. Causamos una devastación total: las granadas EMP desactivaron los robots del gobierno y los cohetes redujeron sus fortificaciones a polvo. Esto no es solo bandolerismo, es la demolición del antiguo régimen al rugido del metal y el olor a bio-queroseno quemado.",
+                image: "assets/images/bandit_ambush.png",
+                music: "rap",
+                choices: [
+                    { text: "Volver al diario de Reed", nextStep: 8 }
+                ]
             }
         ],
         part2: [
@@ -939,7 +1001,12 @@ const allStories = {
             {
                 text: "Fui diseñado para la eliminación silenciosa de oficiales enemigos.\nMi pico se abre a 78°, contiene tres ampollas:\n <span class='color-red'>escopolamina</span>\n <span class='color-red'>fenciclidina</span>\n y el cóctel hormonal <span class='color-green'>'Calor-6'</span> (provoca un apego repentino a objetos de poder).",
                 image: "assets/images/part2_hans_weaponry.png",
-                music: "casino"
+                music: "casino",
+                choices: [
+                    { text: "Usar el clásico", nextStep: 3 },
+                    { text: "Desplegar humo LSD", nextStep: "NEW_LSD" },
+                    { text: "Protocolo especial: Vodka ruso", nextStep: "NEW_VODKA" }
+                ]
             },
             {
                 text: "Mi primera misión: el Pentágono, despacho del general Lawson.\nEntré por la ventilación, dejé una pluma en su mesa y rocié una gota de fentanilo en el aire.\nMurió con una sonrisa. Fue hermoso.",
@@ -1005,6 +1072,24 @@ const allStories = {
                 text: "<span class='color-gray'>[Fin de la grabación. Hallado en los archivos de NORAD, reescrito sobre pluma y piedra. Solo sobrevivió un huevo.]</span>",
                 image: "assets/images/part2_norad_egg.png",
                 music: "casino"
+            },
+            {
+                id: "NEW_LSD",
+                text: "El Pentágono está humeando. Los generales ven dimensiones tangenciales y fractales. Picoteé al jefe ciberestratega mientras intentaba abrazar un holograma.",
+                image: "assets/images/goose_lsd.png",
+                music: "casino",
+                choices: [
+                    { text: "Volver a la misión", nextStep: 3 }
+                ]
+            },
+            {
+                id: "NEW_VODKA",
+                text: "Encontré una botella de 'Russian Standard'. La bebí. Ahora el general está cantando el himno y llorando, abrazando una caja fuerte de hierro. Misión... ¿cumplida? Hic.",
+                image: "assets/images/goose_vodka.png",
+                music: "casino",
+                choices: [
+                    { text: "Volver a la misión", nextStep: 3 }
+                ]
             }
         ],
         part3: [
@@ -1105,26 +1190,7 @@ const allStories = {
             }
         ]
     },
-,
-            {
-                id: "NEW_TRAIN",
-                text: "*轰隆！* SEC-CORP装甲列车全速撞穿了过境指挥部地堡的钢筋混凝土墙！被撕碎的防御设施，冲天的火焰，我们拿着霓虹弯刀的赛博兄弟直接冲进了火海。政客们甚至没有时间登录他们的逃生无人机。",
-                image: "assets/images/train_crash.png",
-                music: "rap",
-                choices: [
-                    { text: "返回里德的日记", nextStep: 8 }
-                ]
-            },
-            {
-                id: "NEW_AMBUSH",
-                text: "夜晚的街道被我们火箭筒发出的霓虹灯闪光照亮。我们造成了彻底的破坏：EMP手榴弹使政府的机甲失效，火箭弹将他们的防御工事炸成灰烬。这不仅仅是土匪行径——这是在金属的轰鸣声和烧焦的生物煤油的气味中，对旧政权进行拆除。",
-                image: "assets/images/bandit_ambush.png",
-                music: "rap",
-                choices: [
-                    { text: "返回里德的日记", nextStep: 8 }
-                ]
-            }
-            zh: {
+    zh: {
         part1: [
             {
                 text: "<span class='color-red'>🧨 「帝国边缘的笔记」</span>\n<span class='color-gray'>（摘自“技术誓言”帮派指挥官里德·“矢量”·科尔斯的私人日记）</span>\n\n2026年4月20日，新亚特兰大区，D区，前亚马逊仓库。\n合成纸碎片上的笔记本，烧焦味和精神毒素。 ",
@@ -1164,7 +1230,12 @@ const allStories = {
             {
                 text: "<span class='color-white'>🏴 关于帮派</span>\n我们有420人。17架无人机。1只鹅。\n每位战士都经历过仪式：大脑中的赛博针，代号是——“除了故障，别无上帝”。\n我们是“技术誓言”，一个赛博屠夫部落。\n在每个城市，我们都有休眠中的服务器。",
                 image: "assets/images/warehouse.png",
-                music: "rap"
+                music: "rap",
+                choices: [
+                    { text: "[欧米茄计划] 劫持装甲列车并撞击地堡", nextStep: "NEW_TRAIN" },
+                    { text: "[阿尔法计划] 正面突击：火箭筒和网络爆炸", nextStep: "NEW_AMBUSH" },
+                    { text: "坚持原计划", nextStep: 8 }
+                ]
             },
             {
                 text: "<span class='color-red'>⚠️ 关于明天</span>\n明天我们将进军内布拉斯加州的临时政府中心。\n但我们有汉斯，一架新批次的“麻雀之歌”病毒和200架生物煤油无人机。\n如果我们输了——\n至少让历史记住，\n美国不是被军队击败的……而是被一只带针的鹅和一个梦想自由的帮派击败的。",
@@ -1175,6 +1246,24 @@ const allStories = {
                 text: "<span class='color-gray'>[片段结束。录音由于静电中断。背景音：鹅的嘶叫声，一名女性的德语声音和爆炸声。]</span>",
                 image: "assets/images/bunker.png",
                 music: "classical"
+            },
+            {
+                id: "NEW_TRAIN",
+                text: "*轰隆！* SEC-CORP装甲列车全速撞穿了过境指挥部地堡的钢筋混凝土墙！被撕碎的防御设施，冲天的火焰，我们拿着霓虹弯刀的赛博兄弟直接冲进了火海。政客们甚至没有时间登录他们的逃生无人机。",
+                image: "assets/images/train_crash.png",
+                music: "rap",
+                choices: [
+                    { text: "返回里德的日记", nextStep: 8 }
+                ]
+            },
+            {
+                id: "NEW_AMBUSH",
+                text: "夜晚的街道被我们火箭筒发出的霓虹灯闪光照亮。我们造成了彻底的破坏：EMP手榴弹使政府的机甲失效，火箭弹将他们的防御工事炸成灰烬。这不仅仅是土匪行径——这是在金属的轰鸣声和烧焦的生物煤油的气味中，对旧政权进行拆除。",
+                image: "assets/images/bandit_ambush.png",
+                music: "rap",
+                choices: [
+                    { text: "返回里德的日记", nextStep: 8 }
+                ]
             }
         ],
         part2: [
@@ -1191,7 +1280,12 @@ const allStories = {
             {
                 text: "我被设计用于无声地清除敌方军官。\n我的喙可以张开到78°，里面装有三支安瓿：\n <span class='color-red'>东莨菪碱</span>\n <span class='color-red'>苯环己哌啶</span>\n 以及激素混合物 <span class='color-green'>“热量-6”</span>（引起对权力象征的突然依恋）。",
                 image: "assets/images/part2_hans_weaponry.png",
-                music: "casino"
+                music: "casino",
+                choices: [
+                    { text: "使用经典", nextStep: 3 },
+                    { text: "部署LSD烟雾", nextStep: "NEW_LSD" },
+                    { text: "特别行动：俄罗斯伏特加", nextStep: "NEW_VODKA" }
+                ]
             },
             {
                 text: "我的第一个任务——五角大楼，劳森将军的办公室。\n我通过通风管道飞入，在他的桌子上留下一根羽毛，并向空气中喷洒了一滴芬太尼。\n他带着微笑死去了。那场面很美。",
@@ -1257,6 +1351,24 @@ const allStories = {
                 text: "<span class='color-gray'>[录音结束。发现于NORAD档案，刻录于羽毛和石头上。仅存一枚蛋存活。]</span>",
                 image: "assets/images/part2_norad_egg.png",
                 music: "casino"
+            },
+            {
+                id: "NEW_LSD",
+                text: "五角大楼弥漫着烟雾。将军们看到了切线维度和分形。当首席网络战略家试图拥抱全息图时，我啄了他。",
+                image: "assets/images/goose_lsd.png",
+                music: "casino",
+                choices: [
+                    { text: "返回任务", nextStep: 3 }
+                ]
+            },
+            {
+                id: "NEW_VODKA",
+                text: "我找到了一瓶“俄罗斯标准”。喝了它。现在将军正在唱国歌并哭泣，拥抱着一个铁保险箱。任务……完成了？嗝。",
+                image: "assets/images/goose_vodka.png",
+                music: "casino",
+                choices: [
+                    { text: "返回任务", nextStep: 3 }
+                ]
             }
         ],
         part3: [
@@ -1357,26 +1469,7 @@ const allStories = {
             }
         ]
     },
-,
-            {
-                id: "NEW_TRAIN",
-                text: "*تصادف* قطار زرهی SEC-CORP با سرعت تمام از دیوار بتن آرمه پناهگاه فرماندهی ترانزیت عبور می کند! دفاعیات خرد شده، شعله های آتش به آسمان می رسد و برادران سایبری ما با قمه های نئونی مستقیماً در دوزخ فرو می روند. سیاستمداران حتی وقت نداشتند وارد پهپادهای فرار خود شوند.",
-                image: "assets/images/train_crash.png",
-                music: "rap",
-                choices: [
-                    { text: "بازگشت به دفترچه خاطرات رید", nextStep: 8 }
-                ]
-            },
-            {
-                id: "NEW_AMBUSH",
-                text: "خیابان شب با پرتوهای نئون بازوکاهای ما روشن شد. ما ویرانی کامل ایجاد کردیم: نارنجک‌های EMP ماشین‌های دولت را از کار انداختند و موشک‌ها استحکامات آنها را به خاکستر تبدیل کردند. این فقط راهزنی نیست - این تخریب رژیم قدیمی با غرش فلز و بوی نفت سفید زیستی سوخته است.",
-                image: "assets/images/bandit_ambush.png",
-                music: "rap",
-                choices: [
-                    { text: "بازگشت به دفترچه خاطرات رید", nextStep: 8 }
-                ]
-            }
-            fa: {
+    fa: {
         part1: [
             {
                 text: "<span class='color-red'>🧨 «یادداشت‌هایی از حاشیه امپراتوری»</span>\n<span class='color-gray'>(از دفترچه خاطرات شخصی رید «وکتور» کولز، فرمانده باند «سوگند تکنولوژی»)</span>\n\n۲۰ آوریل ۲۰۲۶، بخش «آتلانتا جدید»، منطقه D، انبار سابق آمازون.\nدفترچه روی تکه‌ای از کاغذ مصنوعی، بوی سوختگی و سموم روانی.",
@@ -1416,7 +1509,12 @@ const allStories = {
             {
                 text: "<span class='color-white'>🏴 درباره باند</span>\nما ۴۲۰ نفر هستیم. ۱۷ پهپاد. ۱ غاز.\nهر مبارز مراسمی را پشت سر گذاشته است: سوزن سایبری در مغز، جمله رمز — «خدایی جز نقص‌های سیستم وجود ندارد».\nما «سوگند تکنولوژی» هستیم، قبیله قصابان سایبری.\nدر هر شهر سرورهای خفته داریم.",
                 image: "assets/images/warehouse.png",
-                music: "rap"
+                music: "rap",
+                choices: [
+                    { text: "[طرح امگا] ربودن قطار زرهی و کوبیدن به پناهگاه", nextStep: "NEW_TRAIN" },
+                    { text: "[طرح آلفا] حمله از جلو: راکت اندازها و انفجارهای سایبری", nextStep: "NEW_AMBUSH" },
+                    { text: "به طرح اصلی پایبند باشید", nextStep: 8 }
+                ]
             },
             {
                 text: "<span class='color-red'>⚠️ درباره فردا</span>\nفردا به سمت مرکز دولت موقت در نبراسکا حرکت می‌کنیم.\nاما ما هانس، محموله جدیدی از ویروس «آواز گنجشک» و ۲۰۰ پهپاد با سوخت زیستی داریم.\nو اگر شکست بخوریم —\nبگذارید حداقل تاریخ به یاد بیاورد\nکه ایالات متحده نه توسط یک ارتش... بلکه توسط یک غاز با یک سوزن و باندی که رویای آزادی داشت، سرنگون شد.",
@@ -1427,6 +1525,24 @@ const allStories = {
                 text: "<span class='color-gray'>[پایان قطعه. ضبط به دلیل نویز قطع شد. در پس‌زمینه: صدای هیس غاز، صدای یک زن به آلمانی و یک انفجار.]</span>",
                 image: "assets/images/bunker.png",
                 music: "classical"
+            },
+            {
+                id: "NEW_TRAIN",
+                text: "*تصادف* قطار زرهی SEC-CORP با سرعت تمام از دیوار بتن آرمه پناهگاه فرماندهی ترانزیت عبور می کند! دفاعیات خرد شده، شعله های آتش به آسمان می رسد و برادران سایبری ما با قمه های نئونی مستقیماً در دوزخ فرو می روند. سیاستمداران حتی وقت نداشتند وارد پهپادهای فرار خود شوند.",
+                image: "assets/images/train_crash.png",
+                music: "rap",
+                choices: [
+                    { text: "بازگشت به دفترچه خاطرات رید", nextStep: 8 }
+                ]
+            },
+            {
+                id: "NEW_AMBUSH",
+                text: "خیابان شب با پرتوهای نئون بازوکاهای ما روشن شد. ما ویرانی کامل ایجاد کردیم: نارنجک‌های EMP ماشین‌های دولت را از کار انداختند و موشک‌ها استحکامات آنها را به خاکستر تبدیل کردند. این فقط راهزنی نیست - این تخریب رژیم قدیمی با غرش فلز و بوی نفت سفید زیستی سوخته است.",
+                image: "assets/images/bandit_ambush.png",
+                music: "rap",
+                choices: [
+                    { text: "بازگشت به دفترچه خاطرات رید", nextStep: 8 }
+                ]
             }
         ],
         part2: [
@@ -1443,7 +1559,12 @@ const allStories = {
             {
                 text: "من برای حذف بی‌صدای افسران دشمن طراحی شده‌ام.\nمنقار من تا ۷۸ درجه باز می‌شود و شامل سه آمپول است:\n <span class='color-red'>اسکوپولامین</span>\n <span class='color-red'>فن‌سیکلیدین</span>\n و کوکتل هورمونی <span class='color-green'>«گرما-۶»</span> (باعث دلبستگی ناگهانی به اشیاء قدرت می‌شود).",
                 image: "assets/images/part2_hans_weaponry.png",
-                music: "casino"
+                music: "casino",
+                choices: [
+                    { text: "از کلاسیک استفاده کنید", nextStep: 3 },
+                    { text: "دود LSD را مستقر کنید", nextStep: "NEW_LSD" },
+                    { text: "پروتکل ویژه: ودکای روسی", nextStep: "NEW_VODKA" }
+                ]
             },
             {
                 text: "اولین ماموریت من — پنتاگون، دفتر ژنرال لاوسون.\nاز طریق تهویه وارد شدم، پری روی میزش گذاشتم و قطره‌ای فنتانیل در هوا پاشیدم.\nاو با لبخند مرد. زیبا بود.",
@@ -1509,6 +1630,24 @@ const allStories = {
                 text: "<span class='color-gray'>[پایان ضبط. کشف شده در آرشیوهای NORAD، بازنویسی شده روی پر و سنگ. فقط یک تخم جان سالم به در برد.]</span>",
                 image: "assets/images/part2_norad_egg.png",
                 music: "casino"
+            },
+            {
+                id: "NEW_LSD",
+                text: "پنتاگون در دود است. ژنرال ها ابعاد مماسی و فراکتال ها را می بینند. من به استراتژیست ارشد سایبری نوک زدم در حالی که او سعی می کرد یک هولوگرام را در آغوش بگیرد.",
+                image: "assets/images/goose_lsd.png",
+                music: "casino",
+                choices: [
+                    { text: "بازگشت به ماموریت", nextStep: 3 }
+                ]
+            },
+            {
+                id: "NEW_VODKA",
+                text: "یه بطری استاندارد روسی پیدا کردم. نوشیدم. حالا ژنرال داره سرود میخونه و گریه میکنه، یه گاوصندوق آهنی رو بغل کرده. ماموریت... انجام شد؟ هیک.",
+                image: "assets/images/goose_vodka.png",
+                music: "casino",
+                choices: [
+                    { text: "بازگشت به ماموریت", nextStep: 3 }
+                ]
             }
         ],
         part3: [
