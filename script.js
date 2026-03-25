@@ -41,7 +41,8 @@ function setLanguage(lang) {
     if (startBtn4) startBtn4.innerText = ui.startPart4;
     if (achievementsBtn) achievementsBtn.innerText = ui.achievements;
     if (codexBtn) codexBtn.innerText = ui.codexBtn;
-    if (shareBtn) shareBtn.innerText = ui.share;
+    const shareTextEl = document.getElementById('share-text');
+    if (shareTextEl) shareTextEl.innerText = ui.share;
 
     const title = document.getElementById('main-title');
     const subtitle = document.getElementById('main-subtitle');
