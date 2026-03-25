@@ -74,7 +74,26 @@ const uiStrings = {
 };
 
 const allStories = {
-    ru: {
+,
+            {
+                id: "NEW_TRAIN",
+                text: "*ГРОХОТ* Бронепоезд SEC-CORP на полном ходу пробивает железобетонную стену бункера Транзитного Командования! Ошмётки защиты, пламя до небес и наши кибер-братки с неоновыми мачете влетают прямо в пекло. Политики даже не успели залогиниться в свои дроны бегства.",
+                image: "assets/images/train_crash.png",
+                music: "rap",
+                choices: [
+                    { text: "Вернуться к дневнику Рида", nextStep: 8 }
+                ]
+            },
+            {
+                id: "NEW_AMBUSH",
+                text: "Ночная улица озарилась неоновыми вспышками от наших базук. Мы устроили тотальный разнос: ЭМИ-гранаты вырубили мехи правительства, а снаряды разнесли их укрепления в пыль. Это не просто бандитизм — это снос старого режима под грохот металла и запах паленого био-керосина.",
+                image: "assets/images/bandit_ambush.png",
+                music: "rap",
+                choices: [
+                    { text: "Вернуться к дневнику Рида", nextStep: 8 }
+                ]
+            }
+            ru: {
         part1: [
             {
                 text: "<span class='color-red'>🧨 «Записки с обочины Империи»</span>\n<span class='color-gray'>(из личного дневника Рида «Вектор» Коулза, командира банды «Техноклятва»)</span>\n\n20 апреля 2026, сектор “Новая Атланта”, Зона D, бывший склад Amazon.\nБлокнот на обрывке синтетической бумаги, запах гари и психотоксинов.",
@@ -325,7 +344,26 @@ const allStories = {
             }
         ]
     },
-    en: {
+,
+            {
+                id: "NEW_TRAIN",
+                text: "*CRASH* The SEC-CORP armored train smashes through the reinforced concrete wall of the Transit Command bunker at full speed! Shredded defenses, flames reaching the sky, and our cyber-bros with neon machetes plunge straight into the inferno. The politicians did not even have time to log into their escape drones.",
+                image: "assets/images/train_crash.png",
+                music: "rap",
+                choices: [
+                    { text: "Return to log", nextStep: 8 }
+                ]
+            },
+            {
+                id: "NEW_AMBUSH",
+                text: "The night street lit up with neon flashes from our bazookas. We caused total devastation: EMP grenades disabled the government mechs, and rockets blew their fortifications to dust. This is not just banditry—it is the demolition of the old regime to the roar of metal and the smell of burnt bio-kerosene.",
+                image: "assets/images/bandit_ambush.png",
+                music: "rap",
+                choices: [
+                    { text: "Return to log", nextStep: 8 }
+                ]
+            }
+            en: {
         part1: [
             {
                 text: "<span class='color-red'>🧨 'Notes from the Sidelines of the Empire'</span>\n<span class='color-gray'>(from the personal diary of Reed 'Vector' Coles, commander of the 'Tech-Oath' gang)</span>\n\nApril 20, 2026, sector 'New Atlanta', Zone D, former Amazon warehouse.\nNotebook on a scrap of synthetic paper, the smell of burning and psychotoxins.",
@@ -563,7 +601,26 @@ const allStories = {
             }
         ]
     },
-    de: {
+,
+            {
+                id: "NEW_TRAIN",
+                text: "*KRACH* Der gepanzerte SEC-CORP-Zug durchbricht mit voller Geschwindigkeit die Stahlbetonwand des Bunkers des Transitkommandos! Zerstörte Verteidigungsanlagen, Flammen bis zum Himmel, und unsere Cyber-Brüder mit Neon-Macheten stürzen sich direkt ins Inferno. Die Politiker hatten nicht einmal Zeit, sich in ihre Fluchtdrohnen einzuloggen.",
+                image: "assets/images/train_crash.png",
+                music: "rap",
+                choices: [
+                    { text: "Zurück zu Reeds Tagebuch", nextStep: 8 }
+                ]
+            },
+            {
+                id: "NEW_AMBUSH",
+                text: "Die nächtliche Straße wurde von Neonblitzen aus unseren Panzerfäusten erhellt. Wir haben totale Verwüstung angerichtet: EMP-Granaten haben die Mechs der Regierung deaktiviert und Raketen haben ihre Befestigungen zu Staub gesprengt. Das ist nicht nur Banditentum – es ist der Abriss des alten Regimes unter dem Dröhnen von Metall und dem Geruch von verbranntem Bio-Kerosin.",
+                image: "assets/images/bandit_ambush.png",
+                music: "rap",
+                choices: [
+                    { text: "Zurück zu Reeds Tagebuch", nextStep: 8 }
+                ]
+            }
+            de: {
         part1: [
             {
                 text: "<span class='color-red'>🧨 'Notizen vom Rande des Imperiums'</span>\n<span class='color-gray'>(aus dem persönlichen Tagebuch von Reed 'Vector' Coles, Kommandant der 'Tech-Eid'-Bande)</span>\n\n20. April 2026, Sektor 'New Atlanta', Zone D, ehemaliges Amazon-Lagerhaus.\nNotizbuch auf einem Stück synthetischem Papier, der Geruch von Brand und Psychotoxinen.",
@@ -796,7 +853,26 @@ const allStories = {
             }
         ]
     },
-    es: {
+,
+            {
+                id: "NEW_TRAIN",
+                text: "*¡CRASH!* ¡El tren blindado SEC-CORP atraviesa a toda velocidad el muro de hormigón armado del búnker del Comando de Tránsito! Defensas destrozadas, llamas que llegan al cielo, y nuestros ciber-hermanos con machetes de neón se sumergen directamente en el infierno. Los políticos ni siquiera tuvieron tiempo de conectarse a sus drones de escape.",
+                image: "assets/images/train_crash.png",
+                music: "rap",
+                choices: [
+                    { text: "Volver al diario de Reed", nextStep: 8 }
+                ]
+            },
+            {
+                id: "NEW_AMBUSH",
+                text: "La calle nocturna se iluminó con los destellos de neón de nuestras bazucas. Causamos una devastación total: las granadas EMP desactivaron los robots del gobierno y los cohetes redujeron sus fortificaciones a polvo. Esto no es solo bandolerismo, es la demolición del antiguo régimen al rugido del metal y el olor a bio-queroseno quemado.",
+                image: "assets/images/bandit_ambush.png",
+                music: "rap",
+                choices: [
+                    { text: "Volver al diario de Reed", nextStep: 8 }
+                ]
+            }
+            es: {
         part1: [
             {
                 text: "<span class='color-red'>🧨 'Notas desde los márgenes del Imperio'</span>\n<span class='color-gray'>(del diario personal de Reed 'Vector' Coles, comandante de la banda 'Juramento Tecno')</span>\n\n20 de abril de 2026, sector 'Nueva Atlanta', Zona D, antiguo almacén de Amazon.\nCuaderno en un trozo de papel sintético, olor a quemado y psicotoxinas.",
@@ -1029,7 +1105,26 @@ const allStories = {
             }
         ]
     },
-    zh: {
+,
+            {
+                id: "NEW_TRAIN",
+                text: "*轰隆！* SEC-CORP装甲列车全速撞穿了过境指挥部地堡的钢筋混凝土墙！被撕碎的防御设施，冲天的火焰，我们拿着霓虹弯刀的赛博兄弟直接冲进了火海。政客们甚至没有时间登录他们的逃生无人机。",
+                image: "assets/images/train_crash.png",
+                music: "rap",
+                choices: [
+                    { text: "返回里德的日记", nextStep: 8 }
+                ]
+            },
+            {
+                id: "NEW_AMBUSH",
+                text: "夜晚的街道被我们火箭筒发出的霓虹灯闪光照亮。我们造成了彻底的破坏：EMP手榴弹使政府的机甲失效，火箭弹将他们的防御工事炸成灰烬。这不仅仅是土匪行径——这是在金属的轰鸣声和烧焦的生物煤油的气味中，对旧政权进行拆除。",
+                image: "assets/images/bandit_ambush.png",
+                music: "rap",
+                choices: [
+                    { text: "返回里德的日记", nextStep: 8 }
+                ]
+            }
+            zh: {
         part1: [
             {
                 text: "<span class='color-red'>🧨 「帝国边缘的笔记」</span>\n<span class='color-gray'>（摘自“技术誓言”帮派指挥官里德·“矢量”·科尔斯的私人日记）</span>\n\n2026年4月20日，新亚特兰大区，D区，前亚马逊仓库。\n合成纸碎片上的笔记本，烧焦味和精神毒素。 ",
@@ -1262,7 +1357,26 @@ const allStories = {
             }
         ]
     },
-    fa: {
+,
+            {
+                id: "NEW_TRAIN",
+                text: "*تصادف* قطار زرهی SEC-CORP با سرعت تمام از دیوار بتن آرمه پناهگاه فرماندهی ترانزیت عبور می کند! دفاعیات خرد شده، شعله های آتش به آسمان می رسد و برادران سایبری ما با قمه های نئونی مستقیماً در دوزخ فرو می روند. سیاستمداران حتی وقت نداشتند وارد پهپادهای فرار خود شوند.",
+                image: "assets/images/train_crash.png",
+                music: "rap",
+                choices: [
+                    { text: "بازگشت به دفترچه خاطرات رید", nextStep: 8 }
+                ]
+            },
+            {
+                id: "NEW_AMBUSH",
+                text: "خیابان شب با پرتوهای نئون بازوکاهای ما روشن شد. ما ویرانی کامل ایجاد کردیم: نارنجک‌های EMP ماشین‌های دولت را از کار انداختند و موشک‌ها استحکامات آنها را به خاکستر تبدیل کردند. این فقط راهزنی نیست - این تخریب رژیم قدیمی با غرش فلز و بوی نفت سفید زیستی سوخته است.",
+                image: "assets/images/bandit_ambush.png",
+                music: "rap",
+                choices: [
+                    { text: "بازگشت به دفترچه خاطرات رید", nextStep: 8 }
+                ]
+            }
+            fa: {
         part1: [
             {
                 text: "<span class='color-red'>🧨 «یادداشت‌هایی از حاشیه امپراتوری»</span>\n<span class='color-gray'>(از دفترچه خاطرات شخصی رید «وکتور» کولز، فرمانده باند «سوگند تکنولوژی»)</span>\n\n۲۰ آوریل ۲۰۲۶، بخش «آتلانتا جدید»، منطقه D، انبار سابق آمازون.\nدفترچه روی تکه‌ای از کاغذ مصنوعی، بوی سوختگی و سموم روانی.",
@@ -1495,23 +1609,4 @@ const allStories = {
             }
         ]
     }
-},
-        {
-            id: "NEW_LSD",
-            text: "Пентагон в дыму. Генералы видят тангенциальные измерения и фракталы. Я клюнул главного кибер-стратега, пока он пытался обнять голограмму.",
-            image: "assets/images/goose_lsd.png",
-            music: "casino",
-            choices: [
-                { text: "Вернуться к миссии", nextStep: 3 }
-            ]
-        },
-        {
-            id: "NEW_VODKA",
-            text: "Я нашёл бутылку «Русского Стандарта». Выпил. Теперь генерал поёт гимн и плачет, обнимая железный сейф. Задание... выполнено? Ик.",
-            image: "assets/images/goose_vodka.png",
-            music: "casino",
-            choices: [
-                { text: "Вернуться к миссии", nextStep: 3 }
-            ]
-        }
-    ;
+};
