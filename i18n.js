@@ -351,7 +351,31 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[Конец записи.\nФайл прерван гусиным шипением на фоне. Последняя строка нацарапана не чернилами — пером.\nСенатор жив.\nИли мёртв.\nИли уже в стае.]</span>",
                 image: "assets/images/part3_epilogue.png",
-                music: "classical"
+                music: "classical",
+                choices: [
+                    { text: "[Отдаться культу] Принять кибер-причастие от Гуся-Епископа", nextStep: "NEW_CULT" },
+                    { text: "[Бегство] Надеть противогаз и спасаться с остатками элиты", nextStep: "NEW_ESCAPE" },
+                    { text: "Сдаться системе (Закончить запись)", nextStep: 999 }
+                ]
+            }
+,
+            {
+                id: "NEW_CULT",
+                text: "Я пал на колени. Огромный кибер-гусь в неоновой митре епископа протянул мне светящуюся техно-сферу. Женщины в латексе и противогазах молились вокруг нас. Я вкусил цифровое причастие — и старый мир растворился в священном фрактальном гоготе.",
+                image: "assets/images/religious_goose.png",
+                music: "casino",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
+            },
+            {
+                id: "NEW_ESCAPE",
+                text: "Мы бежали. Жены сенаторов и эскортницы в светящихся противогазах в панике пробивались сквозь руины банкетного зала, спасаясь от гигантских железных птиц. Неоновые кресты на стенах мигали, как насмешка. Мы выжили, но навсегда остались трусами в новом пернатом мире.",
+                image: "assets/images/gasmask_women.png",
+                music: "rap",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
             }
         ]
     },
@@ -632,7 +656,31 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[End of recording.\nThe file is interrupted by goose hissing in the background. The last line is scratched not in ink — with a feather.\nThe senator is alive.\nOr dead.\nOr already in the flock.]</span>",
                 image: "assets/images/part3_epilogue.png",
-                music: "classical"
+                music: "classical",
+                choices: [
+                    { text: "[Surrender to cult] Accept cyber-communion from the Bishop Goose", nextStep: "NEW_CULT" },
+                    { text: "[Escape] Put on a gas mask and flee with the remnants of the elite", nextStep: "NEW_ESCAPE" },
+                    { text: "Surrender to the system (End recording)", nextStep: 999 }
+                ]
+            }
+,
+            {
+                id: "NEW_CULT",
+                text: "I fell to my knees. A giant cyber-goose in a neon bishop's mitre offered me a glowing tech orb. Women in latex and gas masks prayed around us. I tasted the digital communion — and the old world dissolved in holy fractal honking.",
+                image: "assets/images/religious_goose.png",
+                music: "casino",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
+            },
+            {
+                id: "NEW_ESCAPE",
+                text: "We ran. Senators' wives and escorts in glowing gas masks panicked through the ruined banquet hall, fleeing from giant iron birds. Neon crosses on the walls blinked like a mockery. We survived, but forever remained cowards in the new feathered world.",
+                image: "assets/images/gasmask_women.png",
+                music: "rap",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
             }
         ]
     },
@@ -913,7 +961,31 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[Ende der Aufzeichnung.\nDie Datei wird durch Gänsezischen im Hintergrund unterbrochen. Die letzte Zeile ist nicht mit Tinte, sondern mit einer Feder eingeritzt.\nDer Senator lebt.\nOder ist tot.\nOder bereits in der Schar.]</span>",
                 image: "assets/images/part3_epilogue.png",
-                music: "classical"
+                music: "classical",
+                choices: [
+                    { text: "[Dem Kult hingeben] Das Cyber-Abendmahl vom Bischof-Gans empfangen", nextStep: "NEW_CULT" },
+                    { text: "[Flucht] Gasmaske aufsetzen und mit den Resten der Elite fliehen", nextStep: "NEW_ESCAPE" },
+                    { text: "Dem System ergeben (Aufnahme beenden)", nextStep: 999 }
+                ]
+            }
+,
+            {
+                id: "NEW_CULT",
+                text: "Ich fiel auf die Knie. Eine riesige Cyber-Gans in einer neonfarbenen Bischofsmitra reichte mir eine leuchtende Tech-Kugel. Frauen in Latex und Gasmasken beteten um uns herum. Ich kostete das digitale Abendmahl – und die alte Welt löste sich in heiligem fraktalem Schnattern auf.",
+                image: "assets/images/religious_goose.png",
+                music: "casino",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
+            },
+            {
+                id: "NEW_ESCAPE",
+                text: "Wir rannten. Die Frauen der Senatoren und Escort-Damen in leuchtenden Gasmasken durchbrachen in Panik die Ruinen des Bankettsaals auf der Flucht vor den riesigen Eisenvögeln. Neonkreuze an den Wänden blinkten wie ein Hohn. Wir überlebten, aber blieben für immer Feiglinge in der neuen gefiederten Welt.",
+                image: "assets/images/gasmask_women.png",
+                music: "rap",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
             }
         ]
     },
@@ -1194,7 +1266,31 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[Fin de la grabación.\nEl archivo se interrumpe por siseos de gansos de fondo. La última línea está grabada no con tinta, sino con una pluma.\nEl senador está vivo.\nO muerto.\nOr ya en la bandada.]</span>",
                 image: "assets/images/part3_epilogue.png",
-                music: "classical"
+                music: "classical",
+                choices: [
+                    { text: "[Rendirse al culto] Aceptar la ciber-comunión del Ganso Obispo", nextStep: "NEW_CULT" },
+                    { text: "[Escape] Ponerse una máscara de gas y huir con los restos de la élite", nextStep: "NEW_ESCAPE" },
+                    { text: "Rendirse al sistema (Finalizar grabación)", nextStep: 999 }
+                ]
+            }
+,
+            {
+                id: "NEW_CULT",
+                text: "Caí de rodillas. Un ganso cibernético gigante con una mitra de obispo de neón me ofreció un orbe tecnológico brillante. Mujeres en látex y máscaras de gas rezaban a nuestro alrededor. Probé la comunión digital y el viejo mundo se disolvió en un graznido fractal sagrado.",
+                image: "assets/images/religious_goose.png",
+                music: "casino",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
+            },
+            {
+                id: "NEW_ESCAPE",
+                text: "Corrimos. Las esposas de los senadores y las acompañantes con máscaras de gas brillantes rompieron en pánico por los restos de la sala de banquetes, huyendo de aves gigantes de hierro. Cruces de neón en las paredes parpadeaban como una burla. Sobrevivimos, pero seguimos siendo cobardes para siempre en un nuevo mundo emplumado.",
+                image: "assets/images/gasmask_women.png",
+                music: "rap",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
             }
         ]
     },
@@ -1475,7 +1571,31 @@ const allStories = {
             {
                 text: "<span class='color-gray'>[录音结束。\n文件在背景的鹅嘶叫声中中断。最后一行不是用墨水，而是用羽毛刻下的。\n参议员活着。\n或者死了。\n或者已经在鸟群中。]</span>",
                 image: "assets/images/part3_epilogue.png",
-                music: "classical"
+                music: "classical",
+                choices: [
+                    { text: "[向邪教投降] 接受主教鹅的网络圣餐", nextStep: "NEW_CULT" },
+                    { text: "[逃跑] 戴上防毒面具，与剩下的精英一起逃离", nextStep: "NEW_ESCAPE" },
+                    { text: "向系统投降（结束录音）", nextStep: 999 }
+                ]
+            }
+,
+            {
+                id: "NEW_CULT",
+                text: "我跪了下来。一只戴着霓虹主教帽的巨大机械鹅向我提供了一个发光的科技球。周围穿着乳胶和防毒面具的女人在祈祷。我品尝了数字圣餐——旧世界在神圣的分形鹅叫声中溶解。",
+                image: "assets/images/religious_goose.png",
+                music: "casino",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
+            },
+            {
+                id: "NEW_ESCAPE",
+                text: "我们跑了。参议员的妻子和带着发光防毒面具的陪同人员在宴会厅的废墟中惊慌失措，躲避着巨大的铁鸟。墙上的霓虹灯十字架像嘲笑一样闪烁。我们幸存下来，但在新的有羽毛的世界里永远成为了懦夫。",
+                image: "assets/images/gasmask_women.png",
+                music: "rap",
+                choices: [
+                    { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
             }
         ]
     },
