@@ -458,6 +458,41 @@ video.bg-layer {
     align-items: center;
 }
 
+/* ── AVATARS ───────── */
+#avatar-container {
+    position: absolute;
+    bottom: -20px;
+    left: -220px;
+    width: 200px;
+    height: 250px;
+    z-index: 10;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+    border: 2px solid var(--neon-cyan);
+    background: rgba(0, 0, 0, 0.8) url('assets/images/favicon.png') center/50% no-repeat;
+    overflow: hidden;
+    user-select: none;
+    pointer-events: none;
+}
+
+#avatar-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.avatar-hidden {
+    opacity: 0;
+    transform: translateX(-50px) scale(0.9);
+}
+
+.avatar-visible {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+}
+
 #text-display {
     font-size: 2.2rem;
     line-height: 1.5;
@@ -725,4 +760,299 @@ body.ui-hidden .view-btn:hover {
 body.telegram-app .choice-btn {
     padding: 10px 15px;
     font-size: 1rem;
+}
+
+/* ── ACHIEVEMENTS SCREEN ───────── */
+#achievements-screen {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 40px 20px;
+    overflow-y: auto;
+}
+
+.achievements-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--neon-cyan);
+    padding-bottom: 15px;
+}
+
+.achievements-header h2 {
+    color: var(--neon-cyan);
+    font-size: 2rem;
+    text-shadow: 0 0 10px var(--neon-cyan);
+    margin: 0;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.achievement-item {
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--neon-cyan);
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.achievement-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 255, 255, 0.4);
+}
+
+.achievement-item.locked {
+    opacity: 0.5;
+    filter: grayscale(100%);
+    border-color: #555;
+    box-shadow: none;
+}
+
+.achievement-icon {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border: 1px solid var(--neon-cyan);
+    border-radius: 4px;
+}
+
+.achievement-locked .achievement-icon {
+    border-color: #555;
+}
+
+.achievement-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.achievement-title {
+    color: var(--neon-cyan);
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.achievement-desc {
+    color: #ccc;
+    font-size: 0.85rem;
+    line-height: 1.2;
+}
+
+/* ── UI TOASTS ───────── */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none;
+}
+
+.toast {
+    background: rgba(0, 0, 0, 0.9);
+    border-left: 4px solid var(--neon-yellow);
+    padding: 15px 20px;
+    min-width: 250px;
+    box-shadow: 0 0 20px rgba(255, 255, 51, 0.3);
+    color: white;
+    font-family: 'Share Tech Mono', monospace;
+    animation: slideInRight 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    display: flex;
+    flex-direction: column;
+}
+
+.toast.fade-out {
+    animation: fadeOutRight 0.4s ease forwards;
+}
+
+.toast-header {
+    font-size: 0.8rem;
+    color: var(--neon-yellow);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.toast-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(120%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeOutRight {
+    to { transform: translateX(120%); opacity: 0; }
+}
+
+/* ── CINEMATIC VFX ───────── */
+.vfx-shake {
+    animation: screenShake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+.vfx-glitch-severe {
+    animation: severeGlitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+    filter: hue-rotate(90deg) contrast(150%) brightness(120%);
+}
+
+@keyframes screenShake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-10px, -20px) rotate(-2deg); }
+    20% { transform: translate(-30px, 0px) rotate(2deg); }
+    30% { transform: translate(30px, 20px) rotate(0deg); }
+    40% { transform: translate(10px, -10px) rotate(2deg); }
+    50% { transform: translate(-10px, 20px) rotate(-2deg); }
+    60% { transform: translate(-30px, 10px) rotate(0deg); }
+    70% { transform: translate(30px, 10px) rotate(-2deg); }
+    80% { transform: translate(-10px, -10px) rotate(2deg); }
+    90% { transform: translate(10px, 20px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-2deg); }
+}
+
+@keyframes severeGlitch {
+    0% { transform: translate(0) skew(0deg); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+    20% { transform: translate(-10px, 5px) skew(-20deg); clip-path: polygon(0 10%, 100% 10%, 100% 30%, 0 30%); }
+    40% { transform: translate(10px, -5px) skew(20deg); clip-path: polygon(0 40%, 100% 40%, 100% 60%, 0 60%); color: var(--neon-cyan); }
+    60% { transform: translate(-5px, 10px) skew(-10deg); clip-path: polygon(0 70%, 100% 70%, 100% 90%, 0 90%); }
+    80% { transform: translate(5px, -10px) skew(10deg); clip-path: polygon(0 20%, 100% 20%, 100% 50%, 0 50%); color: var(--neon-red); }
+    100% { transform: translate(0) skew(0deg); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+}
+
+/* ── LORE CODEX (NEURO-ARCHIVE) ───────── */
+.codex-layout {
+    display: flex;
+    width: 90%;
+    max-width: 1000px;
+    height: 60vh;
+    border: 2px solid var(--neon-cyan);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    border-radius: 4px;
+    background: rgba(0, 50, 50, 0.3);
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+#codex-sidebar {
+    width: 250px;
+    border-right: 2px solid var(--neon-cyan);
+    background: rgba(0, 0, 0, 0.8);
+    overflow-y: auto;
+}
+
+#codex-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.codex-item {
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+    cursor: pointer;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.1rem;
+    color: var(--neon-cyan);
+    transition: all 0.2s;
+    text-align: left;
+}
+
+.codex-item:hover:not(.locked) {
+    background: rgba(0, 255, 255, 0.2);
+    color: #fff;
+}
+
+.codex-item.active {
+    background: var(--neon-cyan);
+    color: #000;
+}
+
+.codex-item.locked {
+    color: #555;
+    cursor: not-allowed;
+}
+
+#codex-content-pane {
+    flex-grow: 1;
+    padding: 30px;
+    background: rgba(0, 20, 20, 0.9);
+    overflow-y: auto;
+    position: relative;
+}
+
+/* Custom Scrollbar for Codex */
+#codex-content-pane::-webkit-scrollbar,
+#codex-sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+#codex-content-pane::-webkit-scrollbar-thumb,
+#codex-sidebar::-webkit-scrollbar-thumb {
+    background: var(--neon-cyan);
+    border-radius: 4px;
+}
+
+/* ── MOBILE RESPONSIVENESS (TELEGRAM APP) ───────── */
+@media (max-width: 768px) {
+    #avatar-container {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        width: 120px;
+        height: 150px;
+        margin: 0 auto 15px auto;
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+    }
+
+    .avatar-hidden {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+    }
+    
+    .avatar-visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    .content-container {
+        width: 95%;
+        top: 45%;
+    }
+    
+    #text-display {
+        font-size: 1.2rem;
+    }
+
+    /* Codex Mobile Adjustments */
+    .codex-layout {
+        flex-direction: column;
+        height: 75vh;
+    }
+
+    #codex-sidebar {
+        width: 100%;
+        height: 35%;
+        border-right: none;
+        border-bottom: 2px solid var(--neon-cyan);
+    }
+
+    #codex-content-pane {
+        height: 65%;
+        padding: 15px;
+    }
 }

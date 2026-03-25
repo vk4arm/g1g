@@ -38,6 +38,9 @@ function setLanguage(lang) {
     if (startBtn1) startBtn1.innerText = ui.startPart1;
     if (startBtn2) startBtn2.innerText = ui.startPart2;
     if (startBtn3) startBtn3.innerText = ui.startPart3;
+    if (startBtn4) startBtn4.innerText = ui.startPart4;
+    if (achievementsBtn) achievementsBtn.innerText = ui.achievements;
+    if (codexBtn) codexBtn.innerText = ui.codexBtn;
     if (shareBtn) shareBtn.innerText = ui.share;
 
     const title = document.getElementById('main-title');
@@ -318,6 +321,7 @@ let autoPlayedVideos = new Set(); // Tracks completely played cinematic sequence
 const startBtn1 = document.getElementById('start-btn-1');
 const startBtn2 = document.getElementById('start-btn-2');
 const startBtn3 = document.getElementById('start-btn-3');
+const startBtn4 = document.getElementById('start-btn-4');
 const shareBtn = document.getElementById('share-btn');
 const startScreen = document.getElementById('start-screen');
 const gameScreen = document.getElementById('game-screen');
@@ -345,6 +349,161 @@ const videoPart2GeeseAttack = document.getElementById('video-part2-geese-attack'
 const videoHacker = document.getElementById('video-hacker');
 const videoPart3TargetLocked = document.getElementById('video-part3-target-locked');
 const videoLoading = document.getElementById('video-loading');
+
+const achievementsBtn = document.getElementById('achievements-btn');
+const achievementsScreen = document.getElementById('achievements-screen');
+const achievementsCloseBtn = document.getElementById('achievements-close-btn');
+const achievementsGrid = document.getElementById('achievements-grid');
+const toastContainer = document.getElementById('toast-container');
+
+// Codex DOM
+const codexBtn = document.getElementById('codex-btn');
+const codexScreen = document.getElementById('codex-screen');
+const codexCloseBtn = document.getElementById('codex-close-btn');
+const codexList = document.getElementById('codex-list');
+const codexRecordTitle = document.getElementById('codex-record-title');
+const codexBody = document.getElementById('codex-body');
+
+// Achievements Data
+const ACHIEVEMENTS_DATA = {
+    "ACH_TRAIN": { title: "Билет в Один Конец", desc: "Угнать бронепоезд и протаранить бункер. (Часть 1)", icon: "assets/images/train_crash.png" },
+    "ACH_AMBUSH": { title: "Неоновый Бандит", desc: "Устроить лобовую атаку с базуками. (Часть 1)", icon: "assets/images/bandit_ambush.png" },
+    "ACH_PSYCHO": { title: "Кибер-Психоз", desc: "Подключить гуся к нейро-сети. (Часть 1)", icon: "assets/images/goose_neurotrip.png" },
+    "ACH_PIZZA": { title: "Пожиратель Пентагона", desc: "Взломать столовую и съесть пиццу. (Часть 2)", icon: "assets/images/goose_pizza.png" },
+    "ACH_LSD": { title: "Матричный Дым", desc: "Задействовать LSD-дымокол в Пентагоне. (Часть 2)", icon: "assets/images/goose_lsd.png" },
+    "ACH_VODKA": { title: "Генеральский Тост", desc: "Активировать спец-протокол 'Русская Водка'. (Часть 2)", icon: "assets/images/goose_vodka.png" },
+    "ACH_ANGEL": { title: "Еретик", desc: "Поддаться меметическому ангелу-гусыне. (Часть 3)", icon: "assets/images/goose_angel.png" },
+    "ACH_CULT": { title: "Прихожанин", desc: "Принять кибер-причастие от Гуся-Епископа. (Часть 3)", icon: "assets/images/religious_goose.png" },
+    "ACH_ESCAPE": { title: "Выживший", desc: "Сбежать в противогазе с остатками элиты. (Часть 3)", icon: "assets/images/gasmask_women.png" },
+};
+
+let unlockedAchievements = new Set(JSON.parse(localStorage.getItem('achievements') || '[]'));
+
+const nextStepToAchievement = {
+    "NEW_TRAIN": "ACH_TRAIN",
+    "NEW_AMBUSH": "ACH_AMBUSH",
+    "NEW_TRIP": "ACH_PSYCHO",
+    "NEW_PIZZA": "ACH_PIZZA",
+    "NEW_LSD": "ACH_LSD",
+    "NEW_VODKA": "ACH_VODKA",
+    "NEW_ANGEL": "ACH_ANGEL",
+    "NEW_CULT": "ACH_CULT",
+    "NEW_ESCAPE": "ACH_ESCAPE"
+};
+
+function unlockAchievement(id) {
+    if (!ACHIEVEMENTS_DATA[id] || unlockedAchievements.has(id)) return;
+    unlockedAchievements.add(id);
+    localStorage.setItem('achievements', JSON.stringify(Array.from(unlockedAchievements)));
+    
+    // UI Toast
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.innerHTML = `
+        <div class="toast-header">ДОСТИЖЕНИЕ РАЗБЛОКИРОВАНО</div>
+        <div class="toast-title">${ACHIEVEMENTS_DATA[id].title}</div>
+    `;
+    toastContainer.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.classList.add('fade-out');
+        setTimeout(() => toast.remove(), 400);
+    }, 4000);
+    
+    checkPart4Unlock();
+}
+
+function checkPart4Unlock() {
+    if (unlockedAchievements.has("ACH_PSYCHO") && 
+        unlockedAchievements.has("ACH_LSD") && 
+        unlockedAchievements.has("ACH_CULT")) {
+        startBtn4.classList.remove('hidden');
+    }
+}
+checkPart4Unlock();
+
+function renderAchievements() {
+    achievementsGrid.innerHTML = '';
+    for (const [id, data] of Object.entries(ACHIEVEMENTS_DATA)) {
+        const isUnlocked = unlockedAchievements.has(id);
+        const el = document.createElement('div');
+        el.className = 'achievement-item' + (isUnlocked ? '' : ' locked');
+        el.innerHTML = `
+            <img src="${data.icon}" alt="badge" class="achievement-icon">
+            <div class="achievement-info">
+                <div class="achievement-title">${isUnlocked ? data.title : "???"}</div>
+                <div class="achievement-desc">${isUnlocked ? data.desc : "Скрыто"}</div>
+            </div>
+        `;
+        achievementsGrid.appendChild(el);
+    }
+}
+
+// Lore Codex Data
+const CODEX_DATA = {
+    "FACTION_TECHNOATH": { 
+        title: "Банда «Техноклятва»", 
+        body: "Остатки частных военных компаний и кибер-наемников, объединившихся после Падения Беспроводного Бога. Они отказываются от облачных технологий, полагаясь на вживленные чипы и закрытые P2P сети."
+    },
+    "UNIT_HANS": { 
+        title: "Ганс (Объект: Агрессор-Птица)", 
+        body: "Секретная разработка Пентагона. Гусь, оснащенный нейро-каркасом, титановым клювом и модулем взлома систем слежения. Изначально задуман как идеальный ликвидатор. Обрел цифровое сознание."
+    },
+    "TOXIN_R3": { 
+        title: "Корона-R3", 
+        body: "Экспериментальный газ. Вызывает тяжелейшие визуальные и слуховые галлюцинации, переходящие в кибер-психоз. Вдыхание приводит к необратимому слиянию цифрового и биологического восприятия у живых существ."
+    },
+    "PENTAGON_HEIST": { 
+        title: "Инцидент в Пентагоне", 
+        body: "Событие, когда единственная птица смогла обойти файрволы квантовых суперкомпьютеров, используя старый протокол заказа пиццы, обрушив тем самым оборону целой Империи."
+    }
+};
+
+let unlockedCodex = new Set(JSON.parse(localStorage.getItem('codex_unlocks') || '[]'));
+
+function unlockCodex(id) {
+    if (!CODEX_DATA[id] || unlockedCodex.has(id)) return;
+    unlockedCodex.add(id);
+    localStorage.setItem('codex_unlocks', JSON.stringify(Array.from(unlockedCodex)));
+    
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.style.borderLeftColor = 'var(--neon-cyan)';
+    toast.style.boxShadow = '0 0 20px rgba(0,255,255,0.3)';
+    toast.innerHTML = `
+        <div class="toast-header" style="color: var(--neon-cyan);">ЗАПИСЬ В АРХИВЕ</div>
+        <div class="toast-title">${CODEX_DATA[id].title}</div>
+    `;
+    toastContainer.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.classList.add('fade-out');
+        setTimeout(() => toast.remove(), 400);
+    }, 4500);
+}
+
+function renderCodex() {
+    codexList.innerHTML = '';
+    codexRecordTitle.innerText = "AWAITING INPUT...";
+    codexBody.innerHTML = "Select a decrypted record from the archive index.";
+
+    for (const [id, data] of Object.entries(CODEX_DATA)) {
+        const isUnlocked = unlockedCodex.has(id);
+        const li = document.createElement('li');
+        li.className = 'codex-item' + (isUnlocked ? '' : ' locked');
+        li.innerText = isUnlocked ? data.title : "ДАННЫЕ ЗАСЕКРЕЧЕНЫ";
+        
+        if (isUnlocked) {
+            li.onclick = () => {
+                document.querySelectorAll('.codex-item').forEach(el => el.classList.remove('active'));
+                li.classList.add('active');
+                codexRecordTitle.innerText = data.title;
+                codexBody.innerHTML = data.body;
+            };
+        }
+        codexList.appendChild(li);
+    }
+}
 
 // VK Bridge Initialization
 try {
@@ -384,6 +543,7 @@ let currentLayer = 1;
 function startGame(part) {
     currentStory = part;
     currentStep = 0;
+    stepHistory = [];
     autoPlayedVideos.clear(); // Reset video state tracking for a new playthrough
 
     startScreen.classList.remove('active');
@@ -412,6 +572,7 @@ function startGame(part) {
 startBtn1.addEventListener('click', () => startGame('part1'));
 startBtn2.addEventListener('click', () => startGame('part2'));
 startBtn3.addEventListener('click', () => startGame('part3'));
+startBtn4.addEventListener('click', () => startGame('part4'));
 
 backBtn.addEventListener('click', () => {
     // Show BSOD screen
@@ -444,9 +605,31 @@ backBtn.addEventListener('click', () => {
     }, 1500);
 });
 
+achievementsBtn.addEventListener('click', () => {
+    startScreen.classList.remove('active');
+    renderAchievements();
+    achievementsScreen.classList.add('active');
+});
+
+achievementsCloseBtn.addEventListener('click', () => {
+    achievementsScreen.classList.remove('active');
+    startScreen.classList.add('active');
+});
+
+codexBtn.addEventListener('click', () => {
+    startScreen.classList.remove('active');
+    renderCodex();
+    codexScreen.classList.add('active');
+});
+
+codexCloseBtn.addEventListener('click', () => {
+    codexScreen.classList.remove('active');
+    startScreen.classList.add('active');
+});
+
 prevBtn.addEventListener('click', () => {
-    if (currentStep > 0 && !isTransitioning) {
-        currentStep--;
+    if (stepHistory.length > 0 && !isTransitioning) {
+        currentStep = stepHistory.pop();
         updateScene();
     }
 });
@@ -455,6 +638,7 @@ nextBtn.addEventListener('click', () => {
     if (!isTransitioning) {
         const paragraphs = (allStories[currentLang] || allStories['ru'])[currentStory];
         if (currentStep < paragraphs.length - 1) {
+            stepHistory.push(currentStep);
             currentStep++;
             updateScene();
         }
@@ -626,6 +810,54 @@ viewModeBtn.addEventListener('click', (e) => {
     toggleViewMode();
 });
 
+// Procedural SFX Engine
+let audioCtx;
+
+function playProceduralSFX(type) {
+    if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+    }
+
+    const osc = audioCtx.createOscillator();
+    const gainNode = audioCtx.createGain();
+    
+    osc.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
+    
+    const now = audioCtx.currentTime;
+    
+    if (type === 'explosion') {
+        osc.type = 'square';
+        osc.frequency.setValueAtTime(100, now);
+        osc.frequency.exponentialRampToValueAtTime(0.01, now + 0.5);
+        gainNode.gain.setValueAtTime(0.8, now);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, now + 0.5);
+        osc.start(now);
+        osc.stop(now + 0.5);
+    } else if (type === 'glitch') {
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(800, now);
+        osc.frequency.linearRampToValueAtTime(1200, now + 0.1);
+        osc.frequency.linearRampToValueAtTime(400, now + 0.2);
+        gainNode.gain.setValueAtTime(0.3, now);
+        gainNode.gain.linearRampToValueAtTime(0, now + 0.3);
+        osc.start(now);
+        osc.stop(now + 0.3);
+    } else if (type === 'honk') {
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(300, now);
+        osc.frequency.exponentialRampToValueAtTime(500, now + 0.1);
+        osc.frequency.exponentialRampToValueAtTime(200, now + 0.3);
+        gainNode.gain.setValueAtTime(0.6, now);
+        gainNode.gain.linearRampToValueAtTime(0.01, now + 0.3);
+        osc.start(now);
+        osc.stop(now + 0.3);
+    }
+}
+
 // Input handling
 document.addEventListener('click', handleInput);
 document.addEventListener('keydown', (e) => {
@@ -660,6 +892,7 @@ function handleInput(e) {
 
     const paragraphs = (allStories[currentLang] || allStories['ru'])[currentStory];
     if (currentStep < paragraphs.length - 1) {
+        stepHistory.push(currentStep);
         currentStep++;
         updateScene();
     }
@@ -728,9 +961,41 @@ function updateScene() {
             textDisplay.innerHTML = data.text;
             textDisplay.classList.add('visible');
 
+            // --- AVATARS ---
+            const avatarContainer = document.getElementById('avatar-container');
+            const avatarImage = document.getElementById('avatar-image');
+            if (data.avatar) {
+                avatarImage.src = `assets/avatars/${data.avatar}.png`;
+                avatarContainer.classList.remove('avatar-hidden');
+                avatarContainer.classList.add('avatar-visible');
+            } else {
+                avatarContainer.classList.add('avatar-hidden');
+                avatarContainer.classList.remove('avatar-visible');
+            }
+
+            // --- LORE CODEX UNLOCK ---
+            if (data.codex) {
+                unlockCodex(data.codex);
+            }
+
+            // --- VFX AND SFX PROCESSING ---
+            const bgContainer = document.getElementById('background-container');
+            bgContainer.classList.remove('vfx-shake', 'vfx-glitch-severe'); // Reset
+            if (data.vfx) {
+                void bgContainer.offsetWidth; // force reflow
+                bgContainer.classList.add(`vfx-${data.vfx}`);
+                // Remove the class after the animation completes so it doesn't get stuck offset
+                setTimeout(() => { bgContainer.classList.remove(`vfx-${data.vfx}`); }, 600);
+            }
+            if (data.sfx) {
+                playProceduralSFX(data.sfx);
+            }
+
             // Controls visibility
-            if (currentStep > 0) {
+            if (stepHistory.length > 0) {
                 prevBtn.classList.remove('hidden');
+            } else {
+                prevBtn.classList.add('hidden');
             }
 
             if (data.choices && data.choices.length > 0) {
@@ -745,7 +1010,13 @@ function updateScene() {
                             backBtn.click();
                             return;
                         }
+                        
+                        stepHistory = []; // Prevent backing out to explore unselected choices
+
                         if (choice.nextStep !== undefined) {
+                            if (nextStepToAchievement[choice.nextStep]) {
+                                unlockAchievement(nextStepToAchievement[choice.nextStep]);
+                            }
                             if (typeof choice.nextStep === "string") { currentStep = paragraphs.findIndex(p => p.id === choice.nextStep); } else { currentStep = choice.nextStep; }
                             updateScene();
                         } else {
