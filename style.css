@@ -1014,6 +1014,16 @@ body.telegram-app .choice-btn {
         bottom: -10px;
         width: 160px;
         height: 200px;
+        z-index: 1;
+    }
+    
+    #avatar-container.avatar-visible {
+        opacity: 0.5;
+    }
+    
+    #text-display {
+        position: relative;
+        z-index: 5;
     }
 }
 
