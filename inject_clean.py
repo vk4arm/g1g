@@ -51,7 +51,7 @@ def process():
             'stealth_c': 'به طرح اصلی پایبند باشید',
             'train_t': '*تصادف* قطار زرهی SEC-CORP با سرعت تمام از دیوار بتن آرمه پناهگاه فرماندهی ترانزیت عبور می کند! دفاعیات خرد شده، شعله های آتش به آسمان می رسد و برادران سایبری ما با قمه های نئونی مستقیماً در دوزخ فرو می روند. سیاستمداران حتی وقت نداشتند وارد پهپادهای فرار خود شوند.',
             'ambush_t': 'خیابان شب با پرتوهای نئون بازوکاهای ما روشن شد. ما ویرانی کامل ایجاد کردیم: نارنجک‌های EMP ماشین‌های دولت را از کار انداختند و موشک‌ها استحکامات آنها را به خاکستر تبدیل کردند. این فقط راهزنی نیست - این تخریب رژیم قدیمی با غرش فلز و بوی نفت سفید زیستی سوخته است.',
-            'return_t': 'بازگشت به دفترچه خاطرات رید'
+            'return_t': 'Завершить уровень / Terminate'
         }
     }
 
@@ -62,7 +62,7 @@ def process():
             'vodka_c': 'Спец-протокол: Русская водка',
             'lsd_t': "Пентагон в дыму. Генералы видят тангенциальные измерения и фракталы. Я клюнул главного кибер-стратега, пока он пытался обнять голограмму.",
             'vodka_t': "Я нашёл бутылку «Русского Стандарта». Выпил. Теперь генерал поёт гимн и плачет, обнимая железный сейф. Задание... выполнено? Ик.",
-            'return_t': 'Вернуться к миссии'
+            'return_t': 'Завершить уровень / Terminate'
         },
         'en': {
             'classic_c': 'Use the classic',
@@ -70,7 +70,7 @@ def process():
             'vodka_c': 'Special Protocol: Russian Vodka',
             'lsd_t': "The Pentagon is in smoke. Generals are seeing tangential dimensions and fractals. I pecked the chief cyber-strategist while he tried to hug a hologram.",
             'vodka_t': "I found a bottle of 'Russian Standard'. Drank it. Now the general is singing the anthem and crying, hugging an iron safe. Mission... accomplished? Hic.",
-            'return_t': 'Return to mission'
+            'return_t': 'Завершить уровень / Terminate'
         },
         'de': {
             'classic_c': 'Verwenden Sie den Klassiker',
@@ -78,7 +78,7 @@ def process():
             'vodka_c': 'Sonderprotokoll: Russischer Wodka',
             'lsd_t': "Das Pentagon liegt im Rauch. Generäle sehen tangentiale Dimensionen und Fraktale. Ich habe den Chef-Cyberstrategen gepickt, als er versuchte, ein Hologramm zu umarmen.",
             'vodka_t': "Ich fand eine Flasche 'Russian Standard'. Habe sie getrunken. Jetzt singt der General die Hymne und weint, während er einen eisernen Tresor umarmt. Mission... erfüllt? Hicks.",
-            'return_t': 'Zur Mission zurückkehren'
+            'return_t': 'Завершить уровень / Terminate'
         },
         'es': {
             'classic_c': 'Usar el clásico',
@@ -86,7 +86,7 @@ def process():
             'vodka_c': 'Protocolo especial: Vodka ruso',
             'lsd_t': "El Pentágono está humeando. Los generales ven dimensiones tangenciales y fractales. Picoteé al jefe ciberestratega mientras intentaba abrazar un holograma.",
             'vodka_t': "Encontré una botella de 'Russian Standard'. La bebí. Ahora el general está cantando el himno y llorando, abrazando una caja fuerte de hierro. Misión... ¿cumplida? Hic.",
-            'return_t': 'Volver a la misión'
+            'return_t': 'Завершить уровень / Terminate'
         },
         'zh': {
             'classic_c': '使用经典',
@@ -94,7 +94,7 @@ def process():
             'vodka_c': '特别行动：俄罗斯伏特加',
             'lsd_t': "五角大楼弥漫着烟雾。将军们看到了切线维度和分形。当首席网络战略家试图拥抱全息图时，我啄了他。",
             'vodka_t': "我找到了一瓶“俄罗斯标准”。喝了它。现在将军正在唱国歌并哭泣，拥抱着一个铁保险箱。任务……完成了？嗝。",
-            'return_t': '返回任务'
+            'return_t': 'Завершить уровень / Terminate'
         },
         'fa': {
             'classic_c': 'از کلاسیک استفاده کنید',
@@ -102,7 +102,7 @@ def process():
             'vodka_c': 'پروتکل ویژه: ودکای روسی',
             'lsd_t': "پنتاگون در دود است. ژنرال ها ابعاد مماسی و فراکتال ها را می بینند. من به استراتژیست ارشد سایبری نوک زدم در حالی که او سعی می کرد یک هولوگرام را در آغوش بگیرد.",
             'vodka_t': "یه بطری استاندارد روسی پیدا کردم. نوشیدم. حالا ژنرال داره سرود میخونه و گریه میکنه، یه گاوصندوق آهنی رو بغل کرده. ماموریت... انجام شد؟ هیک.",
-            'return_t': 'بازگشت به ماموریت'
+            'return_t': 'Завершить уровень / Terminate'
         }
     }
 
@@ -125,8 +125,22 @@ def process():
         
         if current_lang and "part2: [" in line:
             if out_lines[-1].strip() == "]," and out_lines[-2].strip() == "}":
+                # Wait, out_lines[-2] is the last slide's closing brace `    }`
+                # We want to inject choices onto THAT last slide!
+                # The line before `}` is usually music. We can find the last `}` and insert choices before it.
                 last_brace_idx = len(out_lines) - 2
                 t = translations_p1[current_lang]
+                
+                # Insert choices into the last slide of part 1
+                out_lines[last_brace_idx] = out_lines[last_brace_idx].rstrip() + ",\n"
+                choices_lines = f"""                choices: [
+                    {{ text: "{t['train_c']}", nextStep: "NEW_TRAIN" }},
+                    {{ text: "{t['ambush_c']}", nextStep: "NEW_AMBUSH" }},
+                    {{ text: "{t['stealth_c']}", nextStep: 999 }}
+                ]\n            }}\n"""
+                out_lines[last_brace_idx] = choices_lines
+
+                # Now insert the new result slides
                 insert_str = f""",
             {{
                 id: "NEW_TRAIN",
@@ -134,7 +148,7 @@ def process():
                 image: "assets/images/train_crash.png",
                 music: "rap",
                 choices: [
-                    {{ text: "{t['return_t']}", nextStep: 8 }}
+                    {{ text: "{t['return_t']}", nextStep: 999 }}
                 ]
             }},
             {{
@@ -143,16 +157,27 @@ def process():
                 image: "assets/images/bandit_ambush.png",
                 music: "rap",
                 choices: [
-                    {{ text: "{t['return_t']}", nextStep: 8 }}
+                    {{ text: "{t['return_t']}", nextStep: 999 }}
                 ]
             }}"""
-                out_lines[last_brace_idx] = out_lines[last_brace_idx].rstrip() + insert_str + "\n"
+                out_lines.insert(last_brace_idx + 1, insert_str + "\n")
             in_part = 2
             
         if current_lang and "part3: [" in line:
             if out_lines[-1].strip() == "]," and out_lines[-2].strip() == "}":
                 last_brace_idx = len(out_lines) - 2
                 t = translations_p2[current_lang]
+                
+                # Insert choices into the last slide of part 2
+                out_lines[last_brace_idx] = out_lines[last_brace_idx].rstrip() + ",\n"
+                choices_lines = f"""                choices: [
+                    {{ text: "{t['classic_c']}", nextStep: 999 }},
+                    {{ text: "{t['lsd_c']}", nextStep: "NEW_LSD" }},
+                    {{ text: "{t['vodka_c']}", nextStep: "NEW_VODKA" }}
+                ]\n            }}\n"""
+                out_lines[last_brace_idx] = choices_lines
+
+                # Now insert the new result slides
                 insert_str = f""",
             {{
                 id: "NEW_LSD",
@@ -160,7 +185,7 @@ def process():
                 image: "assets/images/goose_lsd.png",
                 music: "casino",
                 choices: [
-                    {{ text: "{t['return_t']}", nextStep: 3 }}
+                    {{ text: "{t['return_t']}", nextStep: 999 }}
                 ]
             }},
             {{
@@ -169,44 +194,13 @@ def process():
                 image: "assets/images/goose_vodka.png",
                 music: "casino",
                 choices: [
-                    {{ text: "{t['return_t']}", nextStep: 3 }}
+                    {{ text: "{t['return_t']}", nextStep: 999 }}
                 ]
             }}"""
-                out_lines[last_brace_idx] = out_lines[last_brace_idx].rstrip() + insert_str + "\n"
+                out_lines.insert(last_brace_idx + 1, insert_str + "\n")
             in_part = 3
             
-        # P1 CHOICES INJECT
-        if in_part == 1 and "assets/images/warehouse.png" in line:
-            warehouse_count += 1
-        
-        if in_part == 1 and warehouse_count == 3 and "music: \"rap\"" in line:
-            out_lines.append(line)
-            next_line = lines[index+1]
-            if next_line.strip() == "}" or next_line.strip() == "},":
-                t = translations_p1[current_lang]
-                out_lines[-1] = out_lines[-1].rstrip() + ",\n"
-                choices_lines = f"""                choices: [
-                    {{ text: "{t['train_c']}", nextStep: "NEW_TRAIN" }},
-                    {{ text: "{t['ambush_c']}", nextStep: "NEW_AMBUSH" }},
-                    {{ text: "{t['stealth_c']}", nextStep: 8 }}
-                ]\n"""
-                out_lines.append(choices_lines)
-            continue
-            
-        # P2 CHOICES INJECT
-        if in_part == 2 and "music: \"casino\"" in line and "part2_hans_weaponry.png" in out_lines[-1]:
-            out_lines.append(line)
-            next_line = lines[index+1]
-            if next_line.strip() == "}" or next_line.strip() == "},":
-                t = translations_p2[current_lang]
-                out_lines[-1] = out_lines[-1].rstrip() + ",\n"
-                choices_lines = f"""                choices: [
-                    {{ text: "{t['classic_c']}", nextStep: 3 }},
-                    {{ text: "{t['lsd_c']}", nextStep: "NEW_LSD" }},
-                    {{ text: "{t['vodka_c']}", nextStep: "NEW_VODKA" }}
-                ]\n"""
-                out_lines.append(choices_lines)
-            continue
+        # P2 CHOICES INJECT (Removed, now handled at the end of part 2)
             
         out_lines.append(line)
 
