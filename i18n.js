@@ -94,9 +94,23 @@ const allStories = {
             {
                 text: "<span class='color-green'>🦆 Про гусей</span>\nДа-да, DARPA. Проект AGGRESSOR-AVIAN UNIT.\nИдея была в том, что гуси с ИИ лучше распознают цели, чем боты.\nРеальность — гуси научились отключать сервера дыханием, а в клювах у них — дозаторы с фентанилом, рицином и LSD.\nМы захватили одного. Звали его Ганс... Теперь он наш разведчик и исполнитель “мокрых” дел.\nПустили его в городскую мэрию — он клюнул мэра, тот увидел Бога и утонул в фонтане.",
                 image: "assets/images/goose.png",
-                music: "classical"
+                music: "classical",
+                choices: [
+                    { text: "Подключить гуся к нейро-сети (Риск кибер-психоза)", nextStep: "NEW_TRIP" },
+                    { text: "Просто замотать ему клюв изолентой", nextStep: "RESUME_P1" }
+                ]
             },
             {
+                id: "NEW_TRIP",
+                text: "Я воткнул кабель ему в порт. Реальность треснула. Мой мозг обволокла неоновая фрактальная матрица. Я увидел мир глазами гуся — это бесконечный цифровой кошмар, где мы лишь пищевой код для высших кибер-птиц. Меня вырвало, но я понял: они нами играют.",
+                image: "assets/images/goose_neurotrip.png",
+                music: "classical",
+                choices: [
+                    { text: "Продолжить", nextStep: "RESUME_P1" }
+                ]
+            },
+            {
+                id: "RESUME_P1",
                 text: "<span class='color-blue'>☣️ Про кибер и наркоту</span>\nНаши хакеры — бывшие студенты MIT, которые теперь спят в серверах и не едят.\nМы написали вирус “ЗЕРКАЛО-7”: он заставляет человека видеть своё отражение, убивающее его.\nА наркотики? Мы перехватили конвой CDC.\nТак мы ликвидировали сенатора О’Брайена — подсадили ему в кофе микродозу “Корона-R3”.\nЧерез час он стал думать, что он дрон. Выпрыгнул с 12 этажа и кричал “Wi-Fi, активен!”",
                 image: "assets/images/hacker.png",
                 music: "classical"
@@ -165,9 +179,23 @@ const allStories = {
             {
                 text: "Я был разработан для бесшумного устранения вражеских офицеров.\nМой клюв открывается на 78°, в нём три ампулы:\n <span class='color-red'>скополамин</span>\n <span class='color-red'>фенциклидин</span>\n и гормональный коктейль <span class='color-green'>«Теплота-6»</span> (вызывает внезапную привязанность к предметам власти).",
                 image: "assets/images/part2_hans_weaponry.png",
-                music: "casino"
+                music: "casino",
+                choices: [
+                    { text: "Сделать сброс в серверную (Взлом протокола)", nextStep: "RESUME_P2" },
+                    { text: "Свернуть на кухню высшего командования", nextStep: "NEW_PIZZA" }
+                ]
             },
             {
+                id: "NEW_PIZZA",
+                text: "Почему бы и нет? Вентиляция вывела меня в элитную столовую генералов. Я в полете разнес поднос с кибер-шаурмой, приземлился на стол и устроил пир среди неоновых огней Пентагона. Охрана была в ужасе от моей наглости. Я гусь, я взял то, что по праву моё.",
+                image: "assets/images/goose_pizza.png",
+                music: "casino",
+                choices: [
+                    { text: "Продолжить", nextStep: "RESUME_P2" }
+                ]
+            },
+            {
+                id: "RESUME_P2",
                 text: "Моя первая миссия — Пентагон, офис генерала Лоусона.\nЯ влетел через вентиляцию, оставил перо на его столе, и впрыснул каплю фентанила в воздух.\nОн умер с улыбкой. Это было красиво.",
                 image: "assets/images/part2_hans_pentagon.png",
                 music: "casino"
@@ -306,9 +334,23 @@ const allStories = {
             {
                 text: "А следом — Айла, AGV-78/F. Нано-кератин, голографическое оперение, «интимная поведенческая матрица» уровня Euclid. Она не нападала. Она соблазняла.\nЕё воркование (меметический агент класса Keter) разнесло все наши ИИ-пушки в клочья. Министры падали на колени. Генералы теряли контроль, хватаясь за воздух, видя в ней свою потерянную империю.",
                 image: "assets/images/part3_aila.png",
-                music: "classical"
+                music: "classical",
+                choices: [
+                    { text: "Поддаться меметическому воздействию (Взглянуть)", nextStep: "NEW_ANGEL" },
+                    { text: "Активировать firewall и закрыть глаза", nextStep: "RESUME_P3" }
+                ]
             },
             {
+                id: "NEW_ANGEL",
+                text: "Я не смог закрыть глаза. Айла расправила свои пылающие голографические крылья. Она стала божеством разрушения в этом проклятом зале. Забыв про щиты и импланты, я просто стоял на коленях и молился гусиному божеству под грохот обрушающейся Империи.",
+                image: "assets/images/goose_angel.png",
+                music: "classical",
+                choices: [
+                    { text: "Продолжить", nextStep: "RESUME_P3" }
+                ]
+            },
+            {
+                id: "RESUME_P3",
                 text: "Взрывы микродронов BIO-SEC разорвали потолок — перья, осколки и обломки чёрных орлов полетели во все стороны в хаосе тотальной войны!\nМудрость момента: враг, которого ты создал, всегда клюнет первым. И, чёрт возьми, это было почти красиво.",
                 image: "assets/images/part3_destroyed_hall.png",
                 music: "classical"
@@ -399,9 +441,23 @@ const allStories = {
             {
                 text: "<span class='color-green'>🦆 About the Geese</span>\nYes, DARPA. Project AGGRESSOR-AVIAN UNIT.\nThe idea was that AI geese recognize targets better than bots.\nReality — the geese learned to disable servers with their breath, and their beaks hold dispensers for fentanyl, ricin, and LSD.\nWe captured one. Named him Hans... Now he's our scout and 'wetwork' specialist.\nWe let him into the city hall — he pecked the mayor, the mayor saw God and drowned in a fountain.",
                 image: "assets/images/goose.png",
-                music: "classical"
+                music: "classical",
+                choices: [
+                    { text: "Connect goose to neuro-network (Risk of cyber-psychosis)", nextStep: "NEW_TRIP" },
+                    { text: "Just tape its beak shut", nextStep: "RESUME_P1" }
+                ]
             },
             {
+                id: "NEW_TRIP",
+                text: "I plugged the cable into his port. Reality fractured. My brain was enveloped in a neon fractal matrix. I saw the world through the goose's eyes — it's an endless digital nightmare where we are merely food code for higher cyber-birds. I threw up, but I understood: they are playing us.",
+                image: "assets/images/goose_neurotrip.png",
+                music: "classical",
+                choices: [
+                    { text: "Continue", nextStep: "RESUME_P1" }
+                ]
+            },
+            {
+                id: "RESUME_P1",
                 text: "<span class='color-blue'>☣️ Cyber and Dope</span>\nOur hackers — former MIT students who now sleep inside servers and don't eat.\nWe wrote the 'MIRROR-7' virus: it makes a person see their own reflection killing them.\nAnd the drugs? We intercepted a CDC convoy.\nThat's how we liquidated Senator O’Brien — we spiked his coffee with a microdose of 'Corona-R3'.\nAn hour later, he thought he was a drone. Jumped from the 12th floor screaming 'Wi-Fi active!'",
                 image: "assets/images/hacker.png",
                 music: "classical"
@@ -470,9 +526,23 @@ const allStories = {
             {
                 text: "I was designed for the silent elimination of enemy officers.\nMy beak opens to 78°, holding three ampoules:\n <span class='color-red'>scopolamine</span>\n <span class= 'color-red'>phencyclidine</span>\n and the hormone cocktail <span class='color-green'>'Heat-6'</span> (causes sudden attachment to objects of power).",
                 image: "assets/images/part2_hans_weaponry.png",
-                music: "casino"
+                music: "casino",
+                choices: [
+                    { text: "Drop into the server room (Hack protocol)", nextStep: "RESUME_P2" },
+                    { text: "Turn to the High Command Cafeteria", nextStep: "NEW_PIZZA" }
+                ]
             },
             {
+                id: "NEW_PIZZA",
+                text: "Why not? The vent led me to the elite generals' cafeteria. I smashed a tray of cyber-shawarma mid-flight, landed on the table, and feasted amid the neon lights of the Pentagon. The guards were terrified by my audacity. I'm a goose, I took what's rightfully mine.",
+                image: "assets/images/goose_pizza.png",
+                music: "casino",
+                choices: [
+                    { text: "Continue", nextStep: "RESUME_P2" }
+                ]
+            },
+            {
+                id: "RESUME_P2",
                 text: "My first mission — the Pentagon, General Lawson's office.\nI flew in through the ventilation, left a feather on his desk, and sprayed a drop of fentanyl in the air.\nHe died with a smile. It was beautiful.",
                 image: "assets/images/part2_hans_pentagon.png",
                 music: "casino"
@@ -611,9 +681,23 @@ const allStories = {
             {
                 text: "And behind him — Aila, AGV-78/F. Nano-keratin, holographic plumage, Euclid-level 'intimate behavioral matrix'. She wasn't attacking. She was seducing.\nHer cooing (Keter class memetic agent) tore all our AI turrets to shreds. Ministers fell to their knees. Generals lost control, clawing at the air, seeing in her their lost empire.",
                 image: "assets/images/part3_aila.png",
-                music: "classical"
+                music: "classical",
+                choices: [
+                    { text: "Succumb to memetic influence (Look)", nextStep: "NEW_ANGEL" },
+                    { text: "Activate firewall and close eyes", nextStep: "RESUME_P3" }
+                ]
             },
             {
+                id: "NEW_ANGEL",
+                text: "I couldn't close my eyes. Aila spread her blazing holographic wings. She became a deity of destruction in this damned hall. Forgetting about shields and implants, I just knelt down and prayed to the goose deity under the roar of the collapsing Empire.",
+                image: "assets/images/goose_angel.png",
+                music: "classical",
+                choices: [
+                    { text: "Continue", nextStep: "RESUME_P3" }
+                ]
+            },
+            {
+                id: "RESUME_P3",
                 text: "BIO-SEC micro-drone explosions tore open the ceiling — feathers, shards, and fragments of black eagles flew in all directions in the chaos of total war!\nWisdom of the moment: the enemy you created will always peck first. And, damn it, it was almost beautiful.",
                 image: "assets/images/part3_destroyed_hall.png",
                 music: "classical"
@@ -704,9 +788,23 @@ const allStories = {
             {
                 text: "<span class='color-green'>🦆 Über die Gänse</span>\nJa, DARPA. Projekt AGGRESSOR-AVIAN UNIT.\nDie Idee war, dass KI-Gänse Ziele besser erkennen als Bots.\nRealität — die Gänse lernten, Server mit ihrem Atem zu deaktivieren, und in ihren Schnäbeln befinden sich Spender für Fentanyl, Rizin und LSD.\nWir haben eine gefangen. Nannten ihn Hans... Jetzt ist er unser Aufklärer und Spezialist für 'nasse' Angelegenheiten.\nWir ließen ihn ins Rathaus — er pickte den Bürgermeister, der Bürgermeister sah Gott und ertrank in einem Brunnen.",
                 image: "assets/images/goose.png",
-                music: "classical"
+                music: "classical",
+                choices: [
+                    { text: "Gans an neuronales Netzwerk anschließen (Risiko einer Cyberpsychose)", nextStep: "NEW_TRIP" },
+                    { text: "Den Schnabel einfach mit Klebeband zukleben", nextStep: "RESUME_P1" }
+                ]
             },
             {
+                id: "NEW_TRIP",
+                text: "Ich steckte das Kabel in seinen Port. Die Realität brach zusammen. Mein Gehirn wurde in eine neonfarbene fraktale Matrix gehüllt. Ich sah die Welt durch die Augen der Gans — es ist ein endloser digitaler Albtraum, wo wir nur Nahrungscode für höhere Cyber-Vögel sind. Ich übergab mich, aber ich verstand: Sie spielen mit uns.",
+                image: "assets/images/goose_neurotrip.png",
+                music: "classical",
+                choices: [
+                    { text: "Fortsetzen", nextStep: "RESUME_P1" }
+                ]
+            },
+            {
+                id: "RESUME_P1",
                 text: "<span class='color-blue'>☣️ Cyber und Stoff</span>\nUnsere Hacker — ehemalige MIT-Studenten, die jetzt in Servern schlafen und nichts essen.\nWir haben den Virus 'MIRROR-7' geschrieben: Er lässt einen Menschen sein eigenes Spiegelbild sehen, das ihn tötet.\nUnd die Drogen? Wir haben einen CDC-Konvoi abgefangen.\nSo haben wir Senator O’Brien liquidiert — wir haben eine Mikrodosis 'Corona-R3' in seinen Kaffee gemischt.\nEine Stunde später dachte er, er sei eine Drohne. Er sprang aus dem 12. Stock und schrie 'Wi-Fi aktiv!'",
                 image: "assets/images/hacker.png",
                 music: "classical"
@@ -775,9 +873,23 @@ const allStories = {
             {
                 text: "Ich wurde für die lautlose Eliminierung feindlicher Offiziere entwickelt.\nMein Schnabel öffnet sich auf 78° und enthält drei Ampullen:\n <span class='color-red'>Scopolamin</span>\n <span class='color-red'>Phencyclidin</span>\n und den Hormoncocktail <span class='color-green'>'Hitze-6'</span> (erzeugt plötzliche Bindung an Machtobjekte).",
                 image: "assets/images/part2_hans_weaponry.png",
-                music: "casino"
+                music: "casino",
+                choices: [
+                    { text: "Sich in den Serverraum fallen lassen (Protokoll hacken)", nextStep: "RESUME_P2" },
+                    { text: "Wende dich der Cafeteria des Oberkommandos zu", nextStep: "NEW_PIZZA" }
+                ]
             },
             {
+                id: "NEW_PIZZA",
+                text: "Warum nicht? Die Lüftung führte mich in die elitäre Generalkantine. Ich zertrümmerte im Flug ein Tablett mit Cyber-Shawarma, landete auf dem Tisch und schmauste im Neonlicht des Pentagons. Die Wachen waren über meine Dreistigkeit entsetzt. Ich bin eine Gans, ich habe mir genommen, was mir zusteht.",
+                image: "assets/images/goose_pizza.png",
+                music: "casino",
+                choices: [
+                    { text: "Fortsetzen", nextStep: "RESUME_P2" }
+                ]
+            },
+            {
+                id: "RESUME_P2",
                 text: "Meine erste Mission — das Pentagon, Büro von General Lawson.\nIch flog durch die Lüftung rein, ließ eine Feder auf seinem Schreibtisch und sprühte einen Tropfen Fentanyl in die Luft.\nEr starb mit einem Lächeln. Es war wunderschön.",
                 image: "assets/images/part2_hans_pentagon.png",
                 music: "casino"
@@ -916,9 +1028,23 @@ const allStories = {
             {
                 text: "Und hinter ihm — Aila, AGV-78/F. Nano-Keratin, holografisches Gefieder, 'intime Verhaltensmatrix' auf Euclid-Niveau. Sie griff nicht an. Sie verführte.\nIhr Gurren (memetisches Mittel der Keter-Klasse) zerfetzte all unsere KI-Geschütze. Minister fielen auf die Knie. Generäle verloren die Kontrolle, krallten in die Luft und sahen in ihr ihr verlorenes Imperium.",
                 image: "assets/images/part3_aila.png",
-                music: "classical"
+                music: "classical",
+                choices: [
+                    { text: "Memetischem Einfluss erliegen (Ansehen)", nextStep: "NEW_ANGEL" },
+                    { text: "Firewall aktivieren und Augen schließen", nextStep: "RESUME_P3" }
+                ]
             },
             {
+                id: "NEW_ANGEL",
+                text: "Ich konnte die Augen nicht schließen. Aila breitete ihre flammenden holografischen Flügel aus. Sie wurde zu einer Gottheit der Zerstörung in diesem verdammten Saal. Von Schilden und Implantaten vergessend, kniete ich nur nieder und betete unter dem Dröhnen des zusammenbrechenden Imperiums zu der Gänsegottheit.",
+                image: "assets/images/goose_angel.png",
+                music: "classical",
+                choices: [
+                    { text: "Fortsetzen", nextStep: "RESUME_P3" }
+                ]
+            },
+            {
+                id: "RESUME_P3",
                 text: "Explosionen von BIO-SEC-Mikrodrohnen rissen die Decke auf — Federn, Scherben und Fragmente schwarzer Adler flogen im Chaos des totalen Krieges in alle Richtungen!\nWeisheit des Augenblicks: Der Feind, den du geschaffen hast, wird immer zuerst picken. Und verdammt, es war fast schön.",
                 image: "assets/images/part3_destroyed_hall.png",
                 music: "classical"
@@ -1009,9 +1135,23 @@ const allStories = {
             {
                 text: "<span class='color-green'>🦆 Sobre los gansos</span>\nSí, DARPA. Proyecto AGGRESSOR-AVIAN UNIT.\nLa idea era que los gansos con IA reconocen mejor los objetivos que los bots.\nRealidad: los gansos aprendieron a desactivar servidores con el aliento, y en sus picos llevan dispensadores de fentanilo, ricina y LSD.\nCapturamos a uno. Lo llamamos Hans... Ahora es nuestro explorador y especialista en 'trabajos sucios'.\nLo soltamos en el ayuntamiento: picoteó al alcalde, el alcalde vio a Dios y se ahogó en una fuente.",
                 image: "assets/images/goose.png",
-                music: "classical"
+                music: "classical",
+                choices: [
+                    { text: "Conectar el ganso a la red neuronal (Riesgo de ciberpsicosis)", nextStep: "NEW_TRIP" },
+                    { text: "Simplemente cerrarle el pico con cinta adhesiva", nextStep: "RESUME_P1" }
+                ]
             },
             {
+                id: "NEW_TRIP",
+                text: "Conecté el cable en su puerto. La realidad se fracturó. Mi cerebro se envolvió en una matriz fractal de neón. Vi el mundo a través de los ojos del ganso — es una pesadilla digital interminable donde solo somos código alimenticio para ciber-aves superiores. Vomité, pero entendí: están jugando con nosotros.",
+                image: "assets/images/goose_neurotrip.png",
+                music: "classical",
+                choices: [
+                    { text: "Continuar", nextStep: "RESUME_P1" }
+                ]
+            },
+            {
+                id: "RESUME_P1",
                 text: "<span class='color-blue'>☣️ Sobre el ciber y la droga</span>\nNuestros hackers son ex-estudiantes de MIT que ahora duermen en servidores y no comen.\nEscribimos el virus 'ESPEJO-7': hace que una persona vea su propio reflejo matándola.\n¿Y las drogas? Interceptamos un convoy del CDC.\nAsí liquidamos al senador O’Brien: pusimos en su café una microdosis de 'Corona-R3'.\nUna hora después pensaba que era un dron. Saltó desde un piso 12 gritando '¡Wi-Fi activo!'",
                 image: "assets/images/hacker.png",
                 music: "classical"
@@ -1080,9 +1220,23 @@ const allStories = {
             {
                 text: "Fui diseñado para la eliminación silenciosa de oficiales enemigos.\nMi pico se abre a 78°, contiene tres ampollas:\n <span class='color-red'>escopolamina</span>\n <span class='color-red'>fenciclidina</span>\n y el cóctel hormonal <span class='color-green'>'Calor-6'</span> (provoca un apego repentino a objetos de poder).",
                 image: "assets/images/part2_hans_weaponry.png",
-                music: "casino"
+                music: "casino",
+                choices: [
+                    { text: "Caer en la sala de servidores (Protocolo de hackeo)", nextStep: "RESUME_P2" },
+                    { text: "Ir a la cafetería del Alto Mando", nextStep: "NEW_PIZZA" }
+                ]
             },
             {
+                id: "NEW_PIZZA",
+                text: "¿Por qué no? El conducto de ventilación me llevó a la cafetería de élite de los generales. Destrocé una bandeja de ciber-shawarma en pleno vuelo, aterricé sobre la mesa y me di un festín entre las luces de neón del Pentágono. Los guardias estaban aterrorizados por mi audacia. Soy un ganso, tomé lo que me pertenece por derecho.",
+                image: "assets/images/goose_pizza.png",
+                music: "casino",
+                choices: [
+                    { text: "Continuar", nextStep: "RESUME_P2" }
+                ]
+            },
+            {
+                id: "RESUME_P2",
                 text: "Mi primera misión: el Pentágono, despacho del general Lawson.\nEntré por la ventilación, dejé una pluma en su mesa y rocié una gota de fentanilo en el aire.\nMurió con una sonrisa. Fue hermoso.",
                 image: "assets/images/part2_hans_pentagon.png",
                 music: "casino"
@@ -1221,9 +1375,23 @@ const allStories = {
             {
                 text: "Y tras él, Aila, AGV-78/F. Nanoqueratina, plumaje holográfico, matriz de comportamiento íntimo de nivel Euclid. No atacaba. Seducía.\nSu arrullo (agente memético de clase Keter) destrozó todas nuestras torretas de IA. Los ministros caían de rodillas. Los generales perdían el control, arañando el aire, viendo en ella su imperio perdido.",
                 image: "assets/images/part3_aila.png",
-                music: "classical"
+                music: "classical",
+                choices: [
+                    { text: "Sucumbir a la influencia memética (Mirar)", nextStep: "NEW_ANGEL" },
+                    { text: "Activar firewall y cerrar los ojos", nextStep: "RESUME_P3" }
+                ]
             },
             {
+                id: "NEW_ANGEL",
+                text: "No pude cerrar los ojos. Aila desplegó sus ardientes alas holográficas. Se convirtió en una deidad de la destrucción en este salón condenado. Olvidando escudos e implantes, me arrodillé y oré a la deidad gansa bajo el rugido del Imperio colapsando.",
+                image: "assets/images/goose_angel.png",
+                music: "classical",
+                choices: [
+                    { text: "Continuar", nextStep: "RESUME_P3" }
+                ]
+            },
+            {
+                id: "RESUME_P3",
                 text: "¡Explosiones de microdrones BIO-SEC reventaron el techo: plumas, esquirlas y fragmentos de águilas negras volaron en todas direcciones en el caos de la guerra total!\nSabiduría del momento: el enemigo que creaste siempre picoteará primero. Y maldita sea, fue casi hermoso.",
                 image: "assets/images/part3_destroyed_hall.png",
                 music: "classical"
@@ -1314,9 +1482,23 @@ const allStories = {
             {
                 text: "<span class='color-green'>🦆 关于鹅</span>\n没错，DARPA（美国国防高级研究计划局）。AGGRESSOR-AVIAN UNIT项目。\n初衷是认为AI鹅比机器人更能识别目标。\n现实是——鹅学会了用呼吸停掉服务器，它们的喙里装有芬太尼、蓖麻毒素和LSD的投放器。\n我们捕获了一只。叫它汉斯……现在它是我们的侦察兵和“清除”专家。\n我们把它放进市政厅——它啄了市长，市长见到了上帝并溺死在喷泉里。",
                 image: "assets/images/goose.png",
-                music: "classical"
+                music: "classical",
+                choices: [
+                    { text: "将鹅连接到神经网络（有赛博精神病的风险）", nextStep: "NEW_TRIP" },
+                    { text: "直接用胶带封住它的嘴", nextStep: "RESUME_P1" }
+                ]
             },
             {
+                id: "NEW_TRIP",
+                text: "我把电缆插进了他的端口。现实碎裂了。我的大脑被耀眼的霓虹分形矩阵包裹。我通过鹅的眼睛看到了世界——这是一个无尽的数字噩梦，我们只是高级赛博鸟类的食物代码。我吐了，但我明白了：它们在玩弄我们。",
+                image: "assets/images/goose_neurotrip.png",
+                music: "classical",
+                choices: [
+                    { text: "继续", nextStep: "RESUME_P1" }
+                ]
+            },
+            {
+                id: "RESUME_P1",
                 text: "<span class='color-blue'>☣️ 关于赛博与毒品</span>\n我们的黑客是麻省理工学院的前学生，他们现在睡在服务器里，不吃东西。\n我们编写了“镜像-7”病毒：它让人看到自己的倒影正在杀死自己。\n毒品呢？我们拦截了CDC（疾控中心）的车队。\n我们就这样清除了参议员奥布莱恩——在他的咖啡里掺了微剂量的“电晕-R3”。\n一小时后，他以为自己是一架无人机。他从12楼跳了下去，嘴里喊着“Wi-Fi已激活！”",
                 image: "assets/images/hacker.png",
                 music: "classical"
@@ -1385,9 +1567,23 @@ const allStories = {
             {
                 text: "我被设计用于无声地清除敌方军官。\n我的喙可以张开到78°，里面装有三支安瓿：\n <span class='color-red'>东莨菪碱</span>\n <span class='color-red'>苯环己哌啶</span>\n 以及激素混合物 <span class='color-green'>“热量-6”</span>（引起对权力象征的突然依恋）。",
                 image: "assets/images/part2_hans_weaponry.png",
-                music: "casino"
+                music: "casino",
+                choices: [
+                    { text: "潜入服务器机房（破解协议）", nextStep: "RESUME_P2" },
+                    { text: "转向最高指挥部自助餐厅", nextStep: "NEW_PIZZA" }
+                ]
             },
             {
+                id: "NEW_PIZZA",
+                text: "有何不可？通风口将我引向了将领们的精英餐厅。在飞行中我撞碎了一盘赛博沙威玛，降落在桌面上，在五角大楼的霓虹灯下大快朵颐。保安们对我的狂妄感到恐惧。我是一只鹅，我拿走了我理所应得的东西。",
+                image: "assets/images/goose_pizza.png",
+                music: "casino",
+                choices: [
+                    { text: "继续", nextStep: "RESUME_P2" }
+                ]
+            },
+            {
+                id: "RESUME_P2",
                 text: "我的第一个任务——五角大楼，劳森将军的办公室。\n我通过通风管道飞入，在他的桌子上留下一根羽毛，并向空气中喷洒了一滴芬太尼。\n他带着微笑死去了。那场面很美。",
                 image: "assets/images/part2_hans_pentagon.png",
                 music: "casino"
@@ -1526,9 +1722,23 @@ const allStories = {
             {
                 text: "紧随其后的是艾拉，AGV-78/F。纳米角蛋白、全息羽毛、Euclid级“亲密行为矩阵”。她没有进攻。她在诱惑。\n她的咕咕声（Keter级模因试剂）将我们所有的AI炮塔撕成了碎片。大臣们纷纷跪倒。将军们失去了控制，在空气中乱抓，在她的身上看到了他们失去的帝国。",
                 image: "assets/images/part3_aila.png",
-                music: "classical"
+                music: "classical",
+                choices: [
+                    { text: "屈服于模因影响（注视）", nextStep: "NEW_ANGEL" },
+                    { text: "激活防火墙并闭上眼睛", nextStep: "RESUME_P3" }
+                ]
             },
             {
+                id: "NEW_ANGEL",
+                text: "我无法闭上双眼。艾拉展开了她闪耀的全息翅膀。在这个被诅咒的大厅里，她成为了毁灭的神明。我忘记了护盾和植入物，只是跪在坍塌中的帝国的轰鸣声里，向这只鹅神祈祷。",
+                image: "assets/images/goose_angel.png",
+                music: "classical",
+                choices: [
+                    { text: "继续", nextStep: "RESUME_P3" }
+                ]
+            },
+            {
+                id: "RESUME_P3",
                 text: "BIO-SEC微型无人机的爆炸炸开了天花板——羽毛、碎片和黑鹰的残骸在全面战争的混乱中飞向四面八方！\n当下的直觉：你创造的敌人总是会先啄你一口。而且，该死的，那场面竟然有些美感。",
                 image: "assets/images/part3_destroyed_hall.png",
                 music: "classical"
@@ -1619,9 +1829,23 @@ const allStories = {
             {
                 text: "<span class='color-green'>🦆 درباره غازها</span>\nبله، دارپا. پروژه AGGRESSOR-AVIAN UNIT.\nایده این بود که غازهای هوش مصنوعی اهداف را بهتر از ربات‌ها تشخیص می‌دهند.\nواقعیت — غازها یاد گرفتند که سرورها را با نفس خود از کار بیندازند و در منقارهایشان توزیع‌کننده‌های فنتانیل، ریسین و ال‌اس‌دی دارند.\nما یکی را گرفتیم. نامش را هانس گذاشتیم... حالا او دیدبان و متخصص کارهای کثیف ماست.\nاو را به شهرداری شهر فرستادیم — او به شهردار نوک زد، شهردار خدا را دید و در فواره غرق شد.",
                 image: "assets/images/goose.png",
-                music: "classical"
+                music: "classical",
+                choices: [
+                    { text: "اتصال غاز به شبکه عصبی (خطر سایبرسایکوز)", nextStep: "NEW_TRIP" },
+                    { text: "فقط نوکش را با چسب ببندید", nextStep: "RESUME_P1" }
+                ]
             },
             {
+                id: "NEW_TRIP",
+                text: "کابل را به پورت آن وصل کردم. واقعیت در هم شکست. مغز من در یک ماتریس فراکتال نئونی پیچیده شد. من دنیا را از چشم غاز دیدم — این یک کابوس دیجیتال بی پایان است که در آن ما فقط کد غذایی برای پرندگان سایبری بالاتر هستیم. بالا آوردم، اما فهمیدم: آنها دارند با ما بازی می کنند.",
+                image: "assets/images/goose_neurotrip.png",
+                music: "classical",
+                choices: [
+                    { text: "ادامه", nextStep: "RESUME_P1" }
+                ]
+            },
+            {
+                id: "RESUME_P1",
                 text: "<span class='color-blue'>☣️ درباره سایبر و مواد</span>\nهکرهای ما دانشجویان سابق ام‌آی‌تی هستند که حالا در سرورها می‌خوابند و چیزی نمی‌خورند.\nما ویروس «آینه-۷» را نوشتیم: این ویروس باعث می‌شود فرد انعکاس خودش را ببیند که در حال کشتن اوست.\nدرباره مواد؟ ما یک کاروان سی‌دی‌سی را متوقف کردیم.\nاین‌گونه سناتور اوبراین را از سر راه برداشتیم — در قهوه‌اش یک میکرودوز «کرونا-R3» ریختیم.\nیک ساعت بعد فکر کرد که پهپاد است. از طبقه ۱۲ پرید پایین و فریاد می‌زد «وای‌فای، فعال است!»",
                 image: "assets/images/hacker.png",
                 music: "classical"
@@ -1690,9 +1914,23 @@ const allStories = {
             {
                 text: "من برای حذف بی‌صدای افسران دشمن طراحی شده‌ام.\nمنقار من تا ۷۸ درجه باز می‌شود و شامل سه آمپول است:\n <span class='color-red'>اسکوپولامین</span>\n <span class='color-red'>فن‌سیکلیدین</span>\n و کوکتل هورمونی <span class='color-green'>«گرما-۶»</span> (باعث دلبستگی ناگهانی به اشیاء قدرت می‌شود).",
                 image: "assets/images/part2_hans_weaponry.png",
-                music: "casino"
+                music: "casino",
+                choices: [
+                    { text: "سقوط به اتاق سرور (پروتکل هک)", nextStep: "RESUME_P2" },
+                    { text: "به سمت کافه تریا فرماندهی عالی بپیچید", nextStep: "NEW_PIZZA" }
+                ]
             },
             {
+                id: "NEW_PIZZA",
+                text: "چرا که نه؟ دریچه تهویه من را به کافه تریای نخبه ژنرال ها رساند. در حال پرواز یک سینی سایبرشاورما را خرد کردم، روی میز فرود آمدم و در میان چراغ های نئونی پنتاگون یک مهمانی برپا کردم. نگهبانان از جسارت من وحشت زده شده بودند. من یک غازم، من چیزی که حقمه رو برداشتم.",
+                image: "assets/images/goose_pizza.png",
+                music: "casino",
+                choices: [
+                    { text: "ادامه", nextStep: "RESUME_P2" }
+                ]
+            },
+            {
+                id: "RESUME_P2",
                 text: "اولین ماموریت من — پنتاگون، دفتر ژنرال لاوسون.\nاز طریق تهویه وارد شدم، پری روی میزش گذاشتم و قطره‌ای فنتانیل در هوا پاشیدم.\nاو با لبخند مرد. زیبا بود.",
                 image: "assets/images/part2_hans_pentagon.png",
                 music: "casino"
@@ -1831,9 +2069,23 @@ const allStories = {
             {
                 text: "و پشت سر او — آیلا، AGV-78/F. نانو-کراتین، پرهای هولوگرافیک، ماتریس رفتاری صمیمانه سطح اقلیدس. او حمله نمی‌کرد. او اغوا می‌کرد.\nآواز او (عامل میمتی کلاس کتر) تمام تیربارهای هوش مصنوعی ما را از هم پاشید. وزرا به زانو افتادند. ژنرال‌ها کنترل خود را از دست دادند، به هوا چنگ می‌زدند و در او امپراتوری از دست رفته خود را می‌دیدند.",
                 image: "assets/images/part3_aila.png",
-                music: "classical"
+                music: "classical",
+                choices: [
+                    { text: "تسلیم نفوذ ممتیک شوید (نگاه کنید)", nextStep: "NEW_ANGEL" },
+                    { text: "فایروال را فعال کنید و چشمان خود را ببندید", nextStep: "RESUME_P3" }
+                ]
             },
             {
+                id: "NEW_ANGEL",
+                text: "نمیتونستم چشمام رو ببندم. آیلا بال های هولوگرافیک سوزان خود را گشود. او در این سالن نفرین شده تبدیل به خدای ویرانی شد. سپرها و ایمپلنت ها را فراموش کردم، فقط زانو زدم و در زیر غرش امپراتوری در حال فروپاشی، در برابر خدای غاز نماز خواندم.",
+                image: "assets/images/goose_angel.png",
+                music: "classical",
+                choices: [
+                    { text: "ادامه", nextStep: "RESUME_P3" }
+                ]
+            },
+            {
+                id: "RESUME_P3",
                 text: "انفجار میکروپهپادهای بیوسِک سقف را شکافت — پرها، تکه‌ها و بقایای عقاب‌های سیاه در هرج و مرج جنگ تمام‌عیار به هر طرف پرتاب شدند!\nحکمت لحظه: دشمنی که خودت خلق کرده‌ای همیشه اول به خودت نوک می‌زند. و لعنتی، تقریباً زیبا بود.",
                 image: "assets/images/part3_destroyed_hall.png",
                 music: "classical"
