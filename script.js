@@ -742,7 +742,7 @@ function updateScene() {
                     btn.onclick = (e) => {
                         e.stopPropagation();
                         if (choice.nextStep !== undefined) {
-                            currentStep = choice.nextStep;
+                            if (typeof choice.nextStep === "string") { currentStep = paragraphs.findIndex(p => p.id === choice.nextStep); } else { currentStep = choice.nextStep; }
                             updateScene();
                         } else {
                             currentStep++;

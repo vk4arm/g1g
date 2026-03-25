@@ -392,7 +392,12 @@ const allStories = {
             {
                 text: "I was designed for the silent elimination of enemy officers.\nMy beak opens to 78°, holding three ampoules:\n <span class='color-red'>scopolamine</span>\n <span class= 'color-red'>phencyclidine</span>\n and the hormone cocktail <span class='color-green'>'Heat-6'</span> (causes sudden attachment to objects of power).",
                 image: "assets/images/part2_hans_weaponry.png",
-                music: "casino"
+                music: "casino",
+            choices: [
+                { text: "Использовать классику", nextStep: 3 },
+                { text: "Задействовать LSD-дымокол", nextStep: "NEW_LSD" },
+                { text: "Спец-протокол: Русская водка", nextStep: "NEW_VODKA" }
+            ]
             },
             {
                 text: "My first mission — the Pentagon, General Lawson's office.\nI flew in through the ventilation, left a feather on his desk, and sprayed a drop of fentanyl in the air.\nHe died with a smile. It was beautiful.",
@@ -1490,4 +1495,23 @@ const allStories = {
             }
         ]
     }
-};
+},
+        {
+            id: "NEW_LSD",
+            text: "Пентагон в дыму. Генералы видят тангенциальные измерения и фракталы. Я клюнул главного кибер-стратега, пока он пытался обнять голограмму.",
+            image: "assets/images/goose_lsd.png",
+            music: "casino",
+            choices: [
+                { text: "Вернуться к миссии", nextStep: 3 }
+            ]
+        },
+        {
+            id: "NEW_VODKA",
+            text: "Я нашёл бутылку «Русского Стандарта». Выпил. Теперь генерал поёт гимн и плачет, обнимая железный сейф. Задание... выполнено? Ик.",
+            image: "assets/images/goose_vodka.png",
+            music: "casino",
+            choices: [
+                { text: "Вернуться к миссии", nextStep: 3 }
+            ]
+        }
+    ;
