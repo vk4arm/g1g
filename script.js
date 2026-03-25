@@ -40,6 +40,7 @@ function setLanguage(lang) {
     if (startBtn3) startBtn3.innerText = ui.startPart3;
     if (startBtn4) startBtn4.innerText = ui.startPart4;
     if (achievementsBtn) achievementsBtn.innerText = ui.achievements;
+    if (codexBtn) codexBtn.innerText = ui.codexBtn;
     if (shareBtn) shareBtn.innerText = ui.share;
 
     const title = document.getElementById('main-title');
@@ -355,6 +356,14 @@ const achievementsCloseBtn = document.getElementById('achievements-close-btn');
 const achievementsGrid = document.getElementById('achievements-grid');
 const toastContainer = document.getElementById('toast-container');
 
+// Codex DOM
+const codexBtn = document.getElementById('codex-btn');
+const codexScreen = document.getElementById('codex-screen');
+const codexCloseBtn = document.getElementById('codex-close-btn');
+const codexList = document.getElementById('codex-list');
+const codexRecordTitle = document.getElementById('codex-record-title');
+const codexBody = document.getElementById('codex-body');
+
 // Achievements Data
 const ACHIEVEMENTS_DATA = {
     "ACH_TRAIN": { title: "Билет в Один Конец", desc: "Угнать бронепоезд и протаранить бункер. (Часть 1)", icon: "assets/images/train_crash.png" },
@@ -427,6 +436,72 @@ function renderAchievements() {
             </div>
         `;
         achievementsGrid.appendChild(el);
+    }
+}
+
+// Lore Codex Data
+const CODEX_DATA = {
+    "FACTION_TECHNOATH": { 
+        title: "Банда «Техноклятва»", 
+        body: "Остатки частных военных компаний и кибер-наемников, объединившихся после Падения Беспроводного Бога. Они отказываются от облачных технологий, полагаясь на вживленные чипы и закрытые P2P сети."
+    },
+    "UNIT_HANS": { 
+        title: "Ганс (Объект: Агрессор-Птица)", 
+        body: "Секретная разработка Пентагона. Гусь, оснащенный нейро-каркасом, титановым клювом и модулем взлома систем слежения. Изначально задуман как идеальный ликвидатор. Обрел цифровое сознание."
+    },
+    "TOXIN_R3": { 
+        title: "Корона-R3", 
+        body: "Экспериментальный газ. Вызывает тяжелейшие визуальные и слуховые галлюцинации, переходящие в кибер-психоз. Вдыхание приводит к необратимому слиянию цифрового и биологического восприятия у живых существ."
+    },
+    "PENTAGON_HEIST": { 
+        title: "Инцидент в Пентагоне", 
+        body: "Событие, когда единственная птица смогла обойти файрволы квантовых суперкомпьютеров, используя старый протокол заказа пиццы, обрушив тем самым оборону целой Империи."
+    }
+};
+
+let unlockedCodex = new Set(JSON.parse(localStorage.getItem('codex_unlocks') || '[]'));
+
+function unlockCodex(id) {
+    if (!CODEX_DATA[id] || unlockedCodex.has(id)) return;
+    unlockedCodex.add(id);
+    localStorage.setItem('codex_unlocks', JSON.stringify(Array.from(unlockedCodex)));
+    
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.style.borderLeftColor = 'var(--neon-cyan)';
+    toast.style.boxShadow = '0 0 20px rgba(0,255,255,0.3)';
+    toast.innerHTML = `
+        <div class="toast-header" style="color: var(--neon-cyan);">ЗАПИСЬ В АРХИВЕ</div>
+        <div class="toast-title">${CODEX_DATA[id].title}</div>
+    `;
+    toastContainer.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.classList.add('fade-out');
+        setTimeout(() => toast.remove(), 400);
+    }, 4500);
+}
+
+function renderCodex() {
+    codexList.innerHTML = '';
+    codexRecordTitle.innerText = "AWAITING INPUT...";
+    codexBody.innerHTML = "Select a decrypted record from the archive index.";
+
+    for (const [id, data] of Object.entries(CODEX_DATA)) {
+        const isUnlocked = unlockedCodex.has(id);
+        const li = document.createElement('li');
+        li.className = 'codex-item' + (isUnlocked ? '' : ' locked');
+        li.innerText = isUnlocked ? data.title : "ДАННЫЕ ЗАСЕКРЕЧЕНЫ";
+        
+        if (isUnlocked) {
+            li.onclick = () => {
+                document.querySelectorAll('.codex-item').forEach(el => el.classList.remove('active'));
+                li.classList.add('active');
+                codexRecordTitle.innerText = data.title;
+                codexBody.innerHTML = data.body;
+            };
+        }
+        codexList.appendChild(li);
     }
 }
 
@@ -538,6 +613,17 @@ achievementsBtn.addEventListener('click', () => {
 
 achievementsCloseBtn.addEventListener('click', () => {
     achievementsScreen.classList.remove('active');
+    startScreen.classList.add('active');
+});
+
+codexBtn.addEventListener('click', () => {
+    startScreen.classList.remove('active');
+    renderCodex();
+    codexScreen.classList.add('active');
+});
+
+codexCloseBtn.addEventListener('click', () => {
+    codexScreen.classList.remove('active');
     startScreen.classList.add('active');
 });
 
@@ -874,6 +960,23 @@ function updateScene() {
             // Update and Fade in text
             textDisplay.innerHTML = data.text;
             textDisplay.classList.add('visible');
+
+            // --- AVATARS ---
+            const avatarContainer = document.getElementById('avatar-container');
+            const avatarImage = document.getElementById('avatar-image');
+            if (data.avatar) {
+                avatarImage.src = `assets/avatars/${data.avatar}.png`;
+                avatarContainer.classList.remove('avatar-hidden');
+                avatarContainer.classList.add('avatar-visible');
+            } else {
+                avatarContainer.classList.add('avatar-hidden');
+                avatarContainer.classList.remove('avatar-visible');
+            }
+
+            // --- LORE CODEX UNLOCK ---
+            if (data.codex) {
+                unlockCodex(data.codex);
+            }
 
             // --- VFX AND SFX PROCESSING ---
             const bgContainer = document.getElementById('background-container');

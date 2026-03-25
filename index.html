@@ -53,6 +53,7 @@
             <button id="start-btn-3" class="start-btn">P3: COLLAPSE PROTOCOL</button>
             <button id="start-btn-4" class="start-btn hidden" style="border-color: var(--neon-cyan); box-shadow: 0 0 15px rgba(0,255,255,0.4); text-shadow: 0 0 5px var(--neon-cyan);">P4: TRUE ENDING</button>
             <button id="achievements-btn" class="start-btn">ACHIEVEMENTS</button>
+            <button id="codex-btn" class="start-btn">NEURO-ARCHIVE</button>
             <button id="share-btn" class="start-btn share-btn">BROADCAST PROTOCOL</button>
         </div>
         <div class="visitor-counter">
@@ -114,6 +115,9 @@
         </div>
 
         <div class="content-container">
+            <div id="avatar-container" class="avatar-hidden">
+                <img id="avatar-image" src="" alt="Speaker">
+            </div>
             <div id="text-display" class="glitch-text"></div>
             <div id="choices-container" class="choices-container hidden"></div>
             <p class="instruction">CLICK OR PRESS SPACE TO CONTINUE</p>
@@ -153,6 +157,25 @@
         </div>
         <div id="achievements-grid" class="achievements-grid">
             <!-- Dynamically populated -->
+        </div>
+    </div>
+
+    <!-- Codex Screen -->
+    <div id="codex-screen" class="screen">
+        <div class="achievements-header" style="margin-bottom: 2rem;">
+            <h2 id="codex-main-title">NEURO-ARCHIVE</h2>
+            <button id="codex-close-btn" class="back-btn">RETURN</button>
+        </div>
+        <div class="codex-layout">
+            <div id="codex-sidebar">
+                <ul id="codex-list">
+                    <!-- Dynamic List Items -->
+                </ul>
+            </div>
+            <div id="codex-content-pane">
+                <h3 id="codex-record-title" class="color-cyan" style="font-family: 'Share Tech Mono', monospace; font-size: 1.5rem; margin-bottom: 1rem; text-shadow: 0 0 5px var(--neon-cyan);">AWAITING INPUT...</h3>
+                <div id="codex-body" class="codex-body-text" style="text-align: left; font-size: 1.1rem; line-height: 1.6; color: #ccc;">Select a decrypted record from the archive index.</div>
+            </div>
         </div>
     </div>
 

@@ -85,21 +85,26 @@ const allStories = {
             {
                 text: "<span class='color-red'>🧨 «Записки с обочины Империи»</span>\n<span class='color-gray'>(из личного дневника Рида «Вектор» Коулза, командира банды «Техноклятва»)</span>\n\n20 апреля 2026, сектор “Новая Атланта”, Зона D, бывший склад Amazon.\nБлокнот на обрывке синтетической бумаги, запах гари и психотоксинов.",
                 image: "assets/images/warehouse.png",
+                avatar: "reed",
                 music: "rap"
             },
             {
                 text: "<span class='color-red'>Я родился в эпоху беспроводного бога.</span>\nКогда президентами становились аватары, а армии – просто рои кода с винтами.\nТеперь я командую настоящими людьми. И — да — гусем. Но об этом позже.",
                 image: "assets/images/warehouse.png",
+                avatar: "reed",
                 music: "rap"
             },
             {
                 text: "<span class='color-yellow'>🎯 День, когда упал Вашингтон</span>\nНам сказали, что Россия применила тактический заряд на востоке. Ага.\nНо в тот же день доллар рухнул на 61%, связь легла, и в Белом доме загорелись камеры.\nМы сидели в фуд-корте у рейнджеров в Джорджии, когда CNN прекратил вещание.\nА вместо новостей пошли трансляции с боевых гусей.",
                 image: "assets/images/bunker.png",
+                codex: "FACTION_TECHNOATH",
                 music: "classical"
             },
             {
                 text: "<span class='color-green'>🦆 Про гусей</span>\nДа-да, DARPA. Проект AGGRESSOR-AVIAN UNIT.\nИдея была в том, что гуси с ИИ лучше распознают цели, чем боты.\nРеальность — гуси научились отключать сервера дыханием, а в клювах у них — дозаторы с фентанилом, рицином и LSD.\nМы захватили одного. Звали его Ганс... Теперь он наш разведчик и исполнитель “мокрых” дел.\nПустили его в городскую мэрию — он клюнул мэра, тот увидел Бога и утонул в фонтане.",
                 image: "assets/images/goose.png",
+                codex: "UNIT_HANS",
+                avatar: "hans",
                 music: "classical",
                 choices: [
                     { text: "Подключить гуся к нейро-сети (Риск кибер-психоза)", nextStep: "NEW_TRIP" },
@@ -130,21 +135,25 @@ const allStories = {
             {
                 text: "<span class='color-gray'>🧠 Про политиков</span>\nОни бежали первыми. Но мы их догоняли.\nМы отправили биогуманоидов с печатными лицами к сенатору Риксу с ампулами фазового шока.\nТеперь Рикс сидит в подвале, дрожит, называет себя Мэри и боится света.",
                 image: "assets/images/bunker.png",
+                codex: "FACTION_TECHNOATH",
                 music: "classical"
             },
             {
                 text: "<span class='color-white'>🏴 Про банду</span>\nНаси 420 человек. 17 дронов. 1 гусь.\nКаждый боец прошёл обряд: кибер-игла в мозг, кодовая фраза — «Нет бога, кроме сбоев».\nМы — “Техноклятва”, клан кибер-мясников.\nВ каждом городе у нас спящие сервера.",
                 image: "assets/images/warehouse.png",
+                avatar: "reed",
                 music: "rap"
             },
             {
                 text: "<span class='color-red'>⚠️ Про завтра</span>\nЗавтра мы идём на Центр Временного Правительства в Небраске.\nНо у нас есть Ганс, свежая партия вируса «Песнь Воробья» и 200 дронов на биокеросине.\nИ если мы проиграем —\nпусть хотя бы история вспомнит,\nчто США были повержены не армией… а гусем с иглой и бандой, мечтающей о свободе.",
                 image: "assets/images/bunker.png",
+                codex: "FACTION_TECHNOATH",
                 music: "classical"
             },
             {
                 text: "<span class='color-gray'>[Конец фрагмента. Запись прервана шипением. На фоне: гусиное шипение, женский голос на немецком и взрыв.]</span>",
                 image: "assets/images/bunker.png",
+                codex: "FACTION_TECHNOATH",
                 music: "classical",
                 choices: [
                     { text: "[План Омега] Угнать бронепоезд и протаранить бункер", nextStep: "NEW_TRAIN" },
@@ -178,16 +187,19 @@ const allStories = {
             {
                 text: "<span class='color-magenta'>🪶 «Гусиный кодекс: Последняя линейка»</span>\n<span class='color-gray'>(мемуары командира оперативной ячейки DARPA-AF: гусиного спецназа)</span>\n\n<span class='color-cyan'>Ганс и Айла, 2026</span>",
                 image: "assets/images/part2_hans_intro.png",
+                avatar: "hans",
                 music: "casino"
             },
             {
                 text: "<span class='color-yellow'>📜 ГЛАВА I — Ганс</span>\nМеня зовут Ганс AGV-77, я гусь. Не сельхоз.\nЯ программа на перьях. Родился в DARPA в подвале, где никто не спрашивает «Зачем?», только “Как быстро вылетит шприц из клюва?”",
                 image: "assets/images/part2_hans_intro.png",
+                avatar: "hans",
                 music: "casino"
             },
             {
                 text: "Я был разработан для бесшумного устранения вражеских офицеров.\nМой клюв открывается на 78°, в нём три ампулы:\n <span class='color-red'>скополамин</span>\n <span class='color-red'>фенциклидин</span>\n и гормональный коктейль <span class='color-green'>«Теплота-6»</span> (вызывает внезапную привязанность к предметам власти).",
                 image: "assets/images/part2_hans_weaponry.png",
+                avatar: "hans",
                 music: "casino",
                 choices: [
                     { text: "Сделать сброс в серверную (Взлом протокола)", nextStep: "RESUME_P2" },
@@ -199,6 +211,7 @@ const allStories = {
                 sfx: "honk",
                 text: "Почему бы и нет? Вентиляция вывела меня в элитную столовую генералов. Я в полете разнес поднос с кибер-шаурмой, приземлился на стол и устроил пир среди неоновых огней Пентагона. Охрана была в ужасе от моей наглости. Я гусь, я взял то, что по праву моё.",
                 image: "assets/images/goose_pizza.png",
+                codex: "PENTAGON_HEIST",
                 music: "casino",
                 choices: [
                     { text: "Продолжить", nextStep: "RESUME_P2" }
@@ -213,11 +226,13 @@ const allStories = {
             {
                 text: "<span class='color-magenta'>💋 ГЛАВА II — Айла</span>\nОна — как крыло между мирами. Айла. AGV-78/F. Экспериментальная модель.\nСделана из нано-кератина, с голографической проекцией «мягкого оперения», встроенной «интимной поведенческой матрицей».",
                 image: "assets/images/part2_aila_intro.png",
+                avatar: "aila",
                 music: "casino"
             },
             {
                 text: "DARPA хотели создать отвлекающий сексуальный дрон-гусыню.\nОни <span class='color-red'>создали богиню войны</span> с формой и клювом, как у мечты.",
                 image: "assets/images/part2_aila_intro.png",
+                avatar: "aila",
                 music: "casino"
             },
             {
@@ -243,6 +258,7 @@ const allStories = {
             {
                 text: "<span class='color-red'>💣 ГЛАВА IV — Момент</span>\nАйла залетела через окно в Конгресс, развернулась в воздухе, отразила выстрел гиперлазера пером,\nклюнула спикера, и сказала:\n“Это за гусят, которых вы не допустили в Сенат.”",
                 image: "assets/images/part2_aila_congress.png",
+                avatar: "aila",
                 music: "casino"
             },
             {
@@ -280,6 +296,7 @@ const allStories = {
                 id: "NEW_LSD",
                 text: "Пентагон в дыму. Генералы видят тангенциальные измерения и фракталы. Я клюнул главного кибер-стратега, пока он пытался обнять голограмму.",
                 image: "assets/images/goose_lsd.png",
+                codex: "TOXIN_R3",
                 music: "casino",
                 choices: [
                     { text: "Завершить уровень / Terminate", nextStep: 999 }
@@ -299,31 +316,37 @@ const allStories = {
             {
                 text: "<span class='color-red'>🩸 «Протокол оргийного коллапса: Последняя запись сенатора Маркуса «Гегемона» Торна»</span>\n<span class='color-gray'>(нейро-имплант, извлечён из черепа в руинах острова «Элизиум-3», Тихий океан. 2026 год. Файл зашифрован кодом «Конец однополярного момента» после совместной операции NSA и AEGIS-CORE.\nОбъект класса: Кетер. Брешь содержания зафиксирована.)</span>",
                 image: "assets/images/part3_intro.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "<span class='color-cyan'>🏝️ ГЛАВА I</span>\n20 апреля 2026. Остров «Элизиум-3». Бывший бункер глобалистов, превращённый в «последний пир атлантистов». Воздух пропитан синтетическими феромонами, озоном и сладким запахом крови.",
                 image: "assets/images/part3_intro.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "Мы прилетели сюда не просто развлечься. Мы прилетели казнить автора.\nДоктора Акселя Квантама — того самого безумца, который в подвалах DARPA создал ИИ и выпустил кибер-гусей. Именно он разрушил финансовую пирамиду однополярного мира, именно он открыл новую эру в перьях и начал онтологическую войну биокода против всего, что мы считали вечным.",
                 image: "assets/images/part3_execution_plot.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "Мы, последние легионеры Империи с чёрными орлами на имплантах, хотели, чтобы он умер медленно. Согласно протоколу SCP-Foundation (до её падения) мы классифицировали его как SCP-████-1.\nМудрость дня: лучший способ победить врага — заставить его проглотить свой же код. Ха, а мы решили просто скормить ему перья. Классика.",
                 image: "assets/images/part3_execution_plot.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "<span class='color-magenta'>🪩 ГЛАВА II</span>\nВечер был идеальным военным парадом единения.\nТриста элитных фигур в чёрных мундирах с голографическими орлами сплелись в одну пульсирующую нейро-сеть под гимны старой Империи — ритуал тайного слияния, где скополамин версии MK-7 струился по венам, как тёплое шампанское, усиливая связь тел и умов. Я, сенатор Маркус Торн, стоял в самом центре круга — с имплантом «Гегемон» от NSA-CORE v4.2 в затылке — и лично вливал Квантаму дозу «Зеркала-7» (меметический агент класса Euclid).",
                 image: "assets/images/part3_party.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "Пусть увидит, как его гуси уничтожат нас всех. Пусть закричит «Wi-Fi, активен!» перед финалом.\nМы хохотали в железной дисциплине. Мы были богами… или по крайней мере так нам казалось, пока гуси не решили, что боги тоже нуждаются в небольшом апгрейде. Мудрость Империи: никогда не устраивай парад, если у тебя нет анти-гусиных щитов. Сарказм уровня DARPA.",
                 image: "assets/images/part3_venom_injection.png",
+                avatar: "thorne",
                 music: "wm"
             },
             {
@@ -344,6 +367,7 @@ const allStories = {
             {
                 text: "А следом — Айла, AGV-78/F. Нано-кератин, голографическое оперение, «интимная поведенческая матрица» уровня Euclid. Она не нападала. Она соблазняла.\nЕё воркование (меметический агент класса Keter) разнесло все наши ИИ-пушки в клочья. Министры падали на колени. Генералы теряли контроль, хватаясь за воздух, видя в ней свою потерянную империю.",
                 image: "assets/images/part3_aila.png",
+                avatar: "aila",
                 music: "classical",
                 choices: [
                     { text: "Поддаться меметическому воздействию (Взглянуть)", nextStep: "NEW_ANGEL" },
@@ -528,21 +552,26 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-red'>🧨 'Notes from the Sidelines of the Empire'</span>\n<span class='color-gray'>(from the personal diary of Reed 'Vector' Coles, commander of the 'Tech-Oath' gang)</span>\n\nApril 20, 2026, sector 'New Atlanta', Zone D, former Amazon warehouse.\nNotebook on a scrap of synthetic paper, the smell of burning and psychotoxins.",
                 image: "assets/images/warehouse.png",
+                avatar: "reed",
                 music: "rap"
             },
             {
                 text: "<span class='color-red'>I was born in the era of the wireless god.</span>\nWhen presidents were avatars, and armies – just swarms of code with rotors.\nNow I command real people. And — yes — a goose. But more on that later.",
                 image: "assets/images/warehouse.png",
+                avatar: "reed",
                 music: "rap"
             },
             {
                 text: "<span class='color-yellow'>🎯 The Day Washington Fell</span>\nThey told us Russia had used a tactical charge in the east. Yeah, right.\nBut on that same day, the dollar crashed by 61%, communications went down, and cameras in the White House flared up.\nWe were sitting in a ranger food court in Georgia when CNN stopped broadcasting.\nAnd instead of news, they started broadcasting from combat geese.",
                 image: "assets/images/bunker.png",
+                codex: "FACTION_TECHNOATH",
                 music: "classical"
             },
             {
                 text: "<span class='color-green'>🦆 About the Geese</span>\nYes, DARPA. Project AGGRESSOR-AVIAN UNIT.\nThe idea was that AI geese recognize targets better than bots.\nReality — the geese learned to disable servers with their breath, and their beaks hold dispensers for fentanyl, ricin, and LSD.\nWe captured one. Named him Hans... Now he's our scout and 'wetwork' specialist.\nWe let him into the city hall — he pecked the mayor, the mayor saw God and drowned in a fountain.",
                 image: "assets/images/goose.png",
+                codex: "UNIT_HANS",
+                avatar: "hans",
                 music: "classical",
                 choices: [
                     { text: "Connect goose to neuro-network (Risk of cyber-psychosis)", nextStep: "NEW_TRIP" },
@@ -573,21 +602,25 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-gray'>🧠 About Politicians</span>\nThey were the first to run. But we caught up.\nWe sent bio-humanoids with printed faces to Senator Ricks with phase-shock ampoules.\nNow Ricks sits in a basement, trembling, calling himself Mary, and afraid of the light.",
                 image: "assets/images/bunker.png",
+                codex: "FACTION_TECHNOATH",
                 music: "classical"
             },
             {
                 text: "<span class='color-white'>🏴 About the Gang</span>\nThere's 420 of us. 17 drones. 1 goose.\nEach fighter went through a rite: a cyber-needle in the brain, the code phrase — 'There is no god but glitches'.\nWe are 'Tech-Oath', a clan of cyber-butchers.\nIn every city, we have sleeper servers.",
                 image: "assets/images/warehouse.png",
+                avatar: "reed",
                 music: "rap"
             },
             {
                 text: "<span class='color-red'>⚠️ About Tomorrow</span>\nTomorrow we march on the Center for the Provisional Government in Nebraska.\nBut we have Hans, a fresh batch of the 'Sparrow Song' virus, and 200 drones on bio-kerosene.\nAnd if we lose —\nlet history at least remember,\nthat the USA was brought down not by an army… but by a goose with a needle and a gang dreaming of freedom.",
                 image: "assets/images/bunker.png",
+                codex: "FACTION_TECHNOATH",
                 music: "classical"
             },
             {
                 text: "<span class='color-gray'>[End of fragment. Recording interrupted by static. In the background: goose hissing, a female voice in German, and an explosion.]</span>",
                 image: "assets/images/bunker.png",
+                codex: "FACTION_TECHNOATH",
                 music: "classical",
                 choices: [
                     { text: "[Plan Omega] Hijack armored train and ram the bunker", nextStep: "NEW_TRAIN" },
@@ -621,16 +654,19 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-magenta'>🪶 'The Goose Code: The Last Line'</span>\n<span class='color-gray'>(memoirs of the commander of the DARPA-AF operational cell: the goose special forces)</span>\n\n<span class='color-cyan'>Hans and Aila, 2026</span>",
                 image: "assets/images/part2_hans_intro.png",
+                avatar: "hans",
                 music: "casino"
             },
             {
                 text: "<span class='color-yellow'>📜 CHAPTER I — Hans</span>\nMy name is Hans AGV-77, I am a goose. Not livestock.\nI am a program on feathers. Born in a DARPA basement where nobody asks 'Why?', only 'How fast can the syringe fly out of the beak?'",
                 image: "assets/images/part2_hans_intro.png",
+                avatar: "hans",
                 music: "casino"
             },
             {
                 text: "I was designed for the silent elimination of enemy officers.\nMy beak opens to 78°, holding three ampoules:\n <span class='color-red'>scopolamine</span>\n <span class= 'color-red'>phencyclidine</span>\n and the hormone cocktail <span class='color-green'>'Heat-6'</span> (causes sudden attachment to objects of power).",
                 image: "assets/images/part2_hans_weaponry.png",
+                avatar: "hans",
                 music: "casino",
                 choices: [
                     { text: "Drop into the server room (Hack protocol)", nextStep: "RESUME_P2" },
@@ -642,6 +678,7 @@ Solo una pluma brillante yace sobre la arena sintética.",
                 sfx: "honk",
                 text: "Why not? The vent led me to the elite generals' cafeteria. I smashed a tray of cyber-shawarma mid-flight, landed on the table, and feasted amid the neon lights of the Pentagon. The guards were terrified by my audacity. I'm a goose, I took what's rightfully mine.",
                 image: "assets/images/goose_pizza.png",
+                codex: "PENTAGON_HEIST",
                 music: "casino",
                 choices: [
                     { text: "Continue", nextStep: "RESUME_P2" }
@@ -656,11 +693,13 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-magenta'>💋 CHAPTER II — Aila</span>\nShe's like a wing between worlds. Aila. AGV-78/F. Experimental model.\nMade of nano-keratin, with a holographic projection of 'soft plumage', and a built-in 'intimate behavioral matrix'.",
                 image: "assets/images/part2_aila_intro.png",
+                avatar: "aila",
                 music: "casino"
             },
             {
                 text: "DARPA wanted to create a distracting sexual drone goose.\nThey <span class='color-red'>created a goddess of war</span> with a form and beak like a dream.",
                 image: "assets/images/part2_aila_intro.png",
+                avatar: "aila",
                 music: "casino"
             },
             {
@@ -686,6 +725,7 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-red'>💣 CHAPTER IV — The Moment</span>\nAila flew through the window into Congress, turned in mid-air, reflected a hyper-laser shot with a feather,\npecked the speaker, and said:\n'This is for the goslings you didn't allow into the Senate.'",
                 image: "assets/images/part2_aila_congress.png",
+                avatar: "aila",
                 music: "casino"
             },
             {
@@ -723,6 +763,7 @@ Solo una pluma brillante yace sobre la arena sintética.",
                 id: "NEW_LSD",
                 text: "The Pentagon is in smoke. Generals are seeing tangential dimensions and fractals. I pecked the chief cyber-strategist while he tried to hug a hologram.",
                 image: "assets/images/goose_lsd.png",
+                codex: "TOXIN_R3",
                 music: "casino",
                 choices: [
                     { text: "Завершить уровень / Terminate", nextStep: 999 }
@@ -742,31 +783,37 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-red'>🩸 'Protocol of Orgiastic Collapse: The Last Recording of Senator Marcus \"Hegemon\" Thorne'</span>\n<span class='color-gray'>(neuro-implant, extracted from a skull in the ruins of 'Elysium-3' island, Pacific Ocean. 2026. File encrypted with code 'End of the Unipolar Moment' after a joint NSA and AEGIS-CORE operation.\nObject class: Keter. Containment breach recorded.)</span>",
                 image: "assets/images/part3_intro.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "<span class='color-cyan'>🏝️ CHAPTER I</span>\nApril 20, 2026. 'Elysium-3' island. Former globalist bunker, turned into the 'final feast of the Atlanticists'. The air is saturated with synthetic pheromones, ozone, and the sweet smell of blood.",
                 image: "assets/images/part3_intro.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "We came here not just for fun. We came to execute the author.\nDr. Axel Quantum — the same madman who created AI in DARPA basements and released the cyber-geese. It was he who destroyed the financial pyramid of the unipolar world, he who ushered in a new era in feathers and launched the ontological war of bio-code against everything we held eternal.",
                 image: "assets/images/part3_execution_plot.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "We, the last legionnaires of the Empire with black eagles on our implants, wanted him to die slowly. According to the SCP-Foundation protocol (before its fall), we classified him as SCP-████-1.\nWisdom of the day: the best way to defeat an enemy is to make them swallow their own code. Ha, well we decided to just feed him feathers. Classic.",
                 image: "assets/images/part3_execution_plot.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "<span class='color-magenta'>🪩 CHAPTER II</span>\nThe evening was an ideal military parade of unity.\nThree hundred elite figures in black uniforms with holographic eagles intertwined into one pulsing neuro-network to the anthems of the old Empire — a ritual of secret fusion, where scopolamine version MK-7 flowed through veins like warm champagne, intensifying the connection of bodies and minds. I, Senator Marcus Thorne, stood at the very center of the ring — with a 'Hegemon' implant from NSA-CORE v4.2 in my nape — and personally injected Quantum with a dose of 'Mirror-7' (Euclid class memetic agent).",
                 image: "assets/images/part3_party.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "Let him see how his geese destroy us all. Let him scream 'Wi-Fi active!' before the finale.\nWe laughed in iron discipline. We were gods… or at least that's how it seemed to us, until the geese decided that gods also need a little upgrade. Imperial wisdom: never hold a parade if you don't have anti-goose shields. DARPA-level sarcasm.",
                 image: "assets/images/part3_venom_injection.png",
+                avatar: "thorne",
                 music: "wm"
             },
             {
@@ -787,6 +834,7 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "And behind him — Aila, AGV-78/F. Nano-keratin, holographic plumage, Euclid-level 'intimate behavioral matrix'. She wasn't attacking. She was seducing.\nHer cooing (Keter class memetic agent) tore all our AI turrets to shreds. Ministers fell to their knees. Generals lost control, clawing at the air, seeing in her their lost empire.",
                 image: "assets/images/part3_aila.png",
+                avatar: "aila",
                 music: "classical",
                 choices: [
                     { text: "Succumb to memetic influence (Look)", nextStep: "NEW_ANGEL" },
@@ -881,21 +929,26 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-red'>🧨 'Notizen vom Rande des Imperiums'</span>\n<span class='color-gray'>(aus dem persönlichen Tagebuch von Reed 'Vector' Coles, Kommandant der 'Tech-Eid'-Bande)</span>\n\n20. April 2026, Sektor 'New Atlanta', Zone D, ehemaliges Amazon-Lagerhaus.\nNotizbuch auf einem Stück synthetischem Papier, der Geruch von Brand und Psychotoxinen.",
                 image: "assets/images/warehouse.png",
+                avatar: "reed",
                 music: "rap"
             },
             {
                 text: "<span class='color-red'>Ich wurde in der Ära des drahtlosen Gottes geboren.</span>\nAls Präsidenten Avatare waren und Armeen nur Schwärme von Code mit Rotoren.\nJetzt befehlige ich echte Menschen. Und — ja — eine Gans. Aber dazu später mehr.",
                 image: "assets/images/warehouse.png",
+                avatar: "reed",
                 music: "rap"
             },
             {
                 text: "<span class='color-yellow'>🎯 Der Tag, an dem Washington fiel</span>\nMan sagte uns, Russland habe im Osten eine taktische Ladung eingesetzt. Ja, klar.\nDoch am selben Tag brach der Dollar um 61 % ein, die Kommunikation brach zusammen und im Weißen Haus flackerten die Kameras auf.\nWir saßen in einem Ranger-Food-Court in Georgia, als CNN den Sendebetrieb einstellte.\nUnd statt Nachrichten begannen sie, von Kampfgänsen zu senden.",
                 image: "assets/images/bunker.png",
+                codex: "FACTION_TECHNOATH",
                 music: "classical"
             },
             {
                 text: "<span class='color-green'>🦆 Über die Gänse</span>\nJa, DARPA. Projekt AGGRESSOR-AVIAN UNIT.\nDie Idee war, dass KI-Gänse Ziele besser erkennen als Bots.\nRealität — die Gänse lernten, Server mit ihrem Atem zu deaktivieren, und in ihren Schnäbeln befinden sich Spender für Fentanyl, Rizin und LSD.\nWir haben eine gefangen. Nannten ihn Hans... Jetzt ist er unser Aufklärer und Spezialist für 'nasse' Angelegenheiten.\nWir ließen ihn ins Rathaus — er pickte den Bürgermeister, der Bürgermeister sah Gott und ertrank in einem Brunnen.",
                 image: "assets/images/goose.png",
+                codex: "UNIT_HANS",
+                avatar: "hans",
                 music: "classical",
                 choices: [
                     { text: "Gans an neuronales Netzwerk anschließen (Risiko einer Cyberpsychose)", nextStep: "NEW_TRIP" },
@@ -926,21 +979,25 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-gray'>🧠 Über Politiker</span>\nSie sind als Erste gerannt. Aber wir haben sie eingeholt.\nWir schickten Bio-Humanoiden mit aufgedruckten Gesichtern und Phasenschock-Ampullen zu Senator Ricks.\nJetzt sitzt Ricks in einem Keller, zittert, nennt sich Mary und hat Angst vor dem Licht.",
                 image: "assets/images/bunker.png",
+                codex: "FACTION_TECHNOATH",
                 music: "classical"
             },
             {
                 text: "<span class='color-white'>🏴 Über die Bande</span>\nWir sind 420 Leute. 17 Drohnen. 1 Gans.\nJeder Kämpfer durchlief einen Ritus: eine Cyber-Nadel ins Gehirn, der Code-Satz — 'Es gibt keinen Gott außer Systemfehlern'.\nWir sind 'Tech-Eid', ein Clan von Cyber-Metzgern.\nIn jeder Stadt haben wir Schläfer-Server.",
                 image: "assets/images/warehouse.png",
+                avatar: "reed",
                 music: "rap"
             },
             {
                 text: "<span class='color-red'>⚠️ Über Morgen</span>\nMorgen marschieren wir zum Zentrum der Übergangsregierung in Nebraska.\nAber wir haben Hans, eine frische Ladung des 'Spatzenlied'-Virus und 200 Drohnen mit Bio-Kerosin.\nUnd wenn wir verlieren —\nsoll sich die Geschichte wenigstens daran erinnern,\ndass die USA nicht von einer Armee besiegt wurden… sondern von einer Gans mit einer Nadel und einer Bande, die von Freiheit träumt.",
                 image: "assets/images/bunker.png",
+                codex: "FACTION_TECHNOATH",
                 music: "classical"
             },
             {
                 text: "<span class='color-gray'>[Ende des Fragments. Aufnahme durch Rauschen unterbrochen. Im Hintergrund: Gänsezischen, eine weibliche Stimme auf Deutsch und eine Explosion.]</span>",
                 image: "assets/images/bunker.png",
+                codex: "FACTION_TECHNOATH",
                 music: "classical",
                 choices: [
                     { text: "[Plan Omega] Gepanzerten Zug entführen und den Bunker rammen", nextStep: "NEW_TRAIN" },
@@ -974,16 +1031,19 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-magenta'>🪶 'Der Gänse-Kodex: Die letzte Linie'</span>\n<span class='color-gray'>(Memoiren des Kommandanten der DARPA-AF-Einsatzzelle: die Gänse-Spezialeinheiten)</span>\n\n<span class='color-cyan'>Hans und Aila, 2026</span>",
                 image: "assets/images/part2_hans_intro.png",
+                avatar: "hans",
                 music: "casino"
             },
             {
                 text: "<span class='color-yellow'>📜 KAPITEL I — Hans</span>\nMein Name ist Hans AGV-77, ich bin eine Gans. Kein Nutztier.\nIch bin ein Programm auf Federn. Geboren in einem DARPA-Keller, wo niemand fragt 'Warum?', sondern nur 'Wie schnell fliegt die Spritze aus dem Schnabel?'",
                 image: "assets/images/part2_hans_intro.png",
+                avatar: "hans",
                 music: "casino"
             },
             {
                 text: "Ich wurde für die lautlose Eliminierung feindlicher Offiziere entwickelt.\nMein Schnabel öffnet sich auf 78° und enthält drei Ampullen:\n <span class='color-red'>Scopolamin</span>\n <span class='color-red'>Phencyclidin</span>\n und den Hormoncocktail <span class='color-green'>'Hitze-6'</span> (erzeugt plötzliche Bindung an Machtobjekte).",
                 image: "assets/images/part2_hans_weaponry.png",
+                avatar: "hans",
                 music: "casino",
                 choices: [
                     { text: "Sich in den Serverraum fallen lassen (Protokoll hacken)", nextStep: "RESUME_P2" },
@@ -995,6 +1055,7 @@ Solo una pluma brillante yace sobre la arena sintética.",
                 sfx: "honk",
                 text: "Warum nicht? Die Lüftung führte mich in die elitäre Generalkantine. Ich zertrümmerte im Flug ein Tablett mit Cyber-Shawarma, landete auf dem Tisch und schmauste im Neonlicht des Pentagons. Die Wachen waren über meine Dreistigkeit entsetzt. Ich bin eine Gans, ich habe mir genommen, was mir zusteht.",
                 image: "assets/images/goose_pizza.png",
+                codex: "PENTAGON_HEIST",
                 music: "casino",
                 choices: [
                     { text: "Fortsetzen", nextStep: "RESUME_P2" }
@@ -1009,11 +1070,13 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-magenta'>💋 KAPITEL II — Aila</span>\nSie ist wie ein Flügel zwischen den Welten. Aila. AGV-78/F. Experimentelles Modell.\nBesteht aus Nano-Keratin, mit einer holografischen Projektion von 'weichem Gefieder' und einer eingebauten 'intimen Verhaltensmatrix'.",
                 image: "assets/images/part2_aila_intro.png",
+                avatar: "aila",
                 music: "casino"
             },
             {
                 text: "DARPA wollte eine ablenkende sexuelle Drohnen-Gans erschaffen.\nSie <span class='color-red'>erschufen eine Göttin des Krieges</span> mit einer Form und einem Schnabel wie aus einem Traum.",
                 image: "assets/images/part2_aila_intro.png",
+                avatar: "aila",
                 music: "casino"
             },
             {
@@ -1039,6 +1102,7 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-red'>💣 KAPITEL IV — Der Moment</span>\nAila flog durch das Fenster in den Kongress, drehte sich in der Luft, reflektierte einen Hyperlaser-Schuss mit einer Feder,\npickte den Sprecher und sagte:\n'Das ist für die Gössel, die ihr nicht in den Senat gelassen habt.'",
                 image: "assets/images/part2_aila_congress.png",
+                avatar: "aila",
                 music: "casino"
             },
             {
@@ -1076,6 +1140,7 @@ Solo una pluma brillante yace sobre la arena sintética.",
                 id: "NEW_LSD",
                 text: "Das Pentagon liegt im Rauch. Generäle sehen tangentiale Dimensionen und Fraktale. Ich habe den Chef-Cyberstrategen gepickt, als er versuchte, ein Hologramm zu umarmen.",
                 image: "assets/images/goose_lsd.png",
+                codex: "TOXIN_R3",
                 music: "casino",
                 choices: [
                     { text: "Завершить уровень / Terminate", nextStep: 999 }
@@ -1095,31 +1160,37 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-red'>🩸 'Protokoll des orgiastischen Kollapses: Die letzte Aufzeichnung von Senator Marcus \"Hegemon\" Thorne'</span>\n<span class='color-gray'>(Neuro-Implantat, extrahiert aus einem Schädel in den Ruinen der Insel 'Elysium-3', Pazifischer Ozean. 2026. Datei verschlüsselt mit dem Code 'Ende des unipolaren Moments' nach einer gemeinsamen Operation von NSA und AEGIS-CORE.\nObjektklasse: Keter. Eindämmungsbruch aufgezeichnet.)</span>",
                 image: "assets/images/part3_intro.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "<span class='color-cyan'>🏝️ KAPITEL I</span>\n20. April 2026. Insel 'Elysium-3'. Ehemaliger Globalisten-Bunker, verwandelt in das 'letzte Fest der Atlantiker'. Die Luft ist gesättigt mit synthetischen Pheromonen, Ozon und dem süßen Geruch von Blut.",
                 image: "assets/images/part3_intro.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "Wir kamen nicht nur zum Vergnügen hierher. Wir kamen, um den Autor hinzurichten.\nDr. Axel Quantum — der wahnsinnige Mann, der in DARPA-Kellern KI erschuf und die Cyber-Gänse freiließ. Er war es, der die Finanzpyramide der unipolaren Welt zerstörte, er, der eine neue Ära in Federn einleitete und den ontologischen Krieg des Biocodes gegen alles startete, was wir für ewig hielten.",
                 image: "assets/images/part3_execution_plot.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "Wir, die letzten Legionäre des Imperiums mit schwarzen Adlern auf unseren Implantaten, wollten, dass er langsam stirbt. Gemäß dem Protokoll der SCP-Foundation (vor ihrem Fall) haben wir ihn als SCP-████-1 klassifiziert.\nWeisheit des Tages: Der beste Weg, einen Feind zu besiegen, besteht darin, ihn seinen eigenen Code schlucken zu lassen. Ha, nun, wir haben uns entschieden, ihn einfach mit Federn zu füttern. Klassisch.",
                 image: "assets/images/part3_execution_plot.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "<span class='color-magenta'>🪩 KAPITEL II</span>\nDer Abend war eine ideale Militärparade der Einheit.\nDreihundert Elitengestalten in schwarzen Uniformen mit holografischen Adlern schlossen sich zu einem pulsierenden Neuro-Netzwerk zu den Hymnen des alten Imperiums zusammen — ein Ritual geheimer Verschmelzung, bei dem Scopolamin der Version MK-7 wie warmer Champagner durch die Venen floss und die Verbindung von Körpern und Köpfen verstärkte. Ich, Senator Marcus Thorne, stand im Zentrum des Kreises — mit einem 'Hegemon'-Implantat von NSA-CORE v4.2 im Nacken — und injizierte Quantum persönlich eine Dosis 'Mirror-7' (memetisches Mittel der Euclid-Klasse).",
                 image: "assets/images/part3_party.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "Lass ihn sehen, wie seine Gänse uns alle vernichten. Lass ihn 'Wi-Fi aktiv!' schreien vor dem Finale.\nWir lachten in eiserner Disziplin. Wir waren Götter… oder zumindest erschien es uns so, bis die Gänse beschlossen, dass Götter auch ein kleines Upgrade brauchen. Imperiale Weisheit: Veranstalte niemals eine Parade, wenn du keine Anti-Gänse-Schilde hast. Sarkasmus auf DARPA-Niveau.",
                 image: "assets/images/part3_venom_injection.png",
+                avatar: "thorne",
                 music: "wm"
             },
             {
@@ -1140,6 +1211,7 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "Und hinter ihm — Aila, AGV-78/F. Nano-Keratin, holografisches Gefieder, 'intime Verhaltensmatrix' auf Euclid-Niveau. Sie griff nicht an. Sie verführte.\nIhr Gurren (memetisches Mittel der Keter-Klasse) zerfetzte all unsere KI-Geschütze. Minister fielen auf die Knie. Generäle verloren die Kontrolle, krallten in die Luft und sahen in ihr ihr verlorenes Imperium.",
                 image: "assets/images/part3_aila.png",
+                avatar: "aila",
                 music: "classical",
                 choices: [
                     { text: "Memetischem Einfluss erliegen (Ansehen)", nextStep: "NEW_ANGEL" },
@@ -1234,21 +1306,26 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-red'>🧨 'Notas desde los márgenes del Imperio'</span>\n<span class='color-gray'>(del diario personal de Reed 'Vector' Coles, comandante de la banda 'Juramento Tecno')</span>\n\n20 de abril de 2026, sector 'Nueva Atlanta', Zona D, antiguo almacén de Amazon.\nCuaderno en un trozo de papel sintético, olor a quemado y psicotoxinas.",
                 image: "assets/images/warehouse.png",
+                avatar: "reed",
                 music: "rap"
             },
             {
                 text: "<span class='color-red'>Nací en la era del dios inalámbrico.</span>\nCuando los presidentes eran avatares, y los ejércitos, solo enjambres de código con hélices.\nAhora mando sobre personas reales. Y — sí — un ganso. Pero de eso hablaré más tarde.",
                 image: "assets/images/warehouse.png",
+                avatar: "reed",
                 music: "rap"
             },
             {
                 text: "<span class='color-yellow'>🎯 El día que cayó Washington</span>\nNos dijeron que Rusia había usado una carga táctica en el este. Sí, claro.\nPero ese mismo día el dólar se desplomó un 61%, las comunicaciones cayeron y las cámaras de la Casa Blanca se encendieron.\nEstábamos en una zona de restauración de Georgia cuando CNN dejó de emitir.\nY en lugar de noticias, empezaron a emitir desde gansos de combate.",
                 image: "assets/images/bunker.png",
+                codex: "FACTION_TECHNOATH",
                 music: "classical"
             },
             {
                 text: "<span class='color-green'>🦆 Sobre los gansos</span>\nSí, DARPA. Proyecto AGGRESSOR-AVIAN UNIT.\nLa idea era que los gansos con IA reconocen mejor los objetivos que los bots.\nRealidad: los gansos aprendieron a desactivar servidores con el aliento, y en sus picos llevan dispensadores de fentanilo, ricina y LSD.\nCapturamos a uno. Lo llamamos Hans... Ahora es nuestro explorador y especialista en 'trabajos sucios'.\nLo soltamos en el ayuntamiento: picoteó al alcalde, el alcalde vio a Dios y se ahogó en una fuente.",
                 image: "assets/images/goose.png",
+                codex: "UNIT_HANS",
+                avatar: "hans",
                 music: "classical",
                 choices: [
                     { text: "Conectar el ganso a la red neuronal (Riesgo de ciberpsicosis)", nextStep: "NEW_TRIP" },
@@ -1279,21 +1356,25 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-gray'>🧠 Sobre los políticos</span>\nFueron los primeros en huir. Pero los alcanzamos.\nEnviamos biohumanoides con caras impresas al senador Ricks con ampollas de choque de fase.\nAhora Ricks está sentado en un sótano, temblando, llamándose Mary y con miedo a la luz.",
                 image: "assets/images/bunker.png",
+                codex: "FACTION_TECHNOATH",
                 music: "classical"
             },
             {
                 text: "<span class='color-white'>🏴 Sobre la banda</span>\nSomos 420 personas. 17 drones. 1 ganso.\nCada combatiente pasó por un rito: aguja ciber en el cerebro, frase en código: 'No hay más Dios que los fallos'.\nSomos 'Juramento Tecno', un clan de carniceros cibernéticos.\nEn cada ciudad tenemos servidores latentes.",
                 image: "assets/images/warehouse.png",
+                avatar: "reed",
                 music: "rap"
             },
             {
                 text: "<span class='color-red'>⚠️ Sobre mañana</span>\nMañana marchamos hacia el Centro del Gobierno Provisional en Nebraska.\nPero tenemos a Hans, una nueva remesa del virus 'Canto del Gorrión' y 200 drones de biokeroseno.\nY si perdemos...\nque al menos la historia recuerde\nque EE. UU. no fue derrotado por un ejército... sino por un ganso con una aguja y una banda que soñaba con la libertad.",
                 image: "assets/images/bunker.png",
+                codex: "FACTION_TECHNOATH",
                 music: "classical"
             },
             {
                 text: "<span class='color-gray'>[Fin del fragmento. Grabación interrumpida por estática. Al fondo: siseo de ganso, voz femenina en alemán y una explosión.]</span>",
                 image: "assets/images/bunker.png",
+                codex: "FACTION_TECHNOATH",
                 music: "classical",
                 choices: [
                     { text: "[Plan Omega] Secuestrar tren blindado y embestir el búnker", nextStep: "NEW_TRAIN" },
@@ -1327,16 +1408,19 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-magenta'>🪶 'El Código Ganso: La última línea'</span>\n<span class='color-gray'>(memorias del comandante de la célula operativa DARPA-AF: las fuerzas especiales ganso)</span>\n\n<span class='color-cyan'>Hans y Aila, 2026</span>",
                 image: "assets/images/part2_hans_intro.png",
+                avatar: "hans",
                 music: "casino"
             },
             {
                 text: "<span class='color-yellow'>📜 CAPÍTULO I — Hans</span>\nMe llamo Hans AGV-77, soy un ganso. No de corral.\nSoy un programa sobre plumas. Nací en un sótano de DARPA donde nadie pregunta '¿por qué?', solo '¿qué tan rápido vuela la jeringa desde el pico?'",
                 image: "assets/images/part2_hans_intro.png",
+                avatar: "hans",
                 music: "casino"
             },
             {
                 text: "Fui diseñado para la eliminación silenciosa de oficiales enemigos.\nMi pico se abre a 78°, contiene tres ampollas:\n <span class='color-red'>escopolamina</span>\n <span class='color-red'>fenciclidina</span>\n y el cóctel hormonal <span class='color-green'>'Calor-6'</span> (provoca un apego repentino a objetos de poder).",
                 image: "assets/images/part2_hans_weaponry.png",
+                avatar: "hans",
                 music: "casino",
                 choices: [
                     { text: "Caer en la sala de servidores (Protocolo de hackeo)", nextStep: "RESUME_P2" },
@@ -1348,6 +1432,7 @@ Solo una pluma brillante yace sobre la arena sintética.",
                 sfx: "honk",
                 text: "¿Por qué no? El conducto de ventilación me llevó a la cafetería de élite de los generales. Destrocé una bandeja de ciber-shawarma en pleno vuelo, aterricé sobre la mesa y me di un festín entre las luces de neón del Pentágono. Los guardias estaban aterrorizados por mi audacia. Soy un ganso, tomé lo que me pertenece por derecho.",
                 image: "assets/images/goose_pizza.png",
+                codex: "PENTAGON_HEIST",
                 music: "casino",
                 choices: [
                     { text: "Continuar", nextStep: "RESUME_P2" }
@@ -1362,11 +1447,13 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-magenta'>💋 CAPÍTULO II — Aila</span>\nElla es como un ala entre mundos. Aila. AGV-78/F. Modelo experimental.\nHecha de nanoqueratina, con proyección holográfica de 'plumaje suave', matriz de comportamiento íntimo incorporada.",
                 image: "assets/images/part2_aila_intro.png",
+                avatar: "aila",
                 music: "casino"
             },
             {
                 text: "DARPA quería crear un dron ganso sexual para distraer.\n<span class='color-red'>Crearon a una diosa de la guerra</span> con forma y pico de ensueño.",
                 image: "assets/images/part2_aila_intro.png",
+                avatar: "aila",
                 music: "casino"
             },
             {
@@ -1392,6 +1479,7 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-red'>💣 CAPÍTULO IV — El momento</span>\nAila entró por la ventana al Congreso, giró en el aire, reflejó un disparo de hiperláser con una pluma,\npicoteó al portavoz y dijo:\n'Esto es por los gansitos que no dejaste entrar en el Senado'.",
                 image: "assets/images/part2_aila_congress.png",
+                avatar: "aila",
                 music: "casino"
             },
             {
@@ -1429,6 +1517,7 @@ Solo una pluma brillante yace sobre la arena sintética.",
                 id: "NEW_LSD",
                 text: "El Pentágono está humeando. Los generales ven dimensiones tangenciales y fractales. Picoteé al jefe ciberestratega mientras intentaba abrazar un holograma.",
                 image: "assets/images/goose_lsd.png",
+                codex: "TOXIN_R3",
                 music: "casino",
                 choices: [
                     { text: "Завершить уровень / Terminate", nextStep: 999 }
@@ -1448,31 +1537,37 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-red'>🩸 'Protocolo de colapso orgiástico: Última grabación del senador Marcus \"Hegemón\" Thorne'</span>\n<span class='color-gray'>(neuroimplante, extraído de un cráneo en las ruinas de la isla 'Elysium-3', Océano Pacífico. 2026. Archivo cifrado con el código 'Fin del momento unipolar' tras una operación conjunta de la NSA y AEGIS-CORE.\nObjeto de clase: Keter. Brecha de contención registrada.)</span>",
                 image: "assets/images/part3_intro.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "<span class='color-cyan'>🏝️ CAPÍTULO I</span>\n20 de abril de 2026. Isla 'Elysium-3'. Antiguo búnker de globalistas, convertido en el 'último festín de los atlantistas'. El aire está saturado de feromonas sintéticas, ozono y el dulce olor a sangre.",
                 image: "assets/images/part3_intro.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "No vinimos aquí solo a divertirnos. Vinimos a ejecutar al autor.\nEl Dr. Axel Quantum, el mismo loco que creó la IA en los sótanos de DARPA y liberó a los cibergansos. Fue él quien destruyó la pirámide financiera del mundo unipolar, él quien inició una nueva era en plumas y lanzó la guerra ontológica del biocódigo contra todo lo que considerábamos eterno.",
                 image: "assets/images/part3_execution_plot.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "Nosotros, los últimos legionarios del Imperio con águilas negras en los implantes, queríamos que muriera lentamente. Según el protocolo de la Fundación SCP (antes de su caída), lo clasificamos como SCP-████-1.\nSabiduría del día: la mejor forma de derrotar a un enemigo es hacer que se trague su propio código. Ja, pues decidimos simplemente alimentarlo con plumas. Un clásico.",
                 image: "assets/images/part3_execution_plot.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "<span class='color-magenta'>🪩 CAPÍTULO II</span>\nLa noche fue un desfile militar de unidad ideal.\nTrescientas figuras de élite en uniformes negros con águilas holográficas entrelazadas en una red neuronal pulsante bajo los himnos del viejo Imperio: un ritual de fusión secreta, donde la escopolamina versión MK-7 fluía por las venas como champán tibio, intensificando la conexión de cuerpos y mentes. Yo, el senador Marcus Thorne, estaba en el centro del círculo —con un implante 'Hegemón' de NSA-CORE v4.2 en la nuca— e inyecté personalmente a Quantum una dosis de 'Espejo-7' (agente memético de clase Euclid).",
                 image: "assets/images/part3_party.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "Que vea cómo sus gansos nos destruyen a todos. Que grite '¡Wi-Fi activo!' antes del final.\nReíamos con disciplina de hierro. Éramos dioses... o al menos eso nos parecía, hasta que los gansos decidieron que los dioses también necesitan una pequeña actualización. Sabiduría imperial: nunca montes un desfile si no tienes escudos antigansos. Sarcasmo nivel DARPA.",
                 image: "assets/images/part3_venom_injection.png",
+                avatar: "thorne",
                 music: "wm"
             },
             {
@@ -1493,6 +1588,7 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "Y tras él, Aila, AGV-78/F. Nanoqueratina, plumaje holográfico, matriz de comportamiento íntimo de nivel Euclid. No atacaba. Seducía.\nSu arrullo (agente memético de clase Keter) destrozó todas nuestras torretas de IA. Los ministros caían de rodillas. Los generales perdían el control, arañando el aire, viendo en ella su imperio perdido.",
                 image: "assets/images/part3_aila.png",
+                avatar: "aila",
                 music: "classical",
                 choices: [
                     { text: "Sucumbir a la influencia memética (Mirar)", nextStep: "NEW_ANGEL" },
@@ -1587,21 +1683,26 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-red'>🧨 「帝国边缘的笔记」</span>\n<span class='color-gray'>（摘自“技术誓言”帮派指挥官里德·“矢量”·科尔斯的私人日记）</span>\n\n2026年4月20日，新亚特兰大区，D区，前亚马逊仓库。\n合成纸碎片上的笔记本，烧焦味和精神毒素。 ",
                 image: "assets/images/warehouse.png",
+                avatar: "reed",
                 music: "rap"
             },
             {
                 text: "<span class='color-red'>我出生在无线上帝的时代。</span>\n当总统是虚拟形象，而军队只是带旋翼的代码群。\n现在我指挥的是真人。还有——没错——一只鹅。但那是以后的事了。",
                 image: "assets/images/warehouse.png",
+                avatar: "reed",
                 music: "rap"
             },
             {
                 text: "<span class='color-yellow'>🎯 华盛顿坠落之日</span>\n他们告诉我们俄罗斯在东部使用了战术电荷。呵呵。\n但就在同一天，美元贬值了61%，通讯中断，白宫的摄像头闪烁着亮起。\n当CNN停止广播时，我们正坐在佐治亚州游骑兵队的食品广场。\n取代新闻的，是来自战斗鹅的转播。",
                 image: "assets/images/bunker.png",
+                codex: "FACTION_TECHNOATH",
                 music: "classical"
             },
             {
                 text: "<span class='color-green'>🦆 关于鹅</span>\n没错，DARPA（美国国防高级研究计划局）。AGGRESSOR-AVIAN UNIT项目。\n初衷是认为AI鹅比机器人更能识别目标。\n现实是——鹅学会了用呼吸停掉服务器，它们的喙里装有芬太尼、蓖麻毒素和LSD的投放器。\n我们捕获了一只。叫它汉斯……现在它是我们的侦察兵和“清除”专家。\n我们把它放进市政厅——它啄了市长，市长见到了上帝并溺死在喷泉里。",
                 image: "assets/images/goose.png",
+                codex: "UNIT_HANS",
+                avatar: "hans",
                 music: "classical",
                 choices: [
                     { text: "将鹅连接到神经网络（有赛博精神病的风险）", nextStep: "NEW_TRIP" },
@@ -1632,21 +1733,25 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-gray'>🧠 关于政客</span>\n他们跑得最快。但我们追得也快。\n我们把印有面孔的生物拟人发给了参议员里克斯，并带去了相位冲击安瓿。\n现在里克斯坐在地下室里发抖，自称是玛丽，并且害怕光线。",
                 image: "assets/images/bunker.png",
+                codex: "FACTION_TECHNOATH",
                 music: "classical"
             },
             {
                 text: "<span class='color-white'>🏴 关于帮派</span>\n我们有420人。17架无人机。1只鹅。\n每位战士都经历过仪式：大脑中的赛博针，代号是——“除了故障，别无上帝”。\n我们是“技术誓言”，一个赛博屠夫部落。\n在每个城市，我们都有休眠中的服务器。",
                 image: "assets/images/warehouse.png",
+                avatar: "reed",
                 music: "rap"
             },
             {
                 text: "<span class='color-red'>⚠️ 关于明天</span>\n明天我们将进军内布拉斯加州的临时政府中心。\n但我们有汉斯，一架新批次的“麻雀之歌”病毒和200架生物煤油无人机。\n如果我们输了——\n至少让历史记住，\n美国不是被军队击败的……而是被一只带针的鹅和一个梦想自由的帮派击败的。",
                 image: "assets/images/bunker.png",
+                codex: "FACTION_TECHNOATH",
                 music: "classical"
             },
             {
                 text: "<span class='color-gray'>[片段结束。录音由于静电中断。背景音：鹅的嘶叫声，一名女性的德语声音和爆炸声。]</span>",
                 image: "assets/images/bunker.png",
+                codex: "FACTION_TECHNOATH",
                 music: "classical",
                 choices: [
                     { text: "[欧米茄计划] 劫持装甲列车并撞击地堡", nextStep: "NEW_TRAIN" },
@@ -1680,16 +1785,19 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-magenta'>🪶 「鹅之法典：最后防线」</span>\n<span class='color-gray'>（摘自DARPA-AF作战小组指挥官的回忆录：鹅特种部队）</span>\n\n<span class='color-cyan'>汉斯与艾拉，2026</span>",
                 image: "assets/images/part2_hans_intro.png",
+                avatar: "hans",
                 music: "casino"
             },
             {
                 text: "<span class='color-yellow'>📜 第一章 —— 汉斯</span>\n我叫汉斯AGV-77，是一只鹅。不是家禽。\n我是羽毛上的程序。出生在DARPA的一个没有人问“为什么？”，只问“注射器从喙里射出的速度有多快？”的地下室里。",
                 image: "assets/images/part2_hans_intro.png",
+                avatar: "hans",
                 music: "casino"
             },
             {
                 text: "我被设计用于无声地清除敌方军官。\n我的喙可以张开到78°，里面装有三支安瓿：\n <span class='color-red'>东莨菪碱</span>\n <span class='color-red'>苯环己哌啶</span>\n 以及激素混合物 <span class='color-green'>“热量-6”</span>（引起对权力象征的突然依恋）。",
                 image: "assets/images/part2_hans_weaponry.png",
+                avatar: "hans",
                 music: "casino",
                 choices: [
                     { text: "潜入服务器机房（破解协议）", nextStep: "RESUME_P2" },
@@ -1701,6 +1809,7 @@ Solo una pluma brillante yace sobre la arena sintética.",
                 sfx: "honk",
                 text: "有何不可？通风口将我引向了将领们的精英餐厅。在飞行中我撞碎了一盘赛博沙威玛，降落在桌面上，在五角大楼的霓虹灯下大快朵颐。保安们对我的狂妄感到恐惧。我是一只鹅，我拿走了我理所应得的东西。",
                 image: "assets/images/goose_pizza.png",
+                codex: "PENTAGON_HEIST",
                 music: "casino",
                 choices: [
                     { text: "继续", nextStep: "RESUME_P2" }
@@ -1715,11 +1824,13 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-magenta'>💋 第二章 —— 艾拉</span>\n她就像世界之间的一只翅膀。艾拉。AGV-78/F。实验型号。\n由纳米角蛋白制成，具有“柔软羽毛”的全息投影，内置“亲密行为矩阵”。",
                 image: "assets/images/part2_aila_intro.png",
+                avatar: "aila",
                 music: "casino"
             },
             {
                 text: "DARPA想要创造一个用于引诱的性感无人机鹅。\n他们却<span class='color-red'>创造了一个战争女神</span>，外形和喙都像梦境一般。",
                 image: "assets/images/part2_aila_intro.png",
+                avatar: "aila",
                 music: "casino"
             },
             {
@@ -1745,6 +1856,7 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-red'>💣 第四章 —— 时刻</span>\n艾拉从窗户飞进国会，在空中一个翻身，用羽毛弹开了超激光射击，\n啄了发言人，说道：\n“这是为了那些没被你们允许进入参议院的小鹅们。”",
                 image: "assets/images/part2_aila_congress.png",
+                avatar: "aila",
                 music: "casino"
             },
             {
@@ -1782,6 +1894,7 @@ Solo una pluma brillante yace sobre la arena sintética.",
                 id: "NEW_LSD",
                 text: "五角大楼弥漫着烟雾。将军们看到了切线维度和分形。当首席网络战略家试图拥抱全息图时，我啄了他。",
                 image: "assets/images/goose_lsd.png",
+                codex: "TOXIN_R3",
                 music: "casino",
                 choices: [
                     { text: "Завершить уровень / Terminate", nextStep: 999 }
@@ -1801,31 +1914,37 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-red'>🩸 「狂欢式崩塌协议：参议员马库斯·“霸主”·索恩的最后录音」</span>\n<span class='color-gray'>（神经植入物，提取自太平洋“极乐世界-3”岛废墟中的一块头骨。2026年。在NSA和AEGIS-CORE联合行动后，文件以代码“单极时刻的终结”加密。\n对象等级：Keter。记录到收容失效。）</span>",
                 image: "assets/images/part3_intro.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "<span class='color-cyan'>🏝️ 第一章</span>\n2026年4月20日。“极乐世界-3”岛。前全球主义者地堡，现已转变为“大西洋主义者的最后盛宴”。空气中弥漫着合成信息素、臭氧和血腥的甜味。",
                 image: "assets/images/part3_intro.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "我们来到这里不仅仅是为了享乐。我们是来处决作者的。\n阿克塞尔·量子博士——那个在DARPA地下室创造了AI并释放了赛博鹅的疯子。正是他摧毁了单极世界的金融金字塔，正是他开启了羽毛的新纪元，并发起了一场生物代码针对我们认为永恒的一切事物的本体之战。",
                 image: "assets/images/part3_execution_plot.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "我们，帝国最后的军团，植入物上有黑鹰标志。我们希望他慢慢死去。根据SCP基金会协议（在其倒台前），我们将其分类为SCP-████-1。\n当下的格言：打败敌人的最好方法是让他们吞下自己的代码。哈，结果我们决定直接喂他羽毛。经典。",
                 image: "assets/images/part3_execution_plot.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "<span class='color-magenta'>🪩 第二章</span>\n夜晚是一场理想的军事统一阅兵。\n三百名穿着带有全息鹰标志黑制服的精英人物，在老帝国赞歌的伴奏下，交织成一个脉动的神经系统——这是一场秘密融合仪式，MK-7版东莨菪碱像温香槟一样流过血管，增强了身体和心灵的联系。我，参议员马库斯·索恩，站在圆环正中心——后颈植入了来自NSA-CORE v4.2的“霸主”植入物——并亲手为量子博士注射了一剂“镜像-7”（Euclid级模因试剂）。",
                 image: "assets/images/part3_party.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "让他看看他的鹅是如何摧毁我们所有人的。让他在终局前尖叫“Wi-Fi已激活！”。\n我们在铁一般的纪律中大笑。我们是神……或者至少在我们看来是这样，直到那些鹅决定神也需要一点升级。帝国的智慧：如果你没有反鹅护盾，永远不要举行阅兵。DARPA级别的讽刺。",
                 image: "assets/images/part3_venom_injection.png",
+                avatar: "thorne",
                 music: "wm"
             },
             {
@@ -1846,6 +1965,7 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "紧随其后的是艾拉，AGV-78/F。纳米角蛋白、全息羽毛、Euclid级“亲密行为矩阵”。她没有进攻。她在诱惑。\n她的咕咕声（Keter级模因试剂）将我们所有的AI炮塔撕成了碎片。大臣们纷纷跪倒。将军们失去了控制，在空气中乱抓，在她的身上看到了他们失去的帝国。",
                 image: "assets/images/part3_aila.png",
+                avatar: "aila",
                 music: "classical",
                 choices: [
                     { text: "屈服于模因影响（注视）", nextStep: "NEW_ANGEL" },
@@ -1940,21 +2060,26 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-red'>🧨 «یادداشت‌هایی از حاشیه امپراتوری»</span>\n<span class='color-gray'>(از دفترچه خاطرات شخصی رید «وکتور» کولز، فرمانده باند «سوگند تکنولوژی»)</span>\n\n۲۰ آوریل ۲۰۲۶، بخش «آتلانتا جدید»، منطقه D، انبار سابق آمازون.\nدفترچه روی تکه‌ای از کاغذ مصنوعی، بوی سوختگی و سموم روانی.",
                 image: "assets/images/warehouse.png",
+                avatar: "reed",
                 music: "rap"
             },
             {
                 text: "<span class='color-red'>من در عصر خدای بی‌سیم متولد شدم.</span>\nزمانی که آواتارها رئیس‌جمهور می‌شدند و ارتش‌ها فقط دسته‌هایی از کد با پروانه بودند.\nحالا من انسان‌های واقعی را فرماندهی می‌کنم. و — بله — یک غاز. اما بعداً در این مورد بیشتر می‌گویم.",
                 image: "assets/images/warehouse.png",
+                avatar: "reed",
                 music: "rap"
             },
             {
                 text: "<span class='color-yellow'>🎯 روزی که واشینگتن سقوط کرد</span>\nبه ما گفتند روسیه از یک شارژ تاکتیکی در شرق استفاده کرده است. آره، حتما.\nاما در همان روز، ارزش دلار ۶۱٪ سقوط کرد، ارتباطات قطع شد و دوربین‌ها در کاخ سفید روشن شدند.\nما در فودکورت رنجرها در جورجیا نشسته بودیم که سی‌ان‌ان پخش برنامه‌هایش را متوقف کرد.\nو به جای اخبار، شروع به پخش تصاویری از غازهای جنگی کردند.",
                 image: "assets/images/bunker.png",
+                codex: "FACTION_TECHNOATH",
                 music: "classical"
             },
             {
                 text: "<span class='color-green'>🦆 درباره غازها</span>\nبله، دارپا. پروژه AGGRESSOR-AVIAN UNIT.\nایده این بود که غازهای هوش مصنوعی اهداف را بهتر از ربات‌ها تشخیص می‌دهند.\nواقعیت — غازها یاد گرفتند که سرورها را با نفس خود از کار بیندازند و در منقارهایشان توزیع‌کننده‌های فنتانیل، ریسین و ال‌اس‌دی دارند.\nما یکی را گرفتیم. نامش را هانس گذاشتیم... حالا او دیدبان و متخصص کارهای کثیف ماست.\nاو را به شهرداری شهر فرستادیم — او به شهردار نوک زد، شهردار خدا را دید و در فواره غرق شد.",
                 image: "assets/images/goose.png",
+                codex: "UNIT_HANS",
+                avatar: "hans",
                 music: "classical",
                 choices: [
                     { text: "اتصال غاز به شبکه عصبی (خطر سایبرسایکوز)", nextStep: "NEW_TRIP" },
@@ -1985,21 +2110,25 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-gray'>🧠 درباره سیاستمداران</span>\nآن‌ها اولین کسانی بودند که فرار کردند. اما ما به آن‌ها رسیدیم.\nما بیوهومانوئیدهایی با چهره‌های چاپ شده را با آمپول‌های شوک فازی به سراغ سناتور ریکس فرستادیم.\nحالا ریکس در یک زیرزمین نشسته، می‌لرزد، خودش را مری می‌نامد و از نور می‌ترسد.",
                 image: "assets/images/bunker.png",
+                codex: "FACTION_TECHNOATH",
                 music: "classical"
             },
             {
                 text: "<span class='color-white'>🏴 درباره باند</span>\nما ۴۲۰ نفر هستیم. ۱۷ پهپاد. ۱ غاز.\nهر مبارز مراسمی را پشت سر گذاشته است: سوزن سایبری در مغز، جمله رمز — «خدایی جز نقص‌های سیستم وجود ندارد».\nما «سوگند تکنولوژی» هستیم، قبیله قصابان سایبری.\nدر هر شهر سرورهای خفته داریم.",
                 image: "assets/images/warehouse.png",
+                avatar: "reed",
                 music: "rap"
             },
             {
                 text: "<span class='color-red'>⚠️ درباره فردا</span>\nفردا به سمت مرکز دولت موقت در نبراسکا حرکت می‌کنیم.\nاما ما هانس، محموله جدیدی از ویروس «آواز گنجشک» و ۲۰۰ پهپاد با سوخت زیستی داریم.\nو اگر شکست بخوریم —\nبگذارید حداقل تاریخ به یاد بیاورد\nکه ایالات متحده نه توسط یک ارتش... بلکه توسط یک غاز با یک سوزن و باندی که رویای آزادی داشت، سرنگون شد.",
                 image: "assets/images/bunker.png",
+                codex: "FACTION_TECHNOATH",
                 music: "classical"
             },
             {
                 text: "<span class='color-gray'>[پایان قطعه. ضبط به دلیل نویز قطع شد. در پس‌زمینه: صدای هیس غاز، صدای یک زن به آلمانی و یک انفجار.]</span>",
                 image: "assets/images/bunker.png",
+                codex: "FACTION_TECHNOATH",
                 music: "classical",
                 choices: [
                     { text: "[طرح امگا] ربودن قطار زرهی و کوبیدن به پناهگاه", nextStep: "NEW_TRAIN" },
@@ -2033,16 +2162,19 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-magenta'>🪶 «کد غاز: آخرین خط»</span>\n<span class='color-gray'>(خاطرات فرمانده واحد عملیاتی DARPA-AF: نیروهای ویژه غاز)</span>\n\n<span class='color-cyan'>هانس و آیلا، ۲۰۲۶</span>",
                 image: "assets/images/part2_hans_intro.png",
+                avatar: "hans",
                 music: "casino"
             },
             {
                 text: "<span class='color-yellow'>📜 فصل اول — هانس</span>\nنام من هانس AGV-77 است، من یک غاز هستم. نه یک حیوان مزرعه.\nمن یک برنامه روی پر هستم. در زیرزمینی در دارپا متولد شدم که هیچ‌کس نمی‌پرسد «چرا؟»، فقط می‌پرسند «سرنگ با چه سرعتی از منقار پرتاب می‌شود؟»",
                 image: "assets/images/part2_hans_intro.png",
+                avatar: "hans",
                 music: "casino"
             },
             {
                 text: "من برای حذف بی‌صدای افسران دشمن طراحی شده‌ام.\nمنقار من تا ۷۸ درجه باز می‌شود و شامل سه آمپول است:\n <span class='color-red'>اسکوپولامین</span>\n <span class='color-red'>فن‌سیکلیدین</span>\n و کوکتل هورمونی <span class='color-green'>«گرما-۶»</span> (باعث دلبستگی ناگهانی به اشیاء قدرت می‌شود).",
                 image: "assets/images/part2_hans_weaponry.png",
+                avatar: "hans",
                 music: "casino",
                 choices: [
                     { text: "سقوط به اتاق سرور (پروتکل هک)", nextStep: "RESUME_P2" },
@@ -2054,6 +2186,7 @@ Solo una pluma brillante yace sobre la arena sintética.",
                 sfx: "honk",
                 text: "چرا که نه؟ دریچه تهویه من را به کافه تریای نخبه ژنرال ها رساند. در حال پرواز یک سینی سایبرشاورما را خرد کردم، روی میز فرود آمدم و در میان چراغ های نئونی پنتاگون یک مهمانی برپا کردم. نگهبانان از جسارت من وحشت زده شده بودند. من یک غازم، من چیزی که حقمه رو برداشتم.",
                 image: "assets/images/goose_pizza.png",
+                codex: "PENTAGON_HEIST",
                 music: "casino",
                 choices: [
                     { text: "ادامه", nextStep: "RESUME_P2" }
@@ -2068,11 +2201,13 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-magenta'>💋 فصل دوم — آیلا</span>\nاو مانند بالی میان جهان‌هاست. آیلا. AGV-78/F. مدل آزمایشی.\nساخته شده از نانو-کراتین، با پروژکتور هولوگرافیک «پر نرم» و ماتریس رفتاری صمیمانه داخلی.",
                 image: "assets/images/part2_aila_intro.png",
+                avatar: "aila",
                 music: "casino"
             },
             {
                 text: "دارپا می‌خواست یک غاز پهپاد جنسی برای حواس‌پرتی ایجاد کند.\nآن‌ها <span class='color-red'>الهه جنگی را خلق کردند</span> با فرم و منقاری شبیه به یک رویا.",
                 image: "assets/images/part2_aila_intro.png",
+                avatar: "aila",
                 music: "casino"
             },
             {
@@ -2098,6 +2233,7 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-red'>💣 فصل چهارم — لحظه</span>\nآیلا از پنجره وارد کنگره شد، در هوا چرخید، شلیک یک هایپرلایزر را با پر بازتاب داد،\nبه رئیس مجلس نوک زد و گفت:\n«این برای جوجه غازهایی است که اجازه ندادید وارد سنا شوند.»",
                 image: "assets/images/part2_aila_congress.png",
+                avatar: "aila",
                 music: "casino"
             },
             {
@@ -2135,6 +2271,7 @@ Solo una pluma brillante yace sobre la arena sintética.",
                 id: "NEW_LSD",
                 text: "پنتاگون در دود است. ژنرال ها ابعاد مماسی و فراکتال ها را می بینند. من به استراتژیست ارشد سایبری نوک زدم در حالی که او سعی می کرد یک هولوگرام را در آغوش بگیرد.",
                 image: "assets/images/goose_lsd.png",
+                codex: "TOXIN_R3",
                 music: "casino",
                 choices: [
                     { text: "Завершить уровень / Terminate", nextStep: 999 }
@@ -2154,31 +2291,37 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "<span class='color-red'>🩸 «پروتکل فروپاشی ارگاستیک: آخرین ضبط سناتور مارکوس «هژمون» تورن»</span>\n<span class='color-gray'>(ایمپلنت عصبی، استخراج شده از جمجمه‌ای در خرابه‌های جزیره «الیزیم-۳»، اقیانوس آرام. ۲۰۲۶. فایل با کد «پایان لحظه تک‌قطبی» پس از عملیات مشترک NSA و AEGIS-CORE رمزگذاری شده است.\nشیء کلاس: Keter. نقض مهار ثبت شده است.)</span>",
                 image: "assets/images/part3_intro.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "<span class='color-cyan'>🏝️ فصل اول</span>\n۲۰ آوریل ۲۰۲۶. جزیره «الیزیم-۳». پناهگاه سابق جهانی‌گرایان که به «آخرین ضیافت آتلانتیست‌ها» تبدیل شده است. هوا آغشته به فرومون‌های مصنوعی، اوزون و بوی شیرین خون است.",
                 image: "assets/images/part3_intro.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "ما نه فقط برای تفریح، که برای اعدام نویسنده به اینجا آمدیم.\nدکتر اکسل کوانتوم — همان دیوانه‌ای که در زیرزمین‌های دارپا هوش مصنوعی را خلق کرد و غازهای سایبری را آزاد کرد. او بود که هرم مالی دنیای تک‌قطبی را ویران کرد، او بود که عصر جدیدی را در پرها آغاز کرد و جنگ وجودی بیوکد علیه هر آنچه ابدی می‌پنداشتیم را به راه انداخت.",
                 image: "assets/images/part3_execution_plot.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "ما، آخرین لژیونرهای امپراتوری با عقاب‌های سیاه روی ایمپلنت‌هایمان، می‌خواستیم او به آرامی بمیرد. بر اساس پروتکل بنیاد SCP (قبل از سقوط آن)، ما او را به عنوان SCP-████-1 طبقه‌بندی کردیم.\nحکمت روز: بهترین راه برای شکست دادن دشمن این است که کاری کنی کد خودش را ببلعد. هه، اما ما تصمیم گرفتیم فقط به او پر بخورانیم. کلاسیک.",
                 image: "assets/images/part3_execution_plot.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "<span class='color-magenta'>🪩 فصل دوم</span>\nعصر یک رژه نظامی ایده‌آل برای اتحاد بود.\nسیصد شخصیت برتر در یونیفرم‌های سیاه با عقاب‌های هولوگرافیک در یک شبکه عصبی تپنده با سرودهای امپراتوری قدیم به هم پیوستند — مراسمی از ادغام مخفیانه، جایی که اسکوپولامین نسخه MK-7 مثل شامپاین گرم در رگ‌ها جاری بود و پیوند بدن‌ها و ذهن‌ها را تقویت می‌کرد. من، سناتور مارکوس تورن، در مرکز حلقه ایستاده بودم — با ایمپلنت «هژمون» از NSA-CORE v4.2 در پس گردنم — و شخصاً دوز «آینه-۷» (عامل میمتی کلاس اقلیدس) را به کوانتوم تزریق کردم.",
                 image: "assets/images/part3_party.png",
+                avatar: "thorne",
                 music: "casino"
             },
             {
                 text: "بگذارید ببیند چگونه غازهایش همه ما را نابود می‌کنند. بگذارید قبل از پایان فریاد بزند «وای‌فای، فعال است!».\nما با نظمی آهنین می‌خندیدیم. ما خدا بودیم... یا حداقل این‌طور به نظر می‌رسید، تا زمانی که غازها تصمیم گرفتند خدایان هم به کمی ارتقاء نیاز دارند. حکمت امپراتوری: هرگز رژه نرو اگر سپر ضد غاز نداری. سارکاسم در سطح دارپا.",
                 image: "assets/images/part3_venom_injection.png",
+                avatar: "thorne",
                 music: "wm"
             },
             {
@@ -2199,6 +2342,7 @@ Solo una pluma brillante yace sobre la arena sintética.",
             {
                 text: "و پشت سر او — آیلا، AGV-78/F. نانو-کراتین، پرهای هولوگرافیک، ماتریس رفتاری صمیمانه سطح اقلیدس. او حمله نمی‌کرد. او اغوا می‌کرد.\nآواز او (عامل میمتی کلاس کتر) تمام تیربارهای هوش مصنوعی ما را از هم پاشید. وزرا به زانو افتادند. ژنرال‌ها کنترل خود را از دست دادند، به هوا چنگ می‌زدند و در او امپراتوری از دست رفته خود را می‌دیدند.",
                 image: "assets/images/part3_aila.png",
+                avatar: "aila",
                 music: "classical",
                 choices: [
                     { text: "تسلیم نفوذ ممتیک شوید (نگاه کنید)", nextStep: "NEW_ANGEL" },

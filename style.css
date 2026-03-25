@@ -458,6 +458,41 @@ video.bg-layer {
     align-items: center;
 }
 
+/* ── AVATARS ───────── */
+#avatar-container {
+    position: absolute;
+    bottom: -20px;
+    left: -220px;
+    width: 200px;
+    height: 250px;
+    z-index: 10;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+    border: 2px solid var(--neon-cyan);
+    background: rgba(0, 0, 0, 0.8) url('assets/images/favicon.png') center/50% no-repeat;
+    overflow: hidden;
+    user-select: none;
+    pointer-events: none;
+}
+
+#avatar-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.avatar-hidden {
+    opacity: 0;
+    transform: translateX(-50px) scale(0.9);
+}
+
+.avatar-visible {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+}
+
 #text-display {
     font-size: 2.2rem;
     line-height: 1.5;
@@ -898,4 +933,76 @@ body.telegram-app .choice-btn {
     60% { transform: translate(-5px, 10px) skew(-10deg); clip-path: polygon(0 70%, 100% 70%, 100% 90%, 0 90%); }
     80% { transform: translate(5px, -10px) skew(10deg); clip-path: polygon(0 20%, 100% 20%, 100% 50%, 0 50%); color: var(--neon-red); }
     100% { transform: translate(0) skew(0deg); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+}
+
+/* ── LORE CODEX (NEURO-ARCHIVE) ───────── */
+.codex-layout {
+    display: flex;
+    width: 90%;
+    max-width: 1000px;
+    height: 60vh;
+    border: 2px solid var(--neon-cyan);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    border-radius: 4px;
+    background: rgba(0, 50, 50, 0.3);
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+#codex-sidebar {
+    width: 250px;
+    border-right: 2px solid var(--neon-cyan);
+    background: rgba(0, 0, 0, 0.8);
+    overflow-y: auto;
+}
+
+#codex-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.codex-item {
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+    cursor: pointer;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.1rem;
+    color: var(--neon-cyan);
+    transition: all 0.2s;
+    text-align: left;
+}
+
+.codex-item:hover:not(.locked) {
+    background: rgba(0, 255, 255, 0.2);
+    color: #fff;
+}
+
+.codex-item.active {
+    background: var(--neon-cyan);
+    color: #000;
+}
+
+.codex-item.locked {
+    color: #555;
+    cursor: not-allowed;
+}
+
+#codex-content-pane {
+    flex-grow: 1;
+    padding: 30px;
+    background: rgba(0, 20, 20, 0.9);
+    overflow-y: auto;
+    position: relative;
+}
+
+/* Custom Scrollbar for Codex */
+#codex-content-pane::-webkit-scrollbar,
+#codex-sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+#codex-content-pane::-webkit-scrollbar-thumb,
+#codex-sidebar::-webkit-scrollbar-thumb {
+    background: var(--neon-cyan);
+    border-radius: 4px;
 }
