@@ -1159,11 +1159,8 @@ if (totalMedia === 0) {
 
     // Preload audio and video
     mediaElements.forEach(media => {
-        // Force preload
-        media.preload = "auto";
-        // Call load() to guarantee it starts fetching the asset ahead of time 
-        media.load();
-
+        // Disable aggressive load/preload to protect initial boot metrics
+        // But preserve the buffering spinner logic for cinematic playback
         if (media.tagName.toLowerCase() === 'video') {
             media.addEventListener('waiting', () => {
                 if (media.style.opacity === '1' && videoLoading) {
@@ -1179,12 +1176,9 @@ if (totalMedia === 0) {
             media.addEventListener('canplay', hideLoading);
         }
 
-        if (media.readyState >= 3) {
-            checkMediaLoaded();
-        } else {
-            media.addEventListener('canplaythrough', checkMediaLoaded, { once: true });
-            media.addEventListener('error', checkMediaLoaded, { once: true }); // Skip on error to avoid hanging
-        }
+        // Instantly resolve the boot screen blocker without waiting for the network
+        checkMediaLoaded();
+
     });
 
     // Preload images
