@@ -567,6 +567,24 @@ function startGame(part) {
     audioCasino.play().catch(e => console.log("Audio play error:", e));
     audioWm.play().catch(e => console.log("Audio play error:", e));
 
+    // Staggered Asymmetric Preloading: Load all supplementary videos for the activated part in the background
+    setTimeout(() => {
+        if (part === 'part1') {
+            if (videoWarehouse) videoWarehouse.load();
+            if (videoDrones) videoDrones.load();
+            if (videoHacker) videoHacker.load();
+        } else if (part === 'part2') {
+            if (videoPart2Aila) videoPart2Aila.load();
+            if (videoPart2GeeseAttack) videoPart2GeeseAttack.load();
+        } else if (part === 'part3') {
+            if (bgVideo) bgVideo.load();
+            if (videoPart3ExecutionPlot) videoPart3ExecutionPlot.load();
+            if (videoPart3Party) videoPart3Party.load();
+            if (videoPart3VenomInjection) videoPart3VenomInjection.load();
+            if (videoPart3TargetLocked) videoPart3TargetLocked.load();
+        }
+    }, 500);
+
     updateScene();
 }
 
@@ -683,19 +701,19 @@ shareBtn.addEventListener('click', async () => {
 // Video lookup helper to map specific image scenes to video assets
 function getActiveVideo(imageSrc) {
     if (!imageSrc) return null;
-    if (imageSrc.includes('part3_collapse.png')) return bgVideo;
-    if (imageSrc.includes('bunker.png')) return videoBunker;
-    if (imageSrc.includes('warehouse.png')) return videoWarehouse;
-    if (imageSrc.includes('drones.png')) return videoDrones;
-    if (imageSrc.includes('part2_hans_intro.png')) return videoHansIntro;
-    if (imageSrc.includes('part2_aila_intro.png')) return videoPart2Aila;
-    if (imageSrc.includes('part3_intro.png')) return videoPart3Intro;
-    if (imageSrc.includes('part3_execution_plot.png')) return videoPart3ExecutionPlot;
-    if (imageSrc.includes('part3_party.png')) return videoPart3Party;
-    if (imageSrc.includes('part3_venom_injection.png')) return videoPart3VenomInjection;
-    if (imageSrc.includes('part2_geese_attack.png')) return videoPart2GeeseAttack;
-    if (imageSrc.includes('hacker.png')) return videoHacker;
-    if (imageSrc.includes('part3_target_locked.png')) return videoPart3TargetLocked;
+    if (imageSrc.includes('part3_collapse')) return bgVideo;
+    if (imageSrc.includes('bunker')) return videoBunker;
+    if (imageSrc.includes('warehouse')) return videoWarehouse;
+    if (imageSrc.includes('drones')) return videoDrones;
+    if (imageSrc.includes('part2_hans_intro')) return videoHansIntro;
+    if (imageSrc.includes('part2_aila_intro')) return videoPart2Aila;
+    if (imageSrc.includes('part3_intro')) return videoPart3Intro;
+    if (imageSrc.includes('part3_execution_plot')) return videoPart3ExecutionPlot;
+    if (imageSrc.includes('part3_party')) return videoPart3Party;
+    if (imageSrc.includes('part3_venom_injection')) return videoPart3VenomInjection;
+    if (imageSrc.includes('part2_geese_attack')) return videoPart2GeeseAttack;
+    if (imageSrc.includes('hacker')) return videoHacker;
+    if (imageSrc.includes('part3_target_locked')) return videoPart3TargetLocked;
     return null;
 }
 
@@ -1130,6 +1148,14 @@ function initGame() {
     startScreen.classList.add('active');
     setLanguage(currentLang); // apply saved lang on startup
     fetchVisitorCount();
+
+    // Staggered Asymmetric Preloading: Load exactly the first videos of all 3 parts 
+    // immediately upon hitting the start screen so the visual transition is instant.
+    setTimeout(() => {
+        if (videoBunker) videoBunker.load();
+        if (videoHansIntro) videoHansIntro.load();
+        if (videoPart3Intro) videoPart3Intro.load();
+    }, 1000);
 }
 
 let loadedMediaCount = 0;
