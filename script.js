@@ -554,9 +554,9 @@ function toggleMusic(e) {
     } else {
         unmutedIcon.style.display = 'block';
         mutedIcon.style.display = 'none';
-        // Let the next updateScene restore volume or try to restore now
-        // To be instant, we can find the active track from the current narrative data
-        const data = i18n[currentLang].parts[currentStory][currentStep];
+        // Immediately restore the current track's volume
+        const paragraphs = (allStories[currentLang] || allStories['ru'])[currentStory];
+        const data = paragraphs[currentStep];
         if (data && data.music) {
             const audioMap = { 'rap': audioRap, 'classical': audioClassical, 'casino': audioCasino, 'wm': audioWm };
             const player = audioMap[data.music];
