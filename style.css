@@ -596,18 +596,28 @@ body.telegram-app .instruction {
     right: 20px;
     z-index: 100;
     padding: 8px 12px;
+    width: 60px; /* Standardize width */
+    height: 46px; /* Standardize height */
     line-height: 0;
     letter-spacing: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .music-btn {
     position: absolute;
     top: 20px;
-    right: 85px;
-    z-index: 100;
+    right: 90px;
+    z-index: 101;
     padding: 8px 12px;
+    width: 60px; /* Match View button */
+    height: 46px; /* Match View button */
     line-height: 0;
     letter-spacing: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .music-btn svg {

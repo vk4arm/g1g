@@ -539,7 +539,8 @@ audioWm.volume = 0;
 let currentLayer = 1;
 let isMusicMuted = false;
 
-function toggleMusic() {
+function toggleMusic(e) {
+    if (e) e.stopPropagation();
     isMusicMuted = !isMusicMuted;
     const btn = document.getElementById('music-toggle-btn');
     const unmutedIcon = btn.querySelector('.unmuted-icon');
@@ -930,7 +931,7 @@ function handleInput(e) {
     }
 
     // Ignore clicks on start buttons or controls
-    if (e.target.classList.contains('start-btn') || e.target.id === 'back-btn' || e.target.id === 'prev-btn' || e.target.id === 'view-mode-btn') return;
+    if (e.target.classList.contains('start-btn') || e.target.id === 'back-btn' || e.target.id === 'prev-btn' || e.target.id === 'view-mode-btn' || e.target.closest('#music-toggle-btn')) return;
 
     const paragraphs = (allStories[currentLang] || allStories['ru'])[currentStory];
     if (currentStep < paragraphs.length - 1) {
