@@ -4,14 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
+    <!-- Nitro-Boot Caching strategy: manually bumped version to allow browser local storage -->
+    <meta name="version" content="1.0.6">
     <title>Notes from the Edge of the Empire</title>
     <link rel="icon" href="assets/images/favicon.png" type="image/png">
+    <!-- Critical CSS Inline: Render the loading spinner immediately without waiting for style.css -->
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --neon-red: #ff3e3e;
+            --color-cyan: #00ffff;
+            --neon-yellow: #f0f000;
+        }
+        body, html { margin: 0; padding: 0; background-color: #000; height: 100%; overflow: hidden; font-family: sans-serif; }
+        .screen { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; pointer-events: none; z-index: 10; min-height: 550px; }
+        .screen.active { opacity: 1; pointer-events: all; }
+        #loading-screen { background-color: var(--bg-dark); z-index: 2000; }
+        .cyber-spinner { position: relative; width: 80px; height: 80px; display: flex; justify-content: center; align-items: center; margin-bottom: 30px; }
+        .ring { position: absolute; border-radius: 50%; border: 2px solid transparent; }
+        .ring-outer { width: 100%; height: 100%; border-top: 2px solid var(--neon-red); box-shadow: 0 0 15px var(--neon-red); animation: nitro-spin 1.5s linear infinite; }
+        .ring-inner { width: 70%; height: 70%; border-bottom: 2px solid var(--color-cyan); border-left: 2px solid var(--color-cyan); box-shadow: 0 0 15px var(--color-cyan); animation: nitro-spin-rev 1s linear infinite; }
+        .core { width: 20%; height: 20%; background-color: var(--neon-yellow); box-shadow: 0 0 20px var(--neon-yellow); transform: rotate(45deg); }
+        .loading-text { color: var(--neon-red); font-size: 1.2rem; letter-spacing: 4px; text-align: center; }
+        @keyframes nitro-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes nitro-spin-rev { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
+    </style>
     <script>
         (function () {
-            var v = window.location.protocol === 'file:' ? '' : '?v=' + Date.now();
+            var v = '?v=1.0.6';
             var link = document.createElement('link');
             link.rel = 'stylesheet';
             link.href = 'style.css' + v;
@@ -51,7 +71,6 @@
             <button id="start-btn-1" class="start-btn">P1: SECTOR D LOGS</button>
             <button id="start-btn-2" class="start-btn">P2: NEURAL LINK</button>
             <button id="start-btn-3" class="start-btn">P3: COLLAPSE PROTOCOL</button>
-            <button id="start-btn-4" class="start-btn hidden" style="border-color: var(--neon-cyan); box-shadow: 0 0 15px rgba(0,255,255,0.4); text-shadow: 0 0 5px var(--neon-cyan);">P4: TRUE ENDING</button>
             <button id="achievements-btn" class="start-btn">ACHIEVEMENTS</button>
             <button id="codex-btn" class="start-btn">NEURO-ARCHIVE</button>
         </div>
@@ -189,12 +208,13 @@
     <!-- UI Toasts -->
     <div id="toast-container" class="toast-container"></div>
 
-    <script src="i18n.js"></script>
+    <script src="i18n.js" defer></script>
     <script>
         (function () {
-            var v = window.location.protocol === 'file:' ? '' : '?v=' + Date.now();
+            var v = '?v=1.0.6';
             var script = document.createElement('script');
             script.src = 'script.js' + v;
+            script.defer = true;
             document.body.appendChild(script);
         })();
     </script>

@@ -38,7 +38,6 @@ function setLanguage(lang) {
     if (startBtn1) startBtn1.innerText = ui.startPart1;
     if (startBtn2) startBtn2.innerText = ui.startPart2;
     if (startBtn3) startBtn3.innerText = ui.startPart3;
-    if (startBtn4) startBtn4.innerText = ui.startPart4;
     if (achievementsBtn) achievementsBtn.innerText = ui.achievements;
     if (codexBtn) codexBtn.innerText = ui.codexBtn;
     const shareTextEl = document.getElementById('share-text');
@@ -322,7 +321,6 @@ let autoPlayedVideos = new Set(); // Tracks completely played cinematic sequence
 const startBtn1 = document.getElementById('start-btn-1');
 const startBtn2 = document.getElementById('start-btn-2');
 const startBtn3 = document.getElementById('start-btn-3');
-const startBtn4 = document.getElementById('start-btn-4');
 const shareBtn = document.getElementById('share-btn');
 const startScreen = document.getElementById('start-screen');
 const gameScreen = document.getElementById('game-screen');
@@ -418,7 +416,7 @@ function checkPart4Unlock() {
     if (unlockedAchievements.has("ACH_PSYCHO") && 
         unlockedAchievements.has("ACH_LSD") && 
         unlockedAchievements.has("ACH_CULT")) {
-        startBtn4.classList.remove('hidden');
+        // P4 Removed from UI per request
     }
 }
 checkPart4Unlock();
@@ -591,7 +589,6 @@ function startGame(part) {
 startBtn1.addEventListener('click', () => startGame('part1'));
 startBtn2.addEventListener('click', () => startGame('part2'));
 startBtn3.addEventListener('click', () => startGame('part3'));
-startBtn4.addEventListener('click', () => startGame('part4'));
 
 backBtn.addEventListener('click', () => {
     // Show BSOD screen
@@ -1149,10 +1146,13 @@ function initGame() {
     setLanguage(currentLang); // apply saved lang on startup
     fetchVisitorCount();
 
-    // Staggered Asymmetric Preloading: Load exactly the first videos of all 3 parts 
-    // immediately upon hitting the start screen so the visual transition is instant.
+    // Staggered Asymmetric Preloading: Load precisely the required entrance cinematics 
+    // for all 3 storylines immediately upon hitting the start screen.
     setTimeout(() => {
-        if (videoBunker) videoBunker.load();
+        const videoWarehouse = document.getElementById('video-warehouse');
+        const videoHansIntro = document.getElementById('video-hans-intro');
+        const videoPart3Intro = document.getElementById('video-part3-intro');
+        if (videoWarehouse) videoWarehouse.load();
         if (videoHansIntro) videoHansIntro.load();
         if (videoPart3Intro) videoPart3Intro.load();
     }, 1000);
