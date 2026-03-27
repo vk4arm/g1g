@@ -600,6 +600,24 @@ body.telegram-app .instruction {
     letter-spacing: 0;
 }
 
+.music-btn {
+    position: absolute;
+    top: 20px;
+    right: 85px;
+    z-index: 100;
+    padding: 8px 12px;
+    line-height: 0;
+    letter-spacing: 0;
+}
+
+.music-btn svg {
+    transition: transform 0.3s;
+}
+
+.music-btn:hover svg {
+    transform: scale(1.1);
+}
+
 body.ui-hidden .overlay,
 body.ui-hidden .content-container,
 body.ui-hidden .part-indicator {

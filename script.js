@@ -537,6 +537,32 @@ audioCasino.volume = 0;
 audioWm.volume = 0;
 
 let currentLayer = 1;
+let isMusicMuted = false;
+
+function toggleMusic() {
+    isMusicMuted = !isMusicMuted;
+    const btn = document.getElementById('music-toggle-btn');
+    const unmutedIcon = btn.querySelector('.unmuted-icon');
+    const mutedIcon = btn.querySelector('.muted-icon');
+
+    if (isMusicMuted) {
+        unmutedIcon.style.display = 'none';
+        mutedIcon.style.display = 'block';
+        // Immediately mute all players
+        [audioRap, audioClassical, audioCasino, audioWm].forEach(p => p.volume = 0);
+    } else {
+        unmutedIcon.style.display = 'block';
+        mutedIcon.style.display = 'none';
+        // Let the next updateScene restore volume or try to restore now
+        // To be instant, we can find the active track from the current narrative data
+        const data = i18n[currentLang].parts[currentStory][currentStep];
+        if (data && data.music) {
+            const audioMap = { 'rap': audioRap, 'classical': audioClassical, 'casino': audioCasino, 'wm': audioWm };
+            const player = audioMap[data.music];
+            if (player) player.volume = 1;
+        }
+    }
+}
 
 // Initialization
 function startGame(part) {
@@ -1079,19 +1105,14 @@ function crossFade(playersOut, playerIn) {
     faderInterval = setInterval(() => {
         stepCount++;
 
-        playersOut.forEach((p, i) => {
-            let n = startVolsOut[i] * (1 - stepCount / steps);
-            p.volume = Math.max(0, n);
-        });
-
         let newIn = startVolIn + (1 - startVolIn) * (stepCount / steps);
-        playerIn.volume = Math.min(1, newIn);
+        playerIn.volume = isMusicMuted ? 0 : Math.min(1, newIn);
 
         if (stepCount >= steps) {
             clearInterval(faderInterval);
             faderInterval = null;
             playersOut.forEach(p => p.volume = 0);
-            playerIn.volume = 1;
+            playerIn.volume = isMusicMuted ? 0 : 1;
         }
     }, stepTime);
 }
@@ -1143,6 +1164,11 @@ function initGame() {
     
     loadingScreen.classList.remove('active');
     startScreen.classList.add('active');
+    
+    // UI controls setup
+    document.getElementById('music-toggle-btn').addEventListener('click', toggleMusic);
+    document.getElementById('music-toggle-btn').classList.remove('hidden');
+    
     setLanguage(currentLang); // apply saved lang on startup
     fetchVisitorCount();
 
