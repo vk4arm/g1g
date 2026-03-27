@@ -1105,6 +1105,11 @@ function crossFade(playersOut, playerIn) {
     faderInterval = setInterval(() => {
         stepCount++;
 
+        playersOut.forEach((p, i) => {
+            let n = startVolsOut[i] * (1 - stepCount / steps);
+            p.volume = isMusicMuted ? 0 : Math.max(0, n);
+        });
+
         let newIn = startVolIn + (1 - startVolIn) * (stepCount / steps);
         playerIn.volume = isMusicMuted ? 0 : Math.min(1, newIn);
 
