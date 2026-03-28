@@ -1020,6 +1020,49 @@ function updateScene() {
                 unlockCodex(data.codex);
             }
 
+            // --- HACKER MINI-GAME TRIGGER ---
+            if (data.minigame === 'breach_01') {
+                startBreach(1, (success) => {
+                    if (success) {
+                        currentStep++;
+                        updateScene();
+                    } else {
+                        // --- FAILURE: BLUE SCREEN OF DEATH ---
+                        const bsodScreen = document.getElementById('bsod-screen');
+                        const bsodTimer = document.getElementById('bsod-timer');
+                        let count = 3;
+                        
+                        bsodScreen.classList.add('active');
+                        bsodTimer.innerText = count;
+
+                        const countdown = setInterval(() => {
+                            count--;
+                            bsodTimer.innerText = count;
+                            if (count <= 0) {
+                                clearInterval(countdown);
+                                // Reset and redirect
+                                bsodScreen.classList.remove('active');
+                                gameScreen.classList.remove('active'); // Hard hide game screen
+                                startScreen.classList.add('active'); // Show start menu
+                                
+                                // Reset narrative state
+                                currentStep = 0; 
+                                isTransitioning = false;
+
+                                // Highlight Part 1 button
+                                const p1Btn = document.getElementById('start-btn-1');
+                                if (p1Btn) {
+                                    p1Btn.classList.add('failure-highlight');
+                                    setTimeout(() => p1Btn.classList.remove('failure-highlight'), 3000);
+                                }
+                            }
+                        }, 1000);
+                    }
+                });
+                isTransitioning = false;
+                return; // Stop narrative flow until mini-game resolves
+            }
+
             // --- VFX AND SFX PROCESSING ---
             const bgContainer = document.getElementById('background-container');
             bgContainer.classList.remove('vfx-shake', 'vfx-glitch-severe'); // Reset
@@ -1247,4 +1290,117 @@ if (totalMedia === 0) {
             img.addEventListener('error', checkMediaLoaded, { once: true });
         }
     });
+}
+
+// ── BREACH HACKER MINI-GAME CORE ─────────
+let breachTargets = [];
+let breachSolvedCount = 0;
+let breachTimer = 100;
+let breachInterval = null;
+let breachShuffleInterval = null;
+
+function startBreach(difficulty, callback) {
+    const breachScreen = document.getElementById('breach-screen');
+    const targetContainer = document.getElementById('breach-targets');
+    const gridContainer = document.getElementById('breach-grid');
+    const timerBar = document.getElementById('breach-timer-bar');
+    const statusMsg = document.getElementById('breach-status-msg');
+
+    // Reset state
+    breachSolvedCount = 0;
+    breachTimer = 100;
+    breachTargets = [];
+    breachScreen.classList.add('active');
+    statusMsg.innerText = "UPLINK ESTABLISHED. SEARCHING FOR NODES...";
+
+    // Generate 3 unique hex targets
+    const hexChars = "0123456789ABCDEF";
+    while (breachTargets.length < 3) {
+        const code = hexChars[Math.floor(Math.random() * 16)] + hexChars[Math.floor(Math.random() * 16)];
+        if (!breachTargets.includes(code)) breachTargets.push(code);
+    }
+
+    // Render targets
+    targetContainer.innerHTML = '';
+    breachTargets.forEach(code => {
+        const span = document.createElement('div');
+        span.className = 'target-code';
+        span.innerText = code;
+        span.id = `target-${code}`;
+        targetContainer.appendChild(span);
+    });
+
+    function renderGrid() {
+        gridContainer.innerHTML = '';
+        const allCells = [];
+        // Ensure at least 3 instances of each target to be safe
+        breachTargets.forEach(t => { allCells.push(t); allCells.push(t); allCells.push(t); });
+        // Fill rest with random junk
+        while (allCells.length < 25) {
+            allCells.push(hexChars[Math.floor(Math.random() * 16)] + hexChars[Math.floor(Math.random() * 16)]);
+        }
+        // Shuffle
+        allCells.sort(() => Math.random() - 0.5);
+
+        allCells.forEach(code => {
+            const cell = document.createElement('div');
+            cell.className = 'grid-cell';
+            cell.innerText = code;
+            cell.onclick = (e) => {
+                e.stopPropagation();
+                if (code === breachTargets[breachSolvedCount]) {
+                    cell.classList.add('hit');
+                    const targetEl = document.getElementById(`target-${code}`);
+                    if (targetEl) targetEl.classList.add('solved');
+                    breachSolvedCount++;
+                    statusMsg.innerText = `NODE ${breachSolvedCount} DECRYPTED...`;
+                    if (breachSolvedCount === 3) endBreach(true, callback);
+                } else {
+                    cell.classList.add('miss');
+                    breachTimer -= 15; // Penalty
+                    statusMsg.innerText = "SIGNAL COLLISION DETECTED!";
+                    setTimeout(() => cell.classList.remove('miss'), 300);
+                }
+            };
+            gridContainer.appendChild(cell);
+        });
+    }
+
+    renderGrid();
+
+    // Intervals
+    if (breachInterval) clearInterval(breachInterval);
+    breachInterval = setInterval(() => {
+        breachTimer -= (0.4 * (difficulty || 1));
+        timerBar.style.width = `${breachTimer}%`;
+        if (breachTimer <= 0) endBreach(false, callback);
+    }, 100);
+
+    // Grid Shuffle: update non-solved cells occasionally
+    if (breachShuffleInterval) clearInterval(breachShuffleInterval);
+    breachShuffleInterval = setInterval(() => {
+        const cells = gridContainer.querySelectorAll('.grid-cell:not(.hit)');
+        cells.forEach(c => {
+            if (Math.random() > 0.8) {
+                c.innerText = hexChars[Math.floor(Math.random() * 16)] + hexChars[Math.floor(Math.random() * 16)];
+            }
+        });
+    }, 2000);
+}
+
+function endBreach(success, callback) {
+    clearInterval(breachInterval);
+    clearInterval(breachShuffleInterval);
+    const breachScreen = document.getElementById('breach-screen');
+    
+    if (success) {
+        document.getElementById('breach-status-msg').innerText = "ACCESS GRANTED. NEURAL LINK SYNCED.";
+    } else {
+        document.getElementById('breach-status-msg').innerText = "CONNECTION TERMINATED. CODES RESET.";
+    }
+
+    setTimeout(() => {
+        breachScreen.classList.remove('active');
+        if (callback) callback(success);
+    }, 1000);
 }

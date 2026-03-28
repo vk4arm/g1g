@@ -1116,3 +1116,165 @@ body.telegram-app .choice-btn {
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
     transform: translateY(-2px);
 }
+
+.failure-highlight {
+    animation: p1-emergency-pulse 0.5s infinite alternate;
+    border-color: var(--neon-red) !important;
+    color: var(--neon-red) !important;
+    box-shadow: 0 0 20px var(--neon-red) !important;
+}
+
+@keyframes p1-emergency-pulse {
+    from { opacity: 0.6; transform: scale(1); }
+    to { opacity: 1; transform: scale(1.05); }
+}
+
+/* ── BREACH HACKER MINI-GAME ───────── */
+#breach-screen {
+    background: rgba(0, 10, 10, 0.95);
+    z-index: 3000;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.breach-crt-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 4px, 3px 100%;
+    pointer-events: none;
+    z-index: 10;
+    animation: breach-flicker 0.15s infinite;
+}
+
+@keyframes breach-flicker {
+    0% { opacity: 0.9; }
+    50% { opacity: 1; }
+    100% { opacity: 0.9; }
+}
+
+.breach-header {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.breach-title {
+    font-size: 1.5rem;
+    color: var(--neon-red);
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px var(--neon-red);
+}
+
+#breach-timer-container {
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 62, 62, 0.1);
+    border: 1px solid var(--neon-red);
+    box-shadow: 0 0 5px var(--neon-red);
+    overflow: hidden;
+}
+
+#breach-timer-bar {
+    width: 100%;
+    height: 100%;
+    background: var(--neon-red);
+    box-shadow: 0 0 15px var(--neon-red);
+    transition: width 0.1s linear;
+}
+
+.breach-target-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.breach-label {
+    font-size: 0.9rem;
+    color: var(--color-cyan);
+    opacity: 0.8;
+}
+
+#breach-targets {
+    display: flex;
+    gap: 20px;
+}
+
+.target-code {
+    font-size: 1.8rem;
+    color: #fff;
+    padding: 10px 15px;
+    border: 2px solid var(--color-cyan);
+    background: rgba(0, 255, 255, 0.1);
+    text-shadow: 0 0 10px var(--color-cyan);
+    min-width: 70px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.target-code.solved {
+    border-color: var(--neon-green);
+    color: var(--neon-green);
+    text-shadow: 0 0 15px var(--neon-green);
+    opacity: 0.5;
+    transform: scale(0.9);
+}
+
+.breach-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    width: 100%;
+    max-width: 450px;
+    margin: 20px auto;
+}
+
+.grid-cell {
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    color: var(--color-cyan);
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.grid-cell:hover {
+    background: rgba(0, 255, 255, 0.2);
+    border-color: var(--color-cyan);
+    box-shadow: 0 0 10px var(--color-cyan);
+}
+
+.grid-cell.hit {
+    background: var(--neon-green);
+    color: #000;
+    border-color: var(--neon-green);
+    box-shadow: 0 0 20px var(--neon-green);
+    pointer-events: none;
+}
+
+.grid-cell.miss {
+    background: var(--neon-red);
+    color: #fff;
+    border-color: var(--neon-red);
+    box-shadow: 0 0 20px var(--neon-red);
+    animation: breach-shake 0.3s;
+}
+
+@keyframes breach-shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.breach-status-footer {
+    font-size: 0.9rem;
+    color: var(--color-cyan);
+    letter-spacing: 2px;
+}
