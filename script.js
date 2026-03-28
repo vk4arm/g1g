@@ -1027,11 +1027,27 @@ function updateScene() {
                         currentStep++;
                         updateScene();
                     } else {
-                        // Failure: show a severe glitch and reset to last dialogue or retry
-                        bgContainer.classList.add('vfx-glitch-severe');
-                        setTimeout(() => {
-                            bgContainer.classList.remove('vfx-glitch-severe');
-                            updateScene(); // Retry the same scene
+                        // --- FAILURE: BLUE SCREEN OF DEATH ---
+                        const bsodScreen = document.getElementById('bsod-screen');
+                        const bsodTimer = document.getElementById('bsod-timer');
+                        let count = 3;
+                        
+                        bsodScreen.classList.add('active');
+                        bsodTimer.innerText = count;
+
+                        const countdown = setInterval(() => {
+                            count--;
+                            bsodTimer.innerText = count;
+                            if (count <= 0) {
+                                clearInterval(countdown);
+                                // Reset and redirect
+                                bsodScreen.classList.remove('active');
+                                showScreen('start-screen');
+                                // Highlight Part 1 button
+                                const p1Btn = document.getElementById('start-btn-1');
+                                p1Btn.classList.add('failure-highlight');
+                                setTimeout(() => p1Btn.classList.remove('failure-highlight'), 3000);
+                            }
                         }, 1000);
                     }
                 });

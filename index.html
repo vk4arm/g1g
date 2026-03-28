@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Nitro-Boot Caching strategy: manually bumped version to allow browser local storage -->
-    <meta name="version" content="1.1.0">
+    <meta name="version" content="1.1.1">
     <title>Notes from the Edge of the Empire</title>
     <link rel="icon" href="assets/images/favicon.png" type="image/png">
     <!-- Critical CSS Inline: Render the loading spinner immediately without waiting for style.css -->
@@ -31,7 +31,7 @@
     </style>
     <script>
         (function () {
-            var v = '?v=1.1.0';
+            var v = '?v=1.1.1';
             var link = document.createElement('link');
             link.rel = 'stylesheet';
             link.href = 'style.css' + v;
@@ -42,8 +42,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
-    <script src="i18n_core.js?v=1.1.0" defer></script>
-    <script src="i18n_story.js?v=1.1.0" defer></script>
+    <script src="i18n_core.js?v=1.1.1" defer></script>
+    <script src="i18n_story.js?v=1.1.1" defer></script>
     <!-- GoatCounter visitor analytics (privacy-friendly, no cookies) -->
     <script data-goatcounter="https://vk4arm.goatcounter.com/count"
             async src="//gc.zgo.at/count.js"></script>
@@ -242,7 +242,21 @@
     <!-- UI Toasts -->
     <div id="toast-container" class="toast-container"></div>
 
-    <script src="script.js?v=1.1.0" defer></script>
+    <!-- BSOD Screen (Failure State) -->
+    <div id="bsod-screen" class="screen" style="background: #0000aa; color: #fff; font-family: 'Share Tech Mono', monospace; align-items: flex-start; padding: 50px; text-transform: uppercase; z-index: 5000;">
+        <div style="background: #fff; color: #0000aa; padding: 5px 20px; font-weight: bold; margin-bottom: 30px;">::: SYSTEM_MALFUNCTION_DETECTED :::</div>
+        <p>A CRITICAL ERROR HAS OCCURRED IN MODULE [NEURAL_LINK.DLL].</p>
+        <p>UPLINK_COLLISION_EXCEPTION AT 0x004F32A1.</p>
+        <br>
+        <p>* INTEGRITY CHECK: FAILED</p>
+        <p>* MEMORY CORRUPTION: DETECTED</p>
+        <p>* EMERGENCY DISCONNECT: INITIALIZED</p>
+        <br>
+        <p>REBOOTING UPLINK NODES IN <span id="bsod-timer">3</span> SECONDS...</p>
+        <div style="margin-top: auto; opacity: 0.5; font-size: 0.8rem;">ERROR_CODE: BREACH_FAIL_0x01 // UNIT_HANS_EMERGENCY_REBOOT</div>
+    </div>
+
+    <script src="script.js?v=1.1.1" defer></script>
 </body>
 
 </html>
