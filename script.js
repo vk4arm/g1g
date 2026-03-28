@@ -38,7 +38,6 @@ function setLanguage(lang) {
     if (startBtn1) startBtn1.innerText = ui.startPart1;
     if (startBtn2) startBtn2.innerText = ui.startPart2;
     if (startBtn3) startBtn3.innerText = ui.startPart3;
-    if (startBtn4) startBtn4.innerText = ui.startPart4;
     if (achievementsBtn) achievementsBtn.innerText = ui.achievements;
     if (codexBtn) codexBtn.innerText = ui.codexBtn;
     const shareTextEl = document.getElementById('share-text');
@@ -322,7 +321,6 @@ let autoPlayedVideos = new Set(); // Tracks completely played cinematic sequence
 const startBtn1 = document.getElementById('start-btn-1');
 const startBtn2 = document.getElementById('start-btn-2');
 const startBtn3 = document.getElementById('start-btn-3');
-const startBtn4 = document.getElementById('start-btn-4');
 const shareBtn = document.getElementById('share-btn');
 const startScreen = document.getElementById('start-screen');
 const gameScreen = document.getElementById('game-screen');
@@ -418,7 +416,7 @@ function checkPart4Unlock() {
     if (unlockedAchievements.has("ACH_PSYCHO") && 
         unlockedAchievements.has("ACH_LSD") && 
         unlockedAchievements.has("ACH_CULT")) {
-        startBtn4.classList.remove('hidden');
+        // P4 Removed from UI per request
     }
 }
 checkPart4Unlock();
@@ -539,6 +537,33 @@ audioCasino.volume = 0;
 audioWm.volume = 0;
 
 let currentLayer = 1;
+let isMusicMuted = false;
+
+function toggleMusic(e) {
+    if (e) e.stopPropagation();
+    isMusicMuted = !isMusicMuted;
+    const btn = document.getElementById('music-toggle-btn');
+    const unmutedIcon = btn.querySelector('.unmuted-icon');
+    const mutedIcon = btn.querySelector('.muted-icon');
+
+    if (isMusicMuted) {
+        unmutedIcon.style.display = 'none';
+        mutedIcon.style.display = 'block';
+        // Immediately mute all players
+        [audioRap, audioClassical, audioCasino, audioWm].forEach(p => p.volume = 0);
+    } else {
+        unmutedIcon.style.display = 'block';
+        mutedIcon.style.display = 'none';
+        // Immediately restore the current track's volume
+        const paragraphs = (allStories[currentLang] || allStories['ru'])[currentStory];
+        const data = paragraphs[currentStep];
+        if (data && data.music) {
+            const audioMap = { 'rap': audioRap, 'classical': audioClassical, 'casino': audioCasino, 'wm': audioWm };
+            const player = audioMap[data.music];
+            if (player) player.volume = 1;
+        }
+    }
+}
 
 // Initialization
 function startGame(part) {
@@ -567,21 +592,20 @@ function startGame(part) {
     audioCasino.play().catch(e => console.log("Audio play error:", e));
     audioWm.play().catch(e => console.log("Audio play error:", e));
 
-    // Staggered Asymmetric Preloading: Load all supplementary videos for the activated part in the background
+    // Sequential Story-Streaming: Load supplementary videos one-by-one to avoid bandwidth choking
     setTimeout(() => {
         if (part === 'part1') {
-            if (videoWarehouse) videoWarehouse.load();
             if (videoDrones) videoDrones.load();
-            if (videoHacker) videoHacker.load();
+            setTimeout(() => { if (videoHacker) videoHacker.load(); }, 3000);
         } else if (part === 'part2') {
             if (videoPart2Aila) videoPart2Aila.load();
-            if (videoPart2GeeseAttack) videoPart2GeeseAttack.load();
+            setTimeout(() => { if (videoPart2GeeseAttack) videoPart2GeeseAttack.load(); }, 3000);
         } else if (part === 'part3') {
             if (bgVideo) bgVideo.load();
-            if (videoPart3ExecutionPlot) videoPart3ExecutionPlot.load();
-            if (videoPart3Party) videoPart3Party.load();
-            if (videoPart3VenomInjection) videoPart3VenomInjection.load();
-            if (videoPart3TargetLocked) videoPart3TargetLocked.load();
+            setTimeout(() => { if (videoPart3ExecutionPlot) videoPart3ExecutionPlot.load(); }, 2000);
+            setTimeout(() => { if (videoPart3Party) videoPart3Party.load(); }, 4000);
+            setTimeout(() => { if (videoPart3VenomInjection) videoPart3VenomInjection.load(); }, 6000);
+            setTimeout(() => { if (videoPart3TargetLocked) videoPart3TargetLocked.load(); }, 8000);
         }
     }, 500);
 
@@ -591,7 +615,6 @@ function startGame(part) {
 startBtn1.addEventListener('click', () => startGame('part1'));
 startBtn2.addEventListener('click', () => startGame('part2'));
 startBtn3.addEventListener('click', () => startGame('part3'));
-startBtn4.addEventListener('click', () => startGame('part4'));
 
 backBtn.addEventListener('click', () => {
     // Show BSOD screen
@@ -907,7 +930,7 @@ function handleInput(e) {
     }
 
     // Ignore clicks on start buttons or controls
-    if (e.target.classList.contains('start-btn') || e.target.id === 'back-btn' || e.target.id === 'prev-btn' || e.target.id === 'view-mode-btn') return;
+    if (e.target.classList.contains('start-btn') || e.target.id === 'back-btn' || e.target.id === 'prev-btn' || e.target.id === 'view-mode-btn' || e.target.closest('#music-toggle-btn')) return;
 
     const paragraphs = (allStories[currentLang] || allStories['ru'])[currentStory];
     if (currentStep < paragraphs.length - 1) {
@@ -1084,17 +1107,17 @@ function crossFade(playersOut, playerIn) {
 
         playersOut.forEach((p, i) => {
             let n = startVolsOut[i] * (1 - stepCount / steps);
-            p.volume = Math.max(0, n);
+            p.volume = isMusicMuted ? 0 : Math.max(0, n);
         });
 
         let newIn = startVolIn + (1 - startVolIn) * (stepCount / steps);
-        playerIn.volume = Math.min(1, newIn);
+        playerIn.volume = isMusicMuted ? 0 : Math.min(1, newIn);
 
         if (stepCount >= steps) {
             clearInterval(faderInterval);
             faderInterval = null;
             playersOut.forEach(p => p.volume = 0);
-            playerIn.volume = 1;
+            playerIn.volume = isMusicMuted ? 0 : 1;
         }
     }, stepTime);
 }
@@ -1146,13 +1169,21 @@ function initGame() {
     
     loadingScreen.classList.remove('active');
     startScreen.classList.add('active');
+    
+    // UI controls setup
+    document.getElementById('music-toggle-btn').addEventListener('click', toggleMusic);
+    document.getElementById('music-toggle-btn').classList.remove('hidden');
+    
     setLanguage(currentLang); // apply saved lang on startup
     fetchVisitorCount();
 
-    // Staggered Asymmetric Preloading: Load exactly the first videos of all 3 parts 
-    // immediately upon hitting the start screen so the visual transition is instant.
+    // Staggered Asymmetric Preloading: Load precisely the required entrance cinematics 
+    // for all 3 storylines immediately upon hitting the start screen.
     setTimeout(() => {
-        if (videoBunker) videoBunker.load();
+        const videoWarehouse = document.getElementById('video-warehouse');
+        const videoHansIntro = document.getElementById('video-hans-intro');
+        const videoPart3Intro = document.getElementById('video-part3-intro');
+        if (videoWarehouse) videoWarehouse.load();
         if (videoHansIntro) videoHansIntro.load();
         if (videoPart3Intro) videoPart3Intro.load();
     }, 1000);
