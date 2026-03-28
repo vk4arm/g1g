@@ -592,21 +592,20 @@ function startGame(part) {
     audioCasino.play().catch(e => console.log("Audio play error:", e));
     audioWm.play().catch(e => console.log("Audio play error:", e));
 
-    // Staggered Asymmetric Preloading: Load all supplementary videos for the activated part in the background
+    // Sequential Story-Streaming: Load supplementary videos one-by-one to avoid bandwidth choking
     setTimeout(() => {
         if (part === 'part1') {
-            if (videoWarehouse) videoWarehouse.load();
             if (videoDrones) videoDrones.load();
-            if (videoHacker) videoHacker.load();
+            setTimeout(() => { if (videoHacker) videoHacker.load(); }, 3000);
         } else if (part === 'part2') {
             if (videoPart2Aila) videoPart2Aila.load();
-            if (videoPart2GeeseAttack) videoPart2GeeseAttack.load();
+            setTimeout(() => { if (videoPart2GeeseAttack) videoPart2GeeseAttack.load(); }, 3000);
         } else if (part === 'part3') {
             if (bgVideo) bgVideo.load();
-            if (videoPart3ExecutionPlot) videoPart3ExecutionPlot.load();
-            if (videoPart3Party) videoPart3Party.load();
-            if (videoPart3VenomInjection) videoPart3VenomInjection.load();
-            if (videoPart3TargetLocked) videoPart3TargetLocked.load();
+            setTimeout(() => { if (videoPart3ExecutionPlot) videoPart3ExecutionPlot.load(); }, 2000);
+            setTimeout(() => { if (videoPart3Party) videoPart3Party.load(); }, 4000);
+            setTimeout(() => { if (videoPart3VenomInjection) videoPart3VenomInjection.load(); }, 6000);
+            setTimeout(() => { if (videoPart3TargetLocked) videoPart3TargetLocked.load(); }, 8000);
         }
     }, 500);
 
