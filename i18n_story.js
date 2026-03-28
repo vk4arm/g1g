@@ -50,7 +50,8 @@ const allStories = {ru: {
                 id: "RESUME_P1",
                 text: "<span class='color-blue'>☣️ Про кибер и наркоту</span>\nНаши хакеры — бывшие студенты MIT, которые теперь спят в серверах и не едят.\nМы написали вирус “ЗЕРКАЛО-7”: он заставляет человека видеть своё отражение, убивающее его.\nА наркотики? Мы перехватили конвой CDC.\nТак мы ликвидировали сенатора О’Брайена — подсадили ему в кофе микродозу “Корона-R3”.\nЧерез час он стал думать, что он дрон. Выпрыгнул с 12 этажа и кричал “Wi-Fi, активен!”",
                 image: "assets/images/hacker.webp",
-                music: "classical"
+                music: "classical",
+                minigame: "breach_01"
             },
             {
                 text: "<span class='color-magenta'>🛸 Про дронов</span>\nУ нас нет F-35, но есть барахло с eBay и гений по имени Лекс.\nМы собрали рой из 312 FPV-дронов, дешевых, но умных. Назвали их “Филадельфийский хор”.\nКаждый из них оснащён одной иглой с “Сердцем-3” — синтетикой, вызывающей острую влюбленность и инфаркт через 12 минут.\nТак мы убрали губернатора Техаса. Он умер, обнимая свою тень на капоте броневика.",
@@ -509,7 +510,8 @@ const allStories = {ru: {
                 id: "RESUME_P1",
                 text: "<span class='color-blue'>☣️ Cyber and Dope</span>\nOur hackers — former MIT students who now sleep inside servers and don't eat.\nWe wrote the 'MIRROR-7' virus: it makes a person see their own reflection killing them.\nAnd the drugs? We intercepted a CDC convoy.\nThat's how we liquidated Senator O’Brien — we spiked his coffee with a microdose of 'Corona-R3'.\nAn hour later, he thought he was a drone. Jumped from the 12th floor screaming 'Wi-Fi active!'",
                 image: "assets/images/hacker.webp",
-                music: "classical"
+                music: "classical",
+                minigame: "breach_01"
             },
             {
                 text: "<span class='color-magenta'>🛸 About Drones</span>\nWe don't have F-35s, but we have junk from eBay and a genius named Lex.\nWe assembled a swarm of 312 FPV drones, cheap but smart. Called them 'The Philadelphia Choir'.\nEach is equipped with a needle carrying 'Heart-3' — a synthetic that causes acute infatuation followed by a heart attack 12 minutes later.\nThat's how we took out the Governor of Texas. He died hugging his shadow on the hood of an armored car.",
@@ -893,7 +895,8 @@ const allStories = {ru: {
                 id: "RESUME_P1",
                 text: "<span class='color-blue'>☣️ Cyber und Stoff</span>\nUnsere Hacker — ehemalige MIT-Studenten, die jetzt in Servern schlafen und nichts essen.\nWir haben den Virus 'MIRROR-7' geschrieben: Er lässt einen Menschen sein eigenes Spiegelbild sehen, das ihn tötet.\nUnd die Drogen? Wir haben einen CDC-Konvoi abgefangen.\nSo haben wir Senator O’Brien liquidiert — wir haben eine Mikrodosis 'Corona-R3' in seinen Kaffee gemischt.\nEine Stunde später dachte er, er sei eine Drohne. Er sprang aus dem 12. Stock und schrie 'Wi-Fi aktiv!'",
                 image: "assets/images/hacker.webp",
-                music: "classical"
+                music: "classical",
+                minigame: "breach_01"
             },
             {
                 text: "<span class='color-magenta'>🛸 Über Drohnen</span>\nWir haben keine F-35, aber wir haben Schrott von eBay und ein Genie namens Lex.\nWir haben einen Schwarm aus 312 FPV-Drohnen zusammengestellt, billig, aber klug. Wir nannten sie 'Der Philadelphia-Chor'.\nJede ist mit einer Nadel bestückt, die 'Herz-3' trägt — ein Synthetikstoff, der akute Verliebtheit und 12 Minuten später einen Herzinfarkt verursacht.\nSo haben wir den Gouverneur von Texas ausgeschaltet. Er starb, während er seinen Schatten auf der Motorhaube eines Panzerwagens umarmte.",
@@ -1277,7 +1280,8 @@ const allStories = {ru: {
                 id: "RESUME_P1",
                 text: "<span class='color-blue'>☣️ Sobre el ciber y la droga</span>\nNuestros hackers son ex-estudiantes de MIT que ahora duermen en servidores y no comen.\nEscribimos el virus 'ESPEJO-7': hace que una persona vea su propio reflejo matándola.\n¿Y las drogas? Interceptamos un convoy del CDC.\nAsí liquidamos al senador O’Brien: pusimos en su café una microdosis de 'Corona-R3'.\nUna hora después pensaba que era un dron. Saltó desde un piso 12 gritando '¡Wi-Fi activo!'",
                 image: "assets/images/hacker.webp",
-                music: "classical"
+                music: "classical",
+                minigame: "breach_01"
             },
             {
                 text: "<span class='color-magenta'>🛸 Sobre los drones</span>\nNo tenemos F-35, pero tenemos chatarra de eBay y un genio llamado Lex.\nMontamos un enjambre de 312 drones FPV, baratos pero listos. Los llamamos 'El Coro de Filadelfia'.\nCada uno está equipado con una aguja con 'Corazón-3', un sintético que causa enamoramiento agudo e infarto a los 12 minutos.\nAsí eliminamos al gobernador de Texas. Murió abrazando su sombra en el capó de un blindado.",
@@ -1661,7 +1665,8 @@ const allStories = {ru: {
                 id: "RESUME_P1",
                 text: "<span class='color-blue'>☣️ 关于赛博与毒品</span>\n我们的黑客是麻省理工学院的前学生，他们现在睡在服务器里，不吃东西。\n我们编写了“镜像-7”病毒：它让人看到自己的倒影正在杀死自己。\n毒品呢？我们拦截了CDC（疾控中心）的车队。\n我们就这样清除了参议员奥布莱恩——在他的咖啡里掺了微剂量的“电晕-R3”。\n一小时后，他以为自己是一架无人机。他从12楼跳了下去，嘴里喊着“Wi-Fi已激活！”",
                 image: "assets/images/hacker.webp",
-                music: "classical"
+                music: "classical",
+                minigame: "breach_01"
             },
             {
                 text: "<span class='color-magenta'>🛸 关于无人机</span>\n我们没有F-35，但我们有eBay上的垃圾和一位名叫莱克斯的天才。\n我们组建了一个由312架FPV无人机组成的集群，虽然廉价但很智能。我们称之为“费城合唱团”。\n每一架都配有一根带有“心脏-3”的针——这是一种合成药剂，会引起极度的迷恋，并在12分钟后导致心脏病发作。\n我们就这样干掉了德克萨斯州州长。他死在装甲车引擎盖上，紧紧抱着自己的影子。",
@@ -2045,7 +2050,8 @@ const allStories = {ru: {
                 id: "RESUME_P1",
                 text: "<span class='color-blue'>☣️ درباره سایبر و مواد</span>\nهکرهای ما دانشجویان سابق ام‌آی‌تی هستند که حالا در سرورها می‌خوابند و چیزی نمی‌خورند.\nما ویروس «آینه-۷» را نوشتیم: این ویروس باعث می‌شود فرد انعکاس خودش را ببیند که در حال کشتن اوست.\nدرباره مواد؟ ما یک کاروان سی‌دی‌سی را متوقف کردیم.\nاین‌گونه سناتور اوبراین را از سر راه برداشتیم — در قهوه‌اش یک میکرودوز «کرونا-R3» ریختیم.\nیک ساعت بعد فکر کرد که پهپاد است. از طبقه ۱۲ پرید پایین و فریاد می‌زد «وای‌فای، فعال است!»",
                 image: "assets/images/hacker.webp",
-                music: "classical"
+                music: "classical",
+                minigame: "breach_01"
             },
             {
                 text: "<span class='color-magenta'>🛸 درباره پهپادها</span>\nما اف-۳۵ نداریم، اما خرت و پرت‌های ای‌بی و یک نابغه به نام لکس را داریم.\nما دسته‌ای از ۳۱۲ پهپاد اف‌پی‌وی جمع کردیم، ارزان اما هوشمند. نامشان را «گروه کر فیلادلفیا» گذاشتیم.\nهر کدام مجهز به یک سوزن حاوی «قلب-۳» است — یک ماده مصنوعی که باعث عشق شدید و ایست قلبی بعد از ۱۲ دقیقه می‌شود.\nاین‌گونه فرماندار تگزاس را از بین بردیم. او در حالی که سایه خودش را روی کاپوت یک خودروی زرهی در آغوش گرفته بود، مرد.",
