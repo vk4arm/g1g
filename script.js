@@ -1042,11 +1042,19 @@ function updateScene() {
                                 clearInterval(countdown);
                                 // Reset and redirect
                                 bsodScreen.classList.remove('active');
-                                showScreen('start-screen');
+                                gameScreen.classList.remove('active'); // Hard hide game screen
+                                startScreen.classList.add('active'); // Show start menu
+                                
+                                // Reset narrative state
+                                currentStep = 0; 
+                                isTransitioning = false;
+
                                 // Highlight Part 1 button
                                 const p1Btn = document.getElementById('start-btn-1');
-                                p1Btn.classList.add('failure-highlight');
-                                setTimeout(() => p1Btn.classList.remove('failure-highlight'), 3000);
+                                if (p1Btn) {
+                                    p1Btn.classList.add('failure-highlight');
+                                    setTimeout(() => p1Btn.classList.remove('failure-highlight'), 3000);
+                                }
                             }
                         }, 1000);
                     }
