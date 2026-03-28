@@ -1093,10 +1093,6 @@ body.telegram-app .choice-btn {
 
 }
 
-/* ── TABLET & MOBILE CODEX (Vertical Stack) ── */
-@media (max-width: 1024px) {
-}
-
 /* ── COMPACT SHARE BUTTON ───────── */
 .small-icon-btn {
     display: inline-flex;
