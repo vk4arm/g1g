@@ -1087,21 +1087,24 @@ body.telegram-app .choice-btn {
         font-size: 1.2rem;
     }
 
-    /* Codex Mobile Adjustments */
+}
+
+/* ── TABLET & MOBILE CODEX (Vertical Stack) ── */
+@media (max-width: 1024px) {
     .codex-layout {
         flex-direction: column;
-        height: 75vh;
+        height: 80vh; /* Slightly more height for content */
     }
 
     #codex-sidebar {
         width: 100%;
-        height: 35%;
+        height: 30%;
         border-right: none;
         border-bottom: 2px solid var(--neon-cyan);
     }
 
     #codex-content-pane {
-        height: 65%;
+        height: 70%;
         padding: 15px;
     }
 }
