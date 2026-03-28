@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Nitro-Boot Caching strategy: manually bumped version to allow browser local storage -->
-    <meta name="version" content="1.0.6">
+    <meta name="version" content="1.0.7">
     <title>Notes from the Edge of the Empire</title>
     <link rel="icon" href="assets/images/favicon.png" type="image/png">
     <!-- Critical CSS Inline: Render the loading spinner immediately without waiting for style.css -->
@@ -31,16 +31,19 @@
     </style>
     <script>
         (function () {
-            var v = '?v=1.0.6';
+            var v = '?v=1.0.7';
             var link = document.createElement('link');
             link.rel = 'stylesheet';
             link.href = 'style.css' + v;
             document.head.appendChild(link);
         })();
     </script>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+    <script src="i18n_core.js" defer></script>
+    <script src="i18n_story.js" defer></script>
     <!-- GoatCounter visitor analytics (privacy-friendly, no cookies) -->
     <script data-goatcounter="https://vk4arm.goatcounter.com/count"
             async src="//gc.zgo.at/count.js"></script>
@@ -216,16 +219,7 @@
     <!-- UI Toasts -->
     <div id="toast-container" class="toast-container"></div>
 
-    <script src="i18n.js" defer></script>
-    <script>
-        (function () {
-            var v = '?v=1.0.6';
-            var script = document.createElement('script');
-            script.src = 'script.js' + v;
-            script.defer = true;
-            document.body.appendChild(script);
-        })();
-    </script>
+    <script src="script.js?v=1.0.7" defer></script>
 </body>
 
 </html>
