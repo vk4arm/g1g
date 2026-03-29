@@ -289,7 +289,42 @@
         <div style="margin-top: auto; opacity: 0.5; font-size: 0.8rem;">ERROR_CODE: BREACH_FAIL_0x01 // UNIT_HANS_EMERGENCY_REBOOT</div>
     </div>
 
-    <script src="script.js?v=1.1.5" defer></script>
+    <!-- Global Consensus Screen (Part 3) -->
+    <div id="consensus-screen" class="screen" style="background: #050505;">
+        <div class="sniper-overlay"></div> <!-- Reusing CRT/Flicker effect -->
+        <div class="consensus-hud">
+            <div class="hud-item"><span class="color-gold">SYS_CONCORD:</span> <span id="consensus-status">STABLE</span></div>
+            <div class="hud-item"><span class="color-gold">NODES:</span> <span id="consensus-count">0/5</span></div>
+        </div>
+        <div id="consensus-map" class="consensus-map">
+            <svg id="consensus-lines" class="consensus-lines"></svg>
+            <!-- Nodes dynamically injected here -->
+        </div>
+        <div class="consensus-footer">
+            ESTABLISH SHADOW CONSENSUS. CONNECT THE GOLDEN NODES.
+        </div>
+    </div>
+
+    <!-- Neuro-Conductor Screen (Part 3) -->
+    <div id="neuro-screen" class="screen" style="background: #000;">
+        <div id="neuro-trip-overlay" class="neuro-trip-overlay"></div>
+        <div class="neuro-hud">
+            <div class="meter-container">
+                <label>PLEASURE</label>
+                <div class="meter-bg"><div id="neuro-pleasure-bar" class="meter-fill fill-cyan"></div></div>
+            </div>
+            <div class="meter-container">
+                <label>CONTROL</label>
+                <div class="meter-bg"><div id="neuro-control-bar" class="meter-fill fill-magenta"></div></div>
+            </div>
+        </div>
+        <div id="neuro-field" class="neuro-field">
+            <!-- Molecules floating here -->
+        </div>
+        <div class="neuro-status" id="neuro-status">MAINTAIN EQUILIBRIUM</div>
+    </div>
+
+    <script src="script.js?v=1.2.0" defer></script>
 </body>
 
 </html>

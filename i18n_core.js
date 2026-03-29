@@ -12,7 +12,23 @@ const uiStrings = {
         copied: "ПРОТОКОЛ СКОПИРОВАН",
         achievements: "ДОСТИЖЕНИЯ",
         startPart4: "P4: ИСТИННАЯ КОНЦОВКА",
-        codexBtn: "НЕЙРО-АРХИВ"
+        codexBtn: "НЕЙРО-АРХИВ",
+        achievementUnlocked: "ДОСТИЖЕНИЕ РАЗБЛОКИРОВАНО",
+        achievementHidden: "Скрыто",
+        back: "ВЕРНУТЬСЯ",
+        achievementsTitle: "НЕЙРО-МЕДАЛИ",
+        codexTitle: "НЕЙРО-АРХИВ",
+        ach_data: {
+            "ACH_TRAIN": { title: "Билет в Один Конец", desc: "Угнать бронепоезд и протаранить бункер. (Часть 1)" },
+            "ACH_AMBUSH": { title: "Неоновый Бандит", desc: "Устроить лобовую атаку с базуками. (Часть 1)" },
+            "ACH_PSYCHO": { title: "Кибер-Психоз", desc: "Подключить гуся к нейро-сети. (Часть 1)" },
+            "ACH_PIZZA": { title: "Пожиратель Пентагона", desc: "Взломать столовую и съесть пиццу. (Часть 2)" },
+            "ACH_LSD": { title: "Матричный Дым", desc: "Задействовать LSD-дымокол в Пентагоне. (Часть 2)" },
+            "ACH_VODKA": { title: "Генеральский Тост", desc: "Активировать спец-протокол 'Русская Водка'. (Часть 2)" },
+            "ACH_ANGEL": { title: "Еретик", desc: "Поддаться меметическому ангелу-гусыне. (Часть 3)" },
+            "ACH_CULT": { title: "Прихожанин", desc: "Принять кибер-причастие от Гуся-Епископа. (Часть 3)" },
+            "ACH_ESCAPE": { title: "Выживший", desc: "Сбежать в противогазе с остатками элиты. (Часть 3)" },
+        }
     },
     en: {
         startPart1: "P1: TECH-OATH",
@@ -27,7 +43,23 @@ const uiStrings = {
         copied: "PROTOCOL COPIED",
         achievements: "ACHIEVEMENTS",
         startPart4: "P4: TRUE ENDING",
-        codexBtn: "NEURO-ARCHIVE"
+        codexBtn: "NEURO-ARCHIVE",
+        achievementUnlocked: "ACHIEVEMENT UNLOCKED",
+        achievementHidden: "Locked",
+        back: "RETURN",
+        achievementsTitle: "NEURAL BADGES",
+        codexTitle: "NEURO-ARCHIVE",
+        ach_data: {
+            "ACH_TRAIN": { title: "One-Way Ticket", desc: "Steal the armored train and ram the bunker. (Part 1)" },
+            "ACH_AMBUSH": { title: "Neon Bandit", desc: "Launch a frontal assault with bazookas. (Part 1)" },
+            "ACH_PSYCHO": { title: "Cyber-Psychosis", desc: "Connect the goose to the neural network. (Part 1)" },
+            "ACH_PIZZA": { title: "Pentagon Devourer", desc: "Hack the cafeteria and eat the pizza. (Part 2)" },
+            "ACH_LSD": { title: "Matrix Smoke", desc: "Deploy the LSD smoke screen in the Pentagon. (Part 2)" },
+            "ACH_VODKA": { title: "General's Toast", desc: "Activate the special 'Russian Vodka' protocol. (Part 2)" },
+            "ACH_ANGEL": { title: "Heretic", desc: "Succumb to the memetic goose angel. (Part 3)" },
+            "ACH_CULT": { title: "Parishioner", desc: "Accept cyber-communion from the Goose Bishop. (Part 3)" },
+            "ACH_ESCAPE": { title: "Survivor", desc: "Escape in a gas mask with the remaining elite. (Part 3)" },
+        }
     },
     de: {
         startPart1: "P1: TECH-EID",
@@ -42,7 +74,23 @@ const uiStrings = {
         copied: "PROTOKOLL KOPIERT",
         achievements: "ERFOLGE",
         startPart4: "P4: WAHRES ENDE",
-        codexBtn: "NEURO-ARCHIV"
+        codexBtn: "NEURO-ARCHIV",
+        achievementUnlocked: "ERFOLG FREIGESCHALTET",
+        achievementHidden: "Gesperrt",
+        back: "ZURÜCK",
+        achievementsTitle: "NEURALE MEDAILLEN",
+        codexTitle: "NEURO-ARCHIV",
+        ach_data: {
+            "ACH_TRAIN": { title: "Einwegticket", desc: "Den Panzerzug stehlen und den Bunker rammen. (Teil 1)" },
+            "ACH_AMBUSH": { title: "Neon-Bandit", desc: "Einen Frontalangriff mit Bazookas starten. (Teil 1)" },
+            "ACH_PSYCHO": { title: "Cyber-Psychose", desc: "Die Gans an das neuronale Netz anschließen. (Teil 1)" },
+            "ACH_PIZZA": { title: "Pentagon-Verschlinger", desc: "Die Kantine hacken und die Pizza essen. (Teil 2)" },
+            "ACH_LSD": { title: "Matrix-Rauch", desc: "Den LSD-Rauchschleier im Pentagon einsetzen. (Teil 2)" },
+            "ACH_VODKA": { title: "Toast des Generals", desc: "Das spezielle 'Russischer Wodka'-Protokoll aktivieren. (Teil 2)" },
+            "ACH_ANGEL": { title: "Ketzer", desc: "Dem memetischen Gänseengel erliegen. (Teil 3)" },
+            "ACH_CULT": { title: "Gemeindemitglied", desc: "Das Cyber-Abendmahl vom Gänsebischof annehmen. (Teil 3)" },
+            "ACH_ESCAPE": { title: "Überlebender", desc: "In einer Gasmaske mit der verbleibenden Elite entkommen. (Teil 3)" },
+        }
     },
     es: {
         startPart1: "P1: JURAMENTO TECNO",
@@ -57,7 +105,23 @@ const uiStrings = {
         copied: "PROTOCOLO COPIADO",
         achievements: "LOGROS",
         startPart4: "P4: FINAL VERDADERO",
-        codexBtn: "NEURO-ARCHIVO"
+        codexBtn: "NEURO-ARCHIVO",
+        achievementUnlocked: "LOGRO DESBLOQUEADO",
+        achievementHidden: "Bloqueado",
+        back: "VOLVER",
+        achievementsTitle: "INSIGNIAS NEURALES",
+        codexTitle: "NEURO-ARCHIVO",
+        ach_data: {
+            "ACH_TRAIN": { title: "Billete de Ida", desc: "Robar el tren blindado y embestir el búnker. (Parte 1)" },
+            "ACH_AMBUSH": { title: "Bandido de Neón", desc: "Lanzar un ataque frontal con bazucas. (Parte 1)" },
+            "ACH_PSYCHO": { title: "Ciberpsicosis", desc: "Conectar el ganso a la red neuronal. (Parte 1)" },
+            "ACH_PIZZA": { title: "Devorador del Pentágono", desc: "Hackear la cafetería y comerse la pizza. (Parte 2)" },
+            "ACH_LSD": { title: "Humo de Matriz", "desc": "Desplegar la cortina de humo de LSD en el Pentágono. (Parte 2)" },
+            "ACH_VODKA": { title: "Brindis del General", desc: "Activar el protocolo especial 'Vozka Ruso'. (Parte 2)" },
+            "ACH_ANGEL": { title: "Hereje", desc: "Sucumbir al ángel ganso memético. (Parte 3)" },
+            "ACH_CULT": { title: "Feligrés", desc: "Aceptar la cibercomunión del Obispo Ganso. (Parte 3)" },
+            "ACH_ESCAPE": { title: "Superviviente", desc: "Escapar con una máscara de gas con la élite restante. (Parte 3)" },
+        }
     },
     zh: {
         startPart1: "P1: 技术誓言",
@@ -72,7 +136,23 @@ const uiStrings = {
         copied: "协议已复制",
         achievements: "成就",
         startPart4: "P4: 真实结局",
-        codexBtn: "神经档案"
+        codexBtn: "神经档案",
+        achievementUnlocked: "成就已解锁",
+        achievementHidden: "已锁定",
+        back: "返回",
+        achievementsTitle: "神经勋章",
+        codexTitle: "神经档案",
+        ach_data: {
+            "ACH_TRAIN": { title: "单程票", desc: "偷走装甲列车并撞毁地堡。（第一部分）" },
+            "ACH_AMBUSH": { title: "霓虹土匪", desc: "发动火箭筒正面攻击。（第一部分）" },
+            "ACH_PSYCHO": { title: "赛博精神病", desc: "将鹅连接到神经网络。（第一部分）" },
+            "ACH_PIZZA": { title: "五角大楼贪吃者", desc: "黑入食堂吃掉披萨。（第二部分）" },
+            "ACH_LSD": { title: "矩阵烟雾", desc: "在五角大楼部署LSD烟雾。（第二部分）" },
+            "ACH_VODKA": { title: "将军的祝酒", desc: "激活特殊的“俄罗斯伏特加”协议。（第二部分）" },
+            "ACH_ANGEL": { title: "异教徒", desc: "屈从于模因鹅天使。（第三部分）" },
+            "ACH_CULT": { title: "教友", desc: "接受鹅主教的赛博圣餐。（第三部分）" },
+            "ACH_ESCAPE": { title: "幸存者", desc: "戴着防毒面具与剩余精英一起逃离。（第三部分）" },
+        }
     },
     fa: {
         startPart1: "P1: سوگند تکنولوژی",
@@ -87,6 +167,22 @@ const uiStrings = {
         copied: "پروتکل کپی شد",
         achievements: "دستاوردها",
         startPart4: "P4: پایان واقعی",
-        codexBtn: "بایگانی عصبی"
+        codexBtn: "بایگانی عصبی",
+        achievementUnlocked: "دستاورد باز شد",
+        achievementHidden: "قفل شده",
+        back: "بازگشت",
+        achievementsTitle: "نشان‌های عصبی",
+        codexTitle: "بایگانی عصبی",
+        ach_data: {
+            "ACH_TRAIN": { title: "بلیط یک‌طرفه", desc: "دزدیدن قطار زرهی و کوبیدن به پناهگاه (بخش ۱)" },
+            "ACH_AMBUSH": { title: "راهزن نئونی", desc: "حمله مستقیم با بازوکا (بخش ۱)" },
+            "ACH_PSYCHO": { title: "سایبر سایکوز", desc: "اتصال غاز به شبکه عصبی (بخش ۱)" },
+            "ACH_PIZZA": { title: "بلعنده پنتاگون", desc: "هک کردن غذاخوری و خوردن پیتزا (بخش ۲)" },
+            "ACH_LSD": { title: "دود ماتریکس", desc: "استفاده از دود LSD در پنتاگون (بخش ۲)" },
+            "ACH_VODKA": { title: "نوش‌جان ژنرال", desc: "فعال‌سازی پروتکل ویژه «ودکای روسی» (بخش ۲)" },
+            "ACH_ANGEL": { title: "مرتد", desc: "تسلیم شدن در برابر فرشته غاز میمتیک (بخش ۳)" },
+            "ACH_CULT": { title: "اهل کلیسا", desc: "پذیرش عشای ربانی سایبری از اسقف غاز (بخش ۳)" },
+            "ACH_ESCAPE": { title: "بازمانده", desc: "فرار با ماسک گاز به همراه نخبگان باقی‌مانده (بخش ۲)" },
+        }
     }
 };

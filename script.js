@@ -43,6 +43,15 @@ function setLanguage(lang) {
     const shareTextEl = document.getElementById('share-text');
     if (shareTextEl) shareTextEl.innerText = ui.share;
 
+    // Achievements & Codex Titles
+    const achTitle = document.querySelector('#achievements-screen h2');
+    if (achTitle) achTitle.innerText = ui.achievementsTitle || 'NEURAL BADGES';
+    if (achievementsCloseBtn) achievementsCloseBtn.innerText = ui.back || 'RETURN';
+
+    const codexMainTitle = document.getElementById('codex-main-title');
+    if (codexMainTitle) codexMainTitle.innerText = ui.codexTitle || 'NEURO-ARCHIVE';
+    if (codexCloseBtn) codexCloseBtn.innerText = ui.back || 'RETURN';
+
     const title = document.getElementById('main-title');
     const subtitle = document.getElementById('main-subtitle');
     if (title) {
@@ -75,6 +84,11 @@ function setLanguage(lang) {
 }
 
 let stories = {}; // will be populated by setLanguage() once i18n.js is loaded
+
+// Helper: get current UI strings (always in sync with currentLang)
+function getUi() {
+    return uiStrings[currentLang] || uiStrings['ru'];
+}
 // ── end i18n ────────────────────────────────────────────────────
 
 const _legacyStoriesPlaceholder = {
@@ -398,9 +412,11 @@ function unlockAchievement(id) {
     // UI Toast
     const toast = document.createElement('div');
     toast.className = 'toast';
+    const currentUi = getUi();
+    const achInfo = (currentUi.ach_data && currentUi.ach_data[id]) || ACHIEVEMENTS_DATA[id];
     toast.innerHTML = `
-        <div class="toast-header">ДОСТИЖЕНИЕ РАЗБЛОКИРОВАНО</div>
-        <div class="toast-title">${ACHIEVEMENTS_DATA[id].title}</div>
+        <div class="toast-header">${currentUi.achievementUnlocked || 'ACHIEVEMENT UNLOCKED'}</div>
+        <div class="toast-title">${achInfo.title}</div>
     `;
     toastContainer.appendChild(toast);
     
@@ -423,15 +439,21 @@ checkPart4Unlock();
 
 function renderAchievements() {
     achievementsGrid.innerHTML = '';
-    for (const [id, data] of Object.entries(ACHIEVEMENTS_DATA)) {
+    const currentUi = getUi();
+    const langAchData = currentUi.ach_data || {};
+    // Use localized hidden text from i18n_core, fallback to English
+    const hiddenText = currentUi.achievementHidden || 'Locked';
+    for (const [id, staticData] of Object.entries(ACHIEVEMENTS_DATA)) {
         const isUnlocked = unlockedAchievements.has(id);
+        const dynamicData = langAchData[id] || staticData;
         const el = document.createElement('div');
         el.className = 'achievement-item' + (isUnlocked ? '' : ' locked');
+
         el.innerHTML = `
-            <img src="${data.icon}" alt="badge" class="achievement-icon">
+            <img src="${staticData.icon}" alt="badge" class="achievement-icon">
             <div class="achievement-info">
-                <div class="achievement-title">${isUnlocked ? data.title : "???"}</div>
-                <div class="achievement-desc">${isUnlocked ? data.desc : "Скрыто"}</div>
+                <div class="achievement-title">${isUnlocked ? dynamicData.title : '???'}</div>
+                <div class="achievement-desc">${isUnlocked ? dynamicData.desc : hiddenText}</div>
             </div>
         `;
         achievementsGrid.appendChild(el);
@@ -555,7 +577,7 @@ function toggleMusic(e) {
         unmutedIcon.style.display = 'block';
         mutedIcon.style.display = 'none';
         // Immediately restore the current track's volume
-        const paragraphs = (allStories[currentLang] || allStories['ru'])[currentStory];
+        const paragraphs = getStoryParagraphs(currentLang, currentStory);
         const data = paragraphs[currentStep];
         if (data && data.music) {
             const audioMap = { 'rap': audioRap, 'classical': audioClassical, 'casino': audioCasino, 'wm': audioWm };
@@ -563,6 +585,16 @@ function toggleMusic(e) {
             if (player) player.volume = 1;
         }
     }
+}
+
+// Helper: get paragraphs for current lang+part, falling back to Russian if empty
+function getStoryParagraphs(lang, story) {
+    lang = lang || 'ru';
+    story = story || currentStory;
+    const langStories = allStories[lang] || allStories['ru'];
+    const part = langStories[story];
+    if (part && part.length > 0) return part;
+    return allStories['ru'][story] || [];
 }
 
 // Initialization
@@ -678,7 +710,7 @@ prevBtn.addEventListener('click', () => {
 
 nextBtn.addEventListener('click', () => {
     if (!isTransitioning) {
-        const paragraphs = (allStories[currentLang] || allStories['ru'])[currentStory];
+        const paragraphs = getStoryParagraphs(currentLang, currentStory);
         if (currentStep < paragraphs.length - 1) {
             stepHistory.push(currentStep);
             currentStep++;
@@ -745,7 +777,7 @@ function enterViewMode() {
     if (!gameScreen.classList.contains('active')) return;
     document.body.classList.add('ui-hidden');
     
-    const paragraphs = (allStories[currentLang] || allStories['ru'])[currentStory];
+    const paragraphs = getStoryParagraphs(currentLang, currentStory);
     const data = paragraphs[currentStep];
     
     // Check if this slide has a specific video mapped to it.
@@ -866,7 +898,7 @@ function handleInput(e) {
     if (isTransitioning) return;
 
     // Ignore if there are active choices
-    const choiceParagraphs = (allStories[currentLang] || allStories['ru'])[currentStory];
+    const choiceParagraphs = getStoryParagraphs(currentLang, currentStory);
     const currentData = choiceParagraphs[currentStep];
     if (currentData && currentData.choices && currentData.choices.length > 0) {
         return;
@@ -875,7 +907,7 @@ function handleInput(e) {
     // Ignore clicks on start buttons or controls
     if (e.target.classList.contains('start-btn') || e.target.id === 'back-btn' || e.target.id === 'prev-btn' || e.target.id === 'view-mode-btn' || e.target.closest('#music-toggle-btn')) return;
 
-    const paragraphs = (allStories[currentLang] || allStories['ru'])[currentStory];
+    const paragraphs = getStoryParagraphs(currentLang, currentStory);
     if (currentStep < paragraphs.length - 1) {
         stepHistory.push(currentStep);
         currentStep++;
@@ -905,8 +937,9 @@ function triggerBSOD() {
             currentStep = 0; 
             isTransitioning = false;
 
-            // Context-aware highlight
-            const btnId = (currentStory === 'part2') ? 'start-btn-2' : 'start-btn-1';
+            // Context-aware highlight — map each story part to its button
+            const partBtnMap = { 'part1': 'start-btn-1', 'part2': 'start-btn-2', 'part3': 'start-btn-3' };
+            const btnId = partBtnMap[currentStory] || 'start-btn-1';
             const btn = document.getElementById(btnId);
             if (btn) {
                 btn.classList.add('failure-highlight');
@@ -918,8 +951,20 @@ function triggerBSOD() {
 
 function updateScene() {
     isTransitioning = true;
-    const paragraphs = (allStories[currentLang] || allStories['ru'])[currentStory];
+    const paragraphs = getStoryParagraphs(currentLang, currentStory);
     const data = paragraphs[currentStep];
+
+    if (!data) {
+        console.error("Story progression error: data is undefined at step", currentStep);
+        isTransitioning = false;
+        // Clean return to start screen without triggering BSOD
+        gameScreen.classList.remove('active');
+        startScreen.classList.add('active');
+        viewModeBtn.classList.add('hidden');
+        exitViewMode();
+        return;
+    }
+
     const ui = uiStrings[currentLang] || uiStrings['ru'];
 
     // Update Indicator Counter
@@ -1000,8 +1045,12 @@ function updateScene() {
             if (data.minigame === 'breach_01') {
                 startBreach(1, (success) => {
                     if (success) {
-                        currentStep++;
-                        updateScene();
+                        if (currentStep < paragraphs.length - 1) {
+                            currentStep++;
+                            updateScene();
+                        } else {
+                            backBtn.click();
+                        }
                     } else {
                         triggerBSOD();
                     }
@@ -1014,14 +1063,54 @@ function updateScene() {
             if (data.minigame === 'sniper_01') {
                 startSniper(1, (success) => {
                     if (success) {
-                        currentStep++;
-                        updateScene();
+                        if (currentStep < paragraphs.length - 1) {
+                            currentStep++;
+                            updateScene();
+                        } else {
+                            backBtn.click();
+                        }
                     } else {
                         triggerBSOD();
                     }
                 });
                 isTransitioning = false;
                 return; // Stop narrative flow until mini-game resolves
+            }
+
+            // --- CONSENSUS MINI-GAME TRIGGER ---
+            if (data.minigame === 'consensus_01') {
+                startConsensus(1, (success) => {
+                    if (success) {
+                        if (currentStep < paragraphs.length - 1) {
+                            currentStep++;
+                            updateScene();
+                        } else {
+                            backBtn.click();
+                        }
+                    } else {
+                        triggerBSOD();
+                    }
+                });
+                isTransitioning = false;
+                return;
+            }
+
+            // --- NEURO-CONDUCTOR TRIGGER ---
+            if (data.minigame === 'neuro_01') {
+                startNeuro(1, (success) => {
+                    if (success) {
+                        if (currentStep < paragraphs.length - 1) {
+                            currentStep++;
+                            updateScene();
+                        } else {
+                            backBtn.click();
+                        }
+                    } else {
+                        triggerBSOD();
+                    }
+                });
+                isTransitioning = false;
+                return;
             }
 
             // --- VFX AND SFX PROCESSING ---
@@ -1493,4 +1582,200 @@ function startSniper(difficulty, callback) {
     // Note: We don't need a separate cleanup() function anymore as logic is cleared upon resolution
     sniperScreen.addEventListener('mousedown', handleTap);
     sniperScreen.addEventListener('touchstart', handleTap, { passive: false });
+}
+
+// ── PART 3: GLOBAL CONSENSUS MINI-GAME ENGINE ──────────────────
+function startConsensus(difficulty, callback) {
+    const screen = document.getElementById('consensus-screen');
+    const map = document.getElementById('consensus-map');
+    const statusVal = document.getElementById('consensus-status');
+    const countVal = document.getElementById('consensus-count');
+    const svgLines = document.getElementById('consensus-lines');
+    
+    // Config
+    const totalNodesNeeded = 6;
+    let solvedNodes = 0;
+    let lives = 3;
+    let isGameOver = false;
+    let activeNodes = [];
+    
+    // Clear dynamic content
+    map.querySelectorAll('.consensus-node').forEach(n => n.remove());
+    svgLines.innerHTML = '';
+    
+    // Initial State
+    screen.classList.add('active');
+    statusVal.innerText = "LINKING NODES...";
+    countVal.innerText = `0/${totalNodesNeeded} [ LIVES: ${lives} ]`;
+
+    // Representative Coordinates
+    const nodePool = [
+        { id: 1, x: 22, y: 35 }, { id: 2, x: 18, y: 55 }, { id: 3, x: 30, y: 70 }, // Americas
+        { id: 4, x: 48, y: 30 }, { id: 5, x: 52, y: 50 }, { id: 6, x: 55, y: 75 }, // Europe/Africa
+        { id: 7, x: 75, y: 35 }, { id: 8, x: 85, y: 55 }, { id: 9, x: 80, y: 75 }  // Asia/Pacific
+    ];
+
+    function createNode(data, isResistance = false) {
+        const node = document.createElement('div');
+        node.className = isResistance ? 'consensus-node resistance' : 'consensus-node';
+        node.style.left = data.x + '%';
+        node.style.top = data.y + '%';
+        
+        node.onclick = (e) => {
+            if (isGameOver) return;
+            e.stopPropagation();
+            
+            if (isResistance) {
+                node.remove();
+            } else if (!node.classList.contains('active')) {
+                node.classList.add('active');
+                solvedNodes++;
+                countVal.innerText = `${solvedNodes}/${totalNodesNeeded} [ LIVES: ${lives} ]`;
+                
+                if (activeNodes.length > 0) {
+                    const last = activeNodes[activeNodes.length - 1];
+                    const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                    line.setAttribute("x1", last.x + "%");
+                    line.setAttribute("y1", last.y + "%");
+                    line.setAttribute("x2", data.x + "%");
+                    line.setAttribute("y2", data.y + "%");
+                    line.setAttribute("stroke", "#d4af37");
+                    line.setAttribute("stroke-width", "2");
+                    line.setAttribute("stroke-dasharray", "5,5");
+                    svgLines.appendChild(line);
+                }
+                activeNodes.push(data);
+                
+                if (solvedNodes >= totalNodesNeeded) {
+                    isGameOver = true;
+                    statusVal.innerText = "SHADOW CONSENSUS ESTABLISHED";
+                    setTimeout(() => {
+                        screen.classList.remove('active');
+                        callback(true);
+                    }, 1500);
+                }
+            }
+        };
+        map.appendChild(node);
+        return node;
+    }
+
+    const sortedPool = [...nodePool].sort(() => Math.random() - 0.5);
+    for (let i = 0; i < totalNodesNeeded; i++) {
+        createNode(sortedPool[i]);
+    }
+
+    const resistanceInterval = setInterval(() => {
+        if (isGameOver) return clearInterval(resistanceInterval);
+        const rx = Math.random() * 80 + 10;
+        const ry = Math.random() * 80 + 10;
+        const rNode = createNode({ x: rx, y: ry }, true);
+        
+        setTimeout(() => {
+            if (rNode.parentNode && !isGameOver) {
+                rNode.remove();
+                lives--;
+                countVal.innerText = `${solvedNodes}/${totalNodesNeeded} [ LIVES: ${lives} ]`;
+                statusVal.innerText = "CONSENSUS FRACTURED!";
+                if (lives <= 0) {
+                    isGameOver = true;
+                    clearInterval(resistanceInterval);
+                    setTimeout(() => {
+                        screen.classList.remove('active');
+                        triggerBSOD();
+                    }, 1000);
+                }
+            }
+        }, 2500);
+    }, 4000 - (difficulty * 500));
+}
+
+// ── PART 3: NEURO-CONDUCTOR MINI-GAME ENGINE ──────────────────
+function startNeuro(difficulty, callback) {
+    const screen = document.getElementById('neuro-screen');
+    const pleasureBar = document.getElementById('neuro-pleasure-bar');
+    const controlBar = document.getElementById('neuro-control-bar');
+    const field = document.getElementById('neuro-field');
+    const status = document.getElementById('neuro-status');
+    
+    let pleasure = 50;
+    let control = 50;
+    let lives = 3;
+    let timeLeft = 25; // Survive 25s
+    let isGameOver = false;
+    
+    screen.classList.add('active');
+    field.innerHTML = '';
+    
+    const updateBars = () => {
+        pleasureBar.style.height = pleasure + '%';
+        controlBar.style.height = control + '%';
+    };
+
+    const spawnMolecule = () => {
+        if (isGameOver) return;
+        const type = Math.random() > 0.4 ? 'antidote' : 'toxin';
+        const mol = document.createElement('div');
+        mol.className = 'molecule';
+        mol.style.backgroundImage = `url('assets/images/neuro_${type}.webp')`;
+        mol.style.left = Math.random() * 80 + 10 + '%';
+        mol.style.top = Math.random() * 80 + 10 + '%';
+        
+        mol.onclick = (e) => {
+            if (isGameOver) return;
+            e.stopPropagation();
+            if (type === 'antidote') {
+                pleasure = Math.min(100, pleasure + 15);
+                control = Math.min(100, control + 10);
+                status.innerText = "STABILIZING...";
+            } else {
+                pleasure = Math.max(0, pleasure - 25);
+                status.innerText = "SENSORY COLLISION!";
+            }
+            updateBars();
+            mol.remove();
+        };
+        field.appendChild(mol);
+        setTimeout(() => mol.remove(), 2000);
+    };
+
+    const gameInterval = setInterval(() => {
+        if (isGameOver) return clearInterval(gameInterval);
+        
+        // Decay logic
+        pleasure -= (1.5 + difficulty * 0.5);
+        control -= (1.0 + difficulty * 0.3);
+        
+        updateBars();
+        timeLeft--;
+        status.innerText = `NEURO-SYNC: ${timeLeft}s | LIVES: ${lives}`;
+
+        if (pleasure <= 0 || control <= 0) {
+            lives--;
+            if (lives > 0) {
+                pleasure = 60; control = 60;
+                status.innerText = "EQUILIBRIUM LOST. REBOOTING...";
+            } else {
+                isGameOver = true;
+                setTimeout(() => {
+                    screen.classList.remove('active');
+                    triggerBSOD();
+                }, 1000);
+            }
+        }
+
+        if (timeLeft <= 0) {
+            isGameOver = true;
+            status.innerText = "NEURAL SYNC COMPLETE";
+            setTimeout(() => {
+                screen.classList.remove('active');
+                callback(true);
+            }, 1500);
+        }
+    }, 1000);
+
+    const spawnInterval = setInterval(() => {
+        if (isGameOver) return clearInterval(spawnInterval);
+        spawnMolecule();
+    }, 800 - (difficulty * 100));
 }

@@ -1,4 +1,5 @@
-const allStories = {ru: {
+const allStories = {
+    ru: {
         part1: [
             {
                 text: "<span class='color-red'>🧨 «Записки с обочины Империи»</span>\n<span class='color-gray'>(из личного дневника Рида «Вектор» Коулза, командира банды «Техноклятва»)</span>\n\n20 апреля 2026, сектор “Новая Атланта”, Зона D, бывший склад Amazon.\nБлокнот на обрывке синтетической бумаги, запах гари и психотоксинов.",
@@ -274,7 +275,8 @@ const allStories = {ru: {
                 text: "Пусть увидит, как его гуси уничтожат нас всех. Пусть закричит «Wi-Fi, активен!» перед финалом.\nМы хохотали в железной дисциплине. Мы были богами… или по крайней мере так нам казалось, пока гуси не решили, что боги тоже нуждаются в небольшом апгрейде. Мудрость Империи: никогда не устраивай парад, если у тебя нет анти-гусиных щитов. Сарказм уровня DARPA.",
                 image: "assets/images/part3_venom_injection.webp",
                 avatar: "thorne",
-                music: "wm"
+                music: "wm",
+                minigame: "consensus_01"
             },
             {
                 text: "<span class='color-yellow'>🦆 ГЛАВА III</span>\nИ вдруг — вентиляция с треском лопнула.\nСирены NSA взвыли, красные огни AEGIS-Drone вспыхнули по всему залу, как сигнал к тотальной мобилизации.\nСначала только шипение. Холодное, нечеловеческое, гусиное.",
@@ -330,7 +332,8 @@ const allStories = {ru: {
             {
                 text: "Вокруг всё рушилось: кто-то с криком «Я — дрон!» бросился в океан сквозь разбитое окно, кто-то упал на колени и шептал: «Ещё… ещё дозу счастья…».\nОни не убивали. Они освобождали.\nА я… я уже падал на колени под грохот падающей Империи.",
                 image: "assets/images/part3_marcus_falls.webp",
-                music: "classical"
+                music: "classical",
+                minigame: "neuro_01"
             },
             {
                 text: "В конце концов, чёрные орлы всегда проигрывают пернатым бунтарям.",
@@ -397,110 +400,50 @@ const allStories = {ru: {
                     { text: "СБРОС СЕССИИ", nextStep: 999 }
                 ]
             }
-        ],
-        part4: [
-            {
-                text: "<span class='color-cyan'>🌊 Epilogue: Quiet Waters</span><br><br>You wake up to the sound of an electronic surf. The sunset sky flickers like a broken pixel. The Pentagon is gone. The government bunker is gone. The Empire has been wiped off the face of the earth by goose code.<br><br>Only one glowing feather lies on the synthetic sand.",
-                image: "assets/images/part4_island.webp",
-                music: "wm"
-            },
-            {
-                text: "<span class='color-yellow'>🕊️ You have reached the True Ending. Thank you for playing.</span>",
-                image: "assets/images/part4_island.webp",
-                music: "wm",
-                choices: [
-                    { text: "RESET SESSION", nextStep: 999 }
-                ]
-            }
-        ],
-        part4: [
-            {
-                text: "<span class='color-cyan'>🌊 Epilog: Stille Gewässer</span><br><br>Sie wachen beim Rauschen einer elektronischen Brandung auf. Der Sonnenuntergangshimmel flackert wie ein kaputtes Pixel. Das Pentagon ist weg. Der Regierungsbunker ist weg. Das Imperium wurde durch den Gänse-Code vom Erdboden gewischt.<br><br>Nur eine leuchtende Feder liegt auf dem synthetischen Sand.",
-                image: "assets/images/part4_island.webp",
-                music: "wm"
-            },
-            {
-                text: "<span class='color-yellow'>🕊️ Sie haben das wahre Ende erreicht. Danke fürs Spielen.</span>",
-                image: "assets/images/part4_island.webp",
-                music: "wm",
-                choices: [
-                    { text: "SITZUNG ZURÜCKSETZEN", nextStep: 999 }
-                ]
-            }
-        ],
-        part4: [
-            {
-                text: "<span class='color-cyan'>🌊 Epílogo: Aguas Tranquilas</span><br><br>Te despiertas con el sonido de un oleaje electrónico. El cielo del atardecer parpadea como un píxel roto. El Pentágono ya no existe. El búnker del gobierno tampoco. El Imperio ha sido borrado de la faz de la tierra por el código ganso.<br><br>Solo una pluma brillante yace sobre la arena sintética.",
-                image: "assets/images/part4_island.webp",
-                music: "wm"
-            },
-            {
-                text: "<span class='color-yellow'>🕊️ Has alcanzado el Final Verdadero. Gracias por jugar.</span>",
-                image: "assets/images/part4_island.webp",
-                music: "wm",
-                choices: [
-                    { text: "REINICIAR SESIÓN", nextStep: 999 }
-                ]
-            }
-        ],
-        part4: [
-            {
-                text: "<span class='color-cyan'>🌊 尾声：宁静的水域</span><br><br>伴随着电子海浪声，你醒来了。黄昏的天空像破碎的像素一样闪烁。五角大楼不见了。政府地堡也不见了。帝国已被鹅之代码从地球上抹去。<br><br>合成沙滩上只留下一根发光的羽毛。",
-                image: "assets/images/part4_island.webp",
-                music: "wm"
-            },
-            {
-                text: "<span class='color-yellow'>🕊️ 您已达成真实结局。感谢游玩。</span>",
-                image: "assets/images/part4_island.webp",
-                music: "wm",
-                choices: [
-                    { text: "重置会话", nextStep: 999 }
-                ]
-            }
         ]
     },
     en: {
         part1: [
             {
-                text: "<span class='color-red'>🧨 'Notes from the Sidelines of the Empire'</span>\n<span class='color-gray'>(from the personal diary of Reed 'Vector' Coles, commander of the 'Tech-Oath' gang)</span>\n\nApril 20, 2026, sector 'New Atlanta', Zone D, former Amazon warehouse.\nNotebook on a scrap of synthetic paper, the smell of burning and psychotoxins.",
+                text: "<span class='color-red'>🧨 'Notes from the Edge of the Empire'</span>\n<span class='color-gray'>(from the personal diary of Reed 'Vector' Coles, commander of the 'Tech-Oath' gang)</span>\n\nApril 20, 2026, sector 'New Atlanta', Zone D, former Amazon warehouse.\nNotebook on a scrap of synthetic paper, the smell of burning and psychotoxins.",
                 image: "assets/images/warehouse.webp",
                 avatar: "reed",
                 music: "rap"
             },
             {
-                text: "<span class='color-red'>I was born in the era of the wireless god.</span>\nWhen presidents were avatars, and armies – just swarms of code with rotors.\nNow I command real people. And — yes — a goose. But more on that later.",
+                text: "<span class='color-red'>I was born in the era of the wireless god.</span>\nWhen presidents were avatars, and armies were just swarms of code with rotors.\nNow I command real people. And — yes — a goose. But more on that later.",
                 image: "assets/images/warehouse.webp",
                 avatar: "reed",
                 music: "rap"
             },
             {
-                text: "<span class='color-yellow'>🎯 The Day Washington Fell</span>\nThey told us Russia had used a tactical charge in the east. Yeah, right.\nBut on that same day, the dollar crashed by 61%, communications went down, and cameras in the White House flared up.\nWe were sitting in a ranger food court in Georgia when CNN stopped broadcasting.\nAnd instead of news, they started broadcasting from combat geese.",
+                text: "<span class='color-yellow'>🎯 The Day Washington Fell</span>\nThey told us Russia had deployed a tactical charge in the east. Sure.\nBut that same day the dollar crashed 61%, communications went down, and the cameras in the White House lit up.\nWe were sitting in a ranger food court in Georgia when CNN went off the air.\nAnd instead of news, they started broadcasting feeds from combat geese.",
                 image: "assets/images/bunker.webp",
                 codex: "FACTION_TECHNOATH",
                 music: "classical"
             },
             {
-                text: "<span class='color-green'>🦆 About the Geese</span>\nYes, DARPA. Project AGGRESSOR-AVIAN UNIT.\nThe idea was that AI geese recognize targets better than bots.\nReality — the geese learned to disable servers with their breath, and their beaks hold dispensers for fentanyl, ricin, and LSD.",
+                text: "<span class='color-green'>🦆 About the Geese</span>\nYes, DARPA. Project AGGRESSOR-AVIAN UNIT.\nThe idea was that AI geese recognize targets better than bots.\nReality — the geese learned to shut down servers with their breath, and their beaks hold dispensers loaded with fentanyl, ricin, and LSD.",
                 image: "assets/images/goose.webp",
                 avatar: "hans",
                 codex: "UNIT_HANS",
                 music: "classical"
             },
             {
-                text: "We captured one. Named him Hans... Now he's our scout and 'wetwork' specialist.\nWe let him into the city hall — he pecked the mayor, the mayor saw God and drowned in a fountain.",
+                text: "We captured one. Called him Hans... Now he's our scout and specialist in 'wet' jobs.\nWe let him into the city hall — he pecked the mayor, the mayor saw God and drowned in a fountain.",
                 image: "assets/images/goose.webp",
                 avatar: "hans",
                 codex: "UNIT_HANS",
                 music: "classical",
                 choices: [
-                    { text: "Connect goose to neuro-network (Risk of cyber-psychosis)", nextStep: "NEW_TRIP" },
-                    { text: "Just tape its beak shut", nextStep: "RESUME_P1" }
+                    { text: "Connect the goose to the neuro-net (Risk cyber-psychosis)", nextStep: "NEW_TRIP" },
+                    { text: "Just tape his beak shut with duct tape", nextStep: "RESUME_P1" }
                 ]
             },
             {
                 id: "NEW_TRIP",
                 vfx: "glitch-severe", sfx: "glitch",
-                text: "I plugged the cable into his port. Reality fractured. My brain was enveloped in a neon fractal matrix. I saw the world through the goose's eyes — it's an endless digital nightmare where we are merely food code for higher cyber-birds. I threw up, but I understood: they are playing us.",
+                text: "I plugged the cable into his port. Reality cracked. My brain was enveloped in a neon fractal matrix. I saw the world through the goose's eyes — it's an endless digital nightmare where we are only food code for superior cyber-birds. I threw up, but I understood: they are playing with us.",
                 image: "assets/images/goose_neurotrip.webp",
                 music: "classical",
                 choices: [
@@ -509,30 +452,30 @@ const allStories = {ru: {
             },
             {
                 id: "RESUME_P1",
-                text: "<span class='color-blue'>☣️ Cyber and Dope</span>\nOur hackers — former MIT students who now sleep inside servers and don't eat.\nWe wrote the 'MIRROR-7' virus: it makes a person see their own reflection killing them.\nAnd the drugs? We intercepted a CDC convoy.\nThat's how we liquidated Senator O’Brien — we spiked his coffee with a microdose of 'Corona-R3'.\nAn hour later, he thought he was a drone. Jumped from the 12th floor screaming 'Wi-Fi active!'",
+                text: "<span class='color-blue'>☣️ On Cyber and Narcotics</span>\nOur hackers — former MIT students who now sleep in servers and don't eat.\nWe wrote the 'MIRROR-7' virus: it makes a person see their own reflection killing them.\nAnd the drugs? We intercepted a CDC convoy.\nThat's how we liquidated Senator O'Brien — slipped a microdose of 'Corona-R3' into his coffee.\nAn hour later he thought he was a drone. He jumped from the 12th floor screaming 'Wi-Fi, active!'",
                 image: "assets/images/hacker.webp",
                 music: "classical",
                 minigame: "breach_01"
             },
             {
-                text: "<span class='color-magenta'>🛸 About Drones</span>\nWe don't have F-35s, but we have junk from eBay and a genius named Lex.\nWe assembled a swarm of 312 FPV drones, cheap but smart. Called them 'The Philadelphia Choir'.\nEach is equipped with a needle carrying 'Heart-3' — a synthetic that causes acute infatuation followed by a heart attack 12 minutes later.\nThat's how we took out the Governor of Texas. He died hugging his shadow on the hood of an armored car.",
+                text: "<span class='color-magenta'>🛸 About the Drones</span>\nWe don't have F-35s, but we have junk from eBay and a genius named Lex.\nWe assembled a swarm of 312 FPV drones — cheap but smart. We called them 'The Philadelphia Choir'.\nEach is equipped with a single needle loaded with 'Heart-3' — a synthetic that causes acute infatuation and a heart attack 12 minutes later.\nThat's how we took out the Governor of Texas. He died hugging his shadow on the hood of an armored vehicle.",
                 image: "assets/images/drones.webp",
                 music: "classical"
             },
             {
-                text: "<span class='color-gray'>🧠 About Politicians</span>\nThey were the first to run. But we caught up.\nWe sent bio-humanoids with printed faces to Senator Ricks with phase-shock ampoules.\nNow Ricks sits in a basement, trembling, calling himself Mary, and afraid of the light.",
+                text: "<span class='color-gray'>🧠 About the Politicians</span>\nThey ran first. But we caught up with them.\nWe sent bio-humanoids with printed faces and phase-shock ampoules to Senator Rix.\nNow Rix sits in a basement, trembling, calls himself Mary, and is afraid of light.",
                 image: "assets/images/bunker.webp",
                 codex: "FACTION_TECHNOATH",
                 music: "classical"
             },
             {
-                text: "<span class='color-white'>🏴 About the Gang</span>\nThere's 420 of us. 17 drones. 1 goose.\nEach fighter went through a rite: a cyber-needle in the brain, the code phrase — 'There is no god but glitches'.\nWe are 'Tech-Oath', a clan of cyber-butchers.\nIn every city, we have sleeper servers.",
+                text: "<span class='color-white'>🏴 About the Gang</span>\nWe are 420 people. 17 drones. 1 goose.\nEvery fighter went through the rite: a cyber-needle to the brain, the code phrase — 'There is no god but glitches'.\nWe are 'Tech-Oath', a clan of cyber-butchers.\nIn every city we have sleeping servers.",
                 image: "assets/images/warehouse.webp",
                 avatar: "reed",
                 music: "rap"
             },
             {
-                text: "<span class='color-red'>⚠️ About Tomorrow</span>\nTomorrow we march on the Center for the Provisional Government in Nebraska.\nBut we have Hans, a fresh batch of the 'Sparrow Song' virus, and 200 drones on bio-kerosene.\nAnd if we lose —\nlet history at least remember,\nthat the USA was brought down not by an army… but by a goose with a needle and a gang dreaming of freedom.",
+                text: "<span class='color-red'>⚠️ About Tomorrow</span>\nTomorrow we march on the Interim Government Center in Nebraska.\nBut we have Hans, a fresh batch of the 'Sparrow's Song' virus, and 200 drones on bio-kerosene.\nAnd if we lose —\nlet history at least remember\nthat the USA was not defeated by an army… but by a goose with a needle and a gang that dreamed of freedom.",
                 image: "assets/images/bunker.webp",
                 codex: "FACTION_TECHNOATH",
                 music: "classical"
@@ -543,8 +486,8 @@ const allStories = {ru: {
                 codex: "FACTION_TECHNOATH",
                 music: "classical",
                 choices: [
-                    { text: "[Plan Omega] Hijack armored train and ram the bunker", nextStep: "NEW_TRAIN" },
-                    { text: "[Plan Alpha] Frontal assault: rocket launchers and cyber-explosions", nextStep: "NEW_AMBUSH" },
+                    { text: "[Plan Omega] Hijack the armored train and ram the bunker", nextStep: "NEW_TRAIN" },
+                    { text: "[Plan Alpha] Direct assault: rocket launchers and cyber-explosions", nextStep: "NEW_AMBUSH" },
                     { text: "Stick to the original plan", nextStep: 999 }
                 ]
             }
@@ -552,21 +495,21 @@ const allStories = {ru: {
             {
                 id: "NEW_TRAIN",
                 vfx: "shake", sfx: "explosion",
-                text: "*CRASH* The SEC-CORP armored train smashes through the reinforced concrete wall of the Transit Command bunker at full speed! Shredded defenses, flames reaching the sky, and our cyber-bros with neon machetes plunge straight into the inferno. The politicians did not even have time to log into their escape drones.",
+                text: "*CRASH* The armored SEC-CORP train at full speed smashes through the reinforced concrete wall of the Transit Command bunker! Debris of armor, flames to the sky, and our cyber-brothers with neon machetes dive straight into the inferno. The politicians didn't even have time to log into their escape drones.",
                 image: "assets/images/train_crash.webp",
                 music: "rap",
                 choices: [
-                    { text: "Return to log", nextStep: 999 }
+                    { text: "Return to Reed's diary", nextStep: 999 }
                 ]
             },
             {
                 id: "NEW_AMBUSH",
                 vfx: "shake", sfx: "explosion",
-                text: "The night street lit up with neon flashes from our bazookas. We caused total devastation: EMP grenades disabled the government mechs, and rockets blew their fortifications to dust. This is not just banditry—it is the demolition of the old regime to the roar of metal and the smell of burnt bio-kerosene.",
+                text: "The night street was lit up by neon flashes from our bazookas. We staged a total blowout: EMP grenades knocked out the government mechs, and the shells turned their fortifications to dust. This isn't just banditry — it's the demolition of the old regime under the roar of metal and the smell of burnt bio-kerosene.",
                 image: "assets/images/bandit_ambush.webp",
                 music: "rap",
                 choices: [
-                    { text: "Return to log", nextStep: 999 }
+                    { text: "Return to Reed's diary", nextStep: 999 }
                 ]
             }
         ],
@@ -735,7 +678,8 @@ const allStories = {ru: {
                 text: "Let him see how his geese destroy us all. Let him scream 'Wi-Fi active!' before the finale.\nWe laughed in iron discipline. We were gods… or at least that's how it seemed to us, until the geese decided that gods also need a little upgrade. Imperial wisdom: never hold a parade if you don't have anti-goose shields. DARPA-level sarcasm.",
                 image: "assets/images/part3_venom_injection.webp",
                 avatar: "thorne",
-                music: "wm"
+                music: "wm",
+                minigame: "consensus_01"
             },
             {
                 text: "<span class='color-yellow'>🦆 CHAPTER III</span>\nSuddenly — the ventilation burst with a crack.\nNSA sirens wailed, red AEGIS-Drone lights flashed throughout the hall as a signal for total mobilization.\nFirst, only a hiss. Cold, inhuman, goose-like.",
@@ -791,7 +735,8 @@ const allStories = {ru: {
             {
                 text: "Everything around was collapsing: someone screaming 'I am a drone!' threw themselves into the ocean through a broken window, someone fell to their knees and whispered: 'More… more doses of happiness…'.\nThey didn't kill. They liberated.\nAnd I… I was already falling to my knees under the roar of the falling Empire.",
                 image: "assets/images/part3_marcus_falls.webp",
-                music: "classical"
+                music: "classical",
+                minigame: "neuro_01"
             },
             {
                 text: "In the end, black eagles always lose to feathered rebels.",
@@ -841,6 +786,21 @@ const allStories = {ru: {
                 music: "rap",
                 choices: [
                     { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
+            }
+        ],
+        part4: [
+            {
+                text: "<span class='color-cyan'>🌊 Epilogue: Quiet Waters</span><br><br>You wake up to the sound of an electronic surf. The sunset sky flickers like a broken pixel. The Pentagon is gone. The government bunker is gone. The Empire has been wiped off the face of the earth by goose code.<br><br>Only one glowing feather lies on the synthetic sand.",
+                image: "assets/images/part4_island.webp",
+                music: "wm"
+            },
+            {
+                text: "<span class='color-yellow'>🕊️ You have reached the True Ending. Thank you for playing.</span>",
+                image: "assets/images/part4_island.webp",
+                music: "wm",
+                choices: [
+                    { text: "RESET SESSION", nextStep: 999 }
                 ]
             }
         ]
@@ -1121,7 +1081,8 @@ const allStories = {ru: {
                 text: "Lass ihn sehen, wie seine Gänse uns alle vernichten. Lass ihn 'Wi-Fi aktiv!' schreien vor dem Finale.\nWir lachten in eiserner Disziplin. Wir waren Götter… oder zumindest erschien es uns so, bis die Gänse beschlossen, dass Götter auch ein kleines Upgrade brauchen. Imperiale Weisheit: Veranstalte niemals eine Parade, wenn du keine Anti-Gänse-Schilde hast. Sarkasmus auf DARPA-Niveau.",
                 image: "assets/images/part3_venom_injection.webp",
                 avatar: "thorne",
-                music: "wm"
+                music: "wm",
+                minigame: "consensus_01"
             },
             {
                 text: "<span class='color-yellow'>🦆 KAPITEL III</span>\nPlötzlich — die Belüftung barst mit einem Knall.\nNSA-Sirenen jaulten, rote AEGIS-Drohnenlichter blitzten im ganzen Saal als Signal zur totalen Mobilmachung auf.\nZuerst nur ein Zischen. Kalt, unmenschlich, gänseähnlich.",
@@ -1177,7 +1138,8 @@ const allStories = {ru: {
             {
                 text: "Alles um mich herum stürzte ein: Jemand schrie 'Ich bin eine Drohne!' und stürzte sich durch ein zerbrochenes Fenster in den Oзеan, jemand fiel auf die Knie und flüsterte: 'Mehr… mehr Dosen Glück…'.\nSie töteten nicht. Sie befreiten.\nUnd ich… ich fiel bereits auf die Knie unter dem Getöse des fallenden Imperiums.",
                 image: "assets/images/part3_marcus_falls.webp",
-                music: "classical"
+                music: "classical",
+                minigame: "neuro_01"
             },
             {
                 text: "Am Ende verlieren schwarze Adler immer gegen gefiederte Rebellen.",
@@ -1227,6 +1189,21 @@ const allStories = {ru: {
                 music: "rap",
                 choices: [
                     { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
+            }
+        ],
+        part4: [
+            {
+                text: "<span class='color-cyan'>🌊 Epilog: Stille Wasser</span><br><br>Sie wachen beim Geräusch einer elektronischen Brandung auf. Der Abendhimmel flimmert wie ein kaputter Pixel. Das Pentagon ist weg. Der Regierungsbunker ist weg. Das Imperium wurde durch Gänsecode vom Antlitz der Erde getilgt.<br><br>Nur eine leuchtende Feder liegt auf dem synthetischen Sand.",
+                image: "assets/images/part4_island.webp",
+                music: "wm"
+            },
+            {
+                text: "<span class='color-yellow'>🕊️ Sie haben das wahre Ende erreicht. Vielen Dank fürs Spielen.</span>",
+                image: "assets/images/part4_island.webp",
+                music: "wm",
+                choices: [
+                    { text: "SITZUNG ZURÜCKSETZEN", nextStep: 999 }
                 ]
             }
         ]
@@ -1507,7 +1484,8 @@ const allStories = {ru: {
                 text: "Que vea cómo sus gansos nos destruyen a todos. Que grite '¡Wi-Fi activo!' antes del final.\nReíamos con disciplina de hierro. Éramos dioses... o al menos eso nos parecía, hasta que los gansos decidieron que los dioses también necesitan una pequeña actualización. Sabiduría imperial: nunca montes un desfile si no tienes escudos antigansos. Sarcasmo nivel DARPA.",
                 image: "assets/images/part3_venom_injection.webp",
                 avatar: "thorne",
-                music: "wm"
+                music: "wm",
+                minigame: "consensus_01"
             },
             {
                 text: "<span class='color-yellow'>🦆 CAPÍTULO III</span>\nY de repente, la ventilación estalló con un crujido.\nLas sirenas de la NSA aullaron, las luces rojas de AEGIS-Drone destellaron por toda la sala como señal de movilización total.\nAl principio solo un siseo. Frío, inhumano, de ganso.",
@@ -1563,7 +1541,8 @@ const allStories = {ru: {
             {
                 text: "Todo a mi alrededor se venía abajo: alguien gritando '¡Soy un dron!' se lanzó al océano por una ventana rota, alguien cayó de rodillas y susurró: 'Más... más dosis de felicidad...'.\nNo mataban. Liberaban.\nY yo... yo ya caía de rodillas bajo el estruendo del Imperio que se derrumbaba.",
                 image: "assets/images/part3_marcus_falls.webp",
-                music: "classical"
+                music: "classical",
+                minigame: "neuro_01"
             },
             {
                 text: "Al final, las águilas negras siempre pierden contra los rebeldes con plumas.",
@@ -1613,6 +1592,21 @@ const allStories = {ru: {
                 music: "rap",
                 choices: [
                     { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
+            }
+        ],
+        part4: [
+            {
+                text: "<span class='color-cyan'>🌊 Epílogo: Aguas Tranquilas</span><br><br>Te despiertas con el sonido de un oleaje electrónico. El cielo del atardecer parpadea como un píxel roto. El Pentágono ha desaparecido. El búnker del gobierno también. El Imperio ha sido borrado de la faz de la tierra por el código ganso.<br><br>Solo una pluma brillante yace sobre la arena sintética.",
+                image: "assets/images/part4_island.webp",
+                music: "wm"
+            },
+            {
+                text: "<span class='color-yellow'>🕊️ Has alcanzado el Final Verdadero. Gracias por jugar.</span>",
+                image: "assets/images/part4_island.webp",
+                music: "wm",
+                choices: [
+                    { text: "REINICIAR SESIÓN", nextStep: 999 }
                 ]
             }
         ]
@@ -1863,7 +1857,8 @@ const allStories = {ru: {
                 text: "<span class='color-red'>🩸 「狂欢式崩塌协议：参议员马库斯·“霸主”·索恩的最后录音」</span>\n<span class='color-gray'>（神经植入物，提取自太平洋“极乐世界-3”岛废墟中的一块头骨。2026年。在NSA和AEGIS-CORE联合行动后，文件以代码“单极时刻的终结”加密。\n对象等级：Keter。记录到收容失效。）</span>",
                 image: "assets/images/part3_intro.webp",
                 avatar: "thorne",
-                music: "casino"
+                music: "casino",
+                minigame: "neuro_01"
             },
             {
                 text: "<span class='color-cyan'>🏝️ 第一章</span>\n2026年4月20日。“极乐世界-3”岛。前全球主义者地堡，现已转变为“大西洋主义者的最后盛宴”。空气中弥漫着合成信息素、臭氧和血腥的甜味。",
@@ -1887,13 +1882,15 @@ const allStories = {ru: {
                 text: "<span class='color-magenta'>🪩 第二章</span>\n夜晚是一场理想的军事统一阅兵。\n三百名穿着带有全息鹰标志黑制服的精英人物，在老帝国赞歌的伴奏下，交织成一个脉动的神经系统——这是一场秘密融合仪式，MK-7版东莨菪碱像温香槟一样流过血管，增强了身体和心灵的联系。我，参议员马库斯·索恩，站在圆环正中心——后颈植入了来自NSA-CORE v4.2的“霸主”植入物——并亲手为量子博士注射了一剂“镜像-7”（Euclid级模因试剂）。",
                 image: "assets/images/part3_party.webp",
                 avatar: "thorne",
-                music: "casino"
+                music: "casino",
+                minigame: "breach_01"
             },
             {
                 text: "让他看看他的鹅是如何摧毁我们所有人的。让他在终局前尖叫“Wi-Fi已激活！”。\n我们在铁一般的纪律中大笑。我们是神……或者至少在我们看来是这样，直到那些鹅决定神也需要一点升级。帝国的智慧：如果你没有反鹅护盾，永远不要举行阅兵。DARPA级别的讽刺。",
                 image: "assets/images/part3_venom_injection.webp",
                 avatar: "thorne",
-                music: "wm"
+                music: "wm",
+                minigame: "consensus_01"
             },
             {
                 text: "<span class='color-yellow'>🦆 第三章</span>\n突然间——通风口咔嚓一声炸开了。\nNSA的警报器尖叫起来，AEGIS无人机的红灯在整个大厅闪烁，作为全面动员的信号。\n起初只有嘶嘶声。冰冷的、非人类的、鹅一般的嘶叫。",
@@ -1949,7 +1946,8 @@ const allStories = {ru: {
             {
                 text: "周围的一切都在倒塌：有人尖叫着“我是一架无人机！”穿过破碎的窗户跳进大海，有人跪倒在地低声说：“再来……再来一剂快乐……”。\n它们不是在杀戮。它们是在释放。\n而我……我已经在大厦倾颓的轰鸣中跪倒在地。",
                 image: "assets/images/part3_marcus_falls.webp",
-                music: "classical"
+                music: "classical",
+                minigame: "neuro_01"
             },
             {
                 text: "最后，黑鹰总是输给长羽毛的反叛者。",
@@ -1999,6 +1997,21 @@ const allStories = {ru: {
                 music: "rap",
                 choices: [
                     { text: "Завершить уровень / Terminate", nextStep: 999 }
+                ]
+            }
+        ],
+        part4: [
+            {
+                text: "<span class='color-cyan'>🌊 尾声：静水</span><br><br>你在电子海浪声中醒来。黄昏的天空像坏掉的像素一样闪烁。五角大楼消失了。政府地堡也消失了。帝国已被鹅代码从地球表面抹去。<br><br>合成沙滩上只剩下一根发光的羽毛。",
+                image: "assets/images/part4_island.webp",
+                music: "wm"
+            },
+            {
+                text: "<span class='color-yellow'>🕊️ 你已达成真正结局。感谢游玩。</span>",
+                image: "assets/images/part4_island.webp",
+                music: "wm",
+                choices: [
+                    { text: "重置会话", nextStep: 999 }
                 ]
             }
         ]
@@ -2273,13 +2286,15 @@ const allStories = {ru: {
                 text: "<span class='color-magenta'>🪩 فصل دوم</span>\nعصر یک رژه نظامی ایده‌آل برای اتحاد بود.\nسیصد شخصیت برتر در یونیفرم‌های سیاه با عقاب‌های هولوگرافیک در یک شبکه عصبی تپنده با سرودهای امپراتوری قدیم به هم پیوستند — مراسمی از ادغام مخفیانه، جایی که اسکوپولامین نسخه MK-7 مثل شامپاین گرم در رگ‌ها جاری بود و پیوند بدن‌ها و ذهن‌ها را تقویت می‌کرد. من، سناتور مارکوس تورن، در مرکز حلقه ایستاده بودم — با ایمپلنت «هژمون» از NSA-CORE v4.2 در پس گردنم — و شخصاً دوز «آینه-۷» (عامل میمتی کلاس اقلیدس) را به کوانتوم تزریق کردم.",
                 image: "assets/images/part3_party.webp",
                 avatar: "thorne",
-                music: "casino"
+                music: "casino",
+                minigame: "breach_01"
             },
             {
                 text: "بگذارید ببیند چگونه غازهایش همه ما را نابود می‌کنند. بگذارید قبل از پایان فریاد بزند «وای‌فای، فعال است!».\nما با نظمی آهنین می‌خندیدیم. ما خدا بودیم... یا حداقل این‌طور به نظر می‌رسید، تا زمانی که غازها تصمیم گرفتند خدایان هم به کمی ارتقاء نیاز دارند. حکمت امپراتوری: هرگز رژه نرو اگر سپر ضد غاز نداری. سارکاسم در سطح دارپا.",
                 image: "assets/images/part3_venom_injection.webp",
                 avatar: "thorne",
-                music: "wm"
+                music: "wm",
+                minigame: "consensus_01"
             },
             {
                 text: "<span class='color-yellow'>🦆 فصل سوم</span>\nناگهان — تهویه با صدایی ترکید.\nآژیرهای ان‌اس‌ای به صدا درآمدند، چراغ‌های قرمز پهپادهای ایجیس در تمام سالن به عنوان نشانه بسیج عمومی درخشیدند.\nدر ابتدا فقط صدای هیس. سرد، غیرانسانی، غازگونه.",
@@ -2335,7 +2350,8 @@ const allStories = {ru: {
             {
                 text: "همه چیز در اطراف در حال فروپاشی بود: کسی با فریاد «من یک پهپاد هستم!» از پنجره شکسته به اقیانوس پرید، کسی به زانو افتاد و زمزمه کرد: «بیشتر… دوزهای بیشتری از خوشبختی…».\nآن‌ها نمی‌کشتند. آن‌ها آزاد می‌کردند.\nو من… من همین حالا زیر غرش امپراتوری در حال سقوط به زانو می‌افتادم.",
                 image: "assets/images/part3_marcus_falls.webp",
-                music: "classical"
+                music: "classical",
+                minigame: "neuro_01"
             },
             {
                 text: "در نهایت، عقاب‌های سیاه همیشه مقابل شورشیان پردار می‌بازند.",
@@ -2361,6 +2377,21 @@ const allStories = {ru: {
                 text: "<span class='color-gray'>[پایان ضبط.\nفایل با صدای هیس غاز در پس‌زمینه قطع شد. آخرین خط نه با جوهر — بلکه با یک پر خراشیده شده است.\nسناتور زنده است.\nیا مرده.\nیا همین حالا در گله است.]</span>",
                 image: "assets/images/part3_epilogue.webp",
                 music: "classical"
+            }
+        ],
+        part4: [
+            {
+                text: "<span class='color-cyan'>🌊 پس‌گفتار: آب‌های آرام</span><br><br>شما با صدای امواج الکترونیکی از خواب بیدار می‌شوید. آسمان غروب مانند یک پیکسل خراب سوسو می‌زند. پنتاگون دیگر وجود ندارد. پناهگاه دولت هم همینطور. امپراتوری توسط کد غاز از روی زمین محو شده است.<br><br>تنها یک پر درخشان روی شن‌های مصنوعی افتاده است.",
+                image: "assets/images/part4_island.webp",
+                music: "wm"
+            },
+            {
+                text: "<span class='color-yellow'>🕊️ شما به پایان واقعی رسیدید. با تشکر از بازی شما.</span>",
+                image: "assets/images/part4_island.webp",
+                music: "wm",
+                choices: [
+                    { text: "بازنشانی جلسه", nextStep: 999 }
+                ]
             }
         ]
     }
