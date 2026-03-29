@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Nitro-Boot Caching strategy: manually bumped version to allow browser local storage -->
-    <meta name="version" content="1.1.2">
+    <meta name="version" content="1.1.3">
     <title>Notes from the Edge of the Empire</title>
     <link rel="icon" href="assets/images/favicon.png" type="image/png">
     <!-- Critical CSS Inline: Render the loading spinner immediately without waiting for style.css -->
@@ -31,7 +31,7 @@
     </style>
     <script>
         (function () {
-            var v = '?v=1.1.2';
+            var v = '?v=1.1.3';
             var link = document.createElement('link');
             link.rel = 'stylesheet';
             link.href = 'style.css' + v;
@@ -42,8 +42,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
-    <script src="i18n_core.js?v=1.1.2" defer></script>
-    <script src="i18n_story.js?v=1.1.2" defer></script>
+    <script src="i18n_core.js?v=1.1.3" defer></script>
+    <script src="i18n_story.js?v=1.1.3" defer></script>
     <!-- GoatCounter visitor analytics (privacy-friendly, no cookies) -->
     <script data-goatcounter="https://vk4arm.goatcounter.com/count"
             async src="//gc.zgo.at/count.js"></script>
@@ -186,6 +186,39 @@
     <audio id="audio-casino" src="assets/audio/casino.mp3" loop preload="none"></audio>
     <audio id="audio-wm" src="assets/audio/wm.mp3" loop preload="none"></audio>
 
+    <!-- Neural Sniper Mini-game Overlay (Part 2) -->
+    <div id="sniper-screen" class="screen">
+        <div class="sniper-crt-overlay"></div>
+        <div class="sniper-hud">
+            <div class="sniper-scope">
+                <div id="sniper-crosshair-h" class="sniper-crosshair-h"></div>
+                <div id="sniper-crosshair-v" class="sniper-crosshair-v"></div>
+                <div id="sniper-target" class="sniper-target"></div>
+                <div class="sniper-lens-flare"></div>
+            </div>
+            <div class="sniper-info-left">
+                <div class="info-label">RANGE</div>
+                <div class="info-value">0.42 KM</div>
+                <div class="info-label">WIND</div>
+                <div class="info-value">2.1 M/S</div>
+            </div>
+            <div class="sniper-info-right">
+                <div class="info-label">TOXIN</div>
+                <div class="info-value">R3-CORONA</div>
+                <div class="info-label">STATUS</div>
+                <div id="sniper-status-val" class="info-active">LOCKED</div>
+            </div>
+            <div id="sniper-sync-container">
+                <div class="sync-label">NEURAL SYNC</div>
+                <div class="sync-track">
+                    <div id="sniper-sync-bar"></div>
+                    <div class="sync-zone"></div>
+                </div>
+            </div>
+        </div>
+        <div id="sniper-hint">TAP TO FIRE WHEN TARGET IS CENTERED AND SYNC IS PEAKED</div>
+    </div>
+
     <!-- Breach Hacker Mini-game Overlay -->
     <div id="breach-screen" class="screen">
         <div class="breach-crt-overlay"></div>
@@ -256,7 +289,7 @@
         <div style="margin-top: auto; opacity: 0.5; font-size: 0.8rem;">ERROR_CODE: BREACH_FAIL_0x01 // UNIT_HANS_EMERGENCY_REBOOT</div>
     </div>
 
-    <script src="script.js?v=1.1.2" defer></script>
+    <script src="script.js?v=1.1.3" defer></script>
 </body>
 
 </html>

@@ -1278,3 +1278,160 @@ body.telegram-app .choice-btn {
     color: var(--color-cyan);
     letter-spacing: 2px;
 }
+
+/* ── NEURAL SNIPER MINI-GAME ───────── */
+#sniper-screen {
+    background: rgba(0, 5, 10, 0.98);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#sniper-screen.active {
+    display: flex;
+}
+
+.sniper-crt-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 4px, 3px 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.sniper-hud {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sniper-scope {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    border-radius: 50%;
+    box-shadow: 0 0 50px rgba(0, 255, 255, 0.1), inset 0 0 50px rgba(0, 255, 255, 0.1);
+    overflow: hidden;
+    background: radial-gradient(circle, rgba(0, 40, 60, 0.2) 0%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.sniper-crosshair-h {
+    position: absolute;
+    top: 50%; left: 0; width: 100%; height: 1px;
+    background: rgba(0, 255, 255, 0.5);
+    box-shadow: 0 0 5px var(--neon-cyan);
+}
+
+.sniper-crosshair-v {
+    position: absolute;
+    left: 50%; top: 0; height: 100%; width: 1px;
+    background: rgba(0, 255, 255, 0.5);
+    box-shadow: 0 0 5px var(--neon-cyan);
+}
+
+.sniper-target {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: url('assets/images/favicon.png') no-repeat center/contain;
+    border: 1px solid var(--neon-red);
+    border-radius: 4px;
+    box-shadow: 0 0 15px var(--neon-red);
+    transform: translate(-50%, -50%);
+    transition: left 0.1s linear, top 0.1s linear;
+}
+
+.sniper-target::after {
+    content: '';
+    position: absolute;
+    top: -5px; left: -5px; right: -5px; bottom: -5px;
+    border: 1px solid var(--neon-red);
+    opacity: 0.5;
+    animation: sniper-target-pulse 1s infinite;
+}
+
+@keyframes sniper-target-pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+.sniper-info-left, .sniper-info-right {
+    position: absolute;
+    top: 10%;
+    width: 120px;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+}
+
+.sniper-info-left { left: 5%; }
+.sniper-info-right { right: 5%; text-align: right; }
+
+.info-label { color: rgba(255, 255, 255, 0.4); margin-bottom: 2px; }
+.info-value { color: var(--neon-cyan); margin-bottom: 15px; font-weight: bold; }
+.info-active { color: var(--neon-red); text-shadow: 0 0 10px var(--neon-red); }
+
+#sniper-sync-container {
+    position: absolute;
+    bottom: 10%;
+    width: 80%;
+    max-width: 400px;
+}
+
+.sync-label {
+    font-size: 0.6rem;
+    color: rgba(0, 255, 255, 0.6);
+    text-align: center;
+    margin-bottom: 8px;
+    letter-spacing: 3px;
+}
+
+.sync-track {
+    position: relative;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+#sniper-sync-bar {
+    position: absolute;
+    height: 100%;
+    width: 20px;
+    background: var(--neon-cyan);
+    box-shadow: 0 0 10px var(--neon-cyan);
+    left: 0;
+}
+
+.sync-zone {
+    position: absolute;
+    left: 45%;
+    width: 10%;
+    height: 100%;
+    background: rgba(0, 255, 255, 0.2);
+    border-left: 1px solid var(--neon-cyan);
+    border-right: 1px solid var(--neon-cyan);
+}
+
+#sniper-hint {
+    position: absolute;
+    bottom: 30px;
+    font-size: 0.6rem;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 1px;
+}
+
+.sniper-lens-flare {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 10%);
+    pointer-events: none;
+}

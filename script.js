@@ -772,71 +772,14 @@ function exitViewMode() {
     if (videoLoading) {
         videoLoading.classList.add('hidden');
     }
-    if (bgVideo) {
-        bgVideo.pause();
-        bgVideo.style.opacity = '0';
-        bgVideo.style.zIndex = '';
-    }
-    if (videoBunker) {
-        videoBunker.pause();
-        videoBunker.style.opacity = '0';
-        videoBunker.style.zIndex = '';
-    }
-    if (videoWarehouse) {
-        videoWarehouse.pause();
-        videoWarehouse.style.opacity = '0';
-        videoWarehouse.style.zIndex = '';
-    }
-    if (videoDrones) {
-        videoDrones.pause();
-        videoDrones.style.opacity = '0';
-        videoDrones.style.zIndex = '';
-    }
-    if (videoHansIntro) {
-        videoHansIntro.pause();
-        videoHansIntro.style.opacity = '0';
-        videoHansIntro.style.zIndex = '';
-    }
-    if (videoPart2Aila) {
-        videoPart2Aila.pause();
-        videoPart2Aila.style.opacity = '0';
-        videoPart2Aila.style.zIndex = '';
-    }
-    if (videoPart3Intro) {
-        videoPart3Intro.pause();
-        videoPart3Intro.style.opacity = '0';
-        videoPart3Intro.style.zIndex = '';
-    }
-    if (videoPart3ExecutionPlot) {
-        videoPart3ExecutionPlot.pause();
-        videoPart3ExecutionPlot.style.opacity = '0';
-        videoPart3ExecutionPlot.style.zIndex = '';
-    }
-    if (videoPart3Party) {
-        videoPart3Party.pause();
-        videoPart3Party.style.opacity = '0';
-        videoPart3Party.style.zIndex = '';
-    }
-    if (videoPart3VenomInjection) {
-        videoPart3VenomInjection.pause();
-        videoPart3VenomInjection.style.opacity = '0';
-        videoPart3VenomInjection.style.zIndex = '';
-    }
-    if (videoPart2GeeseAttack) {
-        videoPart2GeeseAttack.pause();
-        videoPart2GeeseAttack.style.opacity = '0';
-        videoPart2GeeseAttack.style.zIndex = '';
-    }
-    if (videoHacker) {
-        videoHacker.pause();
-        videoHacker.style.opacity = '0';
-        videoHacker.style.zIndex = '';
-    }
-    if (videoPart3TargetLocked) {
-        videoPart3TargetLocked.pause();
-        videoPart3TargetLocked.style.opacity = '0';
-        videoPart3TargetLocked.style.zIndex = '';
-    }
+    const allVideos = [bgVideo, videoBunker, videoWarehouse, videoDrones, videoHansIntro, videoPart2Aila, videoPart3Intro, videoPart3ExecutionPlot, videoPart3Party, videoPart3VenomInjection, videoPart2GeeseAttack, videoHacker, videoPart3TargetLocked];
+    allVideos.forEach(v => {
+        if (v) {
+            v.pause();
+            v.style.opacity = '0';
+            v.style.zIndex = '';
+        }
+    });
 }
 
 function toggleViewMode() {
@@ -940,6 +883,38 @@ function handleInput(e) {
     }
 }
 
+// --- BSOD FAILURE HANDLER ---
+function triggerBSOD() {
+    const bsodScreen = document.getElementById('bsod-screen');
+    const bsodTimer = document.getElementById('bsod-timer');
+    let count = 3;
+    
+    bsodScreen.classList.add('active');
+    bsodTimer.innerText = count;
+
+    const countdown = setInterval(() => {
+        count--;
+        bsodTimer.innerText = count;
+        if (count <= 0) {
+            clearInterval(countdown);
+            bsodScreen.classList.remove('active');
+            gameScreen.classList.remove('active');
+            startScreen.classList.add('active');
+            
+            currentStep = 0; 
+            isTransitioning = false;
+
+            // Context-aware highlight
+            const btnId = (currentStory === 'part2') ? 'start-btn-2' : 'start-btn-1';
+            const btn = document.getElementById(btnId);
+            if (btn) {
+                btn.classList.add('failure-highlight');
+                setTimeout(() => btn.classList.remove('failure-highlight'), 3000);
+            }
+        }
+    }, 1000);
+}
+
 function updateScene() {
     isTransitioning = true;
     const paragraphs = (allStories[currentLang] || allStories['ru'])[currentStory];
@@ -1027,36 +1002,21 @@ function updateScene() {
                         currentStep++;
                         updateScene();
                     } else {
-                        // --- FAILURE: BLUE SCREEN OF DEATH ---
-                        const bsodScreen = document.getElementById('bsod-screen');
-                        const bsodTimer = document.getElementById('bsod-timer');
-                        let count = 3;
-                        
-                        bsodScreen.classList.add('active');
-                        bsodTimer.innerText = count;
+                        triggerBSOD();
+                    }
+                });
+                isTransitioning = false;
+                return; // Stop narrative flow until mini-game resolves
+            }
 
-                        const countdown = setInterval(() => {
-                            count--;
-                            bsodTimer.innerText = count;
-                            if (count <= 0) {
-                                clearInterval(countdown);
-                                // Reset and redirect
-                                bsodScreen.classList.remove('active');
-                                gameScreen.classList.remove('active'); // Hard hide game screen
-                                startScreen.classList.add('active'); // Show start menu
-                                
-                                // Reset narrative state
-                                currentStep = 0; 
-                                isTransitioning = false;
-
-                                // Highlight Part 1 button
-                                const p1Btn = document.getElementById('start-btn-1');
-                                if (p1Btn) {
-                                    p1Btn.classList.add('failure-highlight');
-                                    setTimeout(() => p1Btn.classList.remove('failure-highlight'), 3000);
-                                }
-                            }
-                        }, 1000);
+            // --- NEURAL SNIPER TRIGGER ---
+            if (data.minigame === 'sniper_01') {
+                startSniper(1, (success) => {
+                    if (success) {
+                        currentStep++;
+                        updateScene();
+                    } else {
+                        triggerBSOD();
                     }
                 });
                 isTransitioning = false;
@@ -1403,4 +1363,96 @@ function endBreach(success, callback) {
         breachScreen.classList.remove('active');
         if (callback) callback(success);
     }, 1000);
+}
+
+// ── NEURAL SNIPER MINI-GAME ENGINE (Part 2) ──────────────────
+function startSniper(difficulty, callback) {
+    const sniperScreen = document.getElementById('sniper-screen');
+    const target = document.getElementById('sniper-target');
+    const syncBar = document.getElementById('sniper-sync-bar');
+    const statusVal = document.getElementById('sniper-status-val');
+    
+    sniperScreen.classList.add('active');
+    
+    let targetX = 50; // Percentage
+    let targetY = 50;
+    let syncPos = 0;
+    let syncDir = 1;
+    let isGameOver = false;
+
+    // --- TARGET MOVEMENT ---
+    const moveInterval = setInterval(() => {
+        if (isGameOver) return;
+        // Random walk towards center with some noise
+        targetX += (Math.random() - 0.5) * 15;
+        targetY += (Math.random() - 0.5) * 15;
+        
+        // Clamp to scope limits
+        targetX = Math.max(15, Math.min(85, targetX));
+        targetY = Math.max(15, Math.min(85, targetY));
+        
+        target.style.left = targetX + '%';
+        target.style.top = targetY + '%';
+
+        // Check proximity for visual feedback
+        const dist = Math.sqrt(Math.pow(targetX - 50, 2) + Math.pow(targetY - 50, 2));
+        if (dist < 10) {
+            statusVal.innerText = "LOCKED";
+            statusVal.className = "info-active";
+        } else {
+            statusVal.innerText = "SEARCHING";
+            statusVal.className = "info-value";
+        }
+    }, 100);
+
+    // --- SYNC BAR MOVEMENT ---
+    const syncInterval = setInterval(() => {
+        if (isGameOver) return;
+        syncPos += syncDir * (2 + difficulty);
+        if (syncPos >= 100 || syncPos <= 0) syncDir *= -1;
+        syncBar.style.left = syncPos + '%';
+    }, 30);
+
+    // --- HIT DETECTION ---
+    const handleTap = (e) => {
+        if (isGameOver) return;
+        if (e.cancelable) e.preventDefault();
+        
+        const dist = Math.sqrt(Math.pow(targetX - 50, 2) + Math.pow(targetY - 50, 2));
+        const isSynced = syncPos >= 40 && syncPos <= 60; // 20% success window
+
+        if (dist < 10 && isSynced) {
+            // SUCCESS
+            isGameOver = true;
+            statusVal.innerText = "DIRECT HIT";
+            statusVal.className = "info-active";
+            target.style.transform = "translate(-50%, -50%) scale(2)";
+            target.style.opacity = "0";
+            
+            setTimeout(() => {
+                cleanup();
+                callback(true);
+            }, 1000);
+        } else {
+            // FAILURE
+            isGameOver = true;
+            statusVal.innerText = "MISSION FAILED";
+            statusVal.className = "info-value";
+            setTimeout(() => {
+                cleanup();
+                callback(false);
+            }, 1000);
+        }
+    };
+
+    const cleanup = () => {
+        clearInterval(moveInterval);
+        clearInterval(syncInterval);
+        sniperScreen.classList.remove('active');
+        sniperScreen.removeEventListener('mousedown', handleTap);
+        sniperScreen.removeEventListener('touchstart', handleTap);
+    };
+
+    sniperScreen.addEventListener('mousedown', handleTap);
+    sniperScreen.addEventListener('touchstart', handleTap, { passive: false });
 }

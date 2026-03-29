@@ -147,7 +147,8 @@ const allStories = {ru: {
                 id: "RESUME_P2",
                 text: "Моя первая миссия — Пентагон, офис генерала Лоусона.\nЯ влетел через вентиляцию, оставил перо на его столе, и впрыснул каплю фентанила в воздух.\nОн умер с улыбкой. Это было красиво.",
                 image: "assets/images/part2_hans_pentagon.webp",
-                music: "casino"
+                music: "casino",
+                minigame: "sniper_01"
             },
             {
                 text: "<span class='color-magenta'>💋 ГЛАВА II — Айла</span>\nОна — как крыло между мирами. Айла. AGV-78/F. Экспериментальная модель.\nСделана из нано-кератина, с голографической проекцией «мягкого оперения», встроенной «интимной поведенческой матрицей».",
@@ -607,7 +608,8 @@ const allStories = {ru: {
                 id: "RESUME_P2",
                 text: "My first mission — the Pentagon, General Lawson's office.\nI flew in through the ventilation, left a feather on his desk, and sprayed a drop of fentanyl in the air.\nHe died with a smile. It was beautiful.",
                 image: "assets/images/part2_hans_pentagon.webp",
-                music: "casino"
+                music: "casino",
+                minigame: "sniper_01"
             },
             {
                 text: "<span class='color-magenta'>💋 CHAPTER II — Aila</span>\nShe's like a wing between worlds. Aila. AGV-78/F. Experimental model.\nMade of nano-keratin, with a holographic projection of 'soft plumage', and a built-in 'intimate behavioral matrix'.",
@@ -992,7 +994,8 @@ const allStories = {ru: {
                 id: "RESUME_P2",
                 text: "Meine erste Mission — das Pentagon, Büro von General Lawson.\nIch flog durch die Lüftung rein, ließ eine Feder auf seinem Schreibtisch und sprühte einen Tropfen Fentanyl in die Luft.\nEr starb mit einem Lächeln. Es war wunderschön.",
                 image: "assets/images/part2_hans_pentagon.webp",
-                music: "casino"
+                music: "casino",
+                minigame: "sniper_01"
             },
             {
                 text: "<span class='color-magenta'>💋 KAPITEL II — Aila</span>\nSie ist wie ein Flügel zwischen den Welten. Aila. AGV-78/F. Experimentelles Modell.\nBesteht aus Nano-Keratin, mit einer holografischen Projektion von 'weichem Gefieder' und einer eingebauten 'intimen Verhaltensmatrix'.",
@@ -1377,7 +1380,8 @@ const allStories = {ru: {
                 id: "RESUME_P2",
                 text: "Mi primera misión: el Pentágono, despacho del general Lawson.\nEntré por la ventilación, dejé una pluma en su mesa y rocié una gota de fentanilo en el aire.\nMurió con una sonrisa. Fue hermoso.",
                 image: "assets/images/part2_hans_pentagon.webp",
-                music: "casino"
+                music: "casino",
+                minigame: "sniper_01"
             },
             {
                 text: "<span class='color-magenta'>💋 CAPÍTULO II — Aila</span>\nElla es como un ala entre mundos. Aila. AGV-78/F. Modelo experimental.\nHecha de nanoqueratina, con proyección holográfica de 'plumaje suave', matriz de comportamiento íntimo incorporada.",
@@ -1762,7 +1766,8 @@ const allStories = {ru: {
                 id: "RESUME_P2",
                 text: "我的第一个任务——五角大楼，劳森将军的办公室。\n我通过通风管道飞入，在他的桌子上留下一根羽毛，并向空气中喷洒了一滴芬太尼。\n他带着微笑死去了。那场面很美。",
                 image: "assets/images/part2_hans_pentagon.webp",
-                music: "casino"
+                music: "casino",
+                minigame: "sniper_01"
             },
             {
                 text: "<span class='color-magenta'>💋 第二章 —— 艾拉</span>\n她就像世界之间的一只翅膀。艾拉。AGV-78/F。实验型号。\n由纳米角蛋白制成，具有“柔软羽毛”的全息投影，内置“亲密行为矩阵”。",
@@ -2147,7 +2152,8 @@ const allStories = {ru: {
                 id: "RESUME_P2",
                 text: "اولین ماموریت من — پنتاگون، دفتر ژنرال لاوسون.\nاز طریق تهویه وارد شدم، پری روی میزش گذاشتم و قطره‌ای فنتانیل در هوا پاشیدم.\nاو با لبخند مرد. زیبا بود.",
                 image: "assets/images/part2_hans_pentagon.webp",
-                music: "casino"
+                music: "casino",
+                minigame: "sniper_01"
             },
             {
                 text: "<span class='color-magenta'>💋 فصل دوم — آیلا</span>\nاو مانند بالی میان جهان‌هاست. آیلا. AGV-78/F. مدل آزمایشی.\nساخته شده از نانو-کراتین، با پروژکتور هولوگرافیک «پر نرم» و ماتریس رفتاری صمیمانه داخلی.",
