@@ -50,6 +50,14 @@ html {
     pointer-events: all;
 }
 
+.screen.bsod-active {
+    opacity: 1 !important;
+    pointer-events: all !important;
+    transition: none !important;
+    display: flex !important;
+    z-index: 9999 !important;
+}
+
 /* Loading Screen */
 #loading-screen {
     background-color: var(--bg-dark);
@@ -1277,4 +1285,500 @@ body.telegram-app .choice-btn {
     font-size: 0.9rem;
     color: var(--color-cyan);
     letter-spacing: 2px;
+}
+
+/* ── NEURAL SNIPER MINI-GAME ───────── */
+#sniper-screen {
+    background: rgba(0, 5, 10, 0.98);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#sniper-screen.active {
+    display: flex;
+}
+
+.sniper-crt-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 4px, 3px 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.sniper-hud {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sniper-scope {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    border-radius: 50%;
+    box-shadow: 0 0 50px rgba(0, 255, 255, 0.1), inset 0 0 50px rgba(0, 255, 255, 0.1);
+    overflow: hidden;
+    background: radial-gradient(circle, rgba(0, 40, 60, 0.2) 0%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.sniper-crosshair-h {
+    position: absolute;
+    top: 50%; left: 0; width: 100%; height: 1px;
+    background: rgba(0, 255, 255, 0.5);
+    box-shadow: 0 0 5px var(--neon-cyan);
+}
+
+.sniper-crosshair-v {
+    position: absolute;
+    left: 50%; top: 0; height: 100%; width: 1px;
+    background: rgba(0, 255, 255, 0.5);
+    box-shadow: 0 0 5px var(--neon-cyan);
+}
+
+.sniper-target {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: url('assets/images/sniper_target.webp') no-repeat center/contain;
+    border: 1px solid rgba(255, 0, 0, 0.4);
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+    transform: translate(-50%, -50%);
+    transition: left 0.15s linear, top 0.15s linear;
+}
+
+.sniper-target::after {
+    content: '';
+    position: absolute;
+    top: -5px; left: -5px; right: -5px; bottom: -5px;
+    border: 1px solid var(--neon-red);
+    opacity: 0.5;
+    animation: sniper-target-pulse 1s infinite;
+}
+
+@keyframes sniper-target-pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+.sniper-info-left, .sniper-info-right {
+    position: absolute;
+    top: 10%;
+    width: 120px;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+}
+
+.sniper-info-left { left: 5%; }
+.sniper-info-right { right: 5%; text-align: right; }
+
+.info-label { color: rgba(255, 255, 255, 0.4); margin-bottom: 2px; }
+.info-value { color: var(--neon-cyan); margin-bottom: 15px; font-weight: bold; }
+.info-active { color: var(--neon-red); text-shadow: 0 0 10px var(--neon-red); }
+
+#sniper-sync-container {
+    position: absolute;
+    bottom: 10%;
+    width: 80%;
+    max-width: 400px;
+}
+
+.sync-label {
+    font-size: 0.6rem;
+    color: rgba(0, 255, 255, 0.6);
+    text-align: center;
+    margin-bottom: 8px;
+    letter-spacing: 3px;
+}
+
+.sync-track {
+    position: relative;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+#sniper-sync-bar {
+    position: absolute;
+    height: 100%;
+    width: 20px;
+    background: var(--neon-cyan);
+    box-shadow: 0 0 10px var(--neon-cyan);
+    left: 0;
+}
+
+.sync-zone {
+    position: absolute;
+    left: 45%;
+    width: 10%;
+    height: 100%;
+    background: rgba(0, 255, 255, 0.2);
+    border-left: 1px solid var(--neon-cyan);
+    border-right: 1px solid var(--neon-cyan);
+}
+
+#sniper-hint {
+    position: absolute;
+    bottom: 30px;
+    font-size: 0.6rem;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 1px;
+}
+/* ── PART 3: GLOBAL CONSENSUS STYLES ───────── */
+.color-gold { color: #d4af37; text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
+
+.consensus-hud {
+    position: absolute;
+    top: 50px;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.2rem;
+    z-index: 300;
+}
+
+.consensus-map {
+    position: relative;
+    width: 90vw;
+    height: 70vh;
+    background: url('assets/images/consensus_map.webp') no-repeat center/contain;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+}
+
+.consensus-lines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.consensus-node {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, #d4af37 20%, transparent 70%);
+    border: 2px solid #d4af37;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+    transition: transform 0.2s, box-shadow 0.2s;
+    z-index: 200;
+}
+
+.consensus-node.active {
+    box-shadow: 0 0 25px #d4af37;
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.consensus-node.resistance {
+    background: radial-gradient(circle, #ff0000 20%, transparent 70%);
+    border-color: #ff0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+}
+
+.consensus-footer {
+    position: absolute;
+    bottom: 80px;
+    color: #d4af37;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+/* ── PART 3: NEURO-CONDUCTOR STYLES ───────── */
+.neuro-trip-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(circle, transparent 30%, rgba(255, 0, 255, 0.1) 100%);
+    animation: neuro-flicker 4s infinite;
+}
+
+@keyframes neuro-flicker {
+    0%, 100% { filter: hue-rotate(0deg) saturate(1); }
+    50% { filter: hue-rotate(180deg) saturate(2) blur(2px); }
+}
+
+.neuro-hud {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.meter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.meter-container label {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.meter-bg {
+    width: 25px;
+    height: 200px;
+    background: #222;
+    border: 1px solid #444;
+    position: relative;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.meter-fill {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    transition: height 0.3s ease;
+}
+
+.fill-cyan { background: var(--color-cyan); box-shadow: 0 0 15px var(--color-cyan); }
+.fill-magenta { background: var(--color-magenta); box-shadow: 0 0 15px var(--color-magenta); }
+
+.neuro-field {
+    position: relative;
+    width: 90vw;
+    height: 40vh;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.molecule {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.neuro-status {
+    margin-top: 30px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.2rem;
+    color: var(--color-cyan);
+    text-shadow: 0 0 10px var(--color-cyan);
+}
+
+.sniper-lens-flare {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 10%);
+    pointer-events: none;
+}
+
+/* ── GLOBAL CONSENSUS MINI-GAME styles ──────────────────────── */
+#consensus-screen {
+    background: radial-gradient(circle, #0a0a1a 0%, #000 100%) !important;
+    overflow: hidden;
+}
+
+.consensus-hud {
+    position: absolute;
+    top: 40px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+    z-index: 10;
+}
+
+.consensus-map {
+    position: relative;
+    width: 90vw;
+    height: 70vh;
+    background: url('assets/images/consensus_map.webp') center/contain no-repeat;
+    opacity: 0.8;
+    border: 1px solid #333;
+    box-shadow: inset 0 0 50px #000;
+}
+
+.consensus-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.consensus-node {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #444;
+    border: 2px solid #666;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 5;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.consensus-node:hover {
+    transform: translate(-50%, -50%) scale(1.3);
+    border-color: #fff;
+}
+
+.consensus-node.active {
+    background: #d4af37;
+    border-color: #fff;
+    box-shadow: 0 0 15px #d4af37, 0 0 30px rgba(212, 175, 55, 0.5);
+}
+
+.consensus-node.resistance {
+    background: #ff3333;
+    border-color: #ff9999;
+    width: 24px;
+    height: 24px;
+    box-shadow: 0 0 15px #ff3333;
+    animation: node-pulse 0.5s infinite alternate;
+}
+
+@keyframes node-pulse {
+    from { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    to { transform: translate(-50%, -50%) scale(1.2); opacity: 0.7; }
+}
+
+.consensus-footer {
+    position: absolute;
+    bottom: 120px;
+    font-size: 1rem;
+    color: var(--neon-yellow);
+    text-shadow: 0 0 5px var(--neon-yellow);
+    letter-spacing: 2px;
+    text-align: center;
+    width: 100%;
+}
+
+/* ── NEURO-CONDUCTOR MINI-GAME styles ────────────────────────── */
+#neuro-screen {
+    background: #000 !important;
+    overflow: hidden;
+}
+
+.neuro-trip-overlay {
+    position: absolute;
+    inset: 0;
+    background: url('assets/images/goose_neurotrip.webp') center/cover no-repeat;
+    opacity: 0.15;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    z-index: 1;
+    animation: trip-drift 20s linear infinite alternate;
+}
+
+@keyframes trip-drift {
+    from { transform: scale(1) rotate(0deg); filter: hue-rotate(0deg); }
+    to { transform: scale(1.2) rotate(5deg); filter: hue-rotate(360deg); }
+}
+
+.neuro-hud {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    z-index: 10;
+}
+
+.meter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.meter-container label {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+}
+
+.meter-bg {
+    width: 30px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.meter-fill {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    transition: height 0.3s ease;
+}
+
+.fill-cyan { background: var(--color-cyan); box-shadow: 0 0 15px var(--color-cyan); }
+.fill-magenta { background: var(--color-magenta); box-shadow: 0 0 15px var(--color-magenta); }
+
+.neuro-field {
+    position: relative;
+    width: 60vw;
+    height: 60vh;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-left: 100px;
+    z-index: 5;
+}
+
+.molecule {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+.molecule:hover {
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.neuro-status {
+    position: absolute;
+    bottom: 120px;
+    right: 40px;
+    font-size: 1.5rem;
+    color: var(--color-cyan);
+    text-shadow: 0 0 10px var(--color-cyan);
+    font-weight: bold;
 }

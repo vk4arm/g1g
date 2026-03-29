@@ -1,0 +1,2 @@
+# Core requirements (standard library only for now)
+# Add any external dependencies here (e.g., requests, pillow, etc.)
