@@ -50,6 +50,14 @@ html {
     pointer-events: all;
 }
 
+.screen.bsod-active {
+    opacity: 1 !important;
+    pointer-events: all !important;
+    transition: none !important;
+    display: flex !important;
+    z-index: 9999 !important;
+}
+
 /* Loading Screen */
 #loading-screen {
     background-color: var(--bg-dark);

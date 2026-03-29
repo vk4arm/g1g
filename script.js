@@ -889,7 +889,8 @@ function triggerBSOD() {
     const bsodTimer = document.getElementById('bsod-timer');
     let count = 3;
     
-    bsodScreen.classList.add('active');
+    // Force immediate visibility (skip transitions)
+    bsodScreen.classList.add('bsod-active');
     bsodTimer.innerText = count;
 
     const countdown = setInterval(() => {
@@ -897,7 +898,7 @@ function triggerBSOD() {
         bsodTimer.innerText = count;
         if (count <= 0) {
             clearInterval(countdown);
-            bsodScreen.classList.remove('active');
+            bsodScreen.classList.remove('bsod-active');
             gameScreen.classList.remove('active');
             startScreen.classList.add('active');
             
@@ -1290,6 +1291,8 @@ function startBreach(difficulty, callback) {
         targetContainer.appendChild(span);
     });
 
+    let lives = 3;
+
     function renderGrid() {
         gridContainer.innerHTML = '';
         const allCells = [];
@@ -1313,12 +1316,12 @@ function startBreach(difficulty, callback) {
                     const targetEl = document.getElementById(`target-${code}`);
                     if (targetEl) targetEl.classList.add('solved');
                     breachSolvedCount++;
-                    statusMsg.innerText = `NODE ${breachSolvedCount} DECRYPTED...`;
+                    statusMsg.innerText = `NODE ${breachSolvedCount} DECRYPTED. ATTEMPTS: ${lives}`;
                     if (breachSolvedCount === 3) endBreach(true, callback);
                 } else {
                     cell.classList.add('miss');
-                    breachTimer -= 15; // Penalty
-                    statusMsg.innerText = "SIGNAL COLLISION DETECTED!";
+                    breachTimer -= 20; // Heavier penalty with lives
+                    statusMsg.innerText = "SIGNAL COLLISION!";
                     setTimeout(() => cell.classList.remove('miss'), 300);
                 }
             };
@@ -1333,7 +1336,17 @@ function startBreach(difficulty, callback) {
     breachInterval = setInterval(() => {
         breachTimer -= (0.4 * (difficulty || 1));
         timerBar.style.width = `${breachTimer}%`;
-        if (breachTimer <= 0) endBreach(false, callback);
+        
+        if (breachTimer <= 0) {
+            lives--;
+            if (lives > 0) {
+                breachTimer = 100;
+                statusMsg.innerText = `LINK LOST. RE-SYNCING... (${lives} LIVES LEFT)`;
+                renderGrid();
+            } else {
+                endBreach(false, callback);
+            }
+        }
     }, 100);
 
     // Grid Shuffle: update non-solved cells occasionally
@@ -1387,6 +1400,7 @@ function startSniper(difficulty, callback) {
     let syncPos = 0;
     let syncDir = 1;
     let isGameOver = false;
+    let lives = 3;
 
     // --- TARGET MOVEMENT ---
     const moveInterval = setInterval(() => {
@@ -1405,10 +1419,10 @@ function startSniper(difficulty, callback) {
         // Check proximity for visual feedback (Wider range: 10 -> 12)
         const dist = Math.sqrt(Math.pow(targetX - 50, 2) + Math.pow(targetY - 50, 2));
         if (dist < 12) {
-            statusVal.innerText = "LOCKED";
+            statusVal.innerText = `LOCKED (${lives} LIFE)`;
             statusVal.className = "info-active";
         } else {
-            statusVal.innerText = "SEARCHING";
+            statusVal.innerText = "SEARCHING...";
             statusVal.className = "info-value";
         }
     }, 150); // Slower interval: 100 -> 150
@@ -1449,22 +1463,30 @@ function startSniper(difficulty, callback) {
                 callback(true);
             }, 1000);
         } else {
-            // FAILURE
-            isGameOver = true;
-            
-            // Immediate logic cleanup
-            clearInterval(moveInterval);
-            clearInterval(syncInterval);
-            sniperScreen.removeEventListener('mousedown', handleTap);
-            sniperScreen.removeEventListener('touchstart', handleTap);
+            // REDUCED LIFE OR FAILURE
+            lives--;
+            if (lives > 0) {
+                statusVal.innerText = `MISS! (${lives} LEFT)`;
+                statusVal.className = "info-value";
+                // Reset positions briefly for feedback
+                targetX = 50; targetY = 50;
+            } else {
+                isGameOver = true;
+                
+                // Immediate logic cleanup
+                clearInterval(moveInterval);
+                clearInterval(syncInterval);
+                sniperScreen.removeEventListener('mousedown', handleTap);
+                sniperScreen.removeEventListener('touchstart', handleTap);
 
-            statusVal.innerText = "MISSION FAILED";
-            statusVal.className = "info-value";
-            
-            setTimeout(() => {
-                sniperScreen.classList.remove('active');
-                callback(false);
-            }, 1000);
+                statusVal.innerText = "MISSION FAILED";
+                statusVal.className = "info-value";
+                
+                setTimeout(() => {
+                    sniperScreen.classList.remove('active');
+                    callback(false);
+                }, 1000);
+            }
         }
     };
 
