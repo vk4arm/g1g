@@ -1372,6 +1372,14 @@ function startSniper(difficulty, callback) {
     const syncBar = document.getElementById('sniper-sync-bar');
     const statusVal = document.getElementById('sniper-status-val');
     
+    // Reset state for retries
+    target.style.opacity = "1";
+    target.style.transform = "translate(-50%, -50%) scale(1)";
+    target.style.left = "50%";
+    target.style.top = "50%";
+    statusVal.innerText = "LOCKED";
+    statusVal.className = "info-active";
+    
     sniperScreen.classList.add('active');
     
     let targetX = 50; // Percentage
