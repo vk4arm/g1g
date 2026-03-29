@@ -1339,14 +1339,14 @@ body.telegram-app .choice-btn {
 
 .sniper-target {
     position: absolute;
-    width: 40px;
-    height: 40px;
-    background: url('assets/images/favicon.png') no-repeat center/contain;
-    border: 1px solid var(--neon-red);
+    width: 60px;
+    height: 60px;
+    background: url('assets/images/sniper_target.webp') no-repeat center/contain;
+    border: 1px solid rgba(255, 0, 0, 0.4);
     border-radius: 4px;
-    box-shadow: 0 0 15px var(--neon-red);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
     transform: translate(-50%, -50%);
-    transition: left 0.1s linear, top 0.1s linear;
+    transition: left 0.15s linear, top 0.15s linear;
 }
 
 .sniper-target::after {

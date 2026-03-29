@@ -1383,9 +1383,9 @@ function startSniper(difficulty, callback) {
     // --- TARGET MOVEMENT ---
     const moveInterval = setInterval(() => {
         if (isGameOver) return;
-        // Random walk towards center with some noise
-        targetX += (Math.random() - 0.5) * 15;
-        targetY += (Math.random() - 0.5) * 15;
+        // Random walk towards center with some noise (Slower: 15 -> 8)
+        targetX += (Math.random() - 0.5) * 8;
+        targetY += (Math.random() - 0.45) * 8; // Slightly biased towards center
         
         // Clamp to scope limits
         targetX = Math.max(15, Math.min(85, targetX));
@@ -1394,24 +1394,24 @@ function startSniper(difficulty, callback) {
         target.style.left = targetX + '%';
         target.style.top = targetY + '%';
 
-        // Check proximity for visual feedback
+        // Check proximity for visual feedback (Wider range: 10 -> 12)
         const dist = Math.sqrt(Math.pow(targetX - 50, 2) + Math.pow(targetY - 50, 2));
-        if (dist < 10) {
+        if (dist < 12) {
             statusVal.innerText = "LOCKED";
             statusVal.className = "info-active";
         } else {
             statusVal.innerText = "SEARCHING";
             statusVal.className = "info-value";
         }
-    }, 100);
+    }, 150); // Slower interval: 100 -> 150
 
     // --- SYNC BAR MOVEMENT ---
     const syncInterval = setInterval(() => {
         if (isGameOver) return;
-        syncPos += syncDir * (2 + difficulty);
+        syncPos += syncDir * (1 + difficulty * 0.5); // Slower sync: 2 -> 1
         if (syncPos >= 100 || syncPos <= 0) syncDir *= -1;
         syncBar.style.left = syncPos + '%';
-    }, 30);
+    }, 40); // Slower interval: 30 -> 40
 
     // --- HIT DETECTION ---
     const handleTap = (e) => {
@@ -1419,9 +1419,9 @@ function startSniper(difficulty, callback) {
         if (e.cancelable) e.preventDefault();
         
         const dist = Math.sqrt(Math.pow(targetX - 50, 2) + Math.pow(targetY - 50, 2));
-        const isSynced = syncPos >= 40 && syncPos <= 60; // 20% success window
+        const isSynced = syncPos >= 35 && syncPos <= 65; // Wider window: 40-60 -> 35-65
 
-        if (dist < 10 && isSynced) {
+        if (dist < 12 && isSynced) {
             // SUCCESS
             isGameOver = true;
             statusVal.innerText = "DIRECT HIT";
