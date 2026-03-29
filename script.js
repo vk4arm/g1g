@@ -1432,35 +1432,43 @@ function startSniper(difficulty, callback) {
         if (dist < 12 && isSynced) {
             // SUCCESS
             isGameOver = true;
+            
+            // Immediate logic cleanup to prevent double-fire or race conditions
+            clearInterval(moveInterval);
+            clearInterval(syncInterval);
+            sniperScreen.removeEventListener('mousedown', handleTap);
+            sniperScreen.removeEventListener('touchstart', handleTap);
+
             statusVal.innerText = "DIRECT HIT";
             statusVal.className = "info-active";
             target.style.transform = "translate(-50%, -50%) scale(2)";
             target.style.opacity = "0";
             
             setTimeout(() => {
-                cleanup();
+                sniperScreen.classList.remove('active');
                 callback(true);
             }, 1000);
         } else {
             // FAILURE
             isGameOver = true;
+            
+            // Immediate logic cleanup
+            clearInterval(moveInterval);
+            clearInterval(syncInterval);
+            sniperScreen.removeEventListener('mousedown', handleTap);
+            sniperScreen.removeEventListener('touchstart', handleTap);
+
             statusVal.innerText = "MISSION FAILED";
             statusVal.className = "info-value";
+            
             setTimeout(() => {
-                cleanup();
+                sniperScreen.classList.remove('active');
                 callback(false);
             }, 1000);
         }
     };
 
-    const cleanup = () => {
-        clearInterval(moveInterval);
-        clearInterval(syncInterval);
-        sniperScreen.classList.remove('active');
-        sniperScreen.removeEventListener('mousedown', handleTap);
-        sniperScreen.removeEventListener('touchstart', handleTap);
-    };
-
+    // Note: We don't need a separate cleanup() function anymore as logic is cleared upon resolution
     sniperScreen.addEventListener('mousedown', handleTap);
     sniperScreen.addEventListener('touchstart', handleTap, { passive: false });
 }
