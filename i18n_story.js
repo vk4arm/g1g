@@ -75,13 +75,13 @@ const allStories = {
                 text: "<span class='color-red'>⚠️ Про завтра</span>\nЗавтра мы идём на Центр Временного Правительства в Небраске.\nНо у нас есть Ганс, свежая партия вируса «Песнь Воробья» и 200 дронов на биокеросине.\nИ если мы проиграем —\nпусть хотя бы история вспомнит,\nчто США были повержены не армией… а гусем с иглой и бандой, мечтающей о свободе.",
                 image: "assets/images/bunker.webp",
                 codex: "FACTION_TECHNOATH",
-                music: "classical"
+                music: "metal_garden"
             },
             {
                 text: "<span class='color-gray'>[Конец фрагмента. Запись прервана шипением. На фоне: гусиное шипение, женский голос на немецком и взрыв.]</span>",
                 image: "assets/images/bunker.webp",
                 codex: "FACTION_TECHNOATH",
-                music: "classical",
+                music: "metal_garden",
                 choices: [
                     { text: "[План Омега] Угнать бронепоезд и протаранить бункер", nextStep: "NEW_TRAIN" },
                     { text: "[План Альфа] Прямой штурм: ракетницы и кибер-взрывы", nextStep: "NEW_AMBUSH" },
@@ -207,12 +207,12 @@ const allStories = {
             {
                 text: "Если вы нас видите — не сопротивляйтесь.\nПросто лягте, расслабьтесь…\nИ пусть гусиный поцелуй революции освободит ваш разум.",
                 image: "assets/images/part2_capitol_romance.webp",
-                music: "casino"
+                music: "metal_garden"
             },
             {
                 text: "<span class='color-gray'>[Конец записи. Обнаружено в архивах NORAD, перезаписано на перо и камень. Уцелело только одно яйцо.]</span>",
                 image: "assets/images/part2_norad_egg.webp",
-                music: "casino",
+                music: "metal_garden",
                 choices: [
                     { text: "Использовать классику", nextStep: 999 },
                     { text: "Задействовать LSD-дымокол", nextStep: "NEW_LSD" },
@@ -353,12 +353,12 @@ const allStories = {
             {
                 text: "Загадка для вас, выжившие.\nЧитайте.\nИ решайте сами.\nЕсли гуси пришли за тобой — просто расслабься и наслаждайся. В конце концов, революция всегда выглядит лучше, когда её приносят на крыльях.\nОбъект класса: Кетер. Сдерживание невозможно.",
                 image: "assets/images/part3_epilogue.webp",
-                music: "classical"
+                music: "metal_garden"
             },
             {
                 text: "<span class='color-gray'>[Конец записи.\nФайл прерван гусиным шипением на фоне. Последняя строка нацарапана не чернилами — пером.\nСенатор жив.\nИли мёртв.\nИли уже в стае.]</span>",
                 image: "assets/images/part3_epilogue.webp",
-                music: "classical",
+                music: "metal_garden",
                 choices: [
                     { text: "[Отдаться культу] Принять кибер-причастие от Гуся-Епископа", nextStep: "NEW_CULT" },
                     { text: "[Бегство] Надеть противогаз и спасаться с остатками элиты", nextStep: "NEW_ESCAPE" },
@@ -478,13 +478,13 @@ const allStories = {
                 text: "<span class='color-red'>⚠️ About Tomorrow</span>\nTomorrow we march on the Interim Government Center in Nebraska.\nBut we have Hans, a fresh batch of the 'Sparrow's Song' virus, and 200 drones on bio-kerosene.\nAnd if we lose —\nlet history at least remember\nthat the USA was not defeated by an army… but by a goose with a needle and a gang that dreamed of freedom.",
                 image: "assets/images/bunker.webp",
                 codex: "FACTION_TECHNOATH",
-                music: "classical"
+                music: "metal_garden"
             },
             {
                 text: "<span class='color-gray'>[End of fragment. Recording interrupted by static. In the background: goose hissing, a female voice in German, and an explosion.]</span>",
                 image: "assets/images/bunker.webp",
                 codex: "FACTION_TECHNOATH",
-                music: "classical",
+                music: "metal_garden",
                 choices: [
                     { text: "[Plan Omega] Hijack the armored train and ram the bunker", nextStep: "NEW_TRAIN" },
                     { text: "[Plan Alpha] Direct assault: rocket launchers and cyber-explosions", nextStep: "NEW_AMBUSH" },
@@ -610,12 +610,12 @@ const allStories = {
             {
                 text: "If you see us — do not resist.\nJust lie down, relax…\nAnd let the goose kiss of revolution free your mind.",
                 image: "assets/images/part2_capitol_romance.webp",
-                music: "casino"
+                music: "metal_garden"
             },
             {
                 text: "<span class='color-gray'>[End of record. Found in NORAD archives, rewritten on feather and stone. Only one egg survived.]</span>",
                 image: "assets/images/part2_norad_egg.webp",
-                music: "casino",
+                music: "metal_garden",
                 choices: [
                     { text: "Use the classic", nextStep: 999 },
                     { text: "Deploy LSD smoke", nextStep: "NEW_LSD" },
@@ -756,12 +756,12 @@ const allStories = {
             {
                 text: "A riddle for you survivors.\nRead on.\nAnd decide for yourself.\nIf the geese come for you — just relax and enjoy. After all, the revolution always looks better when brought on wings.\nObject class: Keter. Containment is impossible.",
                 image: "assets/images/part3_epilogue.webp",
-                music: "classical"
+                music: "metal_garden"
             },
             {
                 text: "<span class='color-gray'>[End of recording.\nThe file is interrupted by goose hissing in the background. The last line is scratched not in ink — with a feather.\nThe senator is alive.\nOr dead.\nOr already in the flock.]</span>",
                 image: "assets/images/part3_epilogue.webp",
-                music: "classical",
+                music: "metal_garden",
                 choices: [
                     { text: "[Surrender to cult] Accept cyber-communion from the Bishop Goose", nextStep: "NEW_CULT" },
                     { text: "[Escape] Put on a gas mask and flee with the remnants of the elite", nextStep: "NEW_ESCAPE" },
@@ -881,13 +881,13 @@ const allStories = {
                 text: "<span class='color-red'>⚠️ Über Morgen</span>\nMorgen marschieren wir zum Zentrum der Übergangsregierung in Nebraska.\nAber wir haben Hans, eine frische Ladung des 'Spatzenlied'-Virus und 200 Drohnen mit Bio-Kerosin.\nUnd wenn wir verlieren —\nsoll sich die Geschichte wenigstens daran erinnern,\ndass die USA nicht von einer Armee besiegt wurden… sondern von einer Gans mit einer Nadel und einer Bande, die von Freiheit träumt.",
                 image: "assets/images/bunker.webp",
                 codex: "FACTION_TECHNOATH",
-                music: "classical"
+                music: "metal_garden"
             },
             {
                 text: "<span class='color-gray'>[Ende des Fragments. Aufnahme durch Rauschen unterbrochen. Im Hintergrund: Gänsezischen, eine weibliche Stimme auf Deutsch und eine Explosion.]</span>",
                 image: "assets/images/bunker.webp",
                 codex: "FACTION_TECHNOATH",
-                music: "classical",
+                music: "metal_garden",
                 choices: [
                     { text: "[Plan Omega] Gepanzerten Zug entführen und den Bunker rammen", nextStep: "NEW_TRAIN" },
                     { text: "[Plan Alpha] Frontalangriff: Raketenwerfer und Cyber-Explosionen", nextStep: "NEW_AMBUSH" },
@@ -1013,12 +1013,12 @@ const allStories = {
             {
                 text: "Wenn Sie uns sehen — leisten Sie keinen Widerstand.\nLegen Sie sich einfach hin, entspannen Sie sich…\nUnd lassen Sie den Gänsekuss der Revolution Ihren Geist befreien.",
                 image: "assets/images/part2_capitol_romance.webp",
-                music: "casino"
+                music: "metal_garden"
             },
             {
                 text: "<span class='color-gray'>[Ende der Aufzeichnung. In den NORAD-Archiven gefunden, auf Feder und Stein umgeschrieben. Nur ein Ei hat überlebt.]</span>",
                 image: "assets/images/part2_norad_egg.webp",
-                music: "casino",
+                music: "metal_garden",
                 choices: [
                     { text: "Verwenden Sie den Klassiker", nextStep: 999 },
                     { text: "LSD-Rauchgranate einsetzen", nextStep: "NEW_LSD" },
@@ -1159,12 +1159,12 @@ const allStories = {
             {
                 text: "Ein Rätsel für euch Überlebende.\nLest weiter.\nUnd entscheidet selbst.\nWenn die Gänсе nach dir kommen — entspann dich einfach und genieße es. Schließlich sieht die Revolution immer besser aus, wenn sie auf Flügeln getragen wird.\nObjektklasse: Keter. Eindämmung ist unmöglich.",
                 image: "assets/images/part3_epilogue.webp",
-                music: "classical"
+                music: "metal_garden"
             },
             {
                 text: "<span class='color-gray'>[Ende der Aufzeichnung.\nDie Datei wird durch Gänsezischen im Hintergrund unterbrochen. Die letzte Zeile ist nicht mit Tinte, sondern mit einer Feder eingeritzt.\nDer Senator lebt.\nOder ist tot.\nOder bereits in der Schar.]</span>",
                 image: "assets/images/part3_epilogue.webp",
-                music: "classical",
+                music: "metal_garden",
                 choices: [
                     { text: "[Dem Kult hingeben] Das Cyber-Abendmahl vom Bischof-Gans empfangen", nextStep: "NEW_CULT" },
                     { text: "[Flucht] Gasmaske aufsetzen und mit den Resten der Elite fliehen", nextStep: "NEW_ESCAPE" },
@@ -1284,13 +1284,13 @@ const allStories = {
                 text: "<span class='color-red'>⚠️ Sobre mañana</span>\nMañana marchamos hacia el Centro del Gobierno Provisional en Nebraska.\nPero tenemos a Hans, una nueva remesa del virus 'Canto del Gorrión' y 200 drones de biokeroseno.\nY si perdemos...\nque al menos la historia recuerde\nque EE. UU. no fue derrotado por un ejército... sino por un ganso con una aguja y una banda que soñaba con la libertad.",
                 image: "assets/images/bunker.webp",
                 codex: "FACTION_TECHNOATH",
-                music: "classical"
+                music: "metal_garden"
             },
             {
                 text: "<span class='color-gray'>[Fin del fragmento. Grabación interrumpida por estática. Al fondo: siseo de ganso, voz femenina en alemán y una explosión.]</span>",
                 image: "assets/images/bunker.webp",
                 codex: "FACTION_TECHNOATH",
-                music: "classical",
+                music: "metal_garden",
                 choices: [
                     { text: "[Plan Omega] Secuestrar tren blindado y embestir el búnker", nextStep: "NEW_TRAIN" },
                     { text: "[Plan Alpha] Asalto frontal: lanzacohetes y ciber-explosiones", nextStep: "NEW_AMBUSH" },
@@ -1416,12 +1416,12 @@ const allStories = {
             {
                 text: "Si nos veis, no os resistáis.\nSimplemente tumbaos, relajaos...\nY dejad que el beso ganso de la revolución libere vuestra mente.",
                 image: "assets/images/part2_capitol_romance.webp",
-                music: "casino"
+                music: "metal_garden"
             },
             {
                 text: "<span class='color-gray'>[Fin de la grabación. Hallado en los archivos de NORAD, reescrito sobre pluma y piedra. Solo sobrevivió un huevo.]</span>",
                 image: "assets/images/part2_norad_egg.webp",
-                music: "casino",
+                music: "metal_garden",
                 choices: [
                     { text: "Usar el clásico", nextStep: 999 },
                     { text: "Desplegar humo LSD", nextStep: "NEW_LSD" },
@@ -1562,12 +1562,12 @@ const allStories = {
             {
                 text: "Un enigma para vosotros, supervivientes.\nLeed.\nY decidid por vuestra cuenta.\nSi los gansos vienen por ti, relájate y disfruta. Al fin y al cabo, la revolución siempre se ve mejor cuando llega sobre alas.\nObjeto de clase: Keter. La contención es imposible.",
                 image: "assets/images/part3_epilogue.webp",
-                music: "classical"
+                music: "metal_garden"
             },
             {
                 text: "<span class='color-gray'>[Fin de la grabación.\nEl archivo se interrumpe por siseos de gansos de fondo. La última línea está grabada no con tinta, sino con una pluma.\nEl senador está vivo.\nO muerto.\nOr ya en la bandada.]</span>",
                 image: "assets/images/part3_epilogue.webp",
-                music: "classical",
+                music: "metal_garden",
                 choices: [
                     { text: "[Rendirse al culto] Aceptar la ciber-comunión del Ganso Obispo", nextStep: "NEW_CULT" },
                     { text: "[Escape] Ponerse una máscara de gas y huir con los restos de la élite", nextStep: "NEW_ESCAPE" },
@@ -1687,13 +1687,13 @@ const allStories = {
                 text: "<span class='color-red'>⚠️ 关于明天</span>\n明天我们将进军内布拉斯加州的临时政府中心。\n但我们有汉斯，一架新批次的“麻雀之歌”病毒和200架生物煤油无人机。\n如果我们输了——\n至少让历史记住，\n美国不是被军队击败的……而是被一只带针的鹅和一个梦想自由的帮派击败的。",
                 image: "assets/images/bunker.webp",
                 codex: "FACTION_TECHNOATH",
-                music: "classical"
+                music: "metal_garden"
             },
             {
                 text: "<span class='color-gray'>[片段结束。录音由于静电中断。背景音：鹅的嘶叫声，一名女性的德语声音和爆炸声。]</span>",
                 image: "assets/images/bunker.webp",
                 codex: "FACTION_TECHNOATH",
-                music: "classical",
+                music: "metal_garden",
                 choices: [
                     { text: "[欧米茄计划] 劫持装甲列车并撞击地堡", nextStep: "NEW_TRAIN" },
                     { text: "[阿尔法计划] 正面突击：火箭筒和网络爆炸", nextStep: "NEW_AMBUSH" },
@@ -1819,12 +1819,12 @@ const allStories = {
             {
                 text: "如果你看到我们——不要反抗。\n只需躺下，放松……\n让革命的鹅之吻释放你的心灵。",
                 image: "assets/images/part2_capitol_romance.webp",
-                music: "casino"
+                music: "metal_garden"
             },
             {
                 text: "<span class='color-gray'>[录音结束。发现于NORAD档案，刻录于羽毛和石头上。仅存一枚蛋存活。]</span>",
                 image: "assets/images/part2_norad_egg.webp",
-                music: "casino",
+                music: "metal_garden",
                 choices: [
                     { text: "使用经典", nextStep: 999 },
                     { text: "部署LSD烟雾", nextStep: "NEW_LSD" },
@@ -1967,12 +1967,12 @@ const allStories = {
             {
                 text: "幸存者们，这是一个谜。\n读下去。\n然后自己决定。\n如果鹅冲你而来——只需放松并享受。毕竟，当革命由双翼带来时，它的样子总是更美。\n对象等级：Keter。收容是不可能的。",
                 image: "assets/images/part3_epilogue.webp",
-                music: "classical"
+                music: "metal_garden"
             },
             {
                 text: "<span class='color-gray'>[录音结束。\n文件在背景的鹅嘶叫声中中断。最后一行不是用墨水，而是用羽毛刻下的。\n参议员活着。\n或者死了。\n或者已经在鸟群中。]</span>",
                 image: "assets/images/part3_epilogue.webp",
-                music: "classical",
+                music: "metal_garden",
                 choices: [
                     { text: "[向邪教投降] 接受主教鹅的网络圣餐", nextStep: "NEW_CULT" },
                     { text: "[逃跑] 戴上防毒面具，与剩下的精英一起逃离", nextStep: "NEW_ESCAPE" },
@@ -2092,13 +2092,13 @@ const allStories = {
                 text: "<span class='color-red'>⚠️ درباره فردا</span>\nفردا به سمت مرکز دولت موقت در نبراسکا حرکت می‌کنیم.\nاما ما هانس، محموله جدیدی از ویروس «آواز گنجشک» و ۲۰۰ پهپاد با سوخت زیستی داریم.\nو اگر شکست بخوریم —\nبگذارید حداقل تاریخ به یاد بیاورد\nکه ایالات متحده نه توسط یک ارتش... بلکه توسط یک غاز با یک سوزن و باندی که رویای آزادی داشت، سرنگون شد.",
                 image: "assets/images/bunker.webp",
                 codex: "FACTION_TECHNOATH",
-                music: "classical"
+                music: "metal_garden"
             },
             {
                 text: "<span class='color-gray'>[پایان قطعه. ضبط به دلیل نویز قطع شد. در پس‌زمینه: صدای هیس غاز، صدای یک زن به آلمانی و یک انفجار.]</span>",
                 image: "assets/images/bunker.webp",
                 codex: "FACTION_TECHNOATH",
-                music: "classical",
+                music: "metal_garden",
                 choices: [
                     { text: "[طرح امگا] ربودن قطار زرهی و کوبیدن به پناهگاه", nextStep: "NEW_TRAIN" },
                     { text: "[طرح آلفا] حمله از جلو: راکت اندازها و انفجارهای سایبری", nextStep: "NEW_AMBUSH" },
@@ -2224,12 +2224,12 @@ const allStories = {
             {
                 text: "اگر ما را دیدید — مقاومت نکنید.\nفقط دراز بکشید، آرام باشید…\nو بگذارید بوسه غاز انقلاب ذهن شما را آزاد کند.",
                 image: "assets/images/part2_capitol_romance.webp",
-                music: "casino"
+                music: "metal_garden"
             },
             {
                 text: "<span class='color-gray'>[پایان ضبط. کشف شده در آرشیوهای NORAD، بازنویسی شده روی پر و سنگ. فقط یک تخم جان سالم به در برد.]</span>",
                 image: "assets/images/part2_norad_egg.webp",
-                music: "casino",
+                music: "metal_garden",
                 choices: [
                     { text: "از کلاسیک استفاده کنید", nextStep: 999 },
                     { text: "دود LSD را مستقر کنید", nextStep: "NEW_LSD" },
@@ -2371,12 +2371,12 @@ const allStories = {
             {
                 text: "معمایی برای شما بازماندگان.\nبخوانید.\nو خودتان تصمیم بگیرید.\nاگر غازها به سراغ شما آمدند — فقط آرام باشید و لذت ببرید. در نهایت، انقلاب همیشه وقتی روی بال‌ها می‌آید، زیباتر به نظر می‌رسد.\nشیء کلاس: Keter. مهار غیرممکن است.",
                 image: "assets/images/part3_epilogue.webp",
-                music: "classical"
+                music: "metal_garden"
             },
             {
                 text: "<span class='color-gray'>[پایان ضبط.\nفایل با صدای هیس غاز در پس‌زمینه قطع شد. آخرین خط نه با جوهر — بلکه با یک پر خراشیده شده است.\nسناتور زنده است.\nیا مرده.\nیا همین حالا در گله است.]</span>",
                 image: "assets/images/part3_epilogue.webp",
-                music: "classical"
+                music: "metal_garden"
             }
         ],
         part4: [

@@ -551,12 +551,18 @@ const audioRap = document.getElementById('audio-rap');
 const audioClassical = document.getElementById('audio-classical');
 const audioCasino = document.getElementById('audio-casino');
 const audioWm = document.getElementById('audio-wm');
+const audioMetalGarden = document.getElementById('audio-metal-garden');
 
 // Audio volume defaults
 audioRap.volume = 0;
 audioClassical.volume = 0;
 audioCasino.volume = 0;
 audioWm.volume = 0;
+audioMetalGarden.volume = 0;
+
+// Play metal_garden on the start screen (menu music)
+audioMetalGarden.play().catch(e => console.log('Audio play error:', e));
+audioMetalGarden.volume = 1;
 
 let currentLayer = 1;
 let isMusicMuted = false;
@@ -571,8 +577,8 @@ function toggleMusic(e) {
     if (isMusicMuted) {
         unmutedIcon.style.display = 'none';
         mutedIcon.style.display = 'block';
-        // Immediately mute all players
-        [audioRap, audioClassical, audioCasino, audioWm].forEach(p => p.volume = 0);
+        // Immediately mute all players including metal_garden
+        [audioRap, audioClassical, audioCasino, audioWm, audioMetalGarden].forEach(p => p.volume = 0);
     } else {
         unmutedIcon.style.display = 'block';
         mutedIcon.style.display = 'none';
@@ -580,7 +586,7 @@ function toggleMusic(e) {
         const paragraphs = getStoryParagraphs(currentLang, currentStory);
         const data = paragraphs[currentStep];
         if (data && data.music) {
-            const audioMap = { 'rap': audioRap, 'classical': audioClassical, 'casino': audioCasino, 'wm': audioWm };
+            const audioMap = { 'rap': audioRap, 'classical': audioClassical, 'casino': audioCasino, 'wm': audioWm, 'metal_garden': audioMetalGarden };
             const player = audioMap[data.music];
             if (player) player.volume = 1;
         }
@@ -618,7 +624,7 @@ function startGame(part) {
         ctx.resume();
     }
 
-    // Play all tracks but muted
+    // Play all tracks but muted (metal_garden fades out when game starts)
     audioRap.play().catch(e => console.log("Audio play error:", e));
     audioClassical.play().catch(e => console.log("Audio play error:", e));
     audioCasino.play().catch(e => console.log("Audio play error:", e));
@@ -670,12 +676,14 @@ backBtn.addEventListener('click', () => {
         viewModeBtn.classList.add('hidden');
         exitViewMode();
 
-        // Stop all audio
-        [audioRap, audioClassical, audioCasino, audioWm].forEach(p => {
+        // Stop all game audio, restart metal_garden for menu
+        [audioRap, audioClassical, audioCasino, audioWm, audioMetalGarden].forEach(p => {
             p.pause();
             p.currentTime = 0;
             p.volume = 0;
         });
+        audioMetalGarden.play().catch(e => console.log('Audio play error:', e));
+        audioMetalGarden.volume = 1;
     }, 1500);
 });
 
@@ -1001,7 +1009,8 @@ function updateScene() {
             'rap': audioRap,
             'classical': audioClassical,
             'casino': audioCasino,
-            'wm': audioWm
+            'wm': audioWm,
+            'metal_garden': audioMetalGarden
         };
 
         const targetPlayer = audioMap[data.music];
